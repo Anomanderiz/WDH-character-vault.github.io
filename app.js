@@ -1059,6 +1059,12 @@ function spellPreparedTag(spell) {
   return "Not prepared";
 }
 
+function spellLevelNumber(spell) {
+  const lvl = tryNum(spell?.system?.level);
+  if (!Number.isFinite(lvl)) return 0;
+  return clamp(Math.floor(lvl), 0, 9);
+}
+
 function renderInventoryWithSearch(gear) {
   const wrap = document.createElement("div");
   wrap.className = "space-y-3";
@@ -1105,29 +1111,55 @@ function renderSpellsWithFilter(spells) {
   controls.className = "flex flex-col md:flex-row md:items-center gap-2";
   controls.innerHTML = `
     <div class="text-xs text-slate-400">Filter:</div>
-    <select class="w-full md:w-64 rounded-2xl bg-white/5 border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-400/40">
+    <select data-role="prep" class="w-full md:w-64 rounded-2xl bg-white/5 border border-white/10 px-3 py-2 text-slate-100 outline-none focus:ring-2 focus:ring-indigo-400/40" style="color-scheme: dark;">
       <option value="all">All spells</option>
       <option value="prepared">Prepared (incl. always)</option>
       <option value="always">Always prepared</option>
       <option value="not">Not prepared</option>
     </select>
+    <select data-role="level" class="w-full md:w-56 rounded-2xl bg-white/5 border border-white/10 px-3 py-2 text-slate-100 outline-none focus:ring-2 focus:ring-indigo-400/40" style="color-scheme: dark;">
+      <option value="all">All levels</option>
+      <option value="0">Cantrip</option>
+      <option value="1">Level 1</option>
+      <option value="2">Level 2</option>
+      <option value="3">Level 3</option>
+      <option value="4">Level 4</option>
+      <option value="5">Level 5</option>
+      <option value="6">Level 6</option>
+      <option value="7">Level 7</option>
+      <option value="8">Level 8</option>
+      <option value="9">Level 9</option>
+    </select>
     <div class="text-xs text-slate-400 md:ml-auto" id="count"></div>
   `;
   wrap.appendChild(controls);
 
-  const sel = controls.querySelector("select");
+  const prepSel = controls.querySelector("select[data-role='prep']");
+  const levelSel = controls.querySelector("select[data-role='level']");
   const count = controls.querySelector("#count");
+  // Keep native option list readable on systems that ignore class styling for option popups.
+  controls.querySelectorAll("option").forEach((opt) => {
+    opt.style.color = "#0f172a";
+    opt.style.backgroundColor = "#e2e8f0";
+  });
 
   const listWrap = document.createElement("div");
   wrap.appendChild(listWrap);
 
   const render = () => {
-    const mode = sel.value;
+    const mode = prepSel.value;
+    const levelMode = levelSel.value;
+
     const filtered = spells.filter(s => {
       const p = tryNum(s?.system?.prepared) ?? 0;
-      if (mode === "prepared") return p === 1 || p === 2;
-      if (mode === "always") return p === 2;
-      if (mode === "not") return p === 0;
+      if (mode === "prepared" && !(p === 1 || p === 2)) return false;
+      if (mode === "always" && p !== 2) return false;
+      if (mode === "not" && p !== 0) return false;
+
+      if (levelMode !== "all") {
+        const want = Number(levelMode);
+        if (spellLevelNumber(s) !== want) return false;
+      }
       return true;
     });
 
@@ -1135,14 +1167,15 @@ function renderSpellsWithFilter(spells) {
 
     listWrap.innerHTML = "";
     listWrap.appendChild(listCards(filtered, (s) => {
-      const lvl = tryNum(s?.system?.level);
+      const lvl = spellLevelNumber(s);
       const school = s?.system?.school;
       const tag = spellPreparedTag(s);
       return [lvl === 0 ? "Cantrip" : `Level ${lvl}`, school, tag].filter(Boolean).join(" • ");
     }));
   };
 
-  sel.addEventListener("change", render);
+  prepSel.addEventListener("change", render);
+  levelSel.addEventListener("change", render);
   render();
 
   return wrap;
@@ -1405,7 +1438,12 @@ function renderDnd5e(payload) {
   const items = actor?.items || [];
   const spells = items
     .filter(i => i?.type === "spell")
-    .sort((a,b)=> safeText(a.name).localeCompare(safeText(b.name)));
+    .sort((a, b) => {
+      const la = spellLevelNumber(a);
+      const lb = spellLevelNumber(b);
+      if (la !== lb) return la - lb;
+      return safeText(a.name).localeCompare(safeText(b.name));
+    });
 
   const feats = items
     .filter(i => i?.type === "feat")
