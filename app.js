@@ -336,15 +336,25 @@ function formatEffectDuration(effect, disposition) {
 
 function collectDisplayEffects(actor) {
   const out = [];
+  const items = actor?.items || [];
+  const itemById = new Map(items.map((it) => [safeText(it?._id), it]));
+
+  const originItemType = (effect) => {
+    const origin = safeText(effect?.origin);
+    const m = origin.match(/Item\.([A-Za-z0-9]+)/);
+    if (!m) return "";
+    return safeText(itemById.get(m[1])?.type);
+  };
 
   const actorEffects = actor?.effects || [];
   for (const e of actorEffects) {
     if (!e || e.disabled) continue;
+    if (originItemType(e) === "spell") continue;
     out.push({ effect: e, source: "Actor" });
   }
 
-  const items = actor?.items || [];
   for (const it of items) {
+    if (it?.type === "spell") continue;
     const ie = it?.effects || [];
     for (const e of ie) {
       if (!e || e.disabled) continue;
@@ -492,6 +502,92 @@ function formatSenses(senses, special) {
   if (specialText) bits.push(specialText);
 
   return bits.join(", ") || "–";
+}
+
+function pct(part, total) {
+  const t = Number(total || 0);
+  const p = Number(part || 0);
+  if (!Number.isFinite(t) || t <= 0) return 0;
+  if (!Number.isFinite(p) || p <= 0) return 0;
+  return clamp((p / t) * 100, 0, 100);
+}
+
+function renderResourceBarHtml({ current, max, label, fillClass, bgClass = "bg-slate-800/70", extraFillHtml = "" }) {
+  const p = pct(current, max);
+  const c = Number.isFinite(Number(current)) ? Number(current) : 0;
+  const m = Number.isFinite(Number(max)) ? Number(max) : 0;
+
+  return `
+    <div class="space-y-1">
+      <div class="flex items-center text-xs text-slate-300">
+        <span>${safeText(label || "")}</span>
+        <span class="ml-auto text-slate-400">${c}/${m}</span>
+      </div>
+      <div class="relative h-2.5 rounded-full ${bgClass} overflow-hidden border border-white/10">
+        <div class="absolute inset-y-0 left-0 ${fillClass}" style="width:${p}%;"></div>
+        ${extraFillHtml}
+      </div>
+    </div>
+  `;
+}
+
+function getHitDiceSummary(actor) {
+  const classes = (actor?.items || []).filter((i) => i?.type === "class");
+  let total = 0;
+  let used = 0;
+  const breakdown = [];
+
+  for (const c of classes) {
+    const levels = Math.max(0, Number(tryNum(c?.system?.levels) ?? 0));
+    if (levels <= 0) continue;
+    total += levels;
+
+    const spentRaw = Math.max(0, Number(tryNum(c?.system?.hd?.spent) ?? 0));
+    used += Math.min(levels, spentRaw);
+
+    const die = safeText(c?.system?.hd?.denomination).trim();
+    if (die) breakdown.push(`${levels}${die}`);
+  }
+
+  const usedSafe = Math.min(used, total);
+  const unused = Math.max(0, total - usedSafe);
+  return { total, used: usedSafe, unused, breakdown: breakdown.join(" + ") };
+}
+
+function renderHitPointsValue(hp) {
+  const max = Math.max(0, Number(tryNum(hp?.max) ?? 0));
+  const value = clamp(Number(tryNum(hp?.value) ?? 0), 0, Math.max(max, 0));
+  const temp = Math.max(0, Number(tryNum(hp?.temp) ?? 0));
+
+  // Temp HP is rendered as a blue cap segment after normal HP.
+  const totalForBar = Math.max(1, max + temp);
+  const tempPct = pct(temp, totalForBar);
+  const normalLabel = temp > 0 ? `${value}/${max} (+${temp} temp)` : `${value}/${max}`;
+
+  const extraFillHtml = temp > 0
+    ? `<div class="absolute inset-y-0 bg-sky-400/90" style="left:${pct(value, totalForBar)}%;width:${tempPct}%;"></div>`
+    : "";
+
+  return renderResourceBarHtml({
+    current: value,
+    max: totalForBar,
+    label: normalLabel,
+    fillClass: "bg-emerald-500/90",
+    extraFillHtml
+  });
+}
+
+function renderHitDiceValue(actor) {
+  const hd = getHitDiceSummary(actor);
+  if (hd.total <= 0) return "–";
+
+  const label = `${hd.unused} unused / ${hd.used} used${hd.breakdown ? ` (${hd.breakdown})` : ""}`;
+  return renderResourceBarHtml({
+    current: hd.unused,
+    max: hd.total,
+    label,
+    fillClass: "bg-rose-500/90"
+  });
 }
 
 // Pull only numeric changes that we can safely apply offline.
@@ -818,6 +914,46 @@ function renderSkillsGrid(actor) {
     return [SKILL_LABELS[k], val];
   });
   return kvGrid(rows);
+}
+
+function collectInitiativeRollMode(actor) {
+  let out = tryNum(actor?.system?.attributes?.init?.roll?.mode) ?? 0;
+
+  const effects = getAllEffects(actor);
+  for (const ef of effects) {
+    const changes = ef?.changes || [];
+    for (const ch of changes) {
+      const key = safeText(ch?.key).toLowerCase();
+      const mode = Number(ch?.mode ?? MODE_CUSTOM);
+
+      if (key === "system.attributes.init.roll.mode") {
+        const v = tryNum(ch?.value);
+        if (Number.isFinite(v)) out = applyNumericEffectMode(out, v, mode);
+        continue;
+      }
+
+      if (
+        (key === "flags.midi-qol.advantage.ability.check.dex" ||
+         key === "flags.midi-qol.advantage.ability.check.all") &&
+        isTruthyEffectValue(ch?.value)
+      ) {
+        out = applyNumericEffectMode(out, 1, mode);
+        continue;
+      }
+
+      if (
+        (key === "flags.midi-qol.disadvantage.ability.check.dex" ||
+         key === "flags.midi-qol.disadvantage.ability.check.all") &&
+        isTruthyEffectValue(ch?.value)
+      ) {
+        out = applyNumericEffectMode(out, -1, mode);
+      }
+    }
+  }
+
+  if (out > 0) return 1;
+  if (out < 0) return -1;
+  return 0;
 }
 
 function skillBonus(actor, key) {
@@ -1242,13 +1378,18 @@ function renderDnd5e(payload) {
   const movement = computeMovement(actor);
   const senses = computeSenses(actor);
   const hp = attr?.hp || {};
+  const tempHp = Math.max(0, Number(tryNum(hp?.temp) ?? 0));
   const pb = getProfBonus(actor);
   const acVal = computeAC(actor);
+  const initMode = collectInitiativeRollMode(actor);
+  const initBadge = skillModeBadge(initMode);
 
   const combatRows = [
     ["Armour Class", acVal ?? "–"],
-    ["Hit Points", `${hp?.value ?? "–"} / ${hp?.max ?? "–"}${hp?.temp ? ` (temp ${hp.temp})` : ""}`],
-    ["Initiative", fmtSigned(abilities.dex.mod)],
+    ["Hit Points", renderHitPointsValue(hp)],
+    ["Hit Dice", renderHitDiceValue(actor)],
+    ...(tempHp > 0 ? [["Temporary Hit Points", `+${tempHp}`]] : []),
+    ["Initiative", `${fmtSigned(abilities.dex.mod)}${initBadge ? ` ${initBadge}` : ""}`],
     ["Proficiency Bonus", fmtSigned(pb)],
     ["Speed", formatMovement(movement)],
     ["Senses", formatSenses(senses, attr?.senses?.special)],
