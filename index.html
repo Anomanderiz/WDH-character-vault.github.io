@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foundry Character Vault</title>
+
+  <!-- Tailwind via CDN for zero-build deployment -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* small polish without any build tooling */
+    :root {
+      --outline-silver: rgba(226,232,240,0.92);
+      --outline-silver-soft: rgba(226,232,240,0.72);
+    }
+    .border-white\/10 { border-color: var(--outline-silver) !important; }
+    .border-white\/5 { border-color: var(--outline-silver-soft) !important; }
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.06); }
+    .shadow-soft { box-shadow: 0 18px 60px rgba(0,0,0,0.35); }
+    .scrollbar::-webkit-scrollbar { width: 10px; height: 10px; }
+    .scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 999px; }
+    .scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.15); }
+  </style>
+</head>
+
+<body class="min-h-screen bg-slate-950 text-slate-100">
+  <div class="fixed inset-0 pointer-events-none">
+    <div class="absolute -top-40 -left-40 h-[34rem] w-[34rem] rounded-full bg-indigo-600/20 blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 h-[34rem] w-[34rem] rounded-full bg-emerald-500/15 blur-3xl"></div>
+  </div>
+
+  <header class="relative mx-auto max-w-7xl px-4 pt-8 pb-4">
+    <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">Foundry Character Vault</h1>
+        <p class="text-slate-300/90">Static snapshots – no server, no listeners, no drama.</p>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-2 md:items-center">
+        <label class="relative">
+          <span class="sr-only">Search</span>
+          <input id="search" class="w-full md:w-80 rounded-2xl bg-white/5 border border-white/10 px-4 py-2 outline-none focus:ring-2 focus:ring-indigo-400/40"
+                 placeholder="Search abilities, items, spells…" />
+        </label>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="relative mx-auto max-w-7xl px-4 pb-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <!-- roster -->
+      <aside class="lg:col-span-4 xl:col-span-3 glass shadow-soft border border-white/10 rounded-3xl overflow-hidden">
+        <div class="p-4 border-b border-white/10">
+          <div class="flex items-center justify-between gap-3">
+            <h2 class="font-semibold">Roster</h2>
+            <button id="refresh" class="text-sm text-slate-300 hover:text-white underline underline-offset-4">Reload</button>
+          </div>
+          <p id="status" class="mt-1 text-xs text-slate-400"></p>
+        </div>
+        <div id="roster" class="max-h-[70vh] overflow-auto scrollbar"></div>
+
+        <div class="p-4 border-t border-white/10 text-xs text-slate-400">
+          <div>Tip: you can host this on GitHub Pages and update the JSON weekly.</div>
+          <div class="mt-1">Refresh after updating the manifest or actor JSON files.</div>
+        </div>
+      </aside>
+
+      <!-- sheet -->
+      <section class="lg:col-span-8 xl:col-span-9 glass shadow-soft border border-white/10 rounded-3xl overflow-hidden">
+        <div id="sheet" class="p-5 md:p-6">
+          <div class="text-slate-300">
+            Select a character.
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <template id="rosterItemTpl">
+    <button class="w-full text-left px-4 py-3 flex gap-3 items-center hover:bg-white/5 transition border-b border-white/5">
+      <img class="h-10 w-10 rounded-2xl object-cover border border-white/10" />
+      <div class="min-w-0">
+        <div class="name font-medium truncate"></div>
+        <div class="meta text-xs text-slate-400 truncate"></div>
+      </div>
+    </button>
+  </template>
+
+  <template id="pillTpl">
+    <span class="inline-flex items-center rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-xs text-slate-200"></span>
+  </template>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
