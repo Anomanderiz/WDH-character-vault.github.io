@@ -1,5 +1,4 @@
 // Foundry Character Vault – static viewer for exported Actor snapshots.
-// No server. No listeners. Just snapshots and good taste.
 
 const SITE_BASE = new URL(window.location.href);
 if (!SITE_BASE.pathname.endsWith("/")) SITE_BASE.pathname += "/";
