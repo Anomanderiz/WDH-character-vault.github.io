@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Example Character",
+    "file": "./data/actors/example.json"
+  },
+  {
+    "name": "Goody",
+    "file": "./data/actors/goody.json"
+  },
+  {
+    "name": "Kira Kira Eventide",
+    "file": "./data/actors/kira-kira-eventide.json"
+  },
+  {
+    "name": "Lancer (Karl)",
+    "file": "./data/actors/lancer-karl.json"
+  },
+  {
+    "name": "Meredith Vixeni",
+    "file": "./data/actors/meredith-vixeni.json"
+  },
+  {
+    "name": "Thrum (Istra)",
+    "file": "./data/actors/thrum-istra.json"
+  }
+]
