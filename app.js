@@ -262,14 +262,76 @@ function kvGrid(rows) {
   return grid;
 }
 
-function listCards(items, subtitleFn) {
+function htmlTextContent(html) {
+  const tmp = document.createElement("div");
+  tmp.innerHTML = safeText(html);
+  return safeText(tmp.textContent).replace(/\s+/g, " ").trim();
+}
+
+function itemDescriptionHtml(item) {
+  const desc = item?.system?.description;
+  if (typeof desc?.value === "string") return desc.value.trim();
+  if (typeof desc === "string") return desc.trim();
+  return "";
+}
+
+function listCards(items, subtitleFn, options = {}) {
   const wrap = document.createElement("div");
   wrap.className = "grid grid-cols-1 md:grid-cols-2 gap-2";
+  const explicitDescriptionFn = typeof options?.descriptionFn === "function" ? options.descriptionFn : null;
+
   for (const it of items) {
     const card = document.createElement("div");
-    card.className = "rounded-2xl bg-slate-950/40 border border-white/10 p-3";
+    const title = safeText(it?.name || "Unnamed");
     const sub = subtitleFn ? subtitleFn(it) : "";
-    card.innerHTML = `<div class="font-medium">${safeText(it.name || "Unnamed")}</div>${sub ? `<div class="text-xs text-slate-400 mt-1">${sub}</div>` : ""}`;
+    const hasDescriptionField = Boolean(it?.system) && Object.prototype.hasOwnProperty.call(it.system, "description");
+    const descriptionFn = explicitDescriptionFn || (hasDescriptionField ? itemDescriptionHtml : null);
+
+    if (!descriptionFn) {
+      card.className = "rounded-2xl bg-slate-950/40 border border-white/10 p-3";
+      card.innerHTML = `<div class="font-medium">${title}</div>${sub ? `<div class="text-xs text-slate-400 mt-1">${sub}</div>` : ""}`;
+      wrap.appendChild(card);
+      continue;
+    }
+
+    card.className = "rounded-2xl bg-slate-950/40 border border-white/10 overflow-hidden";
+
+    const header = document.createElement("button");
+    header.type = "button";
+    header.className = "w-full text-left px-3 py-3 hover:bg-white/5 transition";
+    header.innerHTML = `
+      <div class="flex items-start gap-3">
+        <div class="min-w-0 flex-1">
+          <div class="font-medium">${title}</div>
+          ${sub ? `<div class="text-xs text-slate-400 mt-1">${sub}</div>` : ""}
+          <div class="text-[11px] text-slate-500 mt-1">Click for description</div>
+        </div>
+        <div class="shrink-0 text-xs text-slate-400" data-role="state">Show</div>
+      </div>
+    `;
+
+    const rawDescription = safeText(descriptionFn(it)).trim();
+    const hasDescription = htmlTextContent(rawDescription).length > 0;
+
+    const body = document.createElement("div");
+    body.className = "px-3 pb-3 border-t border-white/10";
+    body.style.display = "none";
+
+    const desc = document.createElement("div");
+    desc.className = "prose prose-invert max-w-none text-slate-200/90 prose-sm";
+    desc.innerHTML = hasDescription ? rawDescription : "<em>No description exported.</em>";
+    body.appendChild(desc);
+
+    const state = header.querySelector("[data-role='state']");
+    let open = false;
+    header.addEventListener("click", () => {
+      open = !open;
+      body.style.display = open ? "block" : "none";
+      if (state) state.textContent = open ? "Hide" : "Show";
+    });
+
+    card.appendChild(header);
+    card.appendChild(body);
     wrap.appendChild(card);
   }
   return wrap;
@@ -909,6 +971,7 @@ const SKILL_LABELS = {
   prf: "Performance", per: "Persuasion", rel: "Religion", sle: "Sleight of Hand",
   ste: "Stealth", sur: "Survival"
 };
+const SAVE_KEYS = ["str", "dex", "con", "int", "wis", "cha"];
 
 function collectSkillRollModes(actor) {
   const keys = Object.keys(SKILL_LABELS);
@@ -978,6 +1041,54 @@ function renderSkillsGrid(actor) {
   return kvGrid(rows);
 }
 
+function collectSaveRollModes(actor) {
+  const out = {};
+  for (const k of SAVE_KEYS) {
+    out[k] = tryNum(actor?.system?.abilities?.[k]?.save?.roll?.mode) ?? 0;
+  }
+
+  const apply = (abilityKey, value, mode) => {
+    if (!Object.prototype.hasOwnProperty.call(out, abilityKey)) return;
+    out[abilityKey] = applyNumericEffectMode(out[abilityKey], value, mode);
+  };
+
+  const effects = getAllEffects(actor);
+  for (const ef of effects) {
+    const changes = ef?.changes || [];
+    for (const ch of changes) {
+      const key = safeText(ch?.key).toLowerCase();
+      const mode = Number(ch?.mode ?? MODE_CUSTOM);
+
+      const rollModeMatch = key.match(/^system\.abilities\.(str|dex|con|int|wis|cha)\.save\.roll\.mode$/);
+      if (rollModeMatch) {
+        const val = tryNum(ch?.value);
+        if (Number.isFinite(val)) apply(rollModeMatch[1], val, mode);
+        continue;
+      }
+
+      const advMatch = key.match(/^flags\.midi-qol\.advantage\.ability\.save\.(all|str|dex|con|int|wis|cha)$/);
+      if (advMatch && isTruthyEffectValue(ch?.value)) {
+        if (advMatch[1] === "all") for (const ab of SAVE_KEYS) apply(ab, 1, mode);
+        else apply(advMatch[1], 1, mode);
+        continue;
+      }
+
+      const disMatch = key.match(/^flags\.midi-qol\.disadvantage\.ability\.save\.(all|str|dex|con|int|wis|cha)$/);
+      if (disMatch && isTruthyEffectValue(ch?.value)) {
+        if (disMatch[1] === "all") for (const ab of SAVE_KEYS) apply(ab, -1, mode);
+        else apply(disMatch[1], -1, mode);
+      }
+    }
+  }
+
+  for (const k of SAVE_KEYS) {
+    if (out[k] > 0) out[k] = 1;
+    else if (out[k] < 0) out[k] = -1;
+    else out[k] = 0;
+  }
+  return out;
+}
+
 function collectInitiativeRollMode(actor) {
   let out = tryNum(actor?.system?.attributes?.init?.roll?.mode) ?? 0;
 
@@ -1018,6 +1129,50 @@ function collectInitiativeRollMode(actor) {
   return 0;
 }
 
+function proficiencyMultiplier(value) {
+  const val = tryNum(value);
+  if (!Number.isFinite(val) || val <= 0) return 0;
+  return val;
+}
+
+function saveProficiencyLabel(value) {
+  const prof = proficiencyMultiplier(value);
+  if (prof === 2) return "Expert";
+  if (prof === 1) return "Prof";
+  if (prof === 0.5) return "Half";
+  if (prof > 0) return `x${prof}`;
+  return "None";
+}
+
+function savingThrowBonus(actor, abilityKey) {
+  const sys = actor?.system || {};
+  const abilities = getAbilities(actor);
+  const pb = getProfBonus(actor);
+
+  const ab = sys?.abilities?.[abilityKey] || {};
+  const prof = proficiencyMultiplier(ab?.proficient);
+  const misc = parseBonusString(ab?.bonuses?.save) + parseBonusString(sys?.bonuses?.abilities?.save);
+  const abilityModValue = abilities?.[abilityKey]?.mod ?? 0;
+
+  return abilityModValue + (pb * prof) + misc;
+}
+
+function renderSavesGrid(actor) {
+  const abilities = getAbilities(actor);
+  const modeBySave = collectSaveRollModes(actor);
+  const sysAbilities = actor?.system?.abilities || {};
+
+  const rows = SAVE_KEYS.map((k) => {
+    const label = `${safeText(abilities?.[k]?.label || k.toUpperCase())} Save`;
+    const prof = saveProficiencyLabel(sysAbilities?.[k]?.proficient);
+    const badge = skillModeBadge(modeBySave[k] || 0);
+    const value = `${fmtSigned(savingThrowBonus(actor, k))} (${prof})${badge ? ` ${badge}` : ""}`;
+    return [label, value];
+  });
+
+  return kvGrid(rows);
+}
+
 function skillBonus(actor, key) {
   const sys = actor?.system || {};
   const abilities = getAbilities(actor);
@@ -1030,8 +1185,7 @@ function skillBonus(actor, key) {
   }[key] || "wis");
 
   const aMod = abilities?.[abilityKey]?.mod ?? 0;
-  const val = tryNum(sk?.value) ?? 0; // 0 untrained, 0.5 half, 1 prof, 2 expertise
-  const profMult = (val === 2 ? 2 : (val === 1 ? 1 : (val === 0.5 ? 0.5 : 0)));
+  const profMult = proficiencyMultiplier(sk?.value); // 0 untrained, 0.5 half, 1 prof, 2 expertise
   const misc = parseBonusString(sk?.bonuses?.check);
 
   return aMod + (pb * profMult) + misc;
@@ -1504,6 +1658,10 @@ function renderDnd5e(payload) {
   const combatId = makeAnchorId(anchorPrefix, "Combat");
   contentCol.appendChild(section("Combat", kvGrid(combatRows), combatId));
   quickLinks.push({ label: "Combat", id: combatId });
+
+  const savesId = makeAnchorId(anchorPrefix, "Saves");
+  contentCol.appendChild(section("Saves", renderSavesGrid(actor), savesId));
+  quickLinks.push({ label: "Saves", id: savesId });
 
   // skills
   const skillsId = makeAnchorId(anchorPrefix, "Skills");
