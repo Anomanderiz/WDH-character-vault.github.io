@@ -359,14 +359,12 @@ function collectDisplayEffects(actor) {
       const statuses = normaliseStatuses(effect);
       const disposition = effectDisposition(effect);
       const duration = formatEffectDuration(effect, disposition);
-      const changes = Array.isArray(effect?.changes) ? effect.changes.length : 0;
 
       const bits = [];
       if (source !== "Actor") bits.push(`source ${source}`);
       if (statuses.length) bits.push(`status ${statuses.join(", ")}`);
       if (disposition) bits.push(disposition);
       if (duration) bits.push(`duration ${duration}`);
-      if (changes > 0) bits.push(`${changes} change${changes === 1 ? "" : "s"}`);
 
       return { name, meta: bits.join(" • ") };
     })
@@ -832,6 +830,189 @@ function renderSpellsWithFilter(spells) {
   return wrap;
 }
 
+const SPELL_SLOT_TABLE = {
+  1: [2,0,0,0,0,0,0,0,0],
+  2: [3,0,0,0,0,0,0,0,0],
+  3: [4,2,0,0,0,0,0,0,0],
+  4: [4,3,0,0,0,0,0,0,0],
+  5: [4,3,2,0,0,0,0,0,0],
+  6: [4,3,3,0,0,0,0,0,0],
+  7: [4,3,3,1,0,0,0,0,0],
+  8: [4,3,3,2,0,0,0,0,0],
+  9: [4,3,3,3,1,0,0,0,0],
+  10: [4,3,3,3,2,0,0,0,0],
+  11: [4,3,3,3,2,1,0,0,0],
+  12: [4,3,3,3,2,1,0,0,0],
+  13: [4,3,3,3,2,1,1,0,0],
+  14: [4,3,3,3,2,1,1,0,0],
+  15: [4,3,3,3,2,1,1,1,0],
+  16: [4,3,3,3,2,1,1,1,0],
+  17: [4,3,3,3,2,1,1,1,1],
+  18: [4,3,3,3,3,1,1,1,1],
+  19: [4,3,3,3,3,2,1,1,1],
+  20: [4,3,3,3,3,2,2,1,1]
+};
+
+const PACT_SLOT_TABLE = {
+  1: { level: 1, max: 1 },
+  2: { level: 1, max: 2 },
+  3: { level: 2, max: 2 },
+  4: { level: 2, max: 2 },
+  5: { level: 3, max: 2 },
+  6: { level: 3, max: 2 },
+  7: { level: 4, max: 2 },
+  8: { level: 4, max: 2 },
+  9: { level: 5, max: 2 },
+  10: { level: 5, max: 2 },
+  11: { level: 5, max: 3 },
+  12: { level: 5, max: 3 },
+  13: { level: 5, max: 3 },
+  14: { level: 5, max: 3 },
+  15: { level: 5, max: 3 },
+  16: { level: 5, max: 3 },
+  17: { level: 5, max: 4 },
+  18: { level: 5, max: 4 },
+  19: { level: 5, max: 4 },
+  20: { level: 5, max: 4 }
+};
+
+function baseSlotColor(level, isPact) {
+  if (isPact) return "rgb(236,72,153)"; // pink
+  const colors = [
+    "rgb(14,165,233)", // 1
+    "rgb(59,130,246)", // 2
+    "rgb(99,102,241)", // 3
+    "rgb(139,92,246)", // 4
+    "rgb(168,85,247)", // 5
+    "rgb(217,70,239)", // 6
+    "rgb(244,114,182)", // 7
+    "rgb(251,146,60)", // 8
+    "rgb(250,204,21)" // 9
+  ];
+  return colors[clamp(level - 1, 0, colors.length - 1)];
+}
+
+function getCasterInfo(actor) {
+  const classes = (actor?.items || []).filter((i) => i?.type === "class");
+  let casterLevel = 0;
+  let pactClassLevel = 0;
+
+  for (const c of classes) {
+    const levels = Math.max(0, Number(c?.system?.levels || 0));
+    const prog = safeText(c?.system?.spellcasting?.progression).toLowerCase();
+    if (prog === "full") casterLevel += levels;
+    else if (prog === "half") casterLevel += Math.floor(levels / 2);
+    else if (prog === "third") casterLevel += Math.floor(levels / 3);
+    else if (prog === "artificer") casterLevel += Math.ceil(levels / 2);
+    else if (prog === "pact") pactClassLevel += levels;
+  }
+
+  return {
+    casterLevel: clamp(casterLevel, 0, 20),
+    pactClassLevel: clamp(pactClassLevel, 0, 20)
+  };
+}
+
+function buildSpellSlotRows(actor) {
+  const sysSpells = actor?.system?.spells || {};
+  const caster = getCasterInfo(actor);
+  const slotMax = SPELL_SLOT_TABLE[caster.casterLevel] || SPELL_SLOT_TABLE[0] || [0,0,0,0,0,0,0,0,0];
+  const rows = [];
+
+  for (let level = 1; level <= 9; level++) {
+    const k = `spell${level}`;
+    const s = sysSpells?.[k] || {};
+    const available = Math.max(0, Number(tryNum(s?.value) ?? 0));
+    const override = tryNum(s?.override);
+    const computedMax = Number.isFinite(override) && override >= 0 ? override : (slotMax[level - 1] || 0);
+    const max = Math.max(available, computedMax, 0);
+    if (max <= 0 && available <= 0) continue;
+    rows.push({ label: `Level ${level}`, level, available, used: Math.max(0, max - available), max, isPact: false });
+  }
+
+  const pact = sysSpells?.pact || {};
+  const pactAvail = Math.max(0, Number(tryNum(pact?.value) ?? 0));
+  const pactOverride = tryNum(pact?.override);
+  const pactInfo = PACT_SLOT_TABLE[caster.pactClassLevel] || { level: 1, max: 0 };
+  const pactMax = Math.max(pactAvail, Number.isFinite(pactOverride) && pactOverride >= 0 ? pactOverride : pactInfo.max, 0);
+  if (pactMax > 0 || pactAvail > 0) {
+    rows.push({
+      label: `Pact Lv ${pactInfo.level}`,
+      level: pactInfo.level,
+      available: pactAvail,
+      used: Math.max(0, pactMax - pactAvail),
+      max: pactMax,
+      isPact: true
+    });
+  }
+
+  return rows;
+}
+
+function pip(color, filled) {
+  const dot = document.createElement("span");
+  dot.className = "inline-block h-3.5 w-3.5 rounded-full border";
+  dot.style.borderColor = "rgba(226,232,240,0.8)";
+  dot.style.background = filled ? color : "rgba(15,23,42,0.42)";
+  dot.style.boxShadow = filled ? `0 0 12px ${color}` : "none";
+  return dot;
+}
+
+function renderSpellSlotsSummary(actor) {
+  const rows = buildSpellSlotRows(actor);
+  if (!rows.length) return null;
+
+  const wrap = document.createElement("div");
+  wrap.className = "rounded-2xl bg-slate-950/40 border border-white/10 p-3 space-y-2";
+
+  const title = document.createElement("div");
+  title.className = "text-xs uppercase tracking-wide text-slate-300";
+  title.textContent = "Spell Slots";
+  wrap.appendChild(title);
+
+  for (const row of rows) {
+    const line = document.createElement("div");
+    line.className = "flex items-center gap-3";
+
+    const label = document.createElement("div");
+    label.className = "w-24 shrink-0 text-xs text-slate-300";
+    label.textContent = row.label;
+    line.appendChild(label);
+
+    const pips = document.createElement("div");
+    pips.className = "flex flex-wrap gap-1.5";
+    const color = baseSlotColor(row.level, row.isPact);
+    for (let i = 0; i < row.available; i++) pips.appendChild(pip(color, true));
+    for (let i = 0; i < row.used; i++) pips.appendChild(pip(color, false));
+    line.appendChild(pips);
+
+    const nums = document.createElement("div");
+    nums.className = "ml-auto text-xs text-slate-400";
+    nums.textContent = `${row.available}/${row.max}`;
+    line.appendChild(nums);
+
+    wrap.appendChild(line);
+  }
+
+  return wrap;
+}
+
+function renderSpellsSection(actor, spells) {
+  const wrap = document.createElement("div");
+  wrap.className = "space-y-3";
+
+  const slots = renderSpellSlotsSummary(actor);
+  if (slots) wrap.appendChild(slots);
+
+  if (spells.length) {
+    wrap.appendChild(renderSpellsWithFilter(spells));
+  } else if (!slots) {
+    wrap.appendChild(document.createTextNode("No spells exported."));
+  }
+
+  return wrap;
+}
+
 function renderDnd5e(payload) {
   const actor = actorFromPayload(payload);
   const sys = actor?.system || {};
@@ -912,7 +1093,7 @@ function renderDnd5e(payload) {
     .filter(i => gearTypes.has(i?.type))
     .sort((a,b)=> safeText(a.name).localeCompare(safeText(b.name)));
 
-  root.appendChild(section("Spells", spells.length ? renderSpellsWithFilter(spells) : document.createTextNode("No spells exported.")));
+  root.appendChild(section("Spells", renderSpellsSection(actor, spells)));
   root.appendChild(section("Features", feats.length ? listCards(feats) : document.createTextNode("No features exported.")));
   root.appendChild(section("Inventory", gear.length ? renderInventoryWithSearch(gear) : document.createTextNode("No inventory exported.")));
 
