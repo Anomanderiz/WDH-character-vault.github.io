@@ -1,8 +1,7 @@
-// Foundry Character Vault – a tiny static viewer for exported Actor snapshots.
-// No framework. Just taste.
+// Foundry Character Vault – static viewer for exported Actor snapshots.
+// No server. No listeners. Just snapshots and good taste.
 
 const SITE_BASE = new URL(window.location.href);
-// If someone visits the Pages URL without the trailing slash, relative fetches can escape the repo path.
 if (!SITE_BASE.pathname.endsWith("/")) SITE_BASE.pathname += "/";
 
 const MANIFEST_URL = new URL("data/manifest.json", SITE_BASE).toString();
@@ -19,7 +18,7 @@ const importBtn = $("#importBtn");
 const importFile = $("#importFile");
 const refreshBtn = $("#refresh");
 
-let allPayloads = []; // [{id, name, meta, payload, corpus}]
+let allPayloads = [];
 let selectedId = null;
 
 function safeText(s) {
@@ -31,7 +30,6 @@ function norm(s) {
 }
 
 function nameKey(s) {
-  // normalise for comparisons (strip punctuation, collapse whitespace)
   return norm(s).replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
 }
 
@@ -59,7 +57,7 @@ function resolveUrl(pathish) {
 }
 
 // =======================
-// dnd5e derived maths (exports often omit computed fields)
+// dnd5e derived maths
 // =======================
 function abilityMod(score) {
   const s = Number(score);
@@ -88,7 +86,7 @@ function parseFlatBonus(v) {
   const s = String(v).trim();
   if (!s) return 0;
 
-  // Avoid trying to interpret dice formulae (e.g., "1d4").
+  // Avoid interpreting dice (e.g., "1d4").
   if (/[dD]\d/.test(s)) return 0;
 
   const nums = s.match(/[+-]?\d+/g);
@@ -150,10 +148,101 @@ function dnd5eDerived(actor) {
   return { level, prof, abilityMods, skillTotals, passivePrc };
 }
 
-function computeACArmorAndShield(actor) {
-  // Approximates @attributes.ac.armor: base armour (or 10) + shield bonuses.
+// =======================
+// AC computation (dnd5e)
+// =======================
+const AE_MODES = {
+  CUSTOM: 0,
+  MULTIPLY: 1,
+  ADD: 2,
+  DOWNGRADE: 3,
+  UPGRADE: 4,
+  OVERRIDE: 5,
+};
+
+function isItemActiveForBonuses(item) {
+  const s = item?.system || {};
+  const equipped = !!s?.equipped;
+  const attuned = Number(s?.attunement ?? 0) === 2; // 2 usually means attuned
+  return equipped || attuned;
+}
+
+function collectTransferEffects(actor) {
+  const out = [];
+
+  const actorEffects = actor?.effects;
+  if (Array.isArray(actorEffects)) out.push(...actorEffects);
+
   const items = actor?.items || [];
-  const equipped = items.filter((i) => i?.system?.equipped);
+  for (const it of items) {
+    if (!isItemActiveForBonuses(it)) continue;
+    const effects = it?.effects;
+    if (!Array.isArray(effects)) continue;
+
+    for (const ef of effects) {
+      if (!ef || ef.disabled) continue;
+      const transfer = !!ef.transfer || !!ef?.flags?.dae?.transfer;
+      if (!transfer) continue;
+      out.push(ef);
+    }
+  }
+
+  return out;
+}
+
+function extractACFromEffects(actor) {
+  // Looks only for additive/override AC modifications.
+  // This is intentionally narrow: we want “ring +1 AC” type stuff, not a full AE engine.
+  let add = 0;
+  let override = null;
+
+  const effects = collectTransferEffects(actor);
+
+  for (const ef of effects) {
+    const changes = ef?.changes;
+    if (!Array.isArray(changes)) continue;
+
+    for (const ch of changes) {
+      const keyRaw = safeText(ch?.key);
+      if (!keyRaw) continue;
+
+      // Normalise older schema keys that start with data.
+      const key = keyRaw.replace(/^data\./, "system.");
+
+      const mode = Number(ch?.mode ?? AE_MODES.CUSTOM);
+      const val = parseFlatBonus(ch?.value);
+
+      // common targets
+      const isACValue = /system\.attributes\.ac\.(value|flat)$/i.test(key);
+      const isACBonus = /system\.attributes\.ac\.bonus$/i.test(key);
+
+      if (isACValue) {
+        if (mode === AE_MODES.OVERRIDE) override = val;
+        else if (mode === AE_MODES.ADD) add += val;
+      } else if (isACBonus) {
+        if (mode === AE_MODES.ADD) add += val;
+        else if (mode === AE_MODES.OVERRIDE) add = val;
+      }
+    }
+  }
+
+  return { add, override };
+}
+
+function getArmorMagicBonus(item) {
+  const a = item?.system?.armor || {};
+  const v =
+    a?.magicalBonus ??
+    a?.magicBonus ??
+    item?.system?.magicalBonus ??
+    item?.system?.magicBonus ??
+    0;
+  return Number(v) || 0;
+}
+
+function computeACArmorParts(actor) {
+  const items = actor?.items || [];
+  const equipped = items.filter((i) => !!i?.system?.equipped);
 
   const armours = equipped.filter(
     (i) =>
@@ -169,88 +258,137 @@ function computeACArmorAndShield(actor) {
       i?.system?.type?.value === "shield"
   );
 
+  // pick "best" armour by (base + magic)
   const bestArmour = armours
-    .sort(
-      (a, b) =>
-        Number(b?.system?.armor?.value ?? 0) - Number(a?.system?.armor?.value ?? 0)
-    )[0];
+    .map((i) => {
+      const base = Number(i?.system?.armor?.value ?? 0);
+      const magic = getArmorMagicBonus(i);
+      return { item: i, total: base + magic };
+    })
+    .sort((a, b) => b.total - a.total)[0]?.item;
 
   const armourBase = bestArmour ? Number(bestArmour.system.armor.value) : 10;
-  const shieldBonus = shields.reduce(
-    (a, s) => a + Number(s?.system?.armor?.value ?? 0),
-    0
-  );
+  const armourMagic = bestArmour ? getArmorMagicBonus(bestArmour) : 0;
+  const armourTotal = armourBase + armourMagic;
 
-  return { armourBase, shieldBonus, bestArmour };
+  const shieldTotal = shields.reduce((a, s) => {
+    const base = Number(s?.system?.armor?.value ?? 0);
+    const magic = getArmorMagicBonus(s);
+    return a + base + magic;
+  }, 0);
+
+  // This corresponds to @attributes.ac.armor in the vast majority of dnd5e setups.
+  const acArmor = armourTotal + shieldTotal;
+
+  return { bestArmour, armourTotal, shieldTotal, acArmor };
 }
 
 function computeAC(actor, derived) {
   const sys = actor?.system || {};
   const ac = sys?.attributes?.ac || {};
 
-  // If the export included a resolved value, use it.
+  // If the export included resolved values, prefer them.
   if (Number.isFinite(ac?.value)) return Number(ac.value);
   if (Number.isFinite(ac?.flat)) return Number(ac.flat);
 
-  const { armourBase, shieldBonus, bestArmour } = computeACArmorAndShield(actor);
+  const { bestArmour, acArmor } = computeACArmorParts(actor);
 
-  const dex = derived?.abilityMods?.dex ?? 0;
+  const dexFull = derived?.abilityMods?.dex ?? 0;
+
+  // Armour Dex cap (for heuristic and for @attributes.ac.dex token)
   const dexCap = bestArmour ? bestArmour?.system?.armor?.dex : null;
-  const acDex = dexCap == null || dexCap === "" ? dex : Math.min(dex, Number(dexCap) || 0);
+  const dexCapped =
+    dexCap == null || dexCap === "" ? dexFull : Math.min(dexFull, Number(dexCap) || 0);
 
-  // If the system provides a custom AC formula, obey it (safely).
-  // IMPORTANT: @abilities.dex.mod is FULL Dex mod (no cap). If you want capped Dex, use @attributes.ac.dex.
+  // Bonuses from system fields + transferable active effects
+  const { add: effectAdd, override: effectOverride } = extractACFromEffects(actor);
+  const sysBonus =
+    parseFlatBonus(ac?.bonus) +
+    parseFlatBonus(sys?.bonuses?.ac?.value) +
+    parseFlatBonus(sys?.bonuses?.ac?.bonus) +
+    parseFlatBonus(sys?.bonuses?.ac?.all);
+
+  const totalBonus = sysBonus + effectAdd;
+
+  // If an effect explicitly overrides AC, obey it (and still add bonus if present).
+  if (Number.isFinite(effectOverride)) return Number(effectOverride) + totalBonus;
+
+  // Custom formula path (safe)
+  // IMPORTANT: @abilities.dex.mod = FULL Dex mod, never capped.
+  // If you want capped Dex, formula should use @attributes.ac.dex.
   if (ac?.calc === "custom" && typeof ac?.formula === "string") {
     const ctx = {
-      "@attributes.ac.armor": armourBase + shieldBonus,
-      "@attributes.ac.dex": acDex,
+      "@attributes.ac.armor": acArmor,
+      "@attributes.ac.shield": computeACArmorParts(actor).shieldTotal,
+      "@attributes.ac.base": 10,
+      "@attributes.ac.dex": dexCapped,
+      "@attributes.ac.bonus": totalBonus,
+
       "@abilities.str.mod": derived?.abilityMods?.str ?? 0,
-      "@abilities.dex.mod": derived?.abilityMods?.dex ?? 0,
+      "@abilities.dex.mod": dexFull,
       "@abilities.con.mod": derived?.abilityMods?.con ?? 0,
       "@abilities.int.mod": derived?.abilityMods?.int ?? 0,
       "@abilities.wis.mod": derived?.abilityMods?.wis ?? 0,
       "@abilities.cha.mod": derived?.abilityMods?.cha ?? 0,
+
+      "@attributes.prof": derived?.prof ?? 0,
     };
 
     let expr = ac.formula;
+
     for (const [token, val] of Object.entries(ctx)) {
       expr = expr.split(token).join(String(Number(val ?? 0)));
     }
 
-    // Safe-eval: only arithmetic allowed after substitution.
+    // If unknown tokens remain, expr will contain letters and fail the safety check.
     if (/^[0-9+\-*/().\s]+$/.test(expr)) {
       try {
         // eslint-disable-next-line no-new-func
-        const n = Function(`return (${expr});`)();
-        if (Number.isFinite(n)) return n;
+        let n = Function(`return (${expr});`)();
+        if (Number.isFinite(n)) {
+          // Foundry often applies ac.bonus separately; if the formula didn't reference it,
+          // add it here so rings/cloaks/etc still appear.
+          if (!ac.formula.includes("@attributes.ac.bonus")) n += totalBonus;
+          return n;
+        }
       } catch {
         // fall through
       }
     }
-    // If formula contains unknown tokens, fall through to heuristic.
+    // Fall back to heuristic if formula can't be safely evaluated.
   }
 
-  // Heuristic default: armour + (capped) dex + shield + flat bonus (if any)
-  const flatBonus = parseFlatBonus(ac?.bonus);
-  return armourBase + acDex + shieldBonus + flatBonus;
+  // Heuristic default: @attributes.ac.armor + capped Dex + bonuses
+  return acArmor + dexCapped + totalBonus;
+}
+
+// =======================
+// Spells prepared state + filter
+// =======================
+function preparedState(spell) {
+  const s = spell?.system || {};
+  // v4: 0/1/2
+  if (s?.prepared === 0 || s?.prepared === 1 || s?.prepared === 2) return s.prepared;
+
+  // older schema
+  const mode = s?.preparation?.mode;
+  if (mode === "always") return 2;
+  if (mode === "prepared") return s?.preparation?.prepared ? 1 : 0;
+
+  return null;
 }
 
 function spellPreparedLabel(spell) {
-  const s = spell?.system || {};
-
-  // dnd5e v4 stores this as 0/1/2
-  const p = s?.prepared;
-  if (p === 2) return "Always prepared";
-  if (p === 1) return "Prepared";
-  if (p === 0) return "Not prepared";
-
-  // Older/alt schema
-  const mode = s?.preparation?.mode;
-  if (mode === "prepared") return s?.preparation?.prepared ? "Prepared" : "Not prepared";
-  if (mode === "always") return "Always prepared";
+  const st = preparedState(spell);
+  if (st === 2) return "Always prepared";
+  if (st === 1) return "Prepared";
+  if (st === 0) return "Not prepared";
   return "";
 }
 
+// =======================
+// Feature filtering
+// =======================
 const FILTERED_FEATURES = new Set(
   [
     "hide",
@@ -286,23 +424,6 @@ function shouldHideFeature(item) {
 // =======================
 // UI helpers
 // =======================
-function rosterItem(payload) {
-  const actor = actorFromPayload(payload);
-  const meta = getMeta(payload);
-
-  const tpl = $("#rosterItemTpl");
-  const node = tpl.content.firstElementChild.cloneNode(true);
-
-  node.dataset.id = actor?._id || payload?.id || crypto.randomUUID();
-  node.querySelector("img").src =
-    actor?.img || "https://dummyimage.com/160x160/111827/ffffff&text=%E2%98%85";
-  node.querySelector(".name").textContent = actor?.name || "Unnamed";
-  node.querySelector(".meta").textContent = meta.line1;
-
-  node.addEventListener("click", () => selectActor(node.dataset.id));
-  return node;
-}
-
 function setStatus(msg) {
   statusEl.textContent = msg;
 }
@@ -320,12 +441,10 @@ function pill(text) {
 
 function section(title, bodyNode) {
   const wrap = document.createElement("div");
-  wrap.className =
-    "rounded-3xl bg-white/5 border border-white/10 overflow-hidden";
+  wrap.className = "rounded-3xl bg-white/5 border border-white/10 overflow-hidden";
 
   const head = document.createElement("button");
-  head.className =
-    "w-full flex items-center justify-between px-4 py-3 hover:bg-white/5 transition";
+  head.className = "w-full flex items-center justify-between px-4 py-3 hover:bg-white/5 transition";
   head.innerHTML = `<div class="font-semibold">${title}</div><div class="text-slate-400 text-sm">toggle</div>`;
 
   const body = document.createElement("div");
@@ -349,8 +468,7 @@ function kvGrid(rows) {
 
   for (const [k, v] of rows) {
     const card = document.createElement("div");
-    card.className =
-      "rounded-2xl bg-slate-950/40 border border-white/10 px-3 py-2";
+    card.className = "rounded-2xl bg-slate-950/40 border border-white/10 px-3 py-2";
     card.innerHTML = `<div class="text-xs text-slate-400">${k}</div><div class="font-semibold">${v}</div>`;
     grid.appendChild(card);
   }
@@ -360,14 +478,14 @@ function kvGrid(rows) {
 function listCards(items, subtitleFn) {
   const wrap = document.createElement("div");
   wrap.className = "grid grid-cols-1 md:grid-cols-2 gap-2";
+
   for (const it of items) {
     const card = document.createElement("div");
-    card.className =
-      "rounded-2xl bg-slate-950/40 border border-white/10 p-3";
+    card.className = "rounded-2xl bg-slate-950/40 border border-white/10 p-3";
     const sub = subtitleFn ? subtitleFn(it) : "";
-    card.innerHTML = `<div class="font-medium">${safeText(
-      it.name || "Unnamed"
-    )}</div>${sub ? `<div class="text-xs text-slate-400 mt-1">${sub}</div>` : ""}`;
+    card.innerHTML = `<div class="font-medium">${safeText(it.name || "Unnamed")}</div>${
+      sub ? `<div class="text-xs text-slate-400 mt-1">${sub}</div>` : ""
+    }`;
     wrap.appendChild(card);
   }
   return wrap;
@@ -404,6 +522,67 @@ function inventorySearchNode(gear) {
   input.addEventListener("input", render);
   wrap.appendChild(input);
   wrap.appendChild(listWrap);
+  render();
+  return wrap;
+}
+
+function spellsFilterNode(spells) {
+  const wrap = document.createElement("div");
+  wrap.className = "flex flex-col gap-3";
+
+  const row = document.createElement("div");
+  row.className = "flex flex-col md:flex-row gap-2";
+
+  const select = document.createElement("select");
+  select.className =
+    "rounded-2xl bg-slate-950/40 border border-white/10 px-3 py-2 text-slate-100 " +
+    "focus:outline-none focus:ring-2 focus:ring-white/20";
+
+  const opts = [
+    ["all", "All spells"],
+    ["prepared", "Prepared (incl. always)"],
+    ["always", "Always prepared"],
+    ["not", "Not prepared"],
+  ];
+  for (const [v, label] of opts) {
+    const o = document.createElement("option");
+    o.value = v;
+    o.textContent = label;
+    select.appendChild(o);
+  }
+
+  row.appendChild(select);
+  wrap.appendChild(row);
+
+  const listWrap = document.createElement("div");
+  wrap.appendChild(listWrap);
+
+  const render = () => {
+    const mode = select.value;
+
+    const filtered = spells.filter((s) => {
+      const st = preparedState(s);
+      if (mode === "all") return true;
+      if (mode === "prepared") return st === 1 || st === 2;
+      if (mode === "always") return st === 2;
+      if (mode === "not") return st === 0;
+      return true;
+    });
+
+    listWrap.innerHTML = "";
+    listWrap.appendChild(
+      filtered.length
+        ? listCards(filtered, (s) => {
+            const lvl = s?.system?.level;
+            const school = s?.system?.school;
+            const prep = spellPreparedLabel(s);
+            return [lvl === 0 ? "Cantrip" : `Level ${lvl}`, school, prep].filter(Boolean).join(" • ");
+          })
+        : document.createTextNode("No spells match that filter.")
+    );
+  };
+
+  select.addEventListener("change", render);
   render();
   return wrap;
 }
@@ -519,20 +698,13 @@ function renderDnd5e(payload) {
     ["Armour Class", Number.isFinite(acValue) ? acValue : "–"],
     [
       "Hit Points",
-      `${attr?.hp?.value ?? "–"} / ${attr?.hp?.max ?? "–"}${
-        attr?.hp?.temp ? ` (temp ${attr?.hp?.temp})` : ""
-      }`,
+      `${attr?.hp?.value ?? "–"} / ${attr?.hp?.max ?? "–"}${attr?.hp?.temp ? ` (temp ${attr?.hp?.temp})` : ""}`,
     ],
-    [
-      "Initiative",
-      fmtSigned(attr?.init?.mod ?? attr?.init?.total ?? attr?.init ?? derived.abilityMods.dex),
-    ],
+    ["Initiative", fmtSigned(attr?.init?.mod ?? attr?.init?.total ?? attr?.init ?? derived.abilityMods.dex)],
     ["Proficiency Bonus", fmtSigned(derived.prof)],
     [
       "Speed",
-      `walk ${movement?.walk ?? "–"}${movement?.fly ? `, fly ${movement.fly}` : ""}${
-        movement?.swim ? `, swim ${movement.swim}` : ""
-      }`,
+      `walk ${movement?.walk ?? "–"}${movement?.fly ? `, fly ${movement.fly}` : ""}${movement?.swim ? `, swim ${movement.swim}` : ""}`,
     ],
     ["Passive Perception", Number.isFinite(derived.passivePrc) ? derived.passivePrc : "–"],
   ];
@@ -559,10 +731,7 @@ function renderDnd5e(payload) {
     ste: "Stealth",
     sur: "Survival",
   };
-  const skillRows = Object.keys(skillLabels).map((k) => [
-    skillLabels[k],
-    fmtSigned(derived.skillTotals?.[k] ?? 0),
-  ]);
+  const skillRows = Object.keys(skillLabels).map((k) => [skillLabels[k], fmtSigned(derived.skillTotals?.[k] ?? 0)]);
   root.appendChild(section("Skills", kvGrid(skillRows)));
 
   // Items
@@ -570,55 +739,25 @@ function renderDnd5e(payload) {
   const spells = items
     .filter((i) => i?.type === "spell")
     .sort((a, b) => safeText(a.name).localeCompare(safeText(b.name)));
+
   const feats = items
     .filter((i) => i?.type === "feat")
     .sort((a, b) => safeText(a.name).localeCompare(safeText(b.name)));
-  const gearTypes = new Set([
-    "weapon",
-    "equipment",
-    "consumable",
-    "tool",
-    "loot",
-    "backpack",
-    "container",
-  ]);
+
+  const gearTypes = new Set(["weapon", "equipment", "consumable", "tool", "loot", "backpack", "container"]);
   const gear = items
     .filter((i) => gearTypes.has(i?.type))
     .sort((a, b) => safeText(a.name).localeCompare(safeText(b.name)));
 
-  // Spells – include prepared status
-  root.appendChild(
-    section(
-      "Spells",
-      spells.length
-        ? listCards(spells, (s) => {
-            const lvl = s?.system?.level;
-            const school = s?.system?.school;
-            const prep = spellPreparedLabel(s);
-            return [lvl === 0 ? "Cantrip" : `Level ${lvl}`, school, prep]
-              .filter(Boolean)
-              .join(" • ");
-          })
-        : document.createTextNode("No spells exported.")
-    )
-  );
+  // Spells – filterable by prepared status
+  root.appendChild(section("Spells", spells.length ? spellsFilterNode(spells) : document.createTextNode("No spells exported.")));
 
   // Features – filter out common actions
   const cleanedFeats = feats.filter((f) => !shouldHideFeature(f));
-  root.appendChild(
-    section(
-      "Features",
-      cleanedFeats.length ? listCards(cleanedFeats) : document.createTextNode("No features exported.")
-    )
-  );
+  root.appendChild(section("Features", cleanedFeats.length ? listCards(cleanedFeats) : document.createTextNode("No features exported.")));
 
   // Inventory – per-sheet search
-  root.appendChild(
-    section(
-      "Inventory",
-      gear.length ? inventorySearchNode(gear) : document.createTextNode("No inventory exported.")
-    )
-  );
+  root.appendChild(section("Inventory", gear.length ? inventorySearchNode(gear) : document.createTextNode("No inventory exported.")));
 
   // Biography
   const bio = sys?.details?.biography?.value || sys?.details?.biography || "";
@@ -669,6 +808,23 @@ function renderSheet(payload) {
 // =======================
 // Roster rendering / selection
 // =======================
+function rosterItem(payload) {
+  const actor = actorFromPayload(payload);
+  const meta = getMeta(payload);
+
+  const tpl = $("#rosterItemTpl");
+  const node = tpl.content.firstElementChild.cloneNode(true);
+
+  node.dataset.id = actor?._id || payload?.id || crypto.randomUUID();
+  node.querySelector("img").src =
+    actor?.img || "https://dummyimage.com/160x160/111827/ffffff&text=%E2%98%85";
+  node.querySelector(".name").textContent = actor?.name || "Unnamed";
+  node.querySelector(".meta").textContent = meta.line1;
+
+  node.addEventListener("click", () => selectActor(node.dataset.id));
+  return node;
+}
+
 function paintRoster(payloads) {
   rosterEl.innerHTML = "";
   const frag = document.createDocumentFragment();
@@ -711,7 +867,7 @@ function filterRosterBySearch() {
 async function loadManifestPayloads() {
   const res = await fetch(MANIFEST_URL, { cache: "no-store" });
   if (!res.ok) throw new Error(`Manifest fetch failed: ${res.status}`);
-  const manifest = await res.json(); // [{file,name?}]
+  const manifest = await res.json();
 
   const payloads = [];
   for (const entry of manifest) {
@@ -745,7 +901,7 @@ async function initialise() {
   try {
     manifestPayloads = await loadManifestPayloads();
   } catch (e) {
-    console.warn(e); // not fatal
+    console.warn(e);
   }
 
   const localPayloads = loadLocalPayloads();
@@ -767,11 +923,7 @@ async function initialise() {
     .sort((a, b) => safeText(a.name).localeCompare(safeText(b.name)));
 
   paintRoster(allPayloads.map((x) => x.payload));
-  setStatus(
-    allPayloads.length
-      ? `${allPayloads.length} character(s) loaded.`
-      : "No data loaded – import JSON to begin."
-  );
+  setStatus(allPayloads.length ? `${allPayloads.length} character(s) loaded.` : "No data loaded – import JSON to begin.");
 }
 
 // =======================
