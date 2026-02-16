@@ -275,6 +275,110 @@ function getAllEffects(actor) {
   return effects;
 }
 
+function titleCaseWords(s) {
+  return safeText(s).replace(/\b[a-z]/g, (m) => m.toUpperCase());
+}
+
+function normaliseStatuses(effect) {
+  const raw = effect?.statuses;
+  if (Array.isArray(raw)) {
+    const bits = raw.map((x) => safeText(x).trim()).filter(Boolean);
+    if (!bits.length) return [];
+    // Some exports serialise a single status string as char array.
+    const merged = bits.every((x) => x.length === 1) ? [bits.join("")] : bits;
+    return merged
+      .map((x) => titleCaseWords(x.replace(/[-_]+/g, " ").trim()))
+      .filter(Boolean);
+  }
+  const one = safeText(raw).trim();
+  if (!one) return [];
+  return [titleCaseWords(one.replace(/[-_]+/g, " ").trim())];
+}
+
+function effectDisposition(effect) {
+  const auraHostile = effect?.flags?.ActiveAuras?.hostile;
+  if (typeof auraHostile === "boolean") return auraHostile ? "hostile" : "friendly";
+
+  if (typeof effect?.hostile === "boolean") return effect.hostile ? "hostile" : "friendly";
+  if (typeof effect?.friendly === "boolean") return effect.friendly ? "friendly" : "hostile";
+
+  const auraDisposition = tryNum(effect?.flags?.ActiveAuras?.disposition);
+  if (Number.isFinite(auraDisposition) && auraDisposition !== 0) return auraDisposition > 0 ? "friendly" : "hostile";
+
+  const disposition = tryNum(effect?.disposition);
+  if (Number.isFinite(disposition) && disposition !== 0) return disposition > 0 ? "friendly" : "hostile";
+
+  return "";
+}
+
+function formatEffectDuration(effect, disposition) {
+  // Duration is shown only for explicitly-marked friendly effects.
+  if (disposition !== "friendly") return "";
+  const d = effect?.duration || {};
+  const rounds = tryNum(d?.rounds);
+  const turns = tryNum(d?.turns);
+  const seconds = tryNum(d?.seconds);
+
+  const parts = [];
+  if (Number.isFinite(rounds) && rounds > 0) parts.push(`${rounds} round${rounds === 1 ? "" : "s"}`);
+  if (Number.isFinite(turns) && turns > 0) parts.push(`${turns} turn${turns === 1 ? "" : "s"}`);
+  if (Number.isFinite(seconds) && seconds > 0) {
+    if (seconds >= 60 && seconds % 60 === 0) {
+      const mins = seconds / 60;
+      parts.push(`${mins} min${mins === 1 ? "" : "s"}`);
+    } else {
+      parts.push(`${seconds}s`);
+    }
+  }
+
+  return parts.join(", ");
+}
+
+function collectDisplayEffects(actor) {
+  const out = [];
+
+  const actorEffects = actor?.effects || [];
+  for (const e of actorEffects) {
+    if (!e || e.disabled) continue;
+    out.push({ effect: e, source: "Actor" });
+  }
+
+  const items = actor?.items || [];
+  for (const it of items) {
+    const ie = it?.effects || [];
+    for (const e of ie) {
+      if (!e || e.disabled) continue;
+      if (e.transfer === false) continue;
+      out.push({ effect: e, source: safeText(it?.name || "Item") });
+    }
+  }
+
+  return out
+    .map(({ effect, source }) => {
+      const name = safeText(effect?.name || "Unnamed Effect");
+      const statuses = normaliseStatuses(effect);
+      const disposition = effectDisposition(effect);
+      const duration = formatEffectDuration(effect, disposition);
+      const changes = Array.isArray(effect?.changes) ? effect.changes.length : 0;
+
+      const bits = [];
+      if (source !== "Actor") bits.push(`source ${source}`);
+      if (statuses.length) bits.push(`status ${statuses.join(", ")}`);
+      if (disposition) bits.push(disposition);
+      if (duration) bits.push(`duration ${duration}`);
+      if (changes > 0) bits.push(`${changes} change${changes === 1 ? "" : "s"}`);
+
+      return { name, meta: bits.join(" • ") };
+    })
+    .sort((a, b) => safeText(a.name).localeCompare(safeText(b.name)));
+}
+
+function renderActiveEffects(actor) {
+  const effects = collectDisplayEffects(actor);
+  if (!effects.length) return document.createTextNode("No active effects in export.");
+  return listCards(effects, (e) => e.meta);
+}
+
 const MODE_ADD = 2;
 const MODE_OVERRIDE = 5;
 
@@ -790,6 +894,7 @@ function renderDnd5e(payload) {
   // skills
   const skillRows = Object.keys(SKILL_LABELS).map(k => [SKILL_LABELS[k], fmtSigned(skillBonus(actor, k))]);
   root.appendChild(section("Skills", kvGrid(skillRows)));
+  root.appendChild(section("Active Effects", renderActiveEffects(actor)));
 
   // items
   const items = actor?.items || [];
