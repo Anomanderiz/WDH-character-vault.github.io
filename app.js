@@ -268,14 +268,14 @@ function evalFormula(formula, ctx) {
   let expr = safeText(formula).trim();
   if (!expr) return null;
 
-  // Replace the longest tokens first to avoid accidental partial overlaps.
-  const keys = Object.keys(ctx).sort((a, b) => b.length - a.length);
-  for (const k of keys) {
-    expr = expr.split(k).join(String(Number(ctx[k] ?? 0)));
-  }
-
-  // Any leftover Foundry @paths we don't recognise – treat as 0 rather than failing.
-  expr = expr.replace(/@[A-Za-z0-9_.]+/g, "0");
+  // Replace Foundry-style @paths directly from the provided context.
+  // Unknown @paths become 0 – but we treat "all tokens became 0" as a failed evaluation later.
+  let replacedAny = false;
+  expr = expr.replace(/@[A-Za-z0-9_.]+/g, (m) => {
+    replacedAny = true;
+    const v = Number(ctx?.[m] ?? 0);
+    return String(Number.isFinite(v) ? v : 0);
+  });
 
   // Normalise common helpers.
   expr = expr
@@ -302,9 +302,20 @@ function evalFormula(formula, ctx) {
 
   try {
     // eslint-disable-next-line no-new-func
-    const fn = Function(`"use strict"; return (${expr});`);
+    const fn = Function('"use strict"; return (' + expr + ');');
     const out = fn();
-    return Number.isFinite(out) ? out : null;
+    const n = Number(out);
+    if (!Number.isFinite(n)) return null;
+
+    // If the formula had @tokens but none were in ctx, we likely just evaluated a bunch of zeros.
+    // Treat that as failure so we can fall back to heuristics.
+    if (replacedAny && /@/.test(formula) && n === 0 && /@[A-Za-z0-9_.]+/.test(formula)) {
+      // If ctx genuinely resolves to 0, this is still "correct", but for AC it's almost never intended.
+      // We only use this to avoid masking token-mapping bugs.
+      return null;
+    }
+
+    return n;
   } catch {
     return null;
   }
@@ -321,15 +332,17 @@ function computeAC(actor) {
   const parts = getACArmorParts(actor);
   const adj = extractACAdjustments(actor);
 
-  // Armour-ish components (these feed @attributes.ac.armor, and our fallback).
-  let armorToken = parts.armorBase + parts.shieldTotal;
+  // Armour base (feeds @attributes.ac.armor).
+  let armorToken = parts.armorBase;
   if (Number.isFinite(adj.armorOverride)) armorToken = adj.armorOverride;
   armorToken += (adj.armorAdd || 0);
 
+  // Shield contribution (feeds @attributes.ac.shield).
   let shieldToken = parts.shieldTotal;
   if (Number.isFinite(adj.shieldOverride)) shieldToken = adj.shieldOverride;
   shieldToken += (adj.shieldAdd || 0);
 
+  // Base AC for "no armour" style calcs (feeds @attributes.ac.base).
   let baseToken = 10;
   if (Number.isFinite(adj.baseOverride)) baseToken = adj.baseOverride;
   baseToken += (adj.baseAdd || 0);
@@ -341,12 +354,11 @@ function computeAC(actor) {
   dexToken += (adj.dexAdd || 0);
 
   // Generic bonuses (rings, cloaks, effects, etc.).
-  // Some systems store this as string; we parse if numeric.
   let bonusToken = parseBonusString(ac?.bonus);
   if (Number.isFinite(adj.bonusOverride)) bonusToken = adj.bonusOverride;
   bonusToken += (adj.bonusAdd || 0);
 
-  // Direct "add to AC value" effects (e.g., +2 to AC value) – treated as bonus.
+  // Direct "add to AC value" effects (treated as bonus).
   bonusToken += (adj.valueAdd || 0);
 
   const pb = getProfBonus(actor);
@@ -354,6 +366,17 @@ function computeAC(actor) {
   // 1) Custom formula gets first bite of the apple.
   // Some exports keep formula populated even when calc isn't strictly "custom" – if a formula exists, we honour it.
   if (typeof ac?.formula === "string" && ac.formula.trim()) {
+    const raw = ac.formula;
+    const compact = raw.replace(/\s+/g, "");
+
+    // Fast-path for the most common custom formula (uncapped DEX) – avoids any token-resolution weirdness.
+    if (compact === "@attributes.ac.armor+@abilities.dex.mod") {
+      let val = armorToken + dexMod;
+      val += shieldToken;  // shield is still part of AC unless explicitly omitted
+      val += bonusToken;
+      return Math.round(val);
+    }
+
     const ctx = {
       "@attributes.ac.armor": armorToken,
       "@attributes.ac.base": baseToken,
@@ -370,12 +393,12 @@ function computeAC(actor) {
       "@abilities.cha.mod": abilities.cha.mod,
     };
 
-    let val = evalFormula(ac.formula, ctx);
+    let val = evalFormula(raw, ctx);
     if (Number.isFinite(val)) {
-      // If the formula doesn't reference @attributes.ac.bonus, we add it.
-      // This keeps the common custom formula "@attributes.ac.armor+@abilities.dex.mod" correct,
-      // while still respecting formulas that *do* include ac.bonus.
-      if (!ac.formula.includes("@attributes.ac.bonus")) val += bonusToken;
+      // If the formula doesn't reference these common components, we add them.
+      // This keeps "@attributes.ac.armor+@abilities.dex.mod" (and similar) correct without forcing everyone to write verbose formulas.
+      if (!raw.includes("@attributes.ac.shield")) val += shieldToken;
+      if (!raw.includes("@attributes.ac.bonus")) val += bonusToken;
       return Math.round(val);
     }
     // If evaluation fails, we fall through to heuristics.
@@ -391,8 +414,8 @@ function computeAC(actor) {
   const rawValue = tryNum(ac?.value);
   if (Number.isFinite(rawValue)) return Math.round(rawValue + bonusToken);
 
-  // 5) Default: armour component + capped dex + bonuses.
-  return Math.round(armorToken + dexToken + bonusToken);
+  // 5) Default: armour + shield + capped dex + bonuses.
+  return Math.round(armorToken + shieldToken + dexToken + bonusToken);
 }
 
 // ----------------------------
