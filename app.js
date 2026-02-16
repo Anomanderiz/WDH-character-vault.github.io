@@ -164,9 +164,10 @@ function pill(text) {
   return node;
 }
 
-function section(title, bodyNode) {
+function section(title, bodyNode, sectionId = "") {
   const wrap = document.createElement("div");
   wrap.className = "rounded-3xl bg-white/5 border border-white/10 overflow-hidden";
+  if (sectionId) wrap.id = sectionId;
 
   const head = document.createElement("button");
   head.className = "w-full flex items-center justify-between px-4 py-3 hover:bg-white/5 transition";
@@ -185,6 +186,68 @@ function section(title, bodyNode) {
   wrap.appendChild(head);
   wrap.appendChild(body);
   return wrap;
+}
+
+function makeAnchorId(prefix, label) {
+  const base = safeText(label).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  return `${prefix}-${base || "section"}`;
+}
+
+function quickAccessNav(items) {
+  const nav = document.createElement("nav");
+  nav.className = "fixed right-3 bottom-3 z-30 xl:sticky xl:top-4 xl:self-start flex flex-col gap-2 rounded-2xl bg-slate-950/75 border border-white/10 p-2 shadow-soft";
+  nav.setAttribute("aria-label", "Quick section access");
+  nav.dataset.expanded = "0";
+
+  const top = document.createElement("div");
+  top.className = "flex items-center gap-2";
+
+  const title = document.createElement("div");
+  title.className = "px-1 text-[11px] uppercase tracking-wide text-slate-300";
+  title.textContent = "Quick Access";
+  top.appendChild(title);
+
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "ml-auto rounded-xl px-2 py-1 text-xs text-slate-100 border border-white/10 hover:bg-white/10 transition";
+  toggle.textContent = "Open";
+  toggle.setAttribute("aria-expanded", "false");
+  top.appendChild(toggle);
+  nav.appendChild(top);
+
+  const list = document.createElement("div");
+  list.className = "hidden flex-col gap-2";
+
+  for (const it of items) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "text-left whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs text-slate-200 hover:bg-white/10 transition border border-white/10";
+    btn.textContent = it.label;
+    btn.addEventListener("click", () => {
+      const target = document.getElementById(it.id);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      setExpanded(false);
+    });
+    list.appendChild(btn);
+  }
+  nav.appendChild(list);
+
+  const setExpanded = (expanded) => {
+    nav.dataset.expanded = expanded ? "1" : "0";
+    toggle.textContent = expanded ? "Close" : "Open";
+    toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    title.style.display = expanded ? "block" : "none";
+    list.style.display = expanded ? "flex" : "none";
+  };
+
+  toggle.addEventListener("click", () => {
+    setExpanded(nav.dataset.expanded !== "1");
+  });
+
+  // Default state: collapsed.
+  setExpanded(false);
+
+  return nav;
 }
 
 function kvGrid(rows) {
@@ -1370,11 +1433,19 @@ function renderDnd5e(payload) {
   const meta = dnd5eMeta(actor);
 
   const root = document.createElement("div");
-  root.className = "flex flex-col gap-4";
+  root.className = "grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_12rem] gap-4 items-start";
+
+  const contentCol = document.createElement("div");
+  contentCol.className = "flex flex-col gap-4 min-w-0";
+
+  const anchorPrefix = makeAnchorId(`sheet-${safeText(actor?._id || actor?.name || "actor")}`, "root");
+  const quickLinks = [];
 
   // hero
   const hero = document.createElement("div");
   hero.className = "rounded-3xl bg-white/5 border border-white/10 p-4 md:p-5";
+  const overviewId = makeAnchorId(anchorPrefix, "Overview");
+  hero.id = overviewId;
   hero.innerHTML = `
     <div class="flex gap-4 items-start">
       <img src="${actorImageUrl(payload, actor)}" class="h-20 w-20 rounded-3xl object-cover border border-white/10" />
@@ -1394,7 +1465,8 @@ function renderDnd5e(payload) {
   const align = sys?.details?.alignment;
   [race, bg, align].filter(Boolean).forEach(x => pills.appendChild(pill(x)));
 
-  root.appendChild(hero);
+  contentCol.appendChild(hero);
+  quickLinks.push({ label: "Overview", id: overviewId });
 
   const abilities = getAbilities(actor);
   const abilityRows = [
@@ -1405,7 +1477,9 @@ function renderDnd5e(payload) {
     ["WIS", `${abilities.wis.score} (${fmtSigned(abilities.wis.mod)})`],
     ["CHA", `${abilities.cha.score} (${fmtSigned(abilities.cha.mod)})`],
   ];
-  root.appendChild(section("Abilities", kvGrid(abilityRows)));
+  const abilitiesId = makeAnchorId(anchorPrefix, "Abilities");
+  contentCol.appendChild(section("Abilities", kvGrid(abilityRows), abilitiesId));
+  quickLinks.push({ label: "Abilities", id: abilitiesId });
 
   const attr = sys?.attributes || {};
   const movement = computeMovement(actor);
@@ -1428,11 +1502,18 @@ function renderDnd5e(payload) {
     ["Senses", formatSenses(senses, attr?.senses?.special)],
     ["Passive Perception", passiveSkill(actor, "prc")],
   ];
-  root.appendChild(section("Combat", kvGrid(combatRows)));
+  const combatId = makeAnchorId(anchorPrefix, "Combat");
+  contentCol.appendChild(section("Combat", kvGrid(combatRows), combatId));
+  quickLinks.push({ label: "Combat", id: combatId });
 
   // skills
-  root.appendChild(section("Skills", renderSkillsGrid(actor)));
-  root.appendChild(section("Active Effects", renderActiveEffects(actor)));
+  const skillsId = makeAnchorId(anchorPrefix, "Skills");
+  contentCol.appendChild(section("Skills", renderSkillsGrid(actor), skillsId));
+  quickLinks.push({ label: "Skills", id: skillsId });
+
+  const effectsId = makeAnchorId(anchorPrefix, "Active Effects");
+  contentCol.appendChild(section("Active Effects", renderActiveEffects(actor), effectsId));
+  quickLinks.push({ label: "Effects", id: effectsId });
 
   // items
   const items = actor?.items || [];
@@ -1455,16 +1536,29 @@ function renderDnd5e(payload) {
     .filter(i => gearTypes.has(i?.type))
     .sort((a,b)=> safeText(a.name).localeCompare(safeText(b.name)));
 
-  root.appendChild(section("Spells", renderSpellsSection(actor, spells)));
-  root.appendChild(section("Features", feats.length ? listCards(feats) : document.createTextNode("No features exported.")));
-  root.appendChild(section("Inventory", gear.length ? renderInventoryWithSearch(gear) : document.createTextNode("No inventory exported.")));
+  const spellsId = makeAnchorId(anchorPrefix, "Spells");
+  contentCol.appendChild(section("Spells", renderSpellsSection(actor, spells), spellsId));
+  quickLinks.push({ label: "Spells", id: spellsId });
+
+  const featuresId = makeAnchorId(anchorPrefix, "Features");
+  contentCol.appendChild(section("Features", feats.length ? listCards(feats) : document.createTextNode("No features exported."), featuresId));
+  quickLinks.push({ label: "Features", id: featuresId });
+
+  const inventoryId = makeAnchorId(anchorPrefix, "Inventory");
+  contentCol.appendChild(section("Inventory", gear.length ? renderInventoryWithSearch(gear) : document.createTextNode("No inventory exported."), inventoryId));
+  quickLinks.push({ label: "Inventory", id: inventoryId });
 
   // notes
   const bio = sys?.details?.biography?.value || sys?.details?.biography || "";
   const notes = document.createElement("div");
   notes.className = "prose prose-invert max-w-none text-slate-200/90";
   notes.innerHTML = bio || "<em>No biography exported.</em>";
-  root.appendChild(section("Biography", notes));
+  const biographyId = makeAnchorId(anchorPrefix, "Biography");
+  contentCol.appendChild(section("Biography", notes, biographyId));
+  quickLinks.push({ label: "Biography", id: biographyId });
+
+  root.appendChild(contentCol);
+  root.appendChild(quickAccessNav(quickLinks));
 
   return root;
 }
