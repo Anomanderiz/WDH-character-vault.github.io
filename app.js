@@ -263,7 +263,7 @@ function getACArmorParts(actor) {
 }
 
 // Safe-ish evaluation for Foundry-style formulas after token substitution.
-// Supports min/max/floor/ceil/round.
+// Supports min/max/floor/ceil/round. Any leftover @tokens become 0 (so custom AC never silently "disappears").
 function evalFormula(formula, ctx) {
   let expr = safeText(formula).trim();
   if (!expr) return null;
@@ -271,11 +271,10 @@ function evalFormula(formula, ctx) {
   // Replace the longest tokens first to avoid accidental partial overlaps.
   const keys = Object.keys(ctx).sort((a, b) => b.length - a.length);
   for (const k of keys) {
-    const v = Number(ctx[k]);
-    expr = expr.split(k).join(String(Number.isFinite(v) ? v : 0));
+    expr = expr.split(k).join(String(Number(ctx[k] ?? 0)));
   }
 
-  // Any leftover Foundry roll-data tokens become 0 rather than breaking evaluation.
+  // Any leftover Foundry @paths we don't recognise – treat as 0 rather than failing.
   expr = expr.replace(/@[A-Za-z0-9_.]+/g, "0");
 
   // Normalise common helpers.
@@ -284,18 +283,19 @@ function evalFormula(formula, ctx) {
     .replace(/\bmax\s*\(/gi, "Math.max(")
     .replace(/\bfloor\s*\(/gi, "Math.floor(")
     .replace(/\bceil\s*\(/gi, "Math.ceil(")
-    .replace(/\bround\s*\(/gi, "Math.round(")
-    .replace(/\babs\s*\(/gi, "Math.abs(");
+    .replace(/\bround\s*\(/gi, "Math.round(");
 
-  // Defang common non-numbers that can leak in from missing data.
-  expr = expr.replace(/\b(undefined|null|NaN)\b/g, "0");
+  // If any non-finite placeholders crept in, zero them out.
+  expr = expr.replace(/\bundefined\b|\bnull\b|\bNaN\b/gi, "0");
 
   // Reject anything that looks like code injection.
-  if (/[;{}\[\]=:'"\\<>?`]/.test(expr)) return null;
+  if (/[;{}[\]=:'"\\<>?`]/.test(expr)) return null;
+  // Also reject keywords that could be abused even without punctuation.
+  if (/\b(Function|eval|constructor|globalThis|window|document|process|require)\b/.test(expr)) return null;
 
-  // Only allow Math + a small set of helpers as identifiers.
+  // Only allow identifiers we explicitly tolerate.
   const ids = expr.match(/[A-Za-z_][A-Za-z0-9_]*/g) || [];
-  const ok = new Set(["Math", "min", "max", "floor", "ceil", "round", "abs"]);
+  const ok = new Set(["Math", "min", "max", "floor", "ceil", "round"]);
   for (const id of ids) {
     if (!ok.has(id)) return null;
   }
@@ -309,6 +309,7 @@ function evalFormula(formula, ctx) {
     return null;
   }
 }
+
 
 function computeAC(actor) {
   const sys = actor?.system || {};
@@ -351,7 +352,8 @@ function computeAC(actor) {
   const pb = getProfBonus(actor);
 
   // 1) Custom formula gets first bite of the apple.
-  if (norm(ac?.calc) === "custom" && typeof ac?.formula === "string" && ac.formula.trim()) {
+  // Some exports keep formula populated even when calc isn't strictly "custom" – if a formula exists, we honour it.
+  if (typeof ac?.formula === "string" && ac.formula.trim()) {
     const ctx = {
       "@attributes.ac.armor": armorToken,
       "@attributes.ac.base": baseToken,
