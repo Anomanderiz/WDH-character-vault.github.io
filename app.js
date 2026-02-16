@@ -195,7 +195,7 @@ function makeAnchorId(prefix, label) {
 
 function quickAccessNav(items) {
   const nav = document.createElement("nav");
-  nav.className = "fixed right-3 bottom-3 z-30 xl:sticky xl:top-4 xl:self-start flex flex-col gap-2 rounded-2xl bg-slate-950/75 border border-white/10 p-2 shadow-soft";
+  nav.className = "order-first xl:order-last sticky top-3 z-30 xl:top-4 xl:self-start w-full xl:w-auto flex flex-col gap-2 rounded-2xl bg-slate-950/75 border border-white/10 p-2 shadow-soft";
   nav.setAttribute("aria-label", "Quick section access");
   nav.dataset.expanded = "0";
 
@@ -1435,7 +1435,7 @@ function renderDnd5e(payload) {
   root.className = "grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_12rem] gap-4 items-start";
 
   const contentCol = document.createElement("div");
-  contentCol.className = "flex flex-col gap-4 min-w-0";
+  contentCol.className = "order-last xl:order-first flex flex-col gap-4 min-w-0";
 
   const anchorPrefix = makeAnchorId(`sheet-${safeText(actor?._id || actor?.name || "actor")}`, "root");
   const quickLinks = [];
