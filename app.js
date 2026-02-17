@@ -26,6 +26,15 @@ let selectedId = null;
 function safeText(s) { return (s ?? "").toString(); }
 function norm(s) { return safeText(s).toLowerCase().trim(); }
 function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
+const ABILITY_SHORT = { str: "STR", dex: "DEX", con: "CON", int: "INT", wis: "WIS", cha: "CHA" };
+const ABILITY_LONG = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
+const INLINE_CHECK_LABELS = {
+  acr: "Acrobatics", ani: "Animal Handling", arc: "Arcana", ath: "Athletics",
+  dec: "Deception", his: "History", ins: "Insight", itm: "Intimidation",
+  inv: "Investigation", med: "Medicine", nat: "Nature", prc: "Perception",
+  prf: "Performance", per: "Persuasion", rel: "Religion", sle: "Sleight of Hand",
+  slt: "Sleight of Hand", ste: "Stealth", sur: "Survival"
+};
 
 function fmtSigned(n) {
   const x = Number(n ?? 0);
@@ -275,6 +284,65 @@ function itemDescriptionHtml(item) {
   return "";
 }
 
+function descriptionCheckLabel(codeRaw) {
+  const code = norm(codeRaw);
+  if (!code) return "Check";
+  if (INLINE_CHECK_LABELS[code]) return `${INLINE_CHECK_LABELS[code]} Check`;
+  if (ABILITY_SHORT[code]) return `${ABILITY_SHORT[code]} Check`;
+  if (ABILITY_LONG[code]) return `${ABILITY_LONG[code]} Check`;
+  return `${safeText(codeRaw).toUpperCase()} Check`;
+}
+
+function parseInlineCommandText(commandRaw, argsRaw) {
+  const command = norm(commandRaw);
+  const args = safeText(argsRaw).trim();
+  if (!command) return safeText(argsRaw).trim();
+
+  if (command === "save") {
+    const ability = (args.match(/\b(str|dex|con|int|wis|cha)\b/i) || [])[1];
+    if (!ability) return "Saving Throw";
+    return `${ABILITY_SHORT[ability.toLowerCase()] || ability.toUpperCase()} Saving Throw`;
+  }
+
+  if (command === "check") {
+    const key = (args.match(/\b([a-z]{3})\b/i) || [])[1];
+    return descriptionCheckLabel(key || args);
+  }
+
+  if (command === "damage") {
+    const amount = (args.match(/^([^\s\]]+)/) || [])[1] || "";
+    const type = (args.match(/\btype=([a-z-]+)/i) || [])[1];
+    if (type) {
+      const t = type.toLowerCase();
+      if (t === "heal" || t === "healing") return `${amount} healing`.trim();
+      return `${amount} ${titleCaseWords(t.replace(/-/g, " "))} damage`.trim();
+    }
+    return `${amount} damage`.trim();
+  }
+
+  return args || commandRaw;
+}
+
+function normaliseDescriptionMarkup(html) {
+  let out = safeText(html);
+  if (!out.trim()) return "";
+
+  out = out.replace(/\[\[\/([a-z]+)\s*([^\]]*)\]\]/gi, (_, command, args) => parseInlineCommandText(command, args));
+  out = out.replace(/(?:&amp;|&)Reference\[[^\]]+\]\{([^}]*)\}/gi, (_, label) => safeText(label).trim());
+  out = out.replace(/@UUID\[([^\]]+)\](?:\{([^}]*)\})?/gi, (_, path, label) => {
+    const explicit = safeText(label).trim();
+    if (explicit) return explicit;
+    const raw = safeText(path);
+    const tail = raw.split(".").pop() || "";
+    return safeText(tail).replace(/[-_]+/g, " ").trim();
+  });
+  out = out.replace(/@Embed\[[^\]]+\]/gi, "");
+  out = out.replace(/@[A-Za-z]+\[[^\]]+\](?:\{([^}]*)\})?/g, (_, label) => safeText(label).trim());
+  out = out.replace(/\s{2,}/g, " ");
+
+  return out.trim();
+}
+
 function listCards(items, subtitleFn, options = {}) {
   const wrap = document.createElement("div");
   wrap.className = "grid grid-cols-1 md:grid-cols-2 gap-2";
@@ -310,7 +378,7 @@ function listCards(items, subtitleFn, options = {}) {
       </div>
     `;
 
-    const rawDescription = safeText(descriptionFn(it)).trim();
+    const rawDescription = normaliseDescriptionMarkup(descriptionFn(it));
     const hasDescription = htmlTextContent(rawDescription).length > 0;
 
     const body = document.createElement("div");
@@ -1281,6 +1349,106 @@ function spellLevelNumber(spell) {
   return clamp(Math.floor(lvl), 0, 9);
 }
 
+function spellSaveDC(actor) {
+  const sys = actor?.system || {};
+  const abilityKeys = ["str", "dex", "con", "int", "wis", "cha"];
+  const baseAbilities = getAbilities(actor);
+  const abilityScores = {};
+  const abilityMods = {};
+  for (const k of abilityKeys) {
+    abilityScores[k] = Number(baseAbilities?.[k]?.score ?? 0);
+    abilityMods[k] = Number(baseAbilities?.[k]?.mod ?? 0);
+  }
+
+  let pb = getProfBonus(actor);
+  const spellcastingKey = norm(sys?.attributes?.spellcasting);
+
+  let baseDirect = tryNum(sys?.attributes?.spelldc);
+  if (!Number.isFinite(baseDirect)) baseDirect = tryNum(sys?.attributes?.spell?.dc);
+
+  const baseBonus = parseBonusString(sys?.bonuses?.spell?.dc);
+  let bonus = baseBonus;
+
+  const effectCtx = () => {
+    const ctx = {
+      "@prof": pb,
+      "@attributes.prof": pb
+    };
+    for (const k of abilityKeys) {
+      ctx[`@abilities.${k}.mod`] = Number(abilityMods[k] ?? 0);
+      ctx[`@abilities.${k}.value`] = Number(abilityScores[k] ?? 0);
+    }
+    return ctx;
+  };
+
+  const effectNumber = (raw) => {
+    const direct = tryNum(raw);
+    if (Number.isFinite(direct)) return direct;
+    const formula = safeText(raw).trim();
+    if (!formula) return null;
+    const computed = evalFormula(formula, effectCtx());
+    return Number.isFinite(computed) ? computed : null;
+  };
+
+  const directOps = [];
+  const effects = getAllEffects(actor);
+  for (const ef of effects) {
+    const changes = ef?.changes || [];
+    for (const ch of changes) {
+      const key = safeText(ch?.key).toLowerCase();
+      const mode = Number(ch?.mode ?? MODE_CUSTOM);
+      const val = effectNumber(ch?.value);
+      if (!Number.isFinite(val)) continue;
+
+      const abilityMatch = key.match(/^system\.abilities\.(str|dex|con|int|wis|cha)\.(value|mod)$/);
+      if (abilityMatch) {
+        const ab = abilityMatch[1];
+        const field = abilityMatch[2];
+        if (field === "value") {
+          const oldScore = Number(abilityScores[ab] ?? 0);
+          const oldDerived = abilityMod(oldScore);
+          const newScore = applyNumericEffectMode(oldScore, val, mode);
+          abilityScores[ab] = newScore;
+          const newDerived = abilityMod(newScore);
+          abilityMods[ab] = Number(abilityMods[ab] ?? 0) + (newDerived - oldDerived);
+        } else {
+          abilityMods[ab] = applyNumericEffectMode(Number(abilityMods[ab] ?? 0), val, mode);
+        }
+        continue;
+      }
+
+      if (key === "system.attributes.prof" || key === "system.attributes.proficiency") {
+        pb = applyNumericEffectMode(pb, val, mode);
+        continue;
+      }
+
+      if (key === "system.bonuses.spell.dc") {
+        bonus = applyNumericEffectMode(bonus, val, mode);
+        continue;
+      }
+
+      if (key === "system.attributes.spelldc" || key === "system.attributes.spell.dc") {
+        directOps.push({ mode, val });
+      }
+    }
+  }
+
+  let dc = null;
+  if (Number.isFinite(baseDirect)) {
+    // Keep explicit snapshot DC as base, then layer effect-driven spell DC bonus deltas.
+    dc = baseDirect + (bonus - baseBonus);
+  } else {
+    const mod = abilityMods?.[spellcastingKey];
+    if (Number.isFinite(mod)) dc = 8 + pb + mod + bonus;
+  }
+
+  if (!Number.isFinite(dc)) return null;
+  for (const op of directOps) {
+    dc = applyNumericEffectMode(dc, op.val, op.mode);
+  }
+  return Math.round(dc);
+}
+
 function renderInventoryWithSearch(gear) {
   const wrap = document.createElement("div");
   wrap.className = "space-y-3";
@@ -1694,7 +1862,9 @@ function renderDnd5e(payload) {
     .sort((a,b)=> safeText(a.name).localeCompare(safeText(b.name)));
 
   const spellsId = makeAnchorId(anchorPrefix, "Spells");
-  contentCol.appendChild(section("Spells", renderSpellsSection(actor, spells), spellsId));
+  const dc = spellSaveDC(actor);
+  const spellsTitle = Number.isFinite(dc) ? `Spells (Spell Save DC ${dc})` : "Spells";
+  contentCol.appendChild(section(spellsTitle, renderSpellsSection(actor, spells), spellsId));
   quickLinks.push({ label: "Spells", id: spellsId });
 
   const featuresId = makeAnchorId(anchorPrefix, "Features");
@@ -1707,9 +1877,10 @@ function renderDnd5e(payload) {
 
   // notes
   const bio = sys?.details?.biography?.value || sys?.details?.biography || "";
+  const cleanBio = normaliseDescriptionMarkup(bio);
   const notes = document.createElement("div");
   notes.className = "prose prose-invert max-w-none text-slate-200/90";
-  notes.innerHTML = bio || "<em>No biography exported.</em>";
+  notes.innerHTML = cleanBio || "<em>No biography exported.</em>";
   const biographyId = makeAnchorId(anchorPrefix, "Biography");
   contentCol.appendChild(section("Biography", notes, biographyId));
   quickLinks.push({ label: "Biography", id: biographyId });
