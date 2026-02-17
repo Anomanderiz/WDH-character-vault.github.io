@@ -2035,6 +2035,110 @@ function spellPreparedTag(spell) {
   return "Not prepared";
 }
 
+function itemRequiresAttunement(item) {
+  const raw = item?.system?.attunement;
+  if (typeof raw === "boolean") return raw;
+  const key = norm(raw);
+  return key === "required" || key === "optional" || key === "yes" || key === "true";
+}
+
+function itemIsAttuned(item) {
+  if (item?.system?.attuned === true) return true;
+  const raw = item?.system?.attuned;
+  if (typeof raw === "number") return raw > 0;
+  const key = norm(raw);
+  return key === "yes" || key === "true" || key === "on";
+}
+
+function collectAttunementState(actor) {
+  const maxRaw = tryNum(actor?.system?.attributes?.attunement?.max);
+  const max = Math.max(0, Math.floor(Number.isFinite(maxRaw) ? maxRaw : 3));
+
+  const items = actor?.items || [];
+  const attunedItems = items.filter((it) => itemIsAttuned(it));
+
+  return {
+    max,
+    used: attunedItems.length,
+    attunedItems
+  };
+}
+
+function attunementPipNode(filled, idx) {
+  const pip = document.createElement("span");
+  pip.className = "relative inline-flex h-6 w-6 items-center justify-center";
+  const hue = 346 + ((idx % 3) * 8);
+
+  if (filled) {
+    pip.innerHTML = `
+      <span class="absolute inset-0 rounded-full border border-rose-100/85" style="background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.96), hsla(${hue}, 98%, 67%, 0.95) 45%, hsla(${hue + 8}, 90%, 48%, 0.95) 75%); box-shadow: 0 0 0 1px rgba(255,255,255,0.35), 0 0 12px hsla(${hue}, 100%, 66%, 0.95), inset 0 -1px 3px rgba(0,0,0,0.4);"></span>
+      <span class="relative h-1.5 w-1.5 rounded-full bg-white/90 shadow-[0_0_8px_rgba(255,255,255,0.9)]"></span>
+    `;
+  } else {
+    pip.innerHTML = `
+      <span class="absolute inset-0 rounded-full border border-rose-200/35 bg-slate-950/45" style="box-shadow: inset 0 0 0 1px rgba(148,163,184,0.2);"></span>
+      <span class="relative h-1.5 w-1.5 rounded-full bg-rose-100/20"></span>
+    `;
+  }
+  return pip;
+}
+
+function renderAttunementSummary(actor) {
+  const state = collectAttunementState(actor);
+  const wrap = document.createElement("div");
+  wrap.className = "space-y-3";
+
+  const pipsCard = document.createElement("div");
+  pipsCard.className = "rounded-2xl border border-rose-200/25 bg-gradient-to-br from-rose-950/40 via-pink-950/25 to-amber-950/20 p-3";
+
+  const title = document.createElement("div");
+  title.className = "flex items-center gap-2";
+  title.innerHTML = `
+    <span class="text-xs uppercase tracking-wide text-rose-200/90">Attunement Slots</span>
+    <span class="ml-auto text-xs font-semibold text-rose-100">${state.used}/${state.max}</span>
+  `;
+  pipsCard.appendChild(title);
+
+  const pips = document.createElement("div");
+  pips.className = "mt-2 flex flex-wrap gap-2";
+  for (let i = 0; i < state.max; i++) {
+    pips.appendChild(attunementPipNode(i < state.used, i));
+  }
+  pipsCard.appendChild(pips);
+  wrap.appendChild(pipsCard);
+
+  const slots = document.createElement("div");
+  slots.className = "grid grid-cols-1 md:grid-cols-2 gap-2";
+  for (let i = 0; i < state.max; i++) {
+    const item = state.attunedItems[i];
+    const row = document.createElement("div");
+    row.className = "rounded-xl border border-white/10 bg-slate-950/40 px-3 py-2";
+    row.innerHTML = `
+      <div class="text-[11px] uppercase tracking-wide text-slate-400">Slot ${i + 1}</div>
+      <div class="text-sm ${item ? "text-rose-100" : "text-slate-300"}">${escapeHtml(item?.name || "Empty")}</div>
+    `;
+    slots.appendChild(row);
+  }
+
+  if (state.max <= 0) {
+    const empty = document.createElement("div");
+    empty.className = "text-sm text-slate-300";
+    empty.textContent = "No attunement slots exported.";
+    wrap.appendChild(empty);
+  } else {
+    wrap.appendChild(slots);
+  }
+
+  if (state.used > state.max) {
+    const overflow = document.createElement("div");
+    overflow.className = "text-xs text-rose-200";
+    overflow.textContent = `${state.used - state.max} attuned item(s) exceed visible slot capacity.`;
+    wrap.appendChild(overflow);
+  }
+
+  return wrap;
+}
+
 function spellLevelNumber(spell) {
   const lvl = tryNum(spell?.system?.level);
   if (!Number.isFinite(lvl)) return 0;
@@ -2076,6 +2180,17 @@ function concentrationBadgeHtml() {
       <span class="relative inline-flex h-4 w-4 items-center justify-center">
         <span class="absolute h-3 w-3 rotate-45 rounded-[2px] border border-cyan-200/80 bg-cyan-500/35"></span>
         <span class="relative h-1.5 w-1.5 rounded-full bg-cyan-100"></span>
+      </span>
+    </span>
+  `;
+}
+
+function attunementRequiredBadgeHtml() {
+  return `
+    <span class="inline-flex h-5 w-5 items-center justify-center align-middle" title="Requires attunement">
+      <span class="relative inline-flex h-4 w-4 items-center justify-center">
+        <span class="absolute h-3 w-3 rotate-45 rounded-[2px] border border-rose-200/85 bg-rose-500/40"></span>
+        <span class="relative h-1.5 w-1.5 rounded-full bg-rose-100"></span>
       </span>
     </span>
   `;
@@ -2355,8 +2470,13 @@ function renderInventoryWithSearch(gear) {
     listWrap.appendChild(listCards(filtered, (g) => {
       const qty = tryNum(g?.system?.quantity) ?? 1;
       const eq = g?.system?.equipped ? "equipped" : "";
-      const att = g?.system?.attunement ? "attunement" : "";
+      const att = itemRequiresAttunement(g)
+        ? (itemIsAttuned(g) ? "attuned" : "requires attunement")
+        : "";
       return [`qty ${qty}`, eq, att].filter(Boolean).join(" • ");
+    }, {
+      descriptionFn: itemDescriptionHtml,
+      headerBadgeFn: (g) => (itemRequiresAttunement(g) ? attunementRequiredBadgeHtml() : "")
     }));
   };
 
@@ -2766,6 +2886,10 @@ function renderDnd5e(payload) {
   const featuresId = makeAnchorId(anchorPrefix, "Features");
   contentCol.appendChild(section("Features", feats.length ? listCards(feats) : document.createTextNode("No features exported."), featuresId));
   quickLinks.push({ label: "Features", id: featuresId });
+
+  const attunementId = makeAnchorId(anchorPrefix, "Attunement");
+  contentCol.appendChild(section("Attunement", renderAttunementSummary(actor), attunementId));
+  quickLinks.push({ label: "Attunement", id: attunementId });
 
   const inventoryId = makeAnchorId(anchorPrefix, "Inventory");
   contentCol.appendChild(section("Inventory", gear.length ? renderInventoryWithSearch(gear) : document.createTextNode("No inventory exported."), inventoryId));
