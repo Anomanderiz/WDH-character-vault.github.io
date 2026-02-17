@@ -64,6 +64,16 @@ function parseBonusString(x) {
   return Number.isFinite(n) ? n : 0;
 }
 
+function hasNumericDelta(n) {
+  return Number.isFinite(Number(n)) && Math.abs(Number(n)) > 1e-9;
+}
+
+function highlightAugmentedHtml(content, augmented) {
+  const html = safeText(content);
+  if (!augmented) return html;
+  return `<span class="text-amber-300 font-semibold">${html}</span>`;
+}
+
 function guessSystem(payload) {
   return payload?.systemId || payload?.actor?.system?.id || payload?.actor?.systemId || "unknown";
 }
@@ -1051,6 +1061,33 @@ function computeAC(actor) {
   return Math.round(armorToken + shieldToken + dexToken + bonusToken);
 }
 
+function acIsAugmented(actor) {
+  const sys = actor?.system || {};
+  const ac = sys?.attributes?.ac || {};
+  const adj = extractACAdjustments(actor);
+
+  if (hasNumericDelta(parseBonusString(ac?.bonus))) return true;
+
+  const addKeys = ["valueAdd", "bonusAdd", "armorAdd", "baseAdd", "dexAdd", "shieldAdd"];
+  for (const k of addKeys) {
+    if (hasNumericDelta(adj?.[k])) return true;
+  }
+
+  const overrideKeys = ["valueOverride", "flatOverride", "bonusOverride", "armorOverride", "baseOverride", "dexOverride", "shieldOverride"];
+  for (const k of overrideKeys) {
+    if (Number.isFinite(adj?.[k])) return true;
+  }
+
+  const items = actor?.items || [];
+  for (const it of items) {
+    if (it?.type !== "equipment" || !isEquipped(it)) continue;
+    const magical = tryNum(it?.system?.armor?.magicalBonus) ?? tryNum(it?.system?.magicalBonus);
+    if (hasNumericDelta(magical)) return true;
+  }
+
+  return false;
+}
+
 // ----------------------------
 // dnd5e display + filtering
 // ----------------------------
@@ -1062,6 +1099,14 @@ const SKILL_LABELS = {
   ste: "Stealth", sur: "Survival"
 };
 const SAVE_KEYS = ["str", "dex", "con", "int", "wis", "cha"];
+const SKILL_ABILITY_FALLBACK = {
+  acr: "dex", ani: "wis", arc: "int", ath: "str", dec: "cha", his: "int", ins: "wis", itm: "cha",
+  inv: "int", med: "wis", nat: "int", prc: "wis", prf: "cha", per: "cha", rel: "int", sle: "dex", ste: "dex", sur: "wis"
+};
+
+function skillAbilityKey(actor, key) {
+  return actor?.system?.skills?.[key]?.ability || SKILL_ABILITY_FALLBACK[key] || "wis";
+}
 
 function collectSkillRollModes(actor) {
   const keys = Object.keys(SKILL_LABELS);
@@ -1123,9 +1168,16 @@ function skillModeBadge(mode) {
 
 function renderSkillsGrid(actor) {
   const modeBySkill = collectSkillRollModes(actor);
+  const bonuses = collectCheckSaveBonuses(actor);
   const rows = Object.keys(SKILL_LABELS).map((k) => {
     const badge = skillModeBadge(modeBySkill[k] || 0);
-    const val = `${fmtSigned(skillBonus(actor, k))}${badge ? ` ${badge}` : ""}`;
+    const abilityKey = skillAbilityKey(actor, k);
+    const misc =
+      (bonuses?.skillCheck?.[k] ?? 0) +
+      (bonuses?.abilityCheck?.[abilityKey] ?? 0) +
+      (bonuses?.globalCheck ?? 0);
+    const rawVal = `${fmtSigned(skillBonus(actor, k))}${badge ? ` ${badge}` : ""}`;
+    const val = highlightAugmentedHtml(rawVal, hasNumericDelta(misc));
     return [SKILL_LABELS[k], val];
   });
   return kvGrid(rows);
@@ -1225,6 +1277,88 @@ function proficiencyMultiplier(value) {
   return val;
 }
 
+const checkSaveBonusCache = new WeakMap();
+
+function collectCheckSaveBonuses(actor) {
+  if (actor && checkSaveBonusCache.has(actor)) return checkSaveBonusCache.get(actor);
+
+  const sys = actor?.system || {};
+  const out = {
+    globalCheck: parseBonusString(sys?.bonuses?.abilities?.check),
+    globalSave: parseBonusString(sys?.bonuses?.abilities?.save),
+    abilityCheck: {},
+    abilitySave: {},
+    skillCheck: {}
+  };
+
+  for (const ab of SAVE_KEYS) {
+    out.abilityCheck[ab] = parseBonusString(sys?.abilities?.[ab]?.bonuses?.check);
+    out.abilitySave[ab] = parseBonusString(sys?.abilities?.[ab]?.bonuses?.save);
+  }
+
+  const skillKeys = new Set([...Object.keys(SKILL_LABELS), ...Object.keys(sys?.skills || {})]);
+  for (const sk of skillKeys) {
+    out.skillCheck[sk] = parseBonusString(sys?.skills?.[sk]?.bonuses?.check);
+  }
+
+  const effects = getAllEffects(actor);
+  for (const ef of effects) {
+    const changes = ef?.changes || [];
+    for (const ch of changes) {
+      const key = safeText(ch?.key).toLowerCase();
+      const mode = Number(ch?.mode ?? MODE_CUSTOM);
+      const val = tryNum(ch?.value);
+      if (!Number.isFinite(val)) continue;
+
+      if (key === "system.bonuses.abilities.check") {
+        out.globalCheck = applyNumericEffectMode(out.globalCheck, val, mode);
+        continue;
+      }
+      if (key === "system.bonuses.abilities.save") {
+        out.globalSave = applyNumericEffectMode(out.globalSave, val, mode);
+        continue;
+      }
+
+      const abilityBonus = key.match(/^system\.abilities\.(str|dex|con|int|wis|cha)\.bonuses\.(check|save)$/);
+      if (abilityBonus) {
+        const ab = abilityBonus[1];
+        if (abilityBonus[2] === "check") {
+          out.abilityCheck[ab] = applyNumericEffectMode(out.abilityCheck[ab], val, mode);
+        } else {
+          out.abilitySave[ab] = applyNumericEffectMode(out.abilitySave[ab], val, mode);
+        }
+        continue;
+      }
+
+      const skillBonus = key.match(/^system\.skills\.([a-z]{3})\.bonuses\.check$/);
+      if (skillBonus) {
+        const sk = skillBonus[1];
+        const curr = Number.isFinite(out.skillCheck[sk]) ? out.skillCheck[sk] : 0;
+        out.skillCheck[sk] = applyNumericEffectMode(curr, val, mode);
+      }
+    }
+  }
+
+  if (actor) checkSaveBonusCache.set(actor, out);
+  return out;
+}
+
+function saveIsAugmented(actor, abilityKey) {
+  const bonuses = collectCheckSaveBonuses(actor);
+  const misc = (bonuses?.abilitySave?.[abilityKey] ?? 0) + (bonuses?.globalSave ?? 0);
+  return hasNumericDelta(misc);
+}
+
+function skillIsAugmented(actor, skillKey) {
+  const bonuses = collectCheckSaveBonuses(actor);
+  const abilityKey = skillAbilityKey(actor, skillKey);
+  const misc =
+    (bonuses?.skillCheck?.[skillKey] ?? 0) +
+    (bonuses?.abilityCheck?.[abilityKey] ?? 0) +
+    (bonuses?.globalCheck ?? 0);
+  return hasNumericDelta(misc);
+}
+
 function saveProficiencyPip(value) {
   if (proficiencyMultiplier(value) <= 0) return "";
   return `<span class="inline-flex h-5 w-5 items-center justify-center rounded-full border border-amber-200/70 bg-amber-400/85 text-[11px] font-bold text-slate-900 align-middle" title="Saving throw proficiency">&#9679;</span>`;
@@ -1234,10 +1368,11 @@ function savingThrowBonus(actor, abilityKey) {
   const sys = actor?.system || {};
   const abilities = getAbilities(actor);
   const pb = getProfBonus(actor);
+  const checkSaveBonuses = collectCheckSaveBonuses(actor);
 
   const ab = sys?.abilities?.[abilityKey] || {};
   const prof = proficiencyMultiplier(ab?.proficient);
-  const misc = parseBonusString(ab?.bonuses?.save) + parseBonusString(sys?.bonuses?.abilities?.save);
+  const misc = (checkSaveBonuses?.abilitySave?.[abilityKey] ?? 0) + (checkSaveBonuses?.globalSave ?? 0);
   const abilityModValue = abilities?.[abilityKey]?.mod ?? 0;
 
   return abilityModValue + (pb * prof) + misc;
@@ -1252,7 +1387,8 @@ function renderSavesGrid(actor) {
     const label = `${safeText(abilities?.[k]?.label || k.toUpperCase())} Save`;
     const profPip = saveProficiencyPip(sysAbilities?.[k]?.proficient);
     const badge = skillModeBadge(modeBySave[k] || 0);
-    const value = `${fmtSigned(savingThrowBonus(actor, k))}${profPip ? ` ${profPip}` : ""}${badge ? ` ${badge}` : ""}`;
+    const rawValue = `${fmtSigned(savingThrowBonus(actor, k))}${profPip ? ` ${profPip}` : ""}${badge ? ` ${badge}` : ""}`;
+    const value = highlightAugmentedHtml(rawValue, saveIsAugmented(actor, k));
     return [label, value];
   });
 
@@ -1263,16 +1399,17 @@ function skillBonus(actor, key) {
   const sys = actor?.system || {};
   const abilities = getAbilities(actor);
   const pb = getProfBonus(actor);
+  const checkSaveBonuses = collectCheckSaveBonuses(actor);
 
   const sk = sys?.skills?.[key] || {};
-  const abilityKey = sk?.ability || ({
-    acr:"dex", ani:"wis", arc:"int", ath:"str", dec:"cha", his:"int", ins:"wis", itm:"cha",
-    inv:"int", med:"wis", nat:"int", prc:"wis", prf:"cha", per:"cha", rel:"int", sle:"dex", ste:"dex", sur:"wis"
-  }[key] || "wis");
+  const abilityKey = sk?.ability || skillAbilityKey(actor, key);
 
   const aMod = abilities?.[abilityKey]?.mod ?? 0;
   const profMult = proficiencyMultiplier(sk?.value); // 0 untrained, 0.5 half, 1 prof, 2 expertise
-  const misc = parseBonusString(sk?.bonuses?.check);
+  const misc =
+    (checkSaveBonuses?.skillCheck?.[key] ?? 0) +
+    (checkSaveBonuses?.abilityCheck?.[abilityKey] ?? 0) +
+    (checkSaveBonuses?.globalCheck ?? 0);
 
   return aMod + (pb * profMult) + misc;
 }
@@ -1539,7 +1676,7 @@ function spellDescriptionMetaHtml(spell) {
   `;
 }
 
-function spellSaveDC(actor) {
+function spellSaveDCInfo(actor) {
   const sys = actor?.system || {};
   const abilityKeys = ["str", "dex", "con", "int", "wis", "cha"];
   const baseAbilities = getAbilities(actor);
@@ -1558,6 +1695,7 @@ function spellSaveDC(actor) {
 
   const baseBonus = parseBonusString(sys?.bonuses?.spell?.dc);
   let bonus = baseBonus;
+  let augmented = hasNumericDelta(baseBonus);
 
   const effectCtx = () => {
     const ctx = {
@@ -1601,19 +1739,27 @@ function spellSaveDC(actor) {
           abilityScores[ab] = newScore;
           const newDerived = abilityMod(newScore);
           abilityMods[ab] = Number(abilityMods[ab] ?? 0) + (newDerived - oldDerived);
+          if (newScore !== oldScore || newDerived !== oldDerived) augmented = true;
         } else {
-          abilityMods[ab] = applyNumericEffectMode(Number(abilityMods[ab] ?? 0), val, mode);
+          const oldMod = Number(abilityMods[ab] ?? 0);
+          const newMod = applyNumericEffectMode(oldMod, val, mode);
+          abilityMods[ab] = newMod;
+          if (newMod !== oldMod) augmented = true;
         }
         continue;
       }
 
       if (key === "system.attributes.prof" || key === "system.attributes.proficiency") {
-        pb = applyNumericEffectMode(pb, val, mode);
+        const nextPb = applyNumericEffectMode(pb, val, mode);
+        if (nextPb !== pb) augmented = true;
+        pb = nextPb;
         continue;
       }
 
       if (key === "system.bonuses.spell.dc") {
-        bonus = applyNumericEffectMode(bonus, val, mode);
+        const nextBonus = applyNumericEffectMode(bonus, val, mode);
+        if (nextBonus !== bonus) augmented = true;
+        bonus = nextBonus;
         continue;
       }
 
@@ -1632,11 +1778,17 @@ function spellSaveDC(actor) {
     if (Number.isFinite(mod)) dc = 8 + pb + mod + bonus;
   }
 
-  if (!Number.isFinite(dc)) return null;
+  if (!Number.isFinite(dc)) return { value: null, augmented: false };
   for (const op of directOps) {
-    dc = applyNumericEffectMode(dc, op.val, op.mode);
+    const next = applyNumericEffectMode(dc, op.val, op.mode);
+    if (next !== dc) augmented = true;
+    dc = next;
   }
-  return Math.round(dc);
+  return { value: Math.round(dc), augmented };
+}
+
+function spellSaveDC(actor) {
+  return spellSaveDCInfo(actor).value;
 }
 
 function renderInventoryWithSearch(gear) {
@@ -2002,11 +2154,15 @@ function renderDnd5e(payload) {
   const tempHp = Math.max(0, Number(tryNum(hp?.temp) ?? 0));
   const pb = getProfBonus(actor);
   const acVal = computeAC(actor);
+  const acAugmented = acIsAugmented(actor);
   const initMode = collectInitiativeRollMode(actor);
   const initBadge = skillModeBadge(initMode);
+  const passivePerceptionValue = passiveSkill(actor, "prc");
+  const passivePerceptionAugmented =
+    skillIsAugmented(actor, "prc") || hasNumericDelta(parseBonusString(sys?.skills?.prc?.bonuses?.passive));
 
   const combatRows = [
-    ["Armour Class", acVal ?? "–"],
+    ["Armour Class", highlightAugmentedHtml(acVal ?? "–", acAugmented)],
     ["Hit Points", renderHitPointsValue(hp)],
     ["Hit Dice", renderHitDiceValue(actor)],
     ...(tempHp > 0 ? [["Temporary Hit Points", `+${tempHp}`]] : []),
@@ -2014,7 +2170,7 @@ function renderDnd5e(payload) {
     ["Proficiency Bonus", fmtSigned(pb)],
     ["Speed", formatMovement(movement)],
     ["Senses", formatSenses(senses, attr?.senses?.special)],
-    ["Passive Perception", passiveSkill(actor, "prc")],
+    ["Passive Perception", highlightAugmentedHtml(passivePerceptionValue, passivePerceptionAugmented)],
   ];
   const combatId = makeAnchorId(anchorPrefix, "Combat");
   contentCol.appendChild(section("Combat", kvGrid(combatRows), combatId));
@@ -2055,8 +2211,11 @@ function renderDnd5e(payload) {
     .sort((a,b)=> safeText(a.name).localeCompare(safeText(b.name)));
 
   const spellsId = makeAnchorId(anchorPrefix, "Spells");
-  const dc = spellSaveDC(actor);
-  const spellsTitle = Number.isFinite(dc) ? `Spells (Spell Save DC ${dc})` : "Spells";
+  const dcInfo = spellSaveDCInfo(actor);
+  const dc = dcInfo.value;
+  const spellsTitle = Number.isFinite(dc)
+    ? `Spells (Spell Save DC ${highlightAugmentedHtml(dc, dcInfo.augmented)})`
+    : "Spells";
   contentCol.appendChild(section(spellsTitle, renderSpellsSection(actor, spells), spellsId));
   quickLinks.push({ label: "Spells", id: spellsId });
 
@@ -2067,16 +2226,6 @@ function renderDnd5e(payload) {
   const inventoryId = makeAnchorId(anchorPrefix, "Inventory");
   contentCol.appendChild(section("Inventory", gear.length ? renderInventoryWithSearch(gear) : document.createTextNode("No inventory exported."), inventoryId));
   quickLinks.push({ label: "Inventory", id: inventoryId });
-
-  // notes
-  const bio = sys?.details?.biography?.value || sys?.details?.biography || "";
-  const cleanBio = normaliseDescriptionMarkup(bio);
-  const notes = document.createElement("div");
-  notes.className = "prose prose-invert max-w-none text-slate-200/90";
-  notes.innerHTML = cleanBio || "<em>No biography exported.</em>";
-  const biographyId = makeAnchorId(anchorPrefix, "Biography");
-  contentCol.appendChild(section("Biography", notes, biographyId));
-  quickLinks.push({ label: "Biography", id: biographyId });
 
   root.appendChild(contentCol);
   root.appendChild(quickAccessNav(quickLinks));
