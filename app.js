@@ -82,7 +82,7 @@ function actorFromPayload(payload) {
   return payload?.actor || payload?.data?.actor || payload?.document || payload;
 }
 
-const CRIT_COIN_STORAGE_PREFIX = "fcv.crit-coin.";
+const CRIT_COIN_STORAGE_PREFIX = "fcv.crit-coin.v2.";
 
 function actorHasInspiration(actor) {
   const direct = actor?.system?.attributes?.inspiration;
@@ -94,16 +94,34 @@ function actorHasInspiration(actor) {
 }
 
 function critCoinStorageKey(actor) {
-  const id = safeText(actor?._id || actor?.id || actor?.name || "unknown").trim() || "unknown";
+  // Prefer name-based keying so values survive exports where internal IDs can change.
+  const nameKey = wordsName(actor?.name);
+  if (nameKey) return `${CRIT_COIN_STORAGE_PREFIX}${nameKey}`;
+  const id = safeText(actor?._id || actor?.id || "unknown").trim() || "unknown";
   return `${CRIT_COIN_STORAGE_PREFIX}${id}`;
 }
 
+function legacyCritCoinStorageKey(actor) {
+  const id = safeText(actor?._id || actor?.id || actor?.name || "unknown").trim() || "unknown";
+  return `fcv.crit-coin.${id}`;
+}
+
 function readCritCoin(actor) {
+  const parseStoredValue = (raw) => {
+    const n = Math.floor(Number(raw));
+    return Number.isFinite(n) && n > 0 ? n : 0;
+  };
+
   const key = critCoinStorageKey(actor);
   try {
     const raw = localStorage.getItem(key);
-    const n = Math.floor(Number(raw));
-    return Number.isFinite(n) && n > 0 ? n : 0;
+    if (raw !== null) return parseStoredValue(raw);
+
+    // One-time compatibility read for older key format.
+    const legacyRaw = localStorage.getItem(legacyCritCoinStorageKey(actor));
+    const legacyVal = parseStoredValue(legacyRaw);
+    if (legacyVal > 0) localStorage.setItem(key, String(legacyVal));
+    return legacyVal;
   } catch {
     return 0;
   }
