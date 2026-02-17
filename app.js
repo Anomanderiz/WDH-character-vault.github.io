@@ -24,6 +24,14 @@ let selectedId = null;
 // small utils
 // ----------------------------
 function safeText(s) { return (s ?? "").toString(); }
+function escapeHtml(s) {
+  return safeText(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 function norm(s) { return safeText(s).toLowerCase().trim(); }
 function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
 const ABILITY_SHORT = { str: "STR", dex: "DEX", con: "CON", int: "INT", wis: "WIS", cha: "CHA" };
@@ -347,6 +355,8 @@ function listCards(items, subtitleFn, options = {}) {
   const wrap = document.createElement("div");
   wrap.className = "grid grid-cols-1 md:grid-cols-2 gap-2";
   const explicitDescriptionFn = typeof options?.descriptionFn === "function" ? options.descriptionFn : null;
+  const explicitHeaderBadgeFn = typeof options?.headerBadgeFn === "function" ? options.headerBadgeFn : null;
+  const explicitDescriptionMetaFn = typeof options?.descriptionMetaFn === "function" ? options.descriptionMetaFn : null;
 
   for (const it of items) {
     const card = document.createElement("div");
@@ -363,6 +373,7 @@ function listCards(items, subtitleFn, options = {}) {
     }
 
     card.className = "rounded-2xl bg-slate-950/40 border border-white/10 overflow-hidden";
+    const headerBadgeHtml = explicitHeaderBadgeFn ? safeText(explicitHeaderBadgeFn(it)).trim() : "";
 
     const header = document.createElement("button");
     header.type = "button";
@@ -374,16 +385,27 @@ function listCards(items, subtitleFn, options = {}) {
           ${sub ? `<div class="text-xs text-slate-400 mt-1">${sub}</div>` : ""}
           <div class="text-[11px] text-slate-500 mt-1">Click for description</div>
         </div>
-        <div class="shrink-0 text-xs text-slate-400" data-role="state">Show</div>
+        <div class="shrink-0 flex items-center gap-2">
+          ${headerBadgeHtml}
+          <div class="text-xs text-slate-400" data-role="state">Show</div>
+        </div>
       </div>
     `;
 
     const rawDescription = normaliseDescriptionMarkup(descriptionFn(it));
     const hasDescription = htmlTextContent(rawDescription).length > 0;
+    const descriptionMetaHtml = explicitDescriptionMetaFn ? safeText(explicitDescriptionMetaFn(it)).trim() : "";
 
     const body = document.createElement("div");
     body.className = "px-3 pb-3 border-t border-white/10";
     body.style.display = "none";
+
+    if (descriptionMetaHtml) {
+      const meta = document.createElement("div");
+      meta.className = "mb-3";
+      meta.innerHTML = descriptionMetaHtml;
+      body.appendChild(meta);
+    }
 
     const desc = document.createElement("div");
     desc.className = "prose prose-invert max-w-none text-slate-200/90 prose-sm";
@@ -1203,13 +1225,9 @@ function proficiencyMultiplier(value) {
   return val;
 }
 
-function saveProficiencyLabel(value) {
-  const prof = proficiencyMultiplier(value);
-  if (prof === 2) return "Expert";
-  if (prof === 1) return "Prof";
-  if (prof === 0.5) return "Half";
-  if (prof > 0) return `x${prof}`;
-  return "None";
+function saveProficiencyPip(value) {
+  if (proficiencyMultiplier(value) <= 0) return "";
+  return `<span class="inline-flex h-5 w-5 items-center justify-center rounded-full border border-amber-200/70 bg-amber-400/85 text-[11px] font-bold text-slate-900 align-middle" title="Saving throw proficiency">&#9679;</span>`;
 }
 
 function savingThrowBonus(actor, abilityKey) {
@@ -1232,9 +1250,9 @@ function renderSavesGrid(actor) {
 
   const rows = SAVE_KEYS.map((k) => {
     const label = `${safeText(abilities?.[k]?.label || k.toUpperCase())} Save`;
-    const prof = saveProficiencyLabel(sysAbilities?.[k]?.proficient);
+    const profPip = saveProficiencyPip(sysAbilities?.[k]?.proficient);
     const badge = skillModeBadge(modeBySave[k] || 0);
-    const value = `${fmtSigned(savingThrowBonus(actor, k))} (${prof})${badge ? ` ${badge}` : ""}`;
+    const value = `${fmtSigned(savingThrowBonus(actor, k))}${profPip ? ` ${profPip}` : ""}${badge ? ` ${badge}` : ""}`;
     return [label, value];
   });
 
@@ -1347,6 +1365,178 @@ function spellLevelNumber(spell) {
   const lvl = tryNum(spell?.system?.level);
   if (!Number.isFinite(lvl)) return 0;
   return clamp(Math.floor(lvl), 0, 9);
+}
+
+function formatDecimal(n) {
+  const x = Number(n);
+  if (!Number.isFinite(x)) return "";
+  const r = Math.round(x * 10) / 10;
+  return Number.isInteger(r) ? `${r}` : r.toFixed(1);
+}
+
+function feetValue(value, units) {
+  const v = tryNum(value);
+  if (!Number.isFinite(v)) return null;
+  const u = norm(units);
+  if (!u || u === "ft" || u === "feet" || u === "foot") return v;
+  if (u === "m" || u === "meter" || u === "metre" || u === "meters" || u === "metres") return v * 3.28084;
+  if (u === "km" || u === "kilometer" || u === "kilometre" || u === "kilometers" || u === "kilometres") return v * 3280.84;
+  if (u === "mi" || u === "mile" || u === "miles") return v * 5280;
+  return v;
+}
+
+function spellRequiresConcentration(spell) {
+  const props = Array.isArray(spell?.system?.properties) ? spell.system.properties.map((x) => norm(x)) : [];
+  if (props.includes("concentration")) return true;
+
+  const activities = spell?.system?.activities || {};
+  for (const key of Object.keys(activities)) {
+    if (activities?.[key]?.duration?.concentration === true) return true;
+  }
+  return false;
+}
+
+function concentrationBadgeHtml() {
+  return `
+    <span class="inline-flex h-5 w-5 items-center justify-center align-middle" title="Concentration required">
+      <span class="relative inline-flex h-4 w-4 items-center justify-center">
+        <span class="absolute h-3 w-3 rotate-45 rounded-[2px] border border-cyan-200/80 bg-cyan-500/35"></span>
+        <span class="relative h-1.5 w-1.5 rounded-full bg-cyan-100"></span>
+      </span>
+    </span>
+  `;
+}
+
+function spellRangeText(spell) {
+  const range = spell?.system?.range || {};
+  const units = norm(range?.units);
+  if (units === "self") return "Self";
+  if (units === "touch") return "Touch";
+  if (units === "spec" || units === "special") return "Special";
+  if (units === "any") return "Any";
+
+  const ft = feetValue(range?.value ?? range?.distance, range?.units);
+  if (!Number.isFinite(ft)) return "—";
+  return `${formatDecimal(ft)} feet`;
+}
+
+function spellShapeAreaText(spell) {
+  const tpl = spell?.system?.target?.template || {};
+  const typeRaw = safeText(tpl?.type).trim();
+  const type = norm(typeRaw);
+  const shape = typeRaw ? titleCaseWords(typeRaw.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/[-_]+/g, " ")) : "—";
+
+  const sizeFt = feetValue(tpl?.size, tpl?.units);
+  const widthFt = feetValue(tpl?.width, tpl?.units);
+  const heightFt = feetValue(tpl?.height, tpl?.units);
+
+  let area = "—";
+  if (type === "cylinder") {
+    const radius = Number.isFinite(sizeFt) ? `${formatDecimal(sizeFt)} feet radius` : "";
+    const height = Number.isFinite(heightFt) ? `${formatDecimal(heightFt)} feet high` : "";
+    area = [radius, height].filter(Boolean).join(" x ") || "—";
+  } else if (type === "radius" && Number.isFinite(sizeFt)) {
+    area = `${formatDecimal(sizeFt)} feet radius`;
+  } else if (Number.isFinite(sizeFt)) {
+    area = `${formatDecimal(sizeFt)} feet`;
+  } else if (Number.isFinite(widthFt) || Number.isFinite(heightFt)) {
+    const bits = [];
+    if (Number.isFinite(widthFt)) bits.push(`${formatDecimal(widthFt)} feet wide`);
+    if (Number.isFinite(heightFt)) bits.push(`${formatDecimal(heightFt)} feet high`);
+    area = bits.join(" x ") || "—";
+  }
+
+  return { shape, area };
+}
+
+function spellTargetsText(spell) {
+  const affects = spell?.system?.target?.affects || {};
+  const special = safeText(affects?.special).trim();
+  if (special) return special;
+
+  const typeRaw = safeText(affects?.type).trim();
+  const typeNorm = norm(typeRaw);
+  const countRaw = safeText(affects?.count).trim();
+
+  if (typeNorm === "self") return "Self";
+
+  const typeLabel = typeRaw
+    ? titleCaseWords(typeRaw.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/[-_]+/g, " "))
+    : "Target";
+
+  if (countRaw) {
+    const countNum = tryNum(countRaw);
+    const countLabel = Number.isFinite(countNum) ? formatDecimal(countNum) : countRaw;
+    const plural = countLabel === "1" ? typeLabel : `${typeLabel}${typeLabel.endsWith("s") ? "" : "s"}`;
+    return `${countLabel} ${plural}`;
+  }
+
+  if (typeRaw) return `${typeLabel}${typeLabel.endsWith("s") ? "" : "s"}`;
+  return "—";
+}
+
+function spellDurationText(spell) {
+  const d = spell?.system?.duration || {};
+  const units = norm(d?.units);
+  const value = tryNum(d?.value);
+
+  let text = "—";
+  if (units === "inst" || units === "instant") text = "Instant";
+  else if (units === "round" || units === "rounds" || units === "turn" || units === "turns") {
+    const n = Number.isFinite(value) && value > 0 ? value : 1;
+    text = `${formatDecimal(n)} round${n === 1 ? "" : "s"}`;
+  } else if (units === "minute" || units === "minutes") {
+    const n = Number.isFinite(value) && value > 0 ? value : 1;
+    text = `${formatDecimal(n)} minute${n === 1 ? "" : "s"}`;
+  } else if (units === "hour" || units === "hours") {
+    if (Number.isFinite(value) && value > 0) {
+      const n = value;
+      text = `${formatDecimal(n)} hour${n === 1 ? "" : "s"}`;
+    } else {
+      text = "Special";
+    }
+  } else if (units === "day" || units === "days") {
+    if (Number.isFinite(value) && value > 0) {
+      const n = value;
+      text = `${formatDecimal(n)} day${n === 1 ? "" : "s"}`;
+    } else {
+      text = "Special";
+    }
+  } else if (units === "unti") text = "Until dispelled";
+  else if (units === "perm" || units === "permanent") text = "Permanent";
+  else if (units === "spec" || units === "special") text = "Special";
+
+  if (spellRequiresConcentration(spell)) {
+    if (text === "Instant" || text === "—") return "Concentration";
+    return `${text} (Concentration)`;
+  }
+  return text;
+}
+
+function spellDescriptionMetaHtml(spell) {
+  const range = spellRangeText(spell);
+  const { shape, area } = spellShapeAreaText(spell);
+  const targets = spellTargetsText(spell);
+  const duration = spellDurationText(spell);
+
+  const rows = [
+    ["Range", range],
+    ["Shape", shape],
+    ["Area", area],
+    ["Target(s)", targets],
+    ["Duration", duration]
+  ];
+
+  return `
+    <div class="rounded-xl border border-white/10 bg-slate-950/40 p-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
+      ${rows.map(([label, value]) => `
+        <div class="rounded-lg border border-white/10 bg-slate-900/40 px-2.5 py-2">
+          <div class="text-[11px] uppercase tracking-wide text-slate-400">${escapeHtml(label)}</div>
+          <div class="text-xs text-slate-100">${escapeHtml(value || "—")}</div>
+        </div>
+      `).join("")}
+    </div>
+  `;
 }
 
 function spellSaveDC(actor) {
@@ -1555,6 +1745,9 @@ function renderSpellsWithFilter(spells) {
       const school = s?.system?.school;
       const tag = spellPreparedTag(s);
       return [lvl === 0 ? "Cantrip" : `Level ${lvl}`, school, tag].filter(Boolean).join(" • ");
+    }, {
+      headerBadgeFn: (s) => (spellRequiresConcentration(s) ? concentrationBadgeHtml() : ""),
+      descriptionMetaFn: spellDescriptionMetaHtml
     }));
   };
 
@@ -2021,3 +2214,4 @@ refreshBtn.addEventListener("click", initialise);
 searchEl.addEventListener("input", applyGlobalSearch);
 
 initialise();
+
