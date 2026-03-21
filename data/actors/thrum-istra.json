@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-03-14T07:26:21.178Z",
+  "exportedAt": "2026-03-21T13:16:10.715Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.348",
   "actor": {
@@ -526,9 +526,9 @@
           "value": null
         },
         "hp": {
-          "value": 78,
+          "value": 31,
           "max": 78,
-          "temp": null,
+          "temp": 0,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -967,7 +967,7 @@
                 "override": false
               },
               "uses": {
-                "spent": 0,
+                "spent": 1,
                 "recovery": [
                   {
                     "period": "lr",
@@ -6597,7 +6597,7 @@
               "startRound": null,
               "startTurn": null
             },
-            "disabled": true,
+            "disabled": false,
             "_id": "hCgz7ukyZVLcJcFg",
             "changes": [
               {
@@ -6634,7 +6634,7 @@
               "systemId": "dnd5e",
               "systemVersion": "4.3.8",
               "createdTime": null,
-              "modifiedTime": 1771043140397,
+              "modifiedTime": 1774074357945,
               "lastModifiedBy": "qOu9x616pmeBI6sT",
               "exportSource": null
             },
@@ -9085,7 +9085,7 @@
               "startRound": null,
               "startTurn": null
             },
-            "disabled": false,
+            "disabled": true,
             "img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
             "_id": "yorReGW7J0hIBYux",
             "type": "base",
@@ -9151,8 +9151,8 @@
               "coreVersion": "13.348",
               "systemId": "dnd5e",
               "systemVersion": "5.1.9",
-              "lastModifiedBy": "qOu9x616pmeBI6sT",
-              "modifiedTime": 1772250375115
+              "lastModifiedBy": "I4GGxqNW644lYEEA",
+              "modifiedTime": 1774072533487
             }
           },
           {
@@ -19122,6 +19122,45 @@
           "createdTime": 1772249687735,
           "modifiedTime": 1772249687735,
           "lastModifiedBy": "qOu9x616pmeBI6sT"
+        }
+      },
+      {
+        "_id": "dnd5ebloodied000",
+        "name": "Bloodied",
+        "img": "systems/dnd5e/icons/svg/statuses/bloodied.svg",
+        "statuses": [
+          "bloodied"
+        ],
+        "type": "base",
+        "system": {},
+        "changes": [],
+        "disabled": false,
+        "duration": {
+          "startTime": 47094596203,
+          "combat": null,
+          "startRound": 4,
+          "startTurn": 2
+        },
+        "description": "",
+        "origin": null,
+        "tint": "#ffffff",
+        "transfer": false,
+        "sort": 0,
+        "flags": {
+          "dae": {
+            "specialDuration": []
+          }
+        },
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.348",
+          "systemId": "dnd5e",
+          "systemVersion": "5.2.5",
+          "createdTime": 1774074344178,
+          "modifiedTime": 1774074344178,
+          "lastModifiedBy": "I4GGxqNW644lYEEA"
         }
       }
     ]

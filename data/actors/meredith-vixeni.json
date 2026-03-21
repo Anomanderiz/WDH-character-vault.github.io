@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-03-14T07:26:21.178Z",
+  "exportedAt": "2026-03-21T13:16:10.715Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.348",
   "actor": {
@@ -445,7 +445,7 @@
       },
       "spells": {
         "spell1": {
-          "value": 4,
+          "value": 2,
           "override": null
         },
         "spell2": {
@@ -538,9 +538,9 @@
           "value": null
         },
         "hp": {
-          "value": 56,
+          "value": 36,
           "max": 56,
-          "temp": 10,
+          "temp": 0,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -13517,7 +13517,7 @@
           },
           "uses": {
             "max": "5",
-            "spent": 0,
+            "spent": 3,
             "recovery": [
               {
                 "period": "lr",
@@ -29706,208 +29706,6 @@
         "sort": 0
       },
       {
-        "name": "Elemental Gem (Blue Sapphire)",
-        "type": "consumable",
-        "effects": [],
-        "system": {
-          "activities": {
-            "utilityEleGeBlSa": {
-              "type": "utility",
-              "_id": "utilityEleGeBlSa",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": 1,
-                "condition": "",
-                "override": true
-              },
-              "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "target": "",
-                    "value": "1",
-                    "scaling": {
-                      "mode": "",
-                      "formula": ""
-                    }
-                  }
-                ],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                },
-                "spellSlot": true
-              },
-              "description": {},
-              "duration": {
-                "value": "",
-                "units": "turn",
-                "special": "",
-                "override": true,
-                "concentration": false
-              },
-              "effects": [],
-              "range": {
-                "units": "self",
-                "special": "",
-                "override": true
-              },
-              "target": {
-                "prompt": true,
-                "affects": {
-                  "count": "",
-                  "type": "",
-                  "choice": false,
-                  "special": ""
-                },
-                "template": {
-                  "count": "",
-                  "contiguous": false,
-                  "type": "",
-                  "size": "",
-                  "width": "",
-                  "height": "",
-                  "units": "ft"
-                },
-                "override": true
-              },
-              "uses": {
-                "spent": null,
-                "recovery": []
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "skipConcentrationCheck": false
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              }
-            }
-          },
-          "uses": {
-            "spent": null,
-            "max": "1",
-            "recovery": [],
-            "autoDestroy": false
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>This gem contains a mote of elemental energy. When you take a Utilize action to break the gem, an Air Elemental is summoned (see the <em>Monster Manual</em> for its stat block), and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your Initiative count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "elemental-gem-blue-sapphire",
-          "source": {
-            "book": "DMG 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2024",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 0,
-            "units": "lb"
-          },
-          "price": {
-            "value": 200,
-            "denomination": "gp"
-          },
-          "rarity": "uncommon",
-          "attunement": "",
-          "attuned": false,
-          "equipped": false,
-          "damage": {
-            "base": {
-              "types": [],
-              "custom": {
-                "enabled": false
-              },
-              "scaling": {
-                "number": 1
-              }
-            },
-            "replace": false
-          },
-          "properties": [
-            "mgc"
-          ],
-          "type": {
-            "value": "trinket",
-            "subtype": ""
-          }
-        },
-        "img": "icons/commodities/gems/gem-rough-square-blue.webp",
-        "folder": "H4BAwb8A71bYRaIj",
-        "ownership": {
-          "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        },
-        "_id": "ebc5s68XSPanmL3G",
-        "sort": 300000
-      },
-      {
         "name": "Elemental Gem (Red Corundum)",
         "type": "consumable",
         "effects": [],
@@ -30310,208 +30108,6 @@
         },
         "_id": "5AWT0kLWEcM2Wfvd",
         "sort": 1500000
-      },
-      {
-        "name": "Elemental Gem (Emerald)",
-        "type": "consumable",
-        "effects": [],
-        "system": {
-          "activities": {
-            "utilityEleGemEme": {
-              "type": "utility",
-              "_id": "utilityEleGemEme",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": 1,
-                "condition": "",
-                "override": true
-              },
-              "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "target": "",
-                    "value": "1",
-                    "scaling": {
-                      "mode": "",
-                      "formula": ""
-                    }
-                  }
-                ],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                },
-                "spellSlot": true
-              },
-              "description": {},
-              "duration": {
-                "value": "",
-                "units": "turn",
-                "special": "",
-                "override": true,
-                "concentration": false
-              },
-              "effects": [],
-              "range": {
-                "units": "self",
-                "special": "",
-                "override": true
-              },
-              "target": {
-                "prompt": true,
-                "affects": {
-                  "count": "",
-                  "type": "",
-                  "choice": false,
-                  "special": ""
-                },
-                "template": {
-                  "count": "",
-                  "contiguous": false,
-                  "type": "",
-                  "size": "",
-                  "width": "",
-                  "height": "",
-                  "units": "ft"
-                },
-                "override": true
-              },
-              "uses": {
-                "spent": null,
-                "recovery": []
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "skipConcentrationCheck": false
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              }
-            }
-          },
-          "uses": {
-            "spent": null,
-            "max": "1",
-            "recovery": [],
-            "autoDestroy": false
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>This gem contains a mote of elemental energy. When you take a Utilize action to break the gem, a Water Elemental is summoned (see the <em>Monster Manual</em> for its stat block), and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your Initiative count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "elemental-gem-emerald",
-          "source": {
-            "book": "DMG 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2024",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 0,
-            "units": "lb"
-          },
-          "price": {
-            "value": 200,
-            "denomination": "gp"
-          },
-          "rarity": "uncommon",
-          "attunement": "",
-          "attuned": false,
-          "equipped": false,
-          "damage": {
-            "base": {
-              "types": [],
-              "custom": {
-                "enabled": false
-              },
-              "scaling": {
-                "number": 1
-              }
-            },
-            "replace": false
-          },
-          "properties": [
-            "mgc"
-          ],
-          "type": {
-            "value": "trinket",
-            "subtype": ""
-          }
-        },
-        "img": "icons/commodities/gems/gem-rough-trapeze-green.webp",
-        "folder": "H4BAwb8A71bYRaIj",
-        "ownership": {
-          "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        },
-        "_id": "23GrBqGiMwBnVyRS",
-        "sort": 700000
       },
       {
         "name": "Scroll of Protection (Elementals)",

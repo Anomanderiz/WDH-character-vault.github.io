@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-03-14T07:26:21.178Z",
+  "exportedAt": "2026-03-21T13:16:10.715Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.348",
   "actor": {
@@ -433,15 +433,15 @@
       },
       "spells": {
         "spell1": {
-          "value": 2,
+          "value": 1,
           "override": null
         },
         "spell2": {
-          "value": 3,
+          "value": 2,
           "override": null
         },
         "spell3": {
-          "value": 1,
+          "value": 0,
           "override": null
         },
         "spell4": {
@@ -526,9 +526,9 @@
           "value": null
         },
         "hp": {
-          "value": 56,
+          "value": 49,
           "max": 60,
-          "temp": 6,
+          "temp": 0,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -37104,186 +37104,6 @@
           "systemVersion": "5.2.5",
           "createdTime": 1772251193599,
           "modifiedTime": 1772251193599,
-          "lastModifiedBy": "I4GGxqNW644lYEEA"
-        }
-      },
-      {
-        "name": "Concentrating: Detect Magic",
-        "img": "systems/dnd5e/icons/svg/statuses/concentrating.svg",
-        "_id": "aAWHDACLr1wewk6F",
-        "description": "<p>You are maintaining concentration on the effects of the 'Detect Magic' Spell.</p><hr /><p>@Embed[Actor.spytnt0QTcXgpWLN.Item.DetectMagic1IIII inline]</p>",
-        "duration": {
-          "seconds": 600,
-          "startTime": 47094596179.999,
-          "combat": null
-        },
-        "flags": {
-          "dnd5e": {
-            "activity": {
-              "type": "utility",
-              "id": "dnd5eactivity000",
-              "uuid": "Actor.spytnt0QTcXgpWLN.Item.DetectMagic1IIII.Activity.dnd5eactivity000"
-            },
-            "item": {
-              "type": "spell",
-              "id": "DetectMagic1IIII",
-              "uuid": "Actor.spytnt0QTcXgpWLN.Item.DetectMagic1IIII"
-            },
-            "scaling": 0,
-            "spellLevel": 1
-          },
-          "dae": {
-            "specialDuration": []
-          }
-        },
-        "origin": "Actor.spytnt0QTcXgpWLN.Item.DetectMagic1IIII",
-        "statuses": [
-          "concentrating"
-        ],
-        "type": "base",
-        "system": {},
-        "changes": [],
-        "disabled": false,
-        "tint": "#ffffff",
-        "transfer": false,
-        "sort": 0,
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.348",
-          "systemId": "dnd5e",
-          "systemVersion": "5.2.5",
-          "createdTime": 1773466531971,
-          "modifiedTime": 1773466531971,
-          "lastModifiedBy": "xhjiUpQqBwHV5RlG"
-        }
-      },
-      {
-        "name": "Detect Magic",
-        "img": "icons/magic/symbols/rune-sigil-black-pink.webp",
-        "origin": "Actor.spytnt0QTcXgpWLN.ActiveEffect.aAWHDACLr1wewk6F",
-        "duration": {
-          "seconds": 600,
-          "rounds": 100,
-          "turns": 0,
-          "startTime": 47094596179.999,
-          "combat": null,
-          "startRound": 0,
-          "startTurn": null
-        },
-        "flags": {
-          "chris-premades": {
-            "detectMagic": {
-              "playAnimation": true,
-              "color": "blue",
-              "opacity": 1,
-              "sound": false
-            },
-            "macros": {
-              "effect": [
-                "detectMagicDetecting"
-              ]
-            },
-            "info": {
-              "identifier": "detectMagic"
-            },
-            "concentrationEffectUuid": "Actor.spytnt0QTcXgpWLN.ActiveEffect.aAWHDACLr1wewk6F"
-          },
-          "dnd5e": {
-            "dependents": [
-              {
-                "uuid": "Actor.spytnt0QTcXgpWLN.ActiveEffect.aAWHDACLr1wewk6F"
-              }
-            ],
-            "dependentOn": "Actor.spytnt0QTcXgpWLN.ActiveEffect.aAWHDACLr1wewk6F"
-          },
-          "dae": {
-            "specialDuration": []
-          }
-        },
-        "_id": "AllIGepSd4BKreV9",
-        "type": "base",
-        "system": {},
-        "changes": [],
-        "disabled": false,
-        "description": "",
-        "tint": "#ffffff",
-        "transfer": false,
-        "statuses": [],
-        "sort": 0,
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.348",
-          "systemId": "dnd5e",
-          "systemVersion": "5.2.5",
-          "createdTime": 1773466534234,
-          "modifiedTime": 1773469635255,
-          "lastModifiedBy": "I4GGxqNW644lYEEA"
-        }
-      },
-      {
-        "name": "Channel Divinity: Twilight Sanctuary",
-        "img": "icons/magic/light/light-lantern-lit-white.webp",
-        "origin": "Actor.spytnt0QTcXgpWLN.Item.lHG15tMpvpNbyFUU",
-        "duration": {
-          "seconds": null,
-          "rounds": 10,
-          "turns": 0,
-          "startTime": 47094596179.999,
-          "combat": null,
-          "startRound": 0,
-          "startTurn": null
-        },
-        "changes": [
-          {
-            "key": "ATL.light.dim",
-            "mode": 4,
-            "value": "30",
-            "priority": 20
-          }
-        ],
-        "flags": {
-          "chris-premades": {
-            "macros": {
-              "combat": [
-                "twilightSanctuaryActive"
-              ],
-              "effect": [
-                "twilightSanctuaryActive"
-              ]
-            },
-            "info": {
-              "identifier": "twilightSanctuary"
-            }
-          },
-          "dae": {
-            "specialDuration": []
-          },
-          "times-up": {
-            "durationSeconds": 60
-          }
-        },
-        "_id": "lxA642K6erVekRLE",
-        "type": "base",
-        "system": {},
-        "disabled": false,
-        "description": "",
-        "tint": "#ffffff",
-        "transfer": false,
-        "statuses": [],
-        "sort": 0,
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.348",
-          "systemId": "dnd5e",
-          "systemVersion": "5.2.5",
-          "createdTime": 1773469283045,
-          "modifiedTime": 1773469635068,
           "lastModifiedBy": "I4GGxqNW644lYEEA"
         }
       }

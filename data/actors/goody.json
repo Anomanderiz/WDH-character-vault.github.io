@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-03-14T07:26:21.178Z",
+  "exportedAt": "2026-03-21T13:16:10.715Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.348",
   "actor": {
@@ -457,7 +457,7 @@
       },
       "spells": {
         "spell1": {
-          "value": 3,
+          "value": 2,
           "override": null
         },
         "spell2": {
@@ -553,7 +553,7 @@
         "hp": {
           "value": 60,
           "max": 60,
-          "temp": 0,
+          "temp": null,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -24134,7 +24134,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 2,
+          "quantity": 1,
           "weight": {
             "value": 0.5,
             "units": "lb"
@@ -24877,7 +24877,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 1,
             "max": "1",
             "recovery": [],
             "autoDestroy": false
@@ -25404,6 +25404,45 @@
           "systemVersion": "5.2.5",
           "createdTime": 1772251193063,
           "modifiedTime": 1772251193063,
+          "lastModifiedBy": "Ex3WmAaZbR5VTaOf"
+        }
+      },
+      {
+        "origin": "Actor.TNFU2mNGnpdORuVT.Item.gKadRIaXYpRwKfY9",
+        "disabled": false,
+        "img": "icons/consumables/potions/potion-flask-corked-labeled-pink.webp",
+        "name": "Perfume Template",
+        "duration": {
+          "startTime": 47094596179.999,
+          "seconds": 3600,
+          "combat": null,
+          "startRound": 1,
+          "startTurn": 0
+        },
+        "flags": {
+          "dae": {
+            "stackable": "noneName",
+            "specialDuration": []
+          }
+        },
+        "_id": "v1Tql2w8g7fdFE1W",
+        "type": "base",
+        "system": {},
+        "changes": [],
+        "description": "",
+        "tint": "#ffffff",
+        "transfer": false,
+        "statuses": [],
+        "sort": 0,
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.348",
+          "systemId": "dnd5e",
+          "systemVersion": "5.2.5",
+          "createdTime": 1774068961463,
+          "modifiedTime": 1774068961463,
           "lastModifiedBy": "Ex3WmAaZbR5VTaOf"
         }
       }

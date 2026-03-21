@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-03-14T07:26:21.178Z",
+  "exportedAt": "2026-03-21T13:16:10.715Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.348",
   "actor": {
@@ -526,7 +526,7 @@
           "value": null
         },
         "hp": {
-          "value": 70,
+          "value": 61,
           "max": 70,
           "temp": null,
           "tempmax": 0,
@@ -25629,108 +25629,6 @@
       }
     ],
     "effects": [
-      {
-        "name": "Region – Fire Resistance; Cold Vulnerability",
-        "origin": null,
-        "disabled": false,
-        "flags": {
-          "world": {
-            "regionFx": "region-fx:fire-resist_cold-vuln"
-          },
-          "dae": {
-            "specialDuration": []
-          }
-        },
-        "changes": [
-          {
-            "key": "system.traits.dr.value",
-            "mode": 2,
-            "value": "fire",
-            "priority": 20
-          },
-          {
-            "key": "system.traits.dv.value",
-            "mode": 2,
-            "value": "cold",
-            "priority": 20
-          }
-        ],
-        "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
-        "_id": "kGkhqCGBsuNMqAMX",
-        "type": "base",
-        "system": {},
-        "duration": {
-          "startTime": 47094596179,
-          "combat": null
-        },
-        "description": "",
-        "tint": "#ffffff",
-        "transfer": false,
-        "statuses": [],
-        "sort": 0,
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.348",
-          "systemId": "dnd5e",
-          "systemVersion": "5.2.5",
-          "createdTime": 1771651913766,
-          "modifiedTime": 1771651913766,
-          "lastModifiedBy": "I4GGxqNW644lYEEA"
-        }
-      },
-      {
-        "name": "Region – Fire Resistance; Cold Vulnerability",
-        "origin": null,
-        "disabled": false,
-        "flags": {
-          "world": {
-            "regionFx": "region-fx:fire-resist_cold-vuln"
-          },
-          "dae": {
-            "specialDuration": []
-          }
-        },
-        "changes": [
-          {
-            "key": "system.traits.dr.value",
-            "mode": 2,
-            "value": "fire",
-            "priority": 20
-          },
-          {
-            "key": "system.traits.dv.value",
-            "mode": 2,
-            "value": "cold",
-            "priority": 20
-          }
-        ],
-        "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
-        "_id": "mBLEJ61zGQqoKswc",
-        "type": "base",
-        "system": {},
-        "duration": {
-          "startTime": 47094596179,
-          "combat": null
-        },
-        "description": "",
-        "tint": "#ffffff",
-        "transfer": false,
-        "statuses": [],
-        "sort": 0,
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.348",
-          "systemId": "dnd5e",
-          "systemVersion": "5.2.5",
-          "createdTime": 1771651913923,
-          "modifiedTime": 1771651913923,
-          "lastModifiedBy": "5UVriBnz79mr1mNp"
-        }
-      },
       {
         "name": "Psionic Power: Psychic Whispers",
         "img": "icons/magic/perception/third-eye-blue-red.webp",
