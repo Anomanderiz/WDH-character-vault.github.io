@@ -1,16 +1,16 @@
 {
-  "exportedAt": "2026-04-04T07:05:11.436Z",
+  "exportedAt": "2026-04-25T00:36:59.014Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
     "name": "Goody",
     "type": "character",
     "_id": "TNFU2mNGnpdORuVT",
-    "img": "tokenizer/pc-images/goody.avatar.webp?1775268311734",
+    "img": "tokenizer/pc-images/goody.avatar.webp?1775872063431",
     "system": {
       "currency": {
         "pp": 39,
-        "gp": 5,
+        "gp": 505,
         "ep": 0,
         "sp": 5,
         "cp": 1
@@ -457,7 +457,7 @@
       },
       "spells": {
         "spell1": {
-          "value": 1,
+          "value": 2,
           "override": null
         },
         "spell2": {
@@ -553,9 +553,9 @@
           "value": null
         },
         "hp": {
-          "value": 63,
+          "value": 14,
           "max": 69,
-          "temp": null,
+          "temp": 0,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -575,7 +575,7 @@
             "save": ""
           }
         },
-        "inspiration": true
+        "inspiration": false
       },
       "bastion": {
         "name": "",
@@ -707,7 +707,7 @@
       "width": 1,
       "height": 1,
       "texture": {
-        "src": "tokenizer/pc-images/goody.token.webp?1775268311734",
+        "src": "tokenizer/pc-images/goody.token.webp?1775872063431",
         "anchorX": 0.5,
         "anchorY": 0.5,
         "offsetX": 0,
@@ -3760,7 +3760,7 @@
         },
         "effects": [],
         "folder": null,
-        "sort": 0,
+        "sort": 100000,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3,
@@ -4211,7 +4211,7 @@
         "img": "ddb-images/other/item/equipment/2014-phb2024-necklace-of-adaptation-legacy.jpeg",
         "folder": "qDPOIm57DnkkKHfi",
         "_id": "9GyQfdjuCrRuxhjr",
-        "sort": 0,
+        "sort": 200000,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3
@@ -4502,7 +4502,7 @@
         },
         "effects": [],
         "folder": null,
-        "sort": 0,
+        "sort": 300000,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3
@@ -4639,7 +4639,7 @@
         "img": "ddb-images/other/item/equipment/2024-dmg2024-pole-of-collapsing.jpeg",
         "folder": "qDPOIm57DnkkKHfi",
         "_id": "gHQagfNDHp8SUyUT",
-        "sort": 0,
+        "sort": 400000,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3
@@ -5073,7 +5073,7 @@
           "rarity": "",
           "attunement": "",
           "attuned": false,
-          "equipped": false,
+          "equipped": true,
           "cover": null,
           "type": {
             "value": "martialM",
@@ -5541,7 +5541,7 @@
           },
           "hd": {
             "denomination": "d8",
-            "spent": 0,
+            "spent": 4,
             "additional": ""
           },
           "advancement": {
@@ -8628,7 +8628,7 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
+                "autoCEEffects": "none",
                 "triggeredActivityConsume": true,
                 "triggeredActivityConfigure": true,
                 "skipConcentrationCheck": false
@@ -8653,7 +8653,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 1,
             "recovery": [
               {
                 "period": "turnStart",
@@ -8908,7 +8908,13 @@
                   "allowed": false
                 },
                 "spellSlot": true,
-                "targets": []
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "scaling": {}
+                  }
+                ]
               },
               "description": {
                 "chatFlavor": ""
@@ -11272,7 +11278,7 @@
           "unidentified": {
             "description": ""
           },
-          "container": null,
+          "container": "sl8SNRMhwIREHWXI",
           "quantity": 1,
           "weight": {
             "value": 0,
@@ -15394,7 +15400,7 @@
             }
           },
           "method": "spell",
-          "prepared": 1,
+          "prepared": 0,
           "ability": "",
           "sourceItem": "class:ranger"
         },
@@ -20586,7 +20592,7 @@
           "default": 0
         },
         "_id": "lGnYJe7Ll9ZAZ3Bb",
-        "sort": 0
+        "sort": 600000
       },
       {
         "name": "Stone of Good Luck (Luckstone)",
@@ -20716,51 +20722,7 @@
           "I4GGxqNW644lYEEA": 3
         },
         "_id": "EFgntItbNt1iEMSu",
-        "sort": 0
-      },
-      {
-        "name": "Zhentarim Token",
-        "type": "loot",
-        "_id": "DUoPMxuqX2AhnsNg",
-        "img": "assets/5e_zhentarim_badge.webp",
-        "system": {
-          "description": {
-            "value": "",
-            "chat": ""
-          },
-          "identifier": "new-item",
-          "source": {
-            "revision": 1,
-            "rules": "2024"
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 0,
-            "units": "lb"
-          },
-          "price": {
-            "value": 0,
-            "denomination": "gp"
-          },
-          "rarity": "",
-          "properties": [],
-          "type": {
-            "value": "",
-            "subtype": ""
-          }
-        },
-        "effects": [],
-        "folder": null,
-        "sort": 0,
-        "ownership": {
-          "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        }
+        "sort": 700000
       },
       {
         "_id": "eDvU26uYyoebXRS9",
@@ -21782,7 +21744,7 @@
             }
           },
           "identifier": "psychedelics",
-          "prepared": 0,
+          "prepared": 1,
           "sourceItem": "class:ranger"
         },
         "effects": [
@@ -22129,7 +22091,7 @@
           "unidentified": {
             "description": ""
           },
-          "container": "sl8SNRMhwIREHWXI",
+          "container": null,
           "quantity": 1,
           "weight": {
             "value": 0,
@@ -22168,7 +22130,7 @@
           "Ex3WmAaZbR5VTaOf": 3
         },
         "_id": "uOsOGhWNol314mXp",
-        "sort": 0
+        "sort": 500000
       },
       {
         "name": "ruby with  Baenre House Sigil",
@@ -22618,7 +22580,7 @@
           "Ex3WmAaZbR5VTaOf": 3
         },
         "_id": "6Udho0u8zFxpUZkm",
-        "sort": 2200000
+        "sort": 1500000
       },
       {
         "name": "Deck of Illusions",
@@ -23578,7 +23540,7 @@
           "Ex3WmAaZbR5VTaOf": 3
         },
         "_id": "XY8wmiEWQaGfChbO",
-        "sort": 0
+        "sort": 800000
       },
       {
         "name": "Perfume",
@@ -24188,7 +24150,7 @@
           }
         ],
         "folder": null,
-        "sort": 0,
+        "sort": 550000,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3
@@ -26234,7 +26196,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 1,
             "max": "5",
             "recovery": [],
             "autoDestroy": true
@@ -26712,7 +26674,7 @@
           "I4GGxqNW644lYEEA": 3
         },
         "_id": "oDaymmx6BEYQbRm5",
-        "sort": 0
+        "sort": 900000
       },
       {
         "name": "Serpent Scale Mail",
@@ -26971,7 +26933,7 @@
           "I4GGxqNW644lYEEA": 3
         },
         "_id": "y3HKszgQd20aoyZY",
-        "sort": 0
+        "sort": 1000000
       },
       {
         "name": "Hoovale Snowglobe",
@@ -27042,7 +27004,7 @@
                 "prompt": true
               },
               "uses": {
-                "spent": 0,
+                "spent": 1,
                 "recovery": [
                   {
                     "period": "lr",
@@ -27183,7 +27145,7 @@
           "rarity": "veryRare",
           "attunement": "",
           "attuned": false,
-          "equipped": false,
+          "equipped": true,
           "crew": {
             "value": []
           },
@@ -27201,7 +27163,7 @@
         },
         "effects": [],
         "folder": null,
-        "sort": 0,
+        "sort": 1100000,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3
@@ -27432,7 +27394,7 @@
           "I4GGxqNW644lYEEA": 3
         },
         "_id": "G3KpCkzU4Po6M7kw",
-        "sort": 0
+        "sort": 1200000
       },
       {
         "name": "Fairy Trickster",
@@ -27787,7 +27749,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 2,
+          "quantity": 1,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -28101,46 +28063,150 @@
         }
       },
       {
-        "name": "Spell Scroll: Leomund's Tiny Hideout",
-        "type": "consumable",
-        "img": "icons/sundries/scrolls/scroll-bound-sealed-brown-grey.webp",
+        "name": "Boots of Elvenkind",
+        "type": "equipment",
+        "effects": [
+          {
+            "img": "ddb-images/other/item/equipment/2024-dmg2024-boots-of-elvenkind.jpeg",
+            "name": "Boots of Elvenkind",
+            "statuses": [],
+            "changes": [
+              {
+                "key": "system.skills.ste.roll.mode",
+                "value": "1",
+                "mode": 2,
+                "priority": 10
+              }
+            ],
+            "duration": {
+              "seconds": null,
+              "startTime": -273248653,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null,
+              "combat": null
+            },
+            "tint": "#ffffff",
+            "transfer": true,
+            "disabled": false,
+            "flags": {
+              "dae": {
+                "transfer": true,
+                "stackable": "noneNameOnly"
+              },
+              "ddbimporter": {
+                "disabled": false,
+                "passive": true,
+                "itemId": 0,
+                "itemEntityTypeId": 0
+              },
+              "midi-qol": {
+                "forceCEOff": true
+              },
+              "core": {}
+            },
+            "description": "<p>While you wear these boots, your steps make no sound, regardless of the surface you are moving across. You also have Advantage on Dexterity (&amp;Reference[ste]{Stealth}) checks.</p>",
+            "_id": "hNxSWqrAnnnEg9HJ",
+            "type": "base",
+            "system": {},
+            "origin": null,
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "system": {
+          "activities": {},
+          "uses": {
+            "spent": null,
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>While you wear these boots, your steps make no sound, regardless of the surface you are moving across. You also have Advantage on Dexterity (&amp;Reference[ste]{Stealth}) checks.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "boots-of-elvenkind",
+          "source": {
+            "book": "DMG 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 400,
+            "denomination": "gp"
+          },
+          "rarity": "uncommon",
+          "attunement": "",
+          "attuned": false,
+          "equipped": true,
+          "armor": {
+            "value": null,
+            "dex": null
+          },
+          "proficient": null,
+          "properties": [
+            "mgc"
+          ],
+          "strength": 0,
+          "type": {
+            "value": "clothing",
+            "baseItem": ""
+          },
+          "crew": {
+            "value": []
+          }
+        },
+        "img": "ddb-images/other/item/equipment/2024-dmg2024-boots-of-elvenkind.jpeg",
+        "folder": "qDPOIm57DnkkKHfi",
+        "ownership": {
+          "default": 0,
+          "Ex3WmAaZbR5VTaOf": 3
+        },
+        "_id": "ExqkPeicLsCYCy9z",
+        "sort": 1300000
+      },
+      {
+        "name": "Reigns of the Colossus",
+        "type": "equipment",
+        "_id": "9fscnV2mmYcm5n42",
+        "img": "icons/equipment/wrist/bracer-ornate-black-silver.webp",
         "system": {
           "activities": {
-            "dnd5escrollspell": {
-              "_id": "dnd5escrollspell",
-              "type": "cast",
-              "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "value": "1",
-                    "scaling": {}
-                  }
-                ],
-                "scaling": {
-                  "allowed": false
-                },
-                "spellSlot": true
-              },
-              "spell": {
-                "challenge": {
-                  "attack": 7,
-                  "save": 15,
-                  "override": true
-                },
-                "level": 4,
-                "uuid": "Compendium.world.ddb-waterdeep-adventures-ddb-spells.Item.xn9ovCL1ntMWY0sI",
-                "properties": [
-                  "vocal",
-                  "somatic",
-                  "material"
-                ],
-                "spellbook": true
-              },
+            "JOm8vnu75h9Ox2VM": {
+              "type": "utility",
+              "_id": "JOm8vnu75h9Ox2VM",
               "sort": 0,
               "activation": {
                 "type": "action",
                 "override": false
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": []
               },
               "description": {},
               "duration": {
@@ -28148,6 +28214,7 @@
                 "concentration": false,
                 "override": false
               },
+              "effects": [],
               "flags": {},
               "range": {
                 "units": "self",
@@ -28174,6 +28241,253 @@
                 "requireAttunement": false,
                 "requireIdentification": false,
                 "requireMagic": false
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "rollAs": "target",
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": ""
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "reigns-of-the-colossus",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "artifact",
+          "attunement": "",
+          "attuned": false,
+          "equipped": true,
+          "crew": {
+            "value": []
+          },
+          "armor": {
+            "value": null,
+            "dex": null
+          },
+          "proficient": null,
+          "properties": [
+            "mgc"
+          ],
+          "strength": null,
+          "type": {
+            "value": "wondrous",
+            "baseItem": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 1400000,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "name": "House Baenre Sigil Gloves",
+        "type": "equipment",
+        "_id": "C8pdRDGcwdwBwY7r",
+        "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+        "system": {
+          "activities": {},
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "equipment",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": "sl8SNRMhwIREHWXI",
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "crew": {
+            "value": []
+          },
+          "armor": {
+            "value": null,
+            "dex": null
+          },
+          "proficient": null,
+          "properties": [],
+          "strength": null,
+          "type": {
+            "value": "",
+            "baseItem": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "Ex3WmAaZbR5VTaOf": 3
+        }
+      },
+      {
+        "name": "drow rapier",
+        "type": "weapon",
+        "_id": "rdTruzD5OJ6n3UF8",
+        "img": "systems/dnd5e/icons/svg/items/weapon.svg",
+        "system": {
+          "activities": {
+            "G3eSv3tQoBTTIByh": {
+              "_id": "G3eSv3tQoBTTIByh",
+              "type": "attack",
+              "img": null,
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "override": false
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": []
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "flags": {},
+              "range": {
+                "units": "self",
+                "override": false
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "stationary": false,
+                  "units": "ft"
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": []
+              },
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "attack": {
+                "critical": {},
+                "flat": false,
+                "type": {}
+              },
+              "damage": {
+                "critical": {},
+                "includeBase": true,
+                "parts": []
               },
               "useConditionText": "",
               "useConditionReason": "",
@@ -28227,52 +28541,66 @@
                 "preRemoveConditionText": "",
                 "postRemoveConditionText": ""
               },
-              "img": null
+              "otherActivityId": "",
+              "otherActivityAsParentType": true,
+              "attackMode": "oneHanded",
+              "ammunition": "",
+              "otherActivityUuid": "",
+              "attackRollPerTarget": "default",
+              "fumbleThreshold": 1
             }
           },
           "uses": {
             "spent": 0,
             "recovery": [],
-            "autoDestroy": true,
-            "max": "1"
+            "max": ""
           },
           "description": {
-            "value": "<h3>Leomund's Tiny Hideout (Level 4)</h3><p>@Embed[Compendium.world.ddb-waterdeep-adventures-ddb-spells.Item.xn9ovCL1ntMWY0sI inline]</p><h3>Scroll Details</h3><p>@Embed[Compendium.dnd5e.equipment24.Item.dmgSpellScroll00 inline]</p>",
+            "value": "",
             "chat": ""
           },
-          "identifier": "spell-scroll",
+          "identifier": "weapon",
           "source": {
             "revision": 1,
-            "rules": "2024",
-            "license": "CC-BY-4.0",
-            "book": ""
+            "rules": "2024"
           },
           "identified": true,
           "unidentified": {
             "description": ""
           },
-          "container": null,
+          "container": "sl8SNRMhwIREHWXI",
           "quantity": 1,
           "weight": {
             "value": 0,
             "units": "lb"
           },
           "price": {
-            "value": 2000,
+            "value": 0,
             "denomination": "gp"
           },
-          "rarity": "rare",
+          "rarity": "",
           "attunement": "",
           "attuned": false,
           "equipped": false,
-          "type": {
-            "value": "scroll",
-            "subtype": ""
+          "crew": {
+            "value": []
           },
+          "ammunition": {},
+          "armor": {},
           "damage": {
             "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              },
               "number": null,
               "denomination": null,
+              "bonus": ""
+            },
+            "versatile": {
               "types": [],
               "custom": {
                 "enabled": false
@@ -28280,83 +28608,96 @@
               "scaling": {
                 "number": 1
               }
-            },
-            "replace": false
+            }
           },
-          "properties": [
-            "mgc"
-          ]
+          "properties": [],
+          "proficient": null,
+          "range": {
+            "units": "ft",
+            "value": null,
+            "long": null,
+            "reach": null
+          },
+          "type": {
+            "value": "simpleM",
+            "baseItem": ""
+          },
+          "mastery": ""
         },
         "effects": [],
-        "folder": "a2UFIyuviRp94dzx",
+        "folder": null,
+        "sort": 0,
         "ownership": {
           "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        },
-        "_id": "uAVRhyVMhmVfr7Xh",
-        "sort": 0
+          "Ex3WmAaZbR5VTaOf": 3
+        }
       },
       {
-        "type": "spell",
+        "name": "Drow Dagger",
+        "type": "weapon",
+        "_id": "9x2z3WETOKkK0rJe",
+        "img": "systems/dnd5e/icons/svg/items/weapon.svg",
         "system": {
           "activities": {
-            "utilityLeoTinHut": {
-              "type": "utility",
-              "_id": "utilityLeoTinHut",
+            "cteOoBwkG4HMbY7U": {
+              "_id": "cteOoBwkG4HMbY7U",
+              "type": "attack",
+              "img": null,
               "sort": 0,
               "activation": {
                 "type": "action",
-                "value": null,
                 "override": false
               },
               "consumption": {
-                "spellSlot": true,
-                "targets": [],
                 "scaling": {
-                  "allowed": false,
-                  "max": ""
-                }
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": []
               },
-              "description": {
-                "chatFlavor": ""
-              },
+              "description": {},
               "duration": {
                 "units": "inst",
                 "concentration": false,
                 "override": false
               },
               "effects": [],
+              "flags": {},
               "range": {
-                "override": false,
-                "units": "self"
+                "units": "self",
+                "override": false
               },
               "target": {
                 "template": {
                   "contiguous": false,
-                  "units": "ft",
-                  "count": "",
-                  "type": "radius",
-                  "size": "10",
-                  "stationary": false
+                  "stationary": false,
+                  "units": "ft"
                 },
                 "affects": {
-                  "choice": false,
-                  "type": "self",
-                  "special": ""
+                  "choice": false
                 },
-                "override": true,
+                "override": false,
                 "prompt": true
               },
               "uses": {
                 "spent": 0,
-                "recovery": [],
-                "max": ""
+                "recovery": []
               },
-              "roll": {
-                "prompt": false,
-                "visible": false,
-                "formula": "",
-                "name": ""
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "attack": {
+                "critical": {},
+                "flat": false,
+                "type": {}
+              },
+              "damage": {
+                "critical": {},
+                "includeBase": true,
+                "parts": []
               },
               "useConditionText": "",
               "useConditionReason": "",
@@ -28378,24 +28719,24 @@
                 "triggeredActivityConditionText": "",
                 "triggeredActivityTargets": "targets",
                 "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
                 "triggeredActivityConsume": true,
                 "triggeredActivityConfigure": true,
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
                 "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
                 "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
                 "removeChatButtons": "default",
                 "magicEffect": false,
                 "magicDamage": false,
@@ -28406,190 +28747,586 @@
               "isOverTimeFlag": false,
               "overTimeProperties": {
                 "saveRemoves": true,
+                "rollAs": "target",
                 "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
+                "postRemoveConditionText": ""
               },
-              "otherActivityId": "none",
-              "flags": {
-                "region-attacher": {
-                  "attachRegionToTemplate": false
-                }
+              "otherActivityId": "",
+              "otherActivityAsParentType": true,
+              "attackMode": "oneHanded",
+              "ammunition": "",
+              "otherActivityUuid": "",
+              "attackRollPerTarget": "default",
+              "fumbleThreshold": 1
+            }
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "weapon",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": "sl8SNRMhwIREHWXI",
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "crew": {
+            "value": []
+          },
+          "ammunition": {},
+          "armor": {},
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              },
+              "number": null,
+              "denomination": null,
+              "bonus": ""
+            },
+            "versatile": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            }
+          },
+          "properties": [],
+          "proficient": null,
+          "range": {
+            "units": "ft",
+            "value": null,
+            "long": null,
+            "reach": null
+          },
+          "type": {
+            "value": "simpleM",
+            "baseItem": ""
+          },
+          "mastery": ""
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "Ex3WmAaZbR5VTaOf": 3
+        }
+      },
+      {
+        "name": "Drow HandCrossbow",
+        "type": "weapon",
+        "_id": "wniFh9bNn2cZtbu4",
+        "img": "systems/dnd5e/icons/svg/items/weapon.svg",
+        "system": {
+          "activities": {
+            "zHbrGZ23hI2RD16l": {
+              "_id": "zHbrGZ23hI2RD16l",
+              "type": "attack",
+              "img": null,
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "override": false
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": []
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "flags": {},
+              "range": {
+                "units": "self",
+                "override": false
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "stationary": false,
+                  "units": "ft"
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": []
               },
               "visibility": {
-                "level": {
-                  "min": null,
-                  "max": null
-                },
+                "level": {},
                 "requireAttunement": false,
                 "requireIdentification": false,
                 "requireMagic": false
               },
+              "attack": {
+                "critical": {},
+                "flat": false,
+                "type": {}
+              },
+              "damage": {
+                "critical": {},
+                "includeBase": true,
+                "parts": []
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "rollAs": "target",
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": ""
+              },
+              "otherActivityId": "",
               "otherActivityAsParentType": true,
-              "name": "",
-              "img": null
+              "attackMode": "oneHanded",
+              "ammunition": "",
+              "otherActivityUuid": "",
+              "attackRollPerTarget": "default",
+              "fumbleThreshold": 1
             }
           },
           "uses": {
-            "spent": null,
-            "max": "",
-            "recovery": []
+            "spent": 0,
+            "recovery": [],
+            "max": ""
           },
           "description": {
-            "value": "<div class=\"ddb\">\n<p>A 10-foot Emanation springs into existence around you and remains stationary for the duration. The spell fails when you cast it if the Emanation isn’t big enough to fully encapsulate all creatures in its area.</p>\n<p>Creatures and objects within the Emanation when you cast the spell can move through it freely. All other creatures and objects are barred from passing through it. Spells of level 3 or lower can’t be cast through it, and the effects of such spells can’t extend into it.</p>\n<p>The atmosphere inside the Emanation is comfortable and dry, regardless of the weather outside. Until the spell ends, you can command the interior to have Dim Light or Darkness (no action required). The Emanation is opaque from the outside and of any color you choose, but it’s transparent from the inside.</p>\n<p>The spell ends early if you leave the Emanation or if you cast it again.</p>\n</div>",
+            "value": "",
             "chat": ""
           },
-          "identifier": "leomunds-tiny-hut",
+          "identifier": "weapon",
           "source": {
-            "book": "PHB 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2024",
-            "revision": 1
+            "revision": 1,
+            "rules": "2024"
           },
-          "activation": {
-            "type": "minute",
-            "value": 1,
-            "condition": ""
+          "identified": true,
+          "unidentified": {
+            "description": ""
           },
-          "duration": {
-            "value": "8",
-            "units": "hour"
+          "container": "sl8SNRMhwIREHWXI",
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
           },
-          "level": 4,
-          "materials": {
-            "value": "a crystal bead",
-            "consumed": false,
-            "cost": 0,
-            "supply": 0
+          "price": {
+            "value": 0,
+            "denomination": "gp"
           },
-          "properties": [
-            "vocal",
-            "somatic",
-            "material",
-            "ritual"
-          ],
-          "range": {
-            "units": "self",
-            "special": ""
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "crew": {
+            "value": []
           },
-          "school": "evo",
-          "target": {
-            "affects": {
-              "count": "",
-              "type": "",
-              "choice": false,
-              "special": ""
+          "ammunition": {},
+          "armor": {},
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              },
+              "number": null,
+              "denomination": null,
+              "bonus": ""
             },
-            "template": {
-              "count": "",
-              "contiguous": false,
-              "type": "sphere",
-              "size": "10",
-              "width": "",
-              "height": "",
-              "units": "ft",
-              "stationary": false
-            }
-          },
-          "method": "spell",
-          "prepared": 1,
-          "sourceItem": "consumable:spell-scroll"
-        },
-        "effects": [
-          {
-            "_id": "dnd5espellchange",
-            "type": "enchantment",
-            "name": "Spell Changes",
-            "img": "systems/dnd5e/icons/svg/activity/cast.svg",
-            "origin": "Actor.TNFU2mNGnpdORuVT.Item.uAVRhyVMhmVfr7Xh.Activity.dnd5escrollspell",
-            "changes": [
-              {
-                "key": "system.method",
-                "mode": 5,
-                "value": "spell"
+            "versatile": {
+              "types": [],
+              "custom": {
+                "enabled": false
               },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-vocal"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-somatic"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-material"
-              },
-              {
-                "key": "activities[attack].attack.bonus",
-                "mode": 5,
-                "value": "7"
-              },
-              {
-                "key": "activities[attack].attack.flat",
-                "mode": 5,
-                "value": "true"
-              },
-              {
-                "key": "activities[summon].flat.attack",
-                "mode": 5,
-                "value": "7"
-              },
-              {
-                "key": "activities[save].save.dc.calculation",
-                "mode": 5,
-                "value": ""
-              },
-              {
-                "key": "activities[save].save.dc.formula",
-                "mode": 5,
-                "value": "15"
-              },
-              {
-                "key": "activities[summon].flat.save",
-                "mode": 5,
-                "value": "15"
+              "scaling": {
+                "number": 1
               }
-            ],
-            "system": {},
-            "disabled": false,
-            "duration": {
-              "startTime": 47094943500,
-              "combat": null
-            },
-            "description": "",
-            "tint": "#ffffff",
-            "transfer": true,
-            "statuses": [],
-            "sort": 0,
-            "flags": {},
-            "_stats": {
-              "compendiumSource": null,
-              "duplicateSource": null,
-              "exportSource": null,
-              "coreVersion": "13.351",
-              "systemId": "dnd5e",
-              "systemVersion": "5.3.0",
-              "lastModifiedBy": null
             }
-          }
-        ],
-        "name": "Leomund's Tiny Hideout",
-        "img": "icons/environment/settlement/wagon-black.webp",
-        "folder": "Z0jevfGCJ5ULFYyj",
+          },
+          "properties": [],
+          "proficient": null,
+          "range": {
+            "units": "ft",
+            "value": null,
+            "long": null,
+            "reach": null
+          },
+          "type": {
+            "value": "simpleM",
+            "baseItem": ""
+          },
+          "mastery": ""
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
         "ownership": {
           "default": 0,
-          "I4GGxqNW644lYEEA": 3
+          "Ex3WmAaZbR5VTaOf": 3
+        }
+      },
+      {
+        "name": "Drow Knockout Poison",
+        "type": "consumable",
+        "_id": "zEPXevtcyLU2DJBq",
+        "img": "systems/dnd5e/icons/svg/items/consumable.svg",
+        "system": {
+          "activities": {},
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "autoDestroy": false,
+            "max": ""
+          },
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "consumable",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [],
+          "type": {
+            "value": "",
+            "subtype": ""
+          }
         },
-        "sort": 125000,
-        "_id": "fBFv1uzwFlWwArOU"
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "Ex3WmAaZbR5VTaOf": 3
+        }
+      },
+      {
+        "name": "knockout drow needle",
+        "type": "consumable",
+        "_id": "gtvHuzFF5Rvz5ziE",
+        "img": "systems/dnd5e/icons/svg/items/consumable.svg",
+        "system": {
+          "activities": {},
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "autoDestroy": false,
+            "max": ""
+          },
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "consumable",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [],
+          "type": {
+            "value": "",
+            "subtype": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "Ex3WmAaZbR5VTaOf": 3
+        }
+      },
+      {
+        "name": "Rafey DrowyBoy",
+        "type": "loot",
+        "_id": "nSgeLHnq0892R1UM",
+        "img": "systems/dnd5e/icons/svg/items/loot.svg",
+        "system": {
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "loot",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": "sl8SNRMhwIREHWXI",
+          "quantity": 1,
+          "weight": {
+            "value": 110,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "properties": [],
+          "type": {
+            "value": "",
+            "subtype": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "Ex3WmAaZbR5VTaOf": 3
+        }
       }
     ],
-    "effects": []
+    "effects": [
+      {
+        "name": "Psionic Power: Psychic Whispers",
+        "img": "icons/magic/perception/third-eye-blue-red.webp",
+        "origin": "Actor.4F5kQIpxwyb6rykH.Item.ul0R8z9DVF5yc8xi",
+        "transfer": false,
+        "_id": "cYKEwIdsdFHt8zsB",
+        "type": "base",
+        "system": {},
+        "changes": [],
+        "disabled": false,
+        "duration": {
+          "startTime": -273108874,
+          "combat": null,
+          "seconds": 14400,
+          "rounds": null,
+          "turns": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "description": "",
+        "tint": "#ffffff",
+        "statuses": [],
+        "sort": 0,
+        "flags": {
+          "dnd5e": {
+            "riders": {
+              "statuses": []
+            }
+          },
+          "dae": {
+            "enableCondition": "",
+            "disableCondition": "",
+            "stackable": "noneName",
+            "showIcon": false,
+            "disableIncapacitated": false,
+            "selfTarget": false,
+            "selfTargetAlways": false,
+            "dontApply": true,
+            "durationExpression": "",
+            "macroRepeat": "none",
+            "specialDuration": []
+          },
+          "core": {
+            "overlay": false
+          }
+        },
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1776485583360,
+          "modifiedTime": 1776485583360,
+          "lastModifiedBy": "Ex3WmAaZbR5VTaOf"
+        }
+      },
+      {
+        "_id": "dnd5ebloodied000",
+        "name": "Bloodied",
+        "img": "systems/dnd5e/icons/svg/statuses/bloodied.svg",
+        "statuses": [
+          "bloodied"
+        ],
+        "type": "base",
+        "system": {},
+        "changes": [],
+        "disabled": false,
+        "duration": {
+          "startTime": -273105299,
+          "combat": null,
+          "startRound": 1,
+          "startTurn": 12
+        },
+        "description": "",
+        "origin": null,
+        "tint": "#ffffff",
+        "transfer": false,
+        "sort": 0,
+        "flags": {
+          "dae": {
+            "specialDuration": []
+          }
+        },
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1776490514547,
+          "modifiedTime": 1776490514547,
+          "lastModifiedBy": "I4GGxqNW644lYEEA"
+        }
+      }
+    ]
   }
 }

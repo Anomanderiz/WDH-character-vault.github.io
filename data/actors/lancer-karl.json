@@ -1,12 +1,12 @@
 {
-  "exportedAt": "2026-04-04T07:05:11.436Z",
+  "exportedAt": "2026-04-25T00:36:59.014Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
     "name": "Lancer (Karl)",
     "type": "character",
     "_id": "b7uXKYOEzfYLNFVY",
-    "img": "tokenizer/pc-images/lancer_karl_.avatar.webp?1775267465953",
+    "img": "tokenizer/pc-images/lancer_karl_.avatar.webp?1775880639211",
     "system": {
       "currency": {
         "pp": 235,
@@ -528,7 +528,7 @@
           "value": null
         },
         "hp": {
-          "value": 82,
+          "value": 59,
           "max": 82,
           "temp": null,
           "tempmax": 0,
@@ -550,7 +550,7 @@
             "save": ""
           }
         },
-        "inspiration": true
+        "inspiration": false
       },
       "bastion": {
         "name": "",
@@ -680,7 +680,7 @@
       "width": 1,
       "height": 1,
       "texture": {
-        "src": "tokenizer/pc-images/lancer_karl_.token.webp?1775267465953",
+        "src": "tokenizer/pc-images/lancer_karl_.token.webp?1775880639211",
         "anchorX": 0.5,
         "anchorY": 0.5,
         "offsetX": 0,
@@ -2810,7 +2810,7 @@
             }
           },
           "method": "spell",
-          "prepared": 0,
+          "prepared": 1,
           "sourceItem": "class:paladin"
         },
         "effects": [],
@@ -4054,7 +4054,7 @@
             }
           },
           "method": "spell",
-          "prepared": 1,
+          "prepared": 0,
           "sourceItem": "class:paladin"
         },
         "effects": [],
@@ -5117,7 +5117,7 @@
           },
           "hd": {
             "denomination": "d10",
-            "spent": 0,
+            "spent": 2,
             "additional": ""
           },
           "advancement": {

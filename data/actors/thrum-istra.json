@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-04-04T07:05:11.436Z",
+  "exportedAt": "2026-04-25T00:36:59.014Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -528,9 +528,9 @@
           "value": null
         },
         "hp": {
-          "value": 83,
-          "max": 83,
-          "temp": null,
+          "value": 74,
+          "max": 91,
+          "temp": 0,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -1058,7 +1058,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 1,
             "recovery": [
               {
                 "period": "lr",
@@ -1798,7 +1798,9 @@
                 "dontApply": false,
                 "durationExpression": "",
                 "macroRepeat": "none",
-                "specialDuration": []
+                "specialDuration": [
+                  "turnStartSource"
+                ]
               },
               "core": {
                 "overlay": false
@@ -1824,11 +1826,11 @@
               "compendiumSource": null,
               "duplicateSource": null,
               "exportSource": null,
-              "coreVersion": "13.348",
+              "coreVersion": "13.351",
               "systemId": "dnd5e",
               "systemVersion": "5.1.10",
               "createdTime": 1762122943284,
-              "modifiedTime": 1764988958316,
+              "modifiedTime": 1775687484715,
               "lastModifiedBy": "I4GGxqNW644lYEEA"
             }
           }
@@ -1840,7 +1842,7 @@
               "_id": "hGFx3R9nBR85Kq3U",
               "sort": 0,
               "activation": {
-                "type": "reaction",
+                "type": "special",
                 "override": false,
                 "condition": ""
               },
@@ -1862,7 +1864,10 @@
               "effects": [
                 {
                   "_id": "08gpXHPtzOXHEqkw",
-                  "level": {}
+                  "level": {
+                    "min": null,
+                    "max": null
+                  }
                 }
               ],
               "range": {
@@ -1926,7 +1931,7 @@
                 "autoTargetType": "any",
                 "autoTargetAction": "default",
                 "automationOnly": false,
-                "otherActivityCompatible": true,
+                "otherActivityCompatible": false,
                 "otherActivityAsParentType": true,
                 "identifier": "",
                 "displayActivityName": false,
@@ -1951,16 +1956,20 @@
                 "rollAs": "target"
               },
               "otherActivityId": "none",
-              "otherActivityAsParentType": true,
+              "otherActivityAsParentType": false,
               "name": "",
               "flags": {},
               "visibility": {
-                "level": {},
+                "level": {
+                  "min": null,
+                  "max": null
+                },
                 "requireAttunement": false,
                 "requireIdentification": false,
-                "requireMagic": false
+                "requireMagic": false,
+                "identifier": ""
               },
-              "img": null
+              "img": ""
             }
           },
           "uses": {
@@ -7478,7 +7487,7 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
+                "autoCEEffects": "none",
                 "triggeredActivityConsume": true,
                 "triggeredActivityConfigure": true,
                 "autoConsume": false,
@@ -12688,7 +12697,7 @@
             }
           },
           "uses": {
-            "spent": null,
+            "spent": 1,
             "max": "1",
             "recovery": [],
             "autoDestroy": false
@@ -15859,7 +15868,7 @@
                 "prompt": true
               },
               "uses": {
-                "spent": 0,
+                "spent": 1,
                 "recovery": [
                   {
                     "period": "lr",
@@ -16147,7 +16156,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 42,
+          "quantity": 62,
           "weight": {
             "value": 0.075,
             "units": "lb"
@@ -17037,7 +17046,7 @@
           {
             "origin": "Actor.gWM9Il0zlve2eqG9.Item.9z9QzhKMivYw9MNE",
             "duration": {
-              "startTime": 47094650098,
+              "startTime": null,
               "seconds": null,
               "combat": null,
               "rounds": 1,
@@ -17070,7 +17079,8 @@
               "coreVersion": "13.351",
               "systemId": "dnd5e",
               "systemVersion": "5.3.0",
-              "lastModifiedBy": null
+              "lastModifiedBy": "I4GGxqNW644lYEEA",
+              "modifiedTime": 1775877200187
             },
             "img": "icons/magic/nature/wolf-paw-glow-large-green.webp",
             "type": "base",
@@ -17083,6 +17093,2027 @@
         "ownership": {
           "default": 0,
           "TgYi983acOQ1GKYj": 3,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "name": "Longsword",
+        "type": "weapon",
+        "effects": [],
+        "system": {
+          "activities": {
+            "attackLongswordI": {
+              "type": "attack",
+              "_id": "attackLongswordI",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "value": "",
+                "units": "turn",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "override": false
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "attack": {
+                "ability": "",
+                "bonus": "",
+                "critical": {},
+                "flat": false,
+                "type": {
+                  "value": "melee",
+                  "classification": "weapon"
+                }
+              },
+              "damage": {
+                "parts": [],
+                "includeBase": true,
+                "critical": {
+                  "bonus": ""
+                }
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "attackMode": "oneHanded",
+              "ammunition": "",
+              "otherActivityUuid": "",
+              "attackRollPerTarget": "default",
+              "fumbleThreshold": 1,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": null,
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>Proficiency with a Longsword allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>\n\n</div>",
+            "chat": ""
+          },
+          "identifier": "longsword",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 2,
+          "weight": {
+            "value": 3,
+            "units": "lb"
+          },
+          "price": {
+            "value": 15,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "ammunition": {},
+          "armor": {},
+          "damage": {
+            "base": {
+              "number": 1,
+              "denomination": 8,
+              "bonus": "",
+              "types": [
+                "slashing"
+              ],
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "scaling": {
+                "mode": "",
+                "number": null,
+                "formula": ""
+              }
+            },
+            "versatile": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            }
+          },
+          "mastery": "sap",
+          "properties": [
+            "ver"
+          ],
+          "proficient": null,
+          "range": {
+            "value": 5,
+            "long": null,
+            "units": "ft",
+            "reach": null
+          },
+          "type": {
+            "value": "martialM",
+            "baseItem": "longsword"
+          },
+          "crew": {
+            "value": []
+          }
+        },
+        "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+        "folder": "gpZsjjpBB5fYY1e0",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "UKU3lG74rZGRW3Wv",
+        "sort": 0
+      },
+      {
+        "_id": "Zx3ibQorfBtChgtY",
+        "name": "Light Hammer",
+        "type": "weapon",
+        "effects": [
+          {
+            "name": "Crippling",
+            "img": "icons/skills/melee/strike-dagger-blood-red.webp",
+            "origin": "Actor.gWM9Il0zlve2eqG9.Item.Zx3ibQorfBtChgtY",
+            "_id": "1HxZ9GV3fVWcquwV",
+            "type": "base",
+            "system": {},
+            "changes": [
+              {
+                "key": "system.attributes.movement.all",
+                "mode": 0,
+                "value": "-10",
+                "priority": 20
+              }
+            ],
+            "disabled": false,
+            "duration": {
+              "startTime": null,
+              "combat": null,
+              "seconds": null,
+              "rounds": 1,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "tint": "#ffffff",
+            "transfer": false,
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                }
+              },
+              "dae": {
+                "disableCondition": "",
+                "stackable": "noneName",
+                "showIcon": false,
+                "disableIncapacitated": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": [],
+                "enableCondition": "",
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": false
+              },
+              "core": {
+                "overlay": false
+              },
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "All",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system",
+                "statuses": []
+              }
+            },
+            "_stats": {
+              "compendiumSource": "Actor.gWM9Il0zlve2eqG9.Item.OXcOsC1aRX54Rmv4.ActiveEffect.JmbPkwwdyuzT0IO4",
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "system": {
+          "activities": {
+            "attackLightHamme": {
+              "type": "attack",
+              "_id": "attackLightHamme",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "value": "",
+                "units": "inst",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [
+                {
+                  "_id": "1HxZ9GV3fVWcquwV",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "override": true,
+                "units": "any",
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "m",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "type": "creature",
+                  "count": "1",
+                  "special": ""
+                },
+                "override": false,
+                "prompt": false
+              },
+              "uses": {
+                "spent": null,
+                "recovery": [],
+                "max": ""
+              },
+              "attack": {
+                "ability": "",
+                "bonus": "",
+                "critical": {
+                  "threshold": null
+                },
+                "flat": false,
+                "type": {
+                  "value": "melee",
+                  "classification": "weapon"
+                }
+              },
+              "damage": {
+                "parts": [],
+                "includeBase": true,
+                "critical": {
+                  "bonus": ""
+                }
+              },
+              "name": "",
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "",
+              "otherActivityAsParentType": true,
+              "attackMode": "oneHanded",
+              "ammunition": "",
+              "otherActivityUuid": "",
+              "attackRollPerTarget": "default",
+              "fumbleThreshold": 1,
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": null,
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>Proficiency with a Light Hammer allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>\n<div class=\"mastery-container\"><hr />\n<p>This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.</p>\n<p><strong><em>Nick.</em></strong> When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn.</p>\n</div>\n</div>",
+            "chat": ""
+          },
+          "identifier": "light-hammer",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 5,
+          "weight": {
+            "value": 2,
+            "units": "lb"
+          },
+          "price": {
+            "value": 2,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "cover": null,
+          "type": {
+            "value": "simpleM",
+            "baseItem": "lighthammer"
+          },
+          "ammunition": {},
+          "armor": {
+            "value": null
+          },
+          "damage": {
+            "base": {
+              "number": 1,
+              "denomination": 4,
+              "bonus": "",
+              "types": [
+                "bludgeoning"
+              ],
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "scaling": {
+                "mode": "",
+                "number": null,
+                "formula": ""
+              }
+            },
+            "versatile": {
+              "number": null,
+              "denomination": null,
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            }
+          },
+          "mastery": "nick",
+          "properties": [
+            "lgt",
+            "thr"
+          ],
+          "proficient": 1,
+          "range": {
+            "value": 20,
+            "long": 60,
+            "units": "ft",
+            "reach": null
+          },
+          "crew": {
+            "value": []
+          }
+        },
+        "img": "icons/weapons/hammers/shorthammer-double-simple.webp",
+        "folder": null,
+        "sort": 200000,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "name": "Dagger",
+        "type": "weapon",
+        "effects": [],
+        "system": {
+          "activities": {
+            "attackDaggerIIII": {
+              "type": "attack",
+              "_id": "attackDaggerIIII",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "target": "",
+                    "scaling": {}
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "value": "",
+                "units": "turn",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "override": false
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "type": ""
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": [],
+                "max": ""
+              },
+              "attack": {
+                "ability": "",
+                "bonus": "5",
+                "critical": {
+                  "threshold": null
+                },
+                "flat": false,
+                "type": {
+                  "value": "melee",
+                  "classification": "weapon"
+                }
+              },
+              "damage": {
+                "parts": [
+                  {
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    },
+                    "number": 1,
+                    "denomination": 4,
+                    "bonus": "",
+                    "types": [
+                      "piercing"
+                    ],
+                    "scaling": {
+                      "number": 1
+                    }
+                  },
+                  {
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    },
+                    "number": 1,
+                    "denomination": 10,
+                    "bonus": "4",
+                    "types": [
+                      "poison"
+                    ],
+                    "scaling": {
+                      "number": 1
+                    }
+                  }
+                ],
+                "includeBase": false,
+                "critical": {
+                  "bonus": ""
+                }
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "attackMode": "oneHanded",
+              "ammunition": "",
+              "otherActivityUuid": "",
+              "attackRollPerTarget": "default",
+              "fumbleThreshold": 1,
+              "name": "",
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": null,
+            "recovery": [],
+            "max": ""
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>Proficiency with a Dagger allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>\n\n</div>",
+            "chat": ""
+          },
+          "identifier": "dagger",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 1,
+            "units": "lb"
+          },
+          "price": {
+            "value": 2,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "ammunition": {},
+          "armor": {},
+          "damage": {
+            "base": {
+              "number": null,
+              "denomination": null,
+              "bonus": "",
+              "types": [],
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "scaling": {
+                "mode": "",
+                "number": null,
+                "formula": ""
+              }
+            },
+            "versatile": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            }
+          },
+          "mastery": "nick",
+          "properties": [
+            "fin",
+            "lgt",
+            "thr"
+          ],
+          "proficient": null,
+          "range": {
+            "value": 20,
+            "long": 60,
+            "units": "ft",
+            "reach": null
+          },
+          "type": {
+            "value": "simpleM",
+            "baseItem": "dagger"
+          },
+          "attuned": false,
+          "equipped": false,
+          "crew": {
+            "value": []
+          }
+        },
+        "img": "icons/weapons/daggers/dagger-black.webp",
+        "folder": "CYQzslCICeYkSdAm",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "Ax4YvPffADQUX6W6",
+        "sort": 8900000
+      },
+      {
+        "_id": "ogt3RyQoXIEKQMWt",
+        "name": "Spear",
+        "type": "weapon",
+        "effects": [
+          {
+            "name": "Crippling",
+            "img": "icons/skills/melee/strike-dagger-blood-red.webp",
+            "origin": "Actor.gWM9Il0zlve2eqG9.Item.ogt3RyQoXIEKQMWt",
+            "_id": "fKrANo54vtd9Sx8u",
+            "type": "base",
+            "system": {},
+            "changes": [
+              {
+                "key": "system.attributes.movement.all",
+                "mode": 0,
+                "value": "-10",
+                "priority": 20
+              }
+            ],
+            "disabled": false,
+            "duration": {
+              "startTime": null,
+              "combat": null,
+              "seconds": null,
+              "rounds": 1,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "tint": "#ffffff",
+            "transfer": false,
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                }
+              },
+              "dae": {
+                "disableCondition": "",
+                "stackable": "noneName",
+                "showIcon": false,
+                "disableIncapacitated": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": [],
+                "enableCondition": "",
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": false
+              },
+              "core": {
+                "overlay": false
+              },
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "All",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system",
+                "statuses": []
+              }
+            },
+            "_stats": {
+              "compendiumSource": "Actor.gWM9Il0zlve2eqG9.Item.OXcOsC1aRX54Rmv4.ActiveEffect.JmbPkwwdyuzT0IO4",
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "system": {
+          "activities": {
+            "attackSpearIIIII": {
+              "type": "attack",
+              "_id": "attackSpearIIIII",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "value": "",
+                "units": "inst",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [
+                {
+                  "_id": "fKrANo54vtd9Sx8u",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "override": false,
+                "units": "any",
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "m",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "type": "creature",
+                  "count": "1",
+                  "special": ""
+                },
+                "override": false,
+                "prompt": false
+              },
+              "uses": {
+                "spent": null,
+                "recovery": [],
+                "max": ""
+              },
+              "attack": {
+                "ability": "",
+                "bonus": "",
+                "critical": {
+                  "threshold": null
+                },
+                "flat": false,
+                "type": {
+                  "value": "melee",
+                  "classification": "weapon"
+                }
+              },
+              "damage": {
+                "parts": [],
+                "includeBase": true,
+                "critical": {
+                  "bonus": ""
+                }
+              },
+              "name": "",
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "",
+              "otherActivityAsParentType": true,
+              "attackMode": "oneHanded",
+              "ammunition": "",
+              "otherActivityUuid": "",
+              "attackRollPerTarget": "default",
+              "fumbleThreshold": 1,
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": null,
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>Proficiency with a Spear allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>\n<div class=\"mastery-container\"><hr />\n<p>This weapon has the following mastery property. To use this property, you must have a feature that lets you use it.</p>\n<p><strong><em>Sap.</em></strong> If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn.</p>\n</div>\n</div>",
+            "chat": ""
+          },
+          "identifier": "spear",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 3,
+          "weight": {
+            "value": 3,
+            "units": "lb"
+          },
+          "price": {
+            "value": 1,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "cover": null,
+          "type": {
+            "value": "simpleM",
+            "baseItem": "spear"
+          },
+          "ammunition": {},
+          "armor": {
+            "value": null
+          },
+          "damage": {
+            "base": {
+              "number": 1,
+              "denomination": 6,
+              "bonus": "",
+              "types": [
+                "piercing"
+              ],
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "scaling": {
+                "mode": "",
+                "number": null,
+                "formula": ""
+              }
+            },
+            "versatile": {
+              "number": null,
+              "denomination": null,
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            }
+          },
+          "mastery": "sap",
+          "properties": [
+            "thr",
+            "ver"
+          ],
+          "proficient": 1,
+          "range": {
+            "value": 20,
+            "long": 60,
+            "units": "ft",
+            "reach": null
+          },
+          "crew": {
+            "value": []
+          }
+        },
+        "img": "icons/weapons/polearms/spear-flared-worn-grey.webp",
+        "folder": null,
+        "sort": 300000,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "type": "spell",
+        "system": {
+          "activities": {
+            "utilityBladeWard": {
+              "type": "utility",
+              "_id": "utilityBladeWard",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false
+              },
+              "consumption": {
+                "spellSlot": true,
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [
+                {
+                  "_id": "ynXhbNOfYRje4keY",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": ""
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false,
+                "name": "",
+                "formula": ""
+              },
+              "useConditionText": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "none",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "name": "",
+              "useConditionReason": "",
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "",
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts 1d4 from the attack roll.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "blade-ward",
+          "source": {
+            "book": "",
+            "page": "",
+            "license": "",
+            "custom": "PHB 2024",
+            "rules": "2024",
+            "revision": 1
+          },
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": "1",
+            "units": "minute"
+          },
+          "level": 0,
+          "materials": {
+            "value": "",
+            "consumed": false,
+            "cost": 0,
+            "supply": 0
+          },
+          "properties": [
+            "vocal",
+            "somatic",
+            "concentration"
+          ],
+          "range": {
+            "units": "self",
+            "special": ""
+          },
+          "school": "abj",
+          "target": {
+            "affects": {
+              "count": "",
+              "type": "self",
+              "choice": false,
+              "special": ""
+            },
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft",
+              "stationary": false
+            }
+          },
+          "method": "spell",
+          "prepared": 1,
+          "sourceItem": "equipment:enspelled-breastplate"
+        },
+        "effects": [
+          {
+            "name": "Blade Ward",
+            "changes": [
+              {
+                "key": "flags.midi-qol.grants.attack.bonus.all",
+                "mode": 2,
+                "value": "-1d4",
+                "priority": 20
+              }
+            ],
+            "transfer": false,
+            "img": "icons/equipment/shield/buckler-wooden-boss-glowing-blue.webp",
+            "_id": "ynXhbNOfYRje4keY",
+            "type": "base",
+            "system": {},
+            "disabled": false,
+            "duration": {
+              "startTime": null,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "origin": null,
+            "tint": "#ffffff",
+            "statuses": [],
+            "flags": {
+              "dae": {
+                "enableCondition": "",
+                "disableCondition": "",
+                "disableIncapacitated": false,
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": false,
+                "stackable": "multi",
+                "showIcon": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": []
+              },
+              "core": {
+                "overlay": false
+              },
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                }
+              },
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "All",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system",
+                "statuses": []
+              }
+            },
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          },
+          {
+            "_id": "dnd5espellchange",
+            "type": "enchantment",
+            "name": "Spell Changes",
+            "img": "systems/dnd5e/icons/svg/activity/cast.svg",
+            "origin": "Actor.gWM9Il0zlve2eqG9.Item.6k6NyS2xl1CsjEac.Activity.ecwPrsHLyFzvjsby",
+            "changes": [
+              {
+                "key": "system.method",
+                "mode": 5,
+                "value": "spell"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-vocal"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-somatic"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-material"
+              }
+            ],
+            "system": {},
+            "disabled": false,
+            "duration": {
+              "startTime": -273248614,
+              "combat": null
+            },
+            "description": "",
+            "tint": "#ffffff",
+            "transfer": true,
+            "statuses": [],
+            "sort": 0,
+            "flags": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "name": "Blade Ward",
+        "img": "icons/equipment/shield/buckler-wooden-boss-glowing-blue.webp",
+        "folder": "Kbaf1ZcgIPxQ3amq",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "qOu9x616pmeBI6sT": 3
+        },
+        "_id": "sx3O0iU0qFDitP76"
+      },
+      {
+        "type": "spell",
+        "system": {
+          "activities": {
+            "utilityBladeWard": {
+              "type": "utility",
+              "_id": "utilityBladeWard",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false
+              },
+              "consumption": {
+                "spellSlot": true,
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [
+                {
+                  "_id": "ynXhbNOfYRje4keY",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": ""
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false,
+                "name": "",
+                "formula": ""
+              },
+              "useConditionText": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "name": "",
+              "useConditionReason": "",
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "",
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts 1d4 from the attack roll.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "blade-ward",
+          "source": {
+            "book": "",
+            "page": "",
+            "license": "",
+            "custom": "PHB 2024",
+            "rules": "2024",
+            "revision": 1
+          },
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": "1",
+            "units": "minute"
+          },
+          "level": 0,
+          "materials": {
+            "value": "",
+            "consumed": false,
+            "cost": 0,
+            "supply": 0
+          },
+          "properties": [
+            "vocal",
+            "somatic",
+            "concentration"
+          ],
+          "range": {
+            "units": "self",
+            "special": ""
+          },
+          "school": "abj",
+          "target": {
+            "affects": {
+              "count": "",
+              "type": "self",
+              "choice": false,
+              "special": ""
+            },
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft",
+              "stationary": false
+            }
+          },
+          "method": "spell",
+          "prepared": 1,
+          "sourceItem": "equipment:enspelled-breastplate"
+        },
+        "effects": [
+          {
+            "name": "Blade Ward",
+            "changes": [
+              {
+                "key": "flags.midi-qol.grants.attack.bonus.all",
+                "mode": 2,
+                "value": "-1d4",
+                "priority": 20
+              }
+            ],
+            "transfer": false,
+            "img": "icons/equipment/shield/buckler-wooden-boss-glowing-blue.webp",
+            "_id": "ynXhbNOfYRje4keY",
+            "type": "base",
+            "system": {},
+            "disabled": false,
+            "duration": {
+              "startTime": null,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "origin": null,
+            "tint": "#ffffff",
+            "statuses": [],
+            "flags": {
+              "dae": {
+                "enableCondition": "",
+                "disableCondition": "",
+                "disableIncapacitated": false,
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": false,
+                "stackable": "multi",
+                "showIcon": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": []
+              },
+              "core": {
+                "overlay": false
+              },
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                }
+              },
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "All",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system",
+                "statuses": []
+              }
+            },
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          },
+          {
+            "_id": "dnd5espellchange",
+            "type": "enchantment",
+            "name": "Spell Changes",
+            "img": "systems/dnd5e/icons/svg/activity/cast.svg",
+            "origin": "Actor.gWM9Il0zlve2eqG9.Item.6k6NyS2xl1CsjEac.Activity.ecwPrsHLyFzvjsby",
+            "changes": [
+              {
+                "key": "system.method",
+                "mode": 5,
+                "value": "spell"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-vocal"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-somatic"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-material"
+              }
+            ],
+            "system": {},
+            "disabled": false,
+            "duration": {
+              "startTime": -273248614,
+              "combat": null
+            },
+            "description": "",
+            "tint": "#ffffff",
+            "transfer": true,
+            "statuses": [],
+            "sort": 0,
+            "flags": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "name": "Blade Ward",
+        "img": "icons/equipment/shield/buckler-wooden-boss-glowing-blue.webp",
+        "folder": "Kbaf1ZcgIPxQ3amq",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "qOu9x616pmeBI6sT": 3
+        },
+        "_id": "H2bfs4cgGZmUbK43"
+      },
+      {
+        "name": "Reigns of the Colossus",
+        "type": "equipment",
+        "_id": "Z6NEoXtH3jCGcqTB",
+        "img": "icons/equipment/wrist/bracer-ornate-black-silver.webp",
+        "system": {
+          "activities": {
+            "JOm8vnu75h9Ox2VM": {
+              "type": "utility",
+              "_id": "JOm8vnu75h9Ox2VM",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "override": false
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": []
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "flags": {},
+              "range": {
+                "units": "self",
+                "override": false
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": []
+              },
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "rollAs": "target",
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": ""
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "reigns-of-the-colossus",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "artifact",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "crew": {
+            "value": []
+          },
+          "armor": {
+            "value": null,
+            "dex": null
+          },
+          "proficient": null,
+          "properties": [
+            "mgc"
+          ],
+          "strength": null,
+          "type": {
+            "value": "wondrous",
+            "baseItem": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
           "I4GGxqNW644lYEEA": 3
         }
       }
