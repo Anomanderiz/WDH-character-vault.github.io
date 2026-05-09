@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-04-25T00:36:59.014Z",
+  "exportedAt": "2026-05-09T06:02:22.806Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -10,7 +10,7 @@
     "system": {
       "currency": {
         "pp": 39,
-        "gp": 505,
+        "gp": 5,
         "ep": 0,
         "sp": 5,
         "cp": 1
@@ -553,9 +553,9 @@
           "value": null
         },
         "hp": {
-          "value": 14,
+          "value": 47,
           "max": 69,
-          "temp": 0,
+          "temp": 1,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -887,7 +887,8 @@
               "effects": [],
               "range": {
                 "override": false,
-                "units": "self"
+                "units": "self",
+                "special": ""
               },
               "target": {
                 "prompt": true,
@@ -937,10 +938,14 @@
               "attackMode": "thrown",
               "flags": {},
               "visibility": {
-                "level": {},
+                "level": {
+                  "min": null,
+                  "max": null
+                },
                 "requireAttunement": false,
                 "requireIdentification": false,
-                "requireMagic": false
+                "requireMagic": false,
+                "identifier": ""
               },
               "useConditionText": "",
               "useConditionReason": "",
@@ -1000,7 +1005,7 @@
               "otherActivityUuid": "",
               "attackRollPerTarget": "default",
               "fumbleThreshold": 1,
-              "img": null
+              "img": ""
             },
             "addBonuActiAtta1": {
               "name": "Bonus Action Attack",
@@ -1270,7 +1275,8 @@
           },
           "crew": {
             "value": []
-          }
+          },
+          "magicalBonus": ""
         },
         "effects": [],
         "img": "icons/skills/melee/blade-tips-double-blue.webp",
@@ -5541,7 +5547,7 @@
           },
           "hd": {
             "denomination": "d8",
-            "spent": 4,
+            "spent": 0,
             "additional": ""
           },
           "advancement": {
@@ -8653,7 +8659,7 @@
             }
           },
           "uses": {
-            "spent": 1,
+            "spent": 0,
             "recovery": [
               {
                 "period": "turnStart",
@@ -9024,7 +9030,7 @@
             }
           },
           "uses": {
-            "spent": 2,
+            "spent": 0,
             "max": "@scale.soulknife.energy-die.number",
             "recovery": [
               {
@@ -11468,7 +11474,7 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
+                "autoCEEffects": "none",
                 "triggeredActivityConsume": true,
                 "triggeredActivityConfigure": true,
                 "skipConcentrationCheck": false
@@ -11486,7 +11492,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 1,
             "max": "10",
             "recovery": [],
             "autoDestroy": false
@@ -13334,7 +13340,7 @@
             }
           },
           "method": "spell",
-          "prepared": 0,
+          "prepared": 1,
           "sourceItem": "class:ranger"
         },
         "effects": [],
@@ -15011,7 +15017,7 @@
             }
           },
           "method": "spell",
-          "prepared": 1,
+          "prepared": 0,
           "ability": "",
           "sourceItem": "class:ranger"
         },
@@ -15278,9 +15284,9 @@
               "sort": 0,
               "useConditionText": "",
               "effectConditionText": "",
-              "name": "Cast",
+              "name": "Create Berries",
               "midiProperties": {
-                "identifier": "cast",
+                "identifier": "create-berries",
                 "ignoreTraits": [],
                 "triggeredActivityId": "none",
                 "triggeredActivityConditionText": "",
@@ -15293,6 +15299,8 @@
                 "otherActivityCompatible": false,
                 "displayActivityName": false,
                 "rollMode": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
@@ -15306,9 +15314,7 @@
                 "magicDamage": false,
                 "noConcentrationCheck": false,
                 "skipConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
+                "autoCEEffects": "default"
               },
               "macroData": {
                 "name": "",
@@ -15328,17 +15334,20 @@
                 "postRemoveConditionText": "",
                 "rollAs": "target"
               },
-              "flags": {},
+              "img": "icons/consumables/fruit/lingonberry-cluster-red.webp",
               "visibility": {
-                "level": {},
+                "level": {
+                  "min": null,
+                  "max": null
+                },
                 "requireAttunement": false,
                 "requireIdentification": false,
                 "requireMagic": false
               },
+              "flags": {},
               "useConditionReason": "",
               "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "img": null
+              "otherActivityAsParentType": true
             }
           },
           "uses": {
@@ -15378,8 +15387,7 @@
           "properties": [
             "vocal",
             "somatic",
-            "material",
-            "mgc"
+            "material"
           ],
           "range": {
             "units": "self",
@@ -15401,8 +15409,7 @@
           },
           "method": "spell",
           "prepared": 0,
-          "ability": "",
-          "sourceItem": "class:ranger"
+          "ability": ""
         },
         "effects": [],
         "name": "Goodberry",
@@ -22196,7 +22203,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 1,
+          "quantity": 2,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -22902,225 +22909,6 @@
         },
         "_id": "1KYYXWyy6IJ2bvjz",
         "sort": 0
-      },
-      {
-        "name": "Potion of Healing",
-        "system": {
-          "description": {
-            "value": "<p>This potion is a magic item. As a Bonus Action, you can drink it or administer it to another creature within 5 feet of yourself. The creature that drinks the magical red fluid in this vial regains 2d4 + 2 Hit Points.</p>",
-            "chat": ""
-          },
-          "price": {
-            "value": 50,
-            "denomination": "gp"
-          },
-          "source": {
-            "custom": "",
-            "rules": "2024",
-            "license": "CC-BY-4.0",
-            "book": "",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 0.5,
-            "units": "lb"
-          },
-          "rarity": "",
-          "attunement": "",
-          "uses": {
-            "max": "1",
-            "autoDestroy": true,
-            "spent": 0,
-            "recovery": []
-          },
-          "damage": {
-            "base": {
-              "number": null,
-              "denomination": null,
-              "types": [],
-              "custom": {
-                "enabled": false
-              },
-              "scaling": {
-                "number": 1
-              }
-            },
-            "replace": false
-          },
-          "type": {
-            "value": "potion",
-            "subtype": ""
-          },
-          "properties": [
-            "mgc"
-          ],
-          "activities": {
-            "cNvH4obx5XJ2myYr": {
-              "type": "heal",
-              "activation": {
-                "type": "bonus",
-                "value": 1,
-                "condition": "",
-                "override": false
-              },
-              "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "value": "1",
-                    "target": "",
-                    "scaling": {}
-                  }
-                ],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                },
-                "spellSlot": true
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "concentration": false,
-                "value": "",
-                "units": "inst",
-                "special": "",
-                "override": false
-              },
-              "effects": [],
-              "range": {
-                "units": "touch",
-                "special": "",
-                "override": false
-              },
-              "target": {
-                "template": {
-                  "count": "",
-                  "contiguous": false,
-                  "type": "",
-                  "size": "",
-                  "width": "",
-                  "height": "",
-                  "units": "ft",
-                  "stationary": false
-                },
-                "affects": {
-                  "count": "1",
-                  "type": "creature",
-                  "choice": false,
-                  "special": ""
-                },
-                "prompt": false,
-                "override": false
-              },
-              "healing": {
-                "number": 2,
-                "denomination": 4,
-                "bonus": "2",
-                "types": [
-                  "healing"
-                ],
-                "custom": {
-                  "enabled": false,
-                  "formula": ""
-                },
-                "scaling": {
-                  "mode": "whole",
-                  "number": null,
-                  "formula": ""
-                }
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": [],
-                "max": ""
-              },
-              "sort": 0,
-              "_id": "cNvH4obx5XJ2myYr",
-              "name": "",
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "identifier": "",
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "skipConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "img": null
-            }
-          },
-          "identifier": "potion-of-healing",
-          "attuned": false,
-          "equipped": false
-        },
-        "_id": "h4EVJKOm13haSqCX",
-        "type": "consumable",
-        "folder": "uDk4FBYfcP2JnX6t",
-        "img": "icons/consumables/potions/potion-tube-corked-red.webp",
-        "effects": [],
-        "sort": 4800000,
-        "ownership": {
-          "default": 0,
-          "Ex3WmAaZbR5VTaOf": 3
-        }
       },
       {
         "_id": "oiTNbVGHF1fY04rB",
@@ -24883,14 +24671,9 @@
                 "special": "",
                 "override": false
               },
-              "effects": [
-                {
-                  "_id": "KA6wW1OMsc8xPk46",
-                  "level": {}
-                }
-              ],
+              "effects": [],
               "range": {
-                "units": "any",
+                "units": "self",
                 "special": "",
                 "override": false
               },
@@ -24906,8 +24689,8 @@
                   "stationary": false
                 },
                 "affects": {
-                  "count": "1",
-                  "type": "creature",
+                  "count": "",
+                  "type": "",
                   "choice": false,
                   "special": ""
                 },
@@ -24946,7 +24729,7 @@
                 "triggeredActivityConditionText": "",
                 "triggeredActivityTargets": "targets",
                 "triggeredActivityRollAs": "self",
-                "forceDamageDialog": "",
+                "forceDamageDialog": "false",
                 "confirmTargets": "default",
                 "autoTargetType": "any",
                 "autoTargetAction": "default",
@@ -24979,20 +24762,15 @@
                 "rollAs": "target"
               },
               "otherActivityId": "none",
+              "img": null,
               "flags": {},
               "visibility": {
-                "level": {
-                  "min": null,
-                  "max": null
-                },
+                "level": {},
                 "requireAttunement": false,
                 "requireIdentification": false,
-                "requireMagic": false,
-                "identifier": ""
+                "requireMagic": false
               },
-              "otherActivityAsParentType": true,
-              "name": "",
-              "img": null
+              "otherActivityAsParentType": true
             }
           },
           "identifier": "help",
@@ -25000,112 +24778,14 @@
           "advancement": {},
           "crewed": false
         },
-        "effects": [
-          {
-            "name": "Help",
-            "img": "icons/skills/social/diplomacy-handshake-blue.webp",
-            "origin": "Actor.TNFU2mNGnpdORuVT.Item.Za47v3gpSLlqyNty",
-            "_id": "KA6wW1OMsc8xPk46",
-            "type": "base",
-            "system": {},
-            "changes": [
-              {
-                "key": "flags.automated-conditions-5e.attack.advantage",
-                "mode": 2,
-                "value": "1",
-                "priority": 20
-              },
-              {
-                "key": "flags.automated-conditions-5e.skill.advantage",
-                "mode": 2,
-                "value": "1",
-                "priority": 20
-              },
-              {
-                "key": "flags.automated-conditions-5e.check.advantage",
-                "mode": 2,
-                "value": "1",
-                "priority": 20
-              }
-            ],
-            "disabled": false,
-            "duration": {
-              "startTime": null,
-              "combat": null,
-              "seconds": 6,
-              "rounds": null,
-              "turns": null,
-              "startRound": null,
-              "startTurn": null
-            },
-            "description": "",
-            "tint": "#ffffff",
-            "transfer": false,
-            "statuses": [],
-            "sort": 0,
-            "flags": {
-              "dnd5e": {
-                "riders": {
-                  "statuses": []
-                }
-              },
-              "dae": {
-                "disableCondition": "",
-                "stackable": "noneName",
-                "showIcon": false,
-                "disableIncapacitated": false,
-                "durationExpression": "",
-                "macroRepeat": "none",
-                "specialDuration": [
-                  "1Attack",
-                  "isCheck",
-                  "isSkill",
-                  "isInitiative",
-                  "turnEndSource"
-                ],
-                "enableCondition": "",
-                "selfTarget": false,
-                "selfTargetAlways": false,
-                "dontApply": false
-              },
-              "core": {
-                "overlay": false
-              },
-              "ActiveAuras": {
-                "isAura": false,
-                "aura": "All",
-                "nameOverride": "",
-                "radius": "",
-                "alignment": "",
-                "type": "",
-                "customCheck": "",
-                "ignoreSelf": false,
-                "height": false,
-                "displayTemp": false,
-                "hostile": false,
-                "onlyOnce": false,
-                "wallsBlock": "system",
-                "statuses": []
-              }
-            },
-            "_stats": {
-              "compendiumSource": null,
-              "duplicateSource": null,
-              "exportSource": null,
-              "coreVersion": "13.351",
-              "systemId": "dnd5e",
-              "systemVersion": "5.2.5",
-              "lastModifiedBy": null
-            }
-          }
-        ],
+        "effects": [],
         "folder": null,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3
         },
         "_id": "Za47v3gpSLlqyNty",
-        "sort": 1550000
+        "sort": 0
       },
       {
         "name": "Generic Actions (2024)",
@@ -25275,44 +24955,229 @@
         "type": "consumable",
         "effects": [
           {
+            "origin": "Item.83BKjPo3v4TxlDN5",
+            "duration": {
+              "startTime": null,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "disabled": false,
+            "name": "Lolth's Sting - Config",
+            "_id": "YIgmFjST7GQDEAs3",
+            "changes": [
+              {
+                "key": "flags.midi-item-showcase-community.appliedCoating",
+                "mode": 5,
+                "value": "{\n  \"conditionalStatuses\": [\n    {\n      \"status\": \"unconscious\",\n      \"specialDurations\": [\"isDamaged\"],\n      \"condition\": \"target?.statuses?.poisoned && (targetData?.saveTotal + 5) <= targetData?.saveDC\"\n    }\n  ]  \n}",
+                "priority": 20
+              }
+            ],
+            "description": "",
+            "transfer": false,
+            "statuses": [],
+            "flags": {
+              "dae": {
+                "enableCondition": "",
+                "disableCondition": "",
+                "disableIncapacitated": false,
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": true,
+                "stackable": "noneName",
+                "showIcon": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": []
+              },
+              "core": {
+                "overlay": false
+              },
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "None",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system",
+                "statuses": []
+              },
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                }
+              }
+            },
+            "tint": "#ffffff",
             "img": "ddb-images/other/ddb/loot/poison.jpg",
-            "name": "Status: Poisoned",
+            "type": "base",
+            "system": {},
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          },
+          {
+            "name": "Lolth's Sting",
+            "img": "ddb-images/other/ddb/loot/poison.jpg",
+            "origin": "Item.83BKjPo3v4TxlDN5",
+            "_id": "NlqjFwb7JZ4DVjdJ",
+            "type": "base",
+            "system": {},
+            "changes": [],
+            "disabled": true,
+            "duration": {
+              "startTime": null,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "tint": "#ffffff",
+            "transfer": false,
             "statuses": [
               "poisoned"
             ],
-            "changes": [],
-            "duration": {
-              "seconds": 3600,
-              "startTime": null,
-              "rounds": 10,
-              "turns": null,
-              "startRound": null,
-              "startTurn": null,
-              "combat": null
-            },
-            "tint": "#ffffff",
-            "transfer": false,
-            "disabled": false,
+            "sort": 0,
             "flags": {
               "dae": {
-                "transfer": false,
+                "disableCondition": "",
+                "disableIncapacitated": false,
                 "stackable": "noneNameOnly",
+                "showIcon": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": [],
+                "enableCondition": "",
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": false
+              },
+              "core": {
+                "overlay": false
+              },
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "None",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system",
+                "statuses": []
+              },
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                }
+              }
+            },
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          },
+          {
+            "type": "enchantment",
+            "name": "Lolth's Sting - Application",
+            "img": "ddb-images/other/ddb/loot/poison.jpg",
+            "disabled": true,
+            "_id": "mH70veUSYFpOQ36C",
+            "system": {},
+            "changes": [
+              {
+                "key": "name",
+                "mode": 5,
+                "value": "{} [Poisoned]",
+                "priority": 20
+              },
+              {
+                "key": "system.description.value",
+                "mode": 5,
+                "value": "<p><em>Poisoned by Lolth’s Sting</em></p>{}",
+                "priority": 20
+              }
+            ],
+            "duration": {
+              "startTime": null,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "origin": null,
+            "tint": "#ffffff",
+            "transfer": false,
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dae": {
+                "enableCondition": "",
+                "disableCondition": "",
+                "stackable": "noneNameOnly",
+                "showIcon": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
                 "specialDuration": []
               },
-              "ddbimporter": {
-                "disabled": false
+              "core": {
+                "overlay": false
               },
-              "midi-qol": {
-                "forceCEOff": true
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "None",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system",
+                "statuses": []
               },
-              "core": {}
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                }
+              }
             },
-            "description": "Apply status poisoned",
-            "_id": "sGkIOjRLNlNSIqLo",
-            "type": "base",
-            "system": {},
-            "origin": null,
-            "sort": 0,
             "_stats": {
               "compendiumSource": null,
               "duplicateSource": null,
@@ -25326,52 +25191,41 @@
         ],
         "system": {
           "activities": {
-            "saveLolthsStingI": {
+            "XCk40kdttQWnXsgz": {
               "type": "save",
-              "_id": "saveLolthsStingI",
-              "sort": 0,
+              "sort": 200000,
               "activation": {
-                "type": "action",
-                "value": 1,
-                "condition": "",
-                "override": true
+                "type": "",
+                "value": null,
+                "override": false,
+                "condition": ""
               },
               "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "target": "",
-                    "value": "1",
-                    "scaling": {
-                      "mode": "",
-                      "formula": ""
-                    }
-                  }
-                ],
                 "scaling": {
-                  "allowed": false,
-                  "max": ""
+                  "allowed": false
                 },
-                "spellSlot": true
+                "spellSlot": true,
+                "targets": []
               },
-              "description": {},
+              "description": {
+                "chatFlavor": "Apply the poison effect"
+              },
               "duration": {
-                "value": "1",
                 "units": "hour",
-                "special": "",
-                "override": true,
-                "concentration": false
+                "concentration": false,
+                "override": false,
+                "value": "1"
               },
               "effects": [
                 {
-                  "_id": "sGkIOjRLNlNSIqLo",
+                  "_id": "NlqjFwb7JZ4DVjdJ",
                   "onSave": false,
                   "level": {}
                 }
               ],
               "range": {
-                "units": "touch",
-                "override": true,
+                "override": false,
+                "units": "any",
                 "special": ""
               },
               "target": {
@@ -25387,19 +25241,20 @@
                   "type": "creature",
                   "special": ""
                 },
-                "override": true,
-                "prompt": true
+                "override": false,
+                "prompt": false
               },
               "uses": {
-                "spent": null,
-                "recovery": []
+                "spent": 0,
+                "recovery": [],
+                "max": ""
               },
               "damage": {
                 "parts": [],
-                "onSave": "none",
                 "critical": {
                   "allow": false
-                }
+                },
+                "onSave": "none"
               },
               "save": {
                 "ability": [
@@ -25410,15 +25265,7 @@
                   "formula": "13"
                 }
               },
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
+              "useConditionText": "workflow?.hitTargets?.size === 1",
               "effectConditionText": "",
               "macroData": {
                 "name": "",
@@ -25437,31 +25284,34 @@
                 "triggeredActivityConditionText": "",
                 "triggeredActivityTargets": "targets",
                 "triggeredActivityRollAs": "self",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "confirmTargets": "default",
+                "confirmTargets": "never",
+                "automationOnly": true,
+                "identifier": "coating-effect",
                 "autoTargetType": "any",
                 "autoTargetAction": "default",
-                "automationOnly": false,
                 "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "identifier": "",
                 "displayActivityName": false,
                 "rollMode": "default",
                 "chooseEffects": false,
                 "toggleEffect": false,
                 "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
                 "removeChatButtons": "default",
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
                 "skipConcentrationCheck": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
+                "autoCEEffects": "default"
               },
+              "name": "Poison - Effect",
+              "_id": "XCk40kdttQWnXsgz",
+              "useConditionReason": "",
               "isOverTimeFlag": false,
               "overTimeProperties": {
                 "saveRemoves": true,
@@ -25470,16 +25320,167 @@
                 "rollAs": "target"
               },
               "otherActivityId": "",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
               "otherActivityAsParentType": true,
-              "friendlySave": "default",
-              "img": null
+              "friendlySave": "default"
+            },
+            "uvaMSQr2HLVOXzxu": {
+              "type": "enchant",
+              "sort": 300000,
+              "activation": {
+                "type": "bonus",
+                "value": null,
+                "override": false,
+                "condition": ""
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "target": "",
+                    "scaling": {}
+                  }
+                ]
+              },
+              "description": {
+                "chatFlavor": "Apply poison to weapon or ammo"
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [
+                {
+                  "_id": "mH70veUSYFpOQ36C",
+                  "level": {
+                    "min": null,
+                    "max": null
+                  },
+                  "riders": {
+                    "activity": [
+                      "XCk40kdttQWnXsgz"
+                    ],
+                    "effect": [],
+                    "item": []
+                  }
+                }
+              ],
+              "range": {
+                "override": false,
+                "units": "self",
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "count": "",
+                  "type": ""
+                },
+                "override": false,
+                "prompt": false
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": ""
+              },
+              "enchant": {
+                "self": false
+              },
+              "restrictions": {
+                "allowMagical": true,
+                "categories": [],
+                "properties": [],
+                "type": ""
+              },
+              "name": "Apply Poison",
+              "midiProperties": {
+                "identifier": "apply-coating",
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "useConditionText": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "_id": "uvaMSQr2HLVOXzxu",
+              "useConditionReason": "",
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
             }
           },
           "uses": {
-            "spent": 0,
             "max": "1",
             "recovery": [],
-            "autoDestroy": true
+            "autoDestroy": true,
+            "spent": 0
           },
           "description": {
             "value": "<div class=\"ddb\">\n<p><em>Injury Poison</em></p>\n<p>A creature subjected to Lolth’s Sting must succeed on a [[/save con 13 format=long]] or have the &amp;Reference[poisoned]{Poisoned} condition for 1 hour. If the creature fails the save by 5 or more, the creature also has the &amp;Reference[unconscious]{Unconscious} condition while &amp;Reference[poisoned]{Poisoned} in this way. The creature wakes up if it takes damage or if another creature takes an action to shake it awake.</p>\n</div>",
@@ -25496,7 +25497,7 @@
           },
           "identified": true,
           "unidentified": {
-            "description": ""
+            "description": "Gear"
           },
           "container": "HwzgcdlOlvzHlvLQ",
           "quantity": 1,
@@ -25512,8 +25513,8 @@
           "attunement": "",
           "attuned": false,
           "type": {
-            "value": "potion",
-            "subtype": ""
+            "value": "poison",
+            "subtype": "injury"
           },
           "damage": {
             "base": {
@@ -25533,7 +25534,7 @@
           "equipped": false
         },
         "img": "ddb-images/other/ddb/loot/poison.jpg",
-        "folder": null,
+        "folder": "82KvnvMjqGlKNrww",
         "_id": "YE9Ku2eAkFB1mi50",
         "sort": 0,
         "ownership": {
@@ -26032,47 +26033,114 @@
       {
         "name": "Wyvern Poison",
         "type": "consumable",
-        "effects": [],
+        "effects": [
+          {
+            "type": "enchantment",
+            "name": "Wyvern Poison - Application",
+            "img": "icons/consumables/potions/potion-vial-corked-labeled-purple.webp",
+            "disabled": true,
+            "_id": "yj9SrbJIXsFjqav7",
+            "system": {},
+            "changes": [
+              {
+                "key": "name",
+                "mode": 5,
+                "value": "{} [Poisoned]",
+                "priority": 20
+              },
+              {
+                "key": "system.description.value",
+                "mode": 5,
+                "value": "<p><em>Poisoned by Wyvern Poison</em></p>{}",
+                "priority": 20
+              }
+            ],
+            "duration": {
+              "startTime": null,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "origin": null,
+            "tint": "#ffffff",
+            "transfer": false,
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dae": {
+                "enableCondition": "",
+                "disableCondition": "",
+                "stackable": "noneNameOnly",
+                "showIcon": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": []
+              },
+              "core": {
+                "overlay": false
+              },
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "None",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system"
+              }
+            },
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
         "system": {
           "activities": {
-            "saveWyvernPoison": {
+            "jFNdUirjmJkcch2O": {
               "type": "save",
-              "_id": "saveWyvernPoison",
+              "_id": "jFNdUirjmJkcch2O",
               "sort": 0,
               "activation": {
                 "type": "",
-                "value": 1,
-                "condition": "",
-                "override": true
+                "value": null,
+                "override": false,
+                "condition": ""
               },
               "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "value": "1",
-                    "target": "",
-                    "scaling": {}
-                  }
-                ],
                 "scaling": {
-                  "allowed": false,
-                  "max": ""
+                  "allowed": false
                 },
-                "spellSlot": true
+                "spellSlot": true,
+                "targets": []
               },
               "description": {
-                "chatFlavor": ""
+                "chatFlavor": "Apply poison effect"
               },
               "duration": {
                 "units": "inst",
-                "special": "",
-                "override": true,
-                "concentration": false
+                "concentration": false,
+                "override": false
               },
               "effects": [],
               "range": {
+                "override": false,
                 "units": "any",
-                "override": true,
                 "special": ""
               },
               "target": {
@@ -26088,11 +26156,11 @@
                   "type": "creature",
                   "special": ""
                 },
-                "override": true,
+                "override": false,
                 "prompt": false
               },
               "uses": {
-                "spent": null,
+                "spent": 0,
                 "recovery": [],
                 "max": ""
               },
@@ -26106,19 +26174,16 @@
                     "number": 7,
                     "denomination": 6,
                     "bonus": "",
-                    "types": [
-                      "poison"
-                    ],
+                    "types": [],
                     "scaling": {
                       "number": 1
                     }
                   }
                 ],
-                "onSave": "",
                 "critical": {
-                  "bonus": "",
                   "allow": false
-                }
+                },
+                "onSave": "half"
               },
               "save": {
                 "ability": [
@@ -26126,11 +26191,157 @@
                 ],
                 "dc": {
                   "calculation": "",
-                  "formula": "15"
+                  "formula": "14"
                 }
               },
-              "useConditionText": "",
+              "useConditionText": "workflow?.hitTargets?.size === 1",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "never",
+                "automationOnly": true,
+                "identifier": "coating-effect",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "name": "Poison - Effect",
               "useConditionReason": "",
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "otherActivityAsParentType": true,
+              "friendlySave": "default"
+            },
+            "4Wjgs83lYfYwlpx8": {
+              "type": "enchant",
+              "_id": "4Wjgs83lYfYwlpx8",
+              "sort": 0,
+              "activation": {
+                "type": "bonus",
+                "value": null,
+                "override": false,
+                "condition": ""
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "target": "",
+                    "scaling": {}
+                  }
+                ]
+              },
+              "description": {
+                "chatFlavor": "Apply poison to weapon or ammo"
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [
+                {
+                  "_id": "yj9SrbJIXsFjqav7",
+                  "level": {
+                    "min": null,
+                    "max": null
+                  },
+                  "riders": {
+                    "activity": [
+                      "jFNdUirjmJkcch2O"
+                    ],
+                    "effect": [],
+                    "item": []
+                  }
+                }
+              ],
+              "range": {
+                "override": false,
+                "units": "self",
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "count": "",
+                  "type": ""
+                },
+                "override": false,
+                "prompt": false
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": ""
+              },
+              "enchant": {
+                "self": false
+              },
+              "restrictions": {
+                "allowMagical": true,
+                "categories": [],
+                "properties": [],
+                "type": ""
+              },
+              "useConditionText": "",
               "effectConditionText": "",
               "macroData": {
                 "name": "",
@@ -26151,7 +26362,7 @@
                 "triggeredActivityRollAs": "self",
                 "confirmTargets": "default",
                 "automationOnly": false,
-                "identifier": "",
+                "identifier": "apply-coating",
                 "autoTargetType": "any",
                 "autoTargetAction": "default",
                 "otherActivityCompatible": true,
@@ -26160,6 +26371,8 @@
                 "chooseEffects": false,
                 "toggleEffect": false,
                 "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
@@ -26169,11 +26382,11 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
                 "skipConcentrationCheck": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
+                "autoCEEffects": "default"
               },
+              "name": "Apply Poison",
+              "useConditionReason": "",
               "isOverTimeFlag": false,
               "overTimeProperties": {
                 "saveRemoves": true,
@@ -26181,25 +26394,21 @@
                 "postRemoveConditionText": "",
                 "rollAs": "target"
               },
-              "otherActivityId": "none",
-              "name": "",
-              "otherActivityAsParentType": true,
-              "friendlySave": "default",
+              "img": null,
               "flags": {},
               "visibility": {
                 "level": {},
                 "requireAttunement": false,
                 "requireIdentification": false,
                 "requireMagic": false
-              },
-              "img": null
+              }
             }
           },
           "uses": {
-            "spent": 1,
-            "max": "5",
+            "max": "1",
             "recovery": [],
-            "autoDestroy": true
+            "autoDestroy": true,
+            "spent": 0
           },
           "description": {
             "value": "<div class=\"ddb\"><p><em>Injury Poison</em></p><p>A creature subjected to Wyvern Poison makes a [[/save con 15 format=long]], taking [[/damage 7d6 type=poison average=true]] damage on a failed save or half as much damage on a successful one.</p></div>",
@@ -26216,7 +26425,7 @@
           },
           "identified": true,
           "unidentified": {
-            "description": ""
+            "description": "Gear"
           },
           "container": null,
           "quantity": 1,
@@ -26231,8 +26440,8 @@
           "rarity": "",
           "attunement": "",
           "type": {
-            "value": "potion",
-            "subtype": ""
+            "value": "poison",
+            "subtype": "injury"
           },
           "damage": {
             "base": {
@@ -27004,7 +27213,7 @@
                 "prompt": true
               },
               "uses": {
-                "spent": 1,
+                "spent": 0,
                 "recovery": [
                   {
                     "period": "lr",
@@ -28305,8 +28514,13 @@
           },
           "uses": {
             "spent": 0,
-            "recovery": [],
-            "max": ""
+            "recovery": [
+              {
+                "period": "lr",
+                "type": "recoverAll"
+              }
+            ],
+            "max": "1"
           },
           "description": {
             "value": "",
@@ -28322,7 +28536,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 1,
+          "quantity": 2,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -28340,7 +28554,8 @@
           },
           "armor": {
             "value": null,
-            "dex": null
+            "dex": null,
+            "magicalBonus": ""
           },
           "proficient": null,
           "properties": [
@@ -29227,55 +29442,819 @@
           "default": 0,
           "Ex3WmAaZbR5VTaOf": 3
         }
+      },
+      {
+        "name": "Elemental Gem (Red Corundum)",
+        "type": "consumable",
+        "effects": [],
+        "system": {
+          "activities": {
+            "utilityEleGeReCo": {
+              "type": "utility",
+              "_id": "utilityEleGeReCo",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "target": "",
+                    "value": "1",
+                    "scaling": {
+                      "mode": "",
+                      "formula": ""
+                    }
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "value": "",
+                "units": "turn",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "special": "",
+                "override": true
+              },
+              "target": {
+                "prompt": true,
+                "affects": {
+                  "count": "",
+                  "type": "",
+                  "choice": false,
+                  "special": ""
+                },
+                "template": {
+                  "count": "",
+                  "contiguous": false,
+                  "type": "",
+                  "size": "",
+                  "width": "",
+                  "height": "",
+                  "units": "ft",
+                  "stationary": false
+                },
+                "override": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": false
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>This gem contains a mote of elemental energy. When you take a Utilize action to break the gem, a Fire Elemental is summoned (see the <em>Monster Manual</em> for its stat block), and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your Initiative count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "elemental-gem-red-corundum",
+          "source": {
+            "book": "DMG 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 200,
+            "denomination": "gp"
+          },
+          "rarity": "uncommon",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [
+            "mgc"
+          ],
+          "type": {
+            "value": "trinket",
+            "subtype": ""
+          }
+        },
+        "img": "icons/commodities/gems/gem-oval-red.webp",
+        "folder": "H4BAwb8A71bYRaIj",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "bPRPQAIf090ddpCP",
+        "sort": 1900000
+      },
+      {
+        "name": "Truth Serum",
+        "type": "consumable",
+        "effects": [
+          {
+            "img": "icons/consumables/potions/potion-flask-corked-blue.webp",
+            "name": "Status: Poisoned",
+            "statuses": [
+              "poisoned"
+            ],
+            "changes": [],
+            "duration": {
+              "seconds": 3600,
+              "startTime": null,
+              "rounds": 10,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null,
+              "combat": null
+            },
+            "tint": "#ffffff",
+            "transfer": false,
+            "disabled": false,
+            "flags": {
+              "dae": {
+                "transfer": false,
+                "stackable": "noneNameOnly",
+                "specialDuration": []
+              },
+              "ddbimporter": {
+                "disabled": false
+              },
+              "midi-qol": {
+                "forceCEOff": true
+              },
+              "core": {}
+            },
+            "description": "Apply status poisoned",
+            "_id": "WyqaZQ7YnkqsrSM5",
+            "type": "base",
+            "system": {},
+            "origin": null,
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "system": {
+          "activities": {
+            "saveTruthSerumII": {
+              "type": "save",
+              "_id": "saveTruthSerumII",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "target": "",
+                    "value": "1",
+                    "scaling": {
+                      "mode": "",
+                      "formula": ""
+                    }
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "value": "1",
+                "units": "hour",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [
+                {
+                  "_id": "WyqaZQ7YnkqsrSM5",
+                  "onSave": false,
+                  "level": {}
+                }
+              ],
+              "range": {
+                "units": "touch",
+                "override": true,
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "count": "1",
+                  "type": "creature",
+                  "special": ""
+                },
+                "override": true,
+                "prompt": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "damage": {
+                "parts": [],
+                "onSave": "none",
+                "critical": {
+                  "allow": false
+                }
+              },
+              "save": {
+                "ability": [
+                  "con"
+                ],
+                "dc": {
+                  "calculation": "",
+                  "formula": "11"
+                }
+              },
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "",
+              "otherActivityAsParentType": true,
+              "friendlySave": "default",
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": 0,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": true
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p><em>Ingested Poison</em></p>\n<p>A creature subjected to Truth Serum must succeed on a [[/save con 11 format=long]] or have the &amp;Reference[poisoned]{Poisoned} condition for 1 hour. The &amp;Reference[poisoned]{Poisoned} creature can’t knowingly communicate a lie.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "truth-serum",
+          "source": {
+            "book": "DMG 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 150,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "type": {
+            "value": "potion",
+            "subtype": ""
+          },
+          "damage": {
+            "base": {
+              "number": null,
+              "denomination": null,
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [],
+          "equipped": false
+        },
+        "img": "icons/consumables/potions/potion-flask-corked-blue.webp",
+        "folder": "I6teoMJzObGMyRAw",
+        "_id": "yNL4TIkDvvQleFb1",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "name": "Zhentarim Token",
+        "type": "loot",
+        "_id": "w9p2rIopp8SS5Kzc",
+        "img": "assets/5e_zhentarim_badge.webp",
+        "system": {
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "new-item",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "properties": [],
+          "type": {
+            "value": "",
+            "subtype": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "name": "Wispy Sour (Common)",
+        "type": "consumable",
+        "effects": [
+          {
+            "img": "ddb-images/other/item/consumable/2014-gsb2-wispy-sour-common.jpeg",
+            "name": "Wispy Sour (Common) - Consumable Effects",
+            "statuses": [],
+            "changes": [
+              {
+                "key": "system.attributes.movement.fly",
+                "value": "10",
+                "mode": 4,
+                "priority": 5
+              }
+            ],
+            "duration": {
+              "seconds": null,
+              "startTime": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null,
+              "combat": null
+            },
+            "tint": "#ffffff",
+            "transfer": false,
+            "disabled": false,
+            "flags": {
+              "dae": {
+                "transfer": false,
+                "stackable": "noneNameOnly"
+              },
+              "ddbimporter": {
+                "disabled": false,
+                "passive": true,
+                "itemId": 0,
+                "itemEntityTypeId": 0
+              },
+              "midi-qol": {
+                "forceCEOff": true
+              },
+              "core": {}
+            },
+            "description": "<p>The typical <em>wispy sour</em>, a common potion, is a specialty alcoholic beverage that causes you to float harmlessly off the floor. When you drink this potion, you gain a flying speed of 10 feet for 1 minute, but can only hover 1 foot above the ground when doing so. The drink is smooth, sweet, and has a slight aftertaste of ash. A tiny, single light from the dancing lights spell is often cast within the drink when served. Due to its magical &amp;Reference[nat]{nature}, the alcohol within this potion affects a creature twice as much as the alcohol within a nonmagical beverage.</p>",
+            "_id": "CzaNJpbbOgcFw1RM",
+            "type": "base",
+            "system": {},
+            "origin": null,
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "system": {
+          "activities": {
+            "utilityWisSouCom": {
+              "type": "utility",
+              "_id": "utilityWisSouCom",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "target": "",
+                    "value": "1",
+                    "scaling": {
+                      "mode": "",
+                      "formula": ""
+                    }
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "value": "1",
+                "units": "minute",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [
+                {
+                  "_id": "CzaNJpbbOgcFw1RM",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "units": "touch",
+                "override": true,
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "count": "1",
+                  "type": "creature",
+                  "special": ""
+                },
+                "override": true,
+                "prompt": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": 0,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": true
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>The typical <em>wispy sour</em>, a common potion, is a specialty alcoholic beverage that causes you to float harmlessly off the floor. When you drink this potion, you gain a flying speed of 10 feet for 1 minute, but can only hover 1 foot above the ground when doing so. The drink is smooth, sweet, and has a slight aftertaste of ash. A tiny, single light from the dancing lights spell is often cast within the drink when served. Due to its magical &amp;Reference[nat]{nature}, the alcohol within this potion affects a creature twice as much as the alcohol within a nonmagical beverage.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "wispy-sour-common",
+          "source": {
+            "book": "GSB2",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "common",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [
+            "mgc"
+          ],
+          "type": {
+            "value": "potion",
+            "subtype": ""
+          }
+        },
+        "img": "ddb-images/other/item/consumable/2014-gsb2-wispy-sour-common.jpeg",
+        "folder": "6tW7n7YdtGJikaSH",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "UvmE0KGxxuHqVrsJ",
+        "sort": 0
       }
     ],
     "effects": [
       {
-        "name": "Psionic Power: Psychic Whispers",
-        "img": "icons/magic/perception/third-eye-blue-red.webp",
-        "origin": "Actor.4F5kQIpxwyb6rykH.Item.ul0R8z9DVF5yc8xi",
-        "transfer": false,
-        "_id": "cYKEwIdsdFHt8zsB",
+        "origin": "Actor.TNFU2mNGnpdORuVT.Item.gGBTjWQ1JSGXpR8T",
+        "disabled": false,
+        "img": "icons/magic/sonic/bell-alarm-red-purple.webp",
+        "name": "Alarm Template",
+        "duration": {
+          "startTime": -273003877,
+          "seconds": 28800,
+          "combat": null
+        },
+        "flags": {
+          "dae": {
+            "stackable": "noneName",
+            "specialDuration": []
+          }
+        },
+        "_id": "Y6i8LfGDMID1gc75",
         "type": "base",
         "system": {},
         "changes": [],
-        "disabled": false,
-        "duration": {
-          "startTime": -273108874,
-          "combat": null,
-          "seconds": 14400,
-          "rounds": null,
-          "turns": null,
-          "startRound": null,
-          "startTurn": null
-        },
         "description": "",
         "tint": "#ffffff",
+        "transfer": false,
         "statuses": [],
         "sort": 0,
-        "flags": {
-          "dnd5e": {
-            "riders": {
-              "statuses": []
-            }
-          },
-          "dae": {
-            "enableCondition": "",
-            "disableCondition": "",
-            "stackable": "noneName",
-            "showIcon": false,
-            "disableIncapacitated": false,
-            "selfTarget": false,
-            "selfTargetAlways": false,
-            "dontApply": true,
-            "durationExpression": "",
-            "macroRepeat": "none",
-            "specialDuration": []
-          },
-          "core": {
-            "overlay": false
-          }
-        },
         "_stats": {
           "compendiumSource": null,
           "duplicateSource": null,
@@ -29283,48 +30262,9 @@
           "coreVersion": "13.351",
           "systemId": "dnd5e",
           "systemVersion": "5.3.0",
-          "createdTime": 1776485583360,
-          "modifiedTime": 1776485583360,
+          "createdTime": 1778294555461,
+          "modifiedTime": 1778294555461,
           "lastModifiedBy": "Ex3WmAaZbR5VTaOf"
-        }
-      },
-      {
-        "_id": "dnd5ebloodied000",
-        "name": "Bloodied",
-        "img": "systems/dnd5e/icons/svg/statuses/bloodied.svg",
-        "statuses": [
-          "bloodied"
-        ],
-        "type": "base",
-        "system": {},
-        "changes": [],
-        "disabled": false,
-        "duration": {
-          "startTime": -273105299,
-          "combat": null,
-          "startRound": 1,
-          "startTurn": 12
-        },
-        "description": "",
-        "origin": null,
-        "tint": "#ffffff",
-        "transfer": false,
-        "sort": 0,
-        "flags": {
-          "dae": {
-            "specialDuration": []
-          }
-        },
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.351",
-          "systemId": "dnd5e",
-          "systemVersion": "5.3.0",
-          "createdTime": 1776490514547,
-          "modifiedTime": 1776490514547,
-          "lastModifiedBy": "I4GGxqNW644lYEEA"
         }
       }
     ]

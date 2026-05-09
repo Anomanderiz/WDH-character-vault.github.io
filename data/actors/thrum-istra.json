@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-04-25T00:36:59.014Z",
+  "exportedAt": "2026-05-09T06:02:22.806Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -17,7 +17,7 @@
       },
       "abilities": {
         "str": {
-          "value": 18,
+          "value": 19,
           "proficient": 1,
           "max": 20,
           "bonuses": {
@@ -528,7 +528,7 @@
           "value": null
         },
         "hp": {
-          "value": 74,
+          "value": 48,
           "max": 91,
           "temp": 0,
           "tempmax": 0,
@@ -1058,7 +1058,7 @@
             }
           },
           "uses": {
-            "spent": 1,
+            "spent": 0,
             "recovery": [
               {
                 "period": "lr",
@@ -1745,233 +1745,9 @@
         "_id": "9vpbcuXZKugEeQq2",
         "name": "Protection",
         "type": "feat",
-        "effects": [
-          {
-            "name": "Protection",
-            "img": "icons/equipment/shield/Scutum-steel-worn.webp",
-            "origin": "Actor.gWM9Il0zlve2eqG9.Item.9vpbcuXZKugEeQq2",
-            "transfer": false,
-            "_id": "08gpXHPtzOXHEqkw",
-            "type": "base",
-            "system": {},
-            "changes": [
-              {
-                "key": "flags.midi-qol.grants.disadvantage.attack.all",
-                "mode": 0,
-                "value": "1",
-                "priority": 20
-              }
-            ],
-            "disabled": false,
-            "duration": {
-              "startTime": null,
-              "combat": null,
-              "seconds": 6,
-              "rounds": null,
-              "turns": null,
-              "startRound": null,
-              "startTurn": null
-            },
-            "description": "",
-            "tint": "#ffffff",
-            "statuses": [],
-            "sort": 0,
-            "flags": {
-              "dnd5e": {
-                "riders": {
-                  "statuses": []
-                },
-                "dependents": [
-                  {
-                    "uuid": "Actor.spytnt0QTcXgpWLN.ActiveEffect.guLWA053lNzVj2fX"
-                  }
-                ]
-              },
-              "dae": {
-                "enableCondition": "",
-                "disableCondition": "",
-                "stackable": "noneName",
-                "showIcon": false,
-                "disableIncapacitated": false,
-                "selfTarget": false,
-                "selfTargetAlways": false,
-                "dontApply": false,
-                "durationExpression": "",
-                "macroRepeat": "none",
-                "specialDuration": [
-                  "turnStartSource"
-                ]
-              },
-              "core": {
-                "overlay": false
-              },
-              "ActiveAuras": {
-                "isAura": false,
-                "aura": "All",
-                "nameOverride": "",
-                "radius": "",
-                "alignment": "",
-                "type": "",
-                "customCheck": "",
-                "ignoreSelf": false,
-                "height": false,
-                "displayTemp": false,
-                "hostile": false,
-                "onlyOnce": false,
-                "wallsBlock": "system",
-                "statuses": []
-              }
-            },
-            "_stats": {
-              "compendiumSource": null,
-              "duplicateSource": null,
-              "exportSource": null,
-              "coreVersion": "13.351",
-              "systemId": "dnd5e",
-              "systemVersion": "5.1.10",
-              "createdTime": 1762122943284,
-              "modifiedTime": 1775687484715,
-              "lastModifiedBy": "I4GGxqNW644lYEEA"
-            }
-          }
-        ],
+        "effects": [],
         "system": {
-          "activities": {
-            "hGFx3R9nBR85Kq3U": {
-              "type": "utility",
-              "_id": "hGFx3R9nBR85Kq3U",
-              "sort": 0,
-              "activation": {
-                "type": "special",
-                "override": false,
-                "condition": ""
-              },
-              "consumption": {
-                "scaling": {
-                  "allowed": false
-                },
-                "spellSlot": true,
-                "targets": []
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "units": "inst",
-                "concentration": false,
-                "override": false
-              },
-              "effects": [
-                {
-                  "_id": "08gpXHPtzOXHEqkw",
-                  "level": {
-                    "min": null,
-                    "max": null
-                  }
-                }
-              ],
-              "range": {
-                "units": "ft",
-                "override": false,
-                "special": "",
-                "value": "5"
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "type": "creature",
-                  "count": "1",
-                  "special": ""
-                },
-                "override": false,
-                "prompt": false
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": [],
-                "max": ""
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false,
-                "name": "",
-                "formula": ""
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": false,
-                "otherActivityAsParentType": true,
-                "identifier": "",
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "none",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": false,
-              "name": "",
-              "flags": {},
-              "visibility": {
-                "level": {
-                  "min": null,
-                  "max": null
-                },
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false,
-                "identifier": ""
-              },
-              "img": ""
-            }
-          },
+          "activities": {},
           "uses": {
             "spent": 0,
             "recovery": [],
@@ -6750,7 +6526,7 @@
               "startRound": null,
               "startTurn": null
             },
-            "disabled": false,
+            "disabled": true,
             "_id": "hCgz7ukyZVLcJcFg",
             "changes": [
               {
@@ -6783,12 +6559,12 @@
             "_stats": {
               "compendiumSource": "Item.1NOmK5q5XFEFSKQK.ActiveEffect.K6dDzmzghzoQI6xC",
               "duplicateSource": null,
-              "coreVersion": "13.348",
+              "coreVersion": "13.351",
               "systemId": "dnd5e",
               "systemVersion": "4.3.8",
               "createdTime": null,
-              "modifiedTime": 1774074357945,
-              "lastModifiedBy": "qOu9x616pmeBI6sT",
+              "modifiedTime": 1777695616927,
+              "lastModifiedBy": "I4GGxqNW644lYEEA",
               "exportSource": null
             },
             "img": "icons/magic/defensive/shield-barrier-glowing-triangle-teal.webp",
@@ -8393,7 +8169,7 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
+                "autoCEEffects": "none",
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
@@ -10169,7 +9945,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 3,
+          "quantity": 2,
           "weight": {
             "value": 0.5,
             "units": "lb"
@@ -10353,7 +10129,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 1,
             "recovery": [
               {
                 "period": "lr",
@@ -10987,7 +10763,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 3,
+          "quantity": 1,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -12697,7 +12473,7 @@
             }
           },
           "uses": {
-            "spent": 1,
+            "spent": 0,
             "max": "1",
             "recovery": [],
             "autoDestroy": false
@@ -12720,7 +12496,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 3,
+          "quantity": 1,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -13112,211 +12888,6 @@
         },
         "_id": "KURr2rCCNgklDnKR",
         "sort": 0
-      },
-      {
-        "_id": "qAJZkH3M9v7Bu9BG",
-        "name": "Manacles",
-        "type": "consumable",
-        "effects": [],
-        "system": {
-          "activities": {
-            "utilityManaclesI": {
-              "type": "utility",
-              "_id": "utilityManaclesI",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": 1,
-                "condition": "",
-                "override": true
-              },
-              "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "target": "",
-                    "value": "1",
-                    "scaling": {
-                      "mode": "",
-                      "formula": ""
-                    }
-                  }
-                ],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                },
-                "spellSlot": true
-              },
-              "description": {},
-              "duration": {
-                "units": "inst",
-                "special": "",
-                "override": true,
-                "concentration": false
-              },
-              "effects": [],
-              "range": {
-                "units": "self",
-                "special": "",
-                "override": true
-              },
-              "target": {
-                "prompt": true,
-                "affects": {
-                  "count": "1",
-                  "type": "creature",
-                  "choice": false,
-                  "special": ""
-                },
-                "template": {
-                  "count": "",
-                  "contiguous": false,
-                  "type": "radius",
-                  "size": "5",
-                  "width": "",
-                  "height": "",
-                  "units": "ft",
-                  "stationary": false
-                },
-                "override": true
-              },
-              "uses": {
-                "spent": null,
-                "recovery": []
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false
-              },
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "identifier": "",
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "skipConcentrationCheck": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "img": null
-            }
-          },
-          "uses": {
-            "spent": 0,
-            "max": "1",
-            "recovery": [],
-            "autoDestroy": false
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>As a Utilize action, you can use Manacles to bind an unwilling Small or Medium creature within 5 feet of yourself that has the &amp;Reference[grappled]{Grappled}, &amp;Reference[incapacitated]{Incapacitated}, or &amp;Reference[restrained]{Restrained} condition if you succeed on a DC 13 Dexterity (&amp;Reference[slt]{Sleight of Hand}) check. While bound, a creature has Disadvantage on attack rolls, and the creature is &amp;Reference[restrained]{Restrained} if the Manacles are attached to a chain or hook that is fixed in place. Escaping the Manacles requires a successful DC 20 Dexterity (&amp;Reference[slt]{Sleight of Hand}) check as an action. Bursting them requires a successful DC 25 Strength (&amp;Reference[ath]{Athletics}) check as an action.</p>\n<p>Each set of Manacles comes with a key. Without the key, a creature can use Thieves’ Tools to pick the Manacles’ lock with a successful DC 15 Dexterity (&amp;Reference[slt]{Sleight of Hand}) check.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "manacles",
-          "source": {
-            "book": "PHB 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2024",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 6,
-            "units": "lb"
-          },
-          "price": {
-            "value": 2,
-            "denomination": "gp"
-          },
-          "rarity": "",
-          "attunement": "",
-          "attuned": false,
-          "equipped": false,
-          "type": {
-            "value": "trinket",
-            "subtype": ""
-          },
-          "damage": {
-            "base": {
-              "number": null,
-              "denomination": null,
-              "types": [],
-              "custom": {
-                "enabled": false
-              },
-              "scaling": {
-                "number": 1
-              }
-            },
-            "replace": false
-          },
-          "properties": []
-        },
-        "img": "icons/sundries/survival/cuffs-shackles-steel.webp",
-        "folder": null,
-        "sort": 0,
-        "ownership": {
-          "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        }
       },
       {
         "name": "Potion of Advantage",
@@ -14441,7 +14012,7 @@
           "activities": {
             "cL0Wn59MnOAckYv4": {
               "type": "attack",
-              "sort": 0,
+              "sort": 100000,
               "activation": {
                 "type": "action",
                 "override": false,
@@ -14463,7 +14034,230 @@
                 "override": false
               },
               "effects": [],
-              "flags": {},
+              "flags": {
+                "autoanimations": {
+                  "id": "a51a95a8-d30c-4b2e-99ff-5b5105ee7786",
+                  "label": "Attack",
+                  "levels3d": {
+                    "type": "explosion",
+                    "data": {
+                      "color01": "#FFFFFF",
+                      "color02": "#FFFFFF",
+                      "spritePath": "modules/levels-3d-preview/assets/particles/dust.png"
+                    },
+                    "sound": {
+                      "enable": false
+                    },
+                    "secondary": {
+                      "enable": false,
+                      "data": {
+                        "color01": "#FFFFFF",
+                        "color02": "#FFFFFF",
+                        "spritePath": "modules/levels-3d-preview/assets/particles/dust.png"
+                      }
+                    }
+                  },
+                  "macro": {
+                    "enable": false,
+                    "playWhen": "0"
+                  },
+                  "meleeSwitch": {
+                    "video": {
+                      "dbSection": "range",
+                      "menuType": "weapon",
+                      "animation": "arrow",
+                      "variant": "regular",
+                      "color": "regular"
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "detect": "automatic",
+                      "range": 2,
+                      "returning": false,
+                      "switchType": "on"
+                    }
+                  },
+                  "menu": "melee",
+                  "primary": {
+                    "video": {
+                      "dbSection": "melee",
+                      "menuType": "weapon",
+                      "animation": "mace",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": true,
+                      "delay": 0,
+                      "file": "blfx.sound.weapon.melee.club.attack1",
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "isWait": false,
+                      "opacity": 1,
+                      "playbackRate": 1,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "zIndex": 1
+                    }
+                  },
+                  "secondary": {
+                    "enable": false,
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "curewounds",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": true,
+                      "isWait": false,
+                      "opacity": 1,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1.5,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "zIndex": 1
+                    }
+                  },
+                  "soundOnly": {
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    }
+                  },
+                  "source": {
+                    "enable": false,
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "curewounds",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": false,
+                      "isWait": true,
+                      "opacity": 1,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "zIndex": 1
+                    }
+                  },
+                  "target": {
+                    "enable": true,
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "shatter",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": true,
+                      "customPath": "jb2a.lightning_strike.purple"
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": false,
+                      "opacity": 1,
+                      "persistent": false,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 5,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "unbindAlpha": false,
+                      "unbindVisibility": false,
+                      "zIndex": 1
+                    }
+                  },
+                  "isEnabled": true,
+                  "isCustomized": true,
+                  "fromAmmo": false,
+                  "version": 5
+                }
+              },
               "range": {
                 "units": "any",
                 "override": true,
@@ -14601,7 +14395,7 @@
             },
             "GwPcUpperqnyQPZe": {
               "type": "save",
-              "sort": 0,
+              "sort": 200000,
               "activation": {
                 "type": "",
                 "override": false,
@@ -14642,6 +14436,215 @@
               "flags": {
                 "region-attacher": {
                   "attachRegionToTemplate": false
+                },
+                "autoanimations": {
+                  "id": "ead5665d-4dd8-4609-8eb9-9b412633a632",
+                  "label": "Eye of the Storm (1 charge)",
+                  "macro": {
+                    "enable": false,
+                    "playWhen": "0"
+                  },
+                  "menu": "ontoken",
+                  "secondary": {
+                    "enable": false,
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "curewounds",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": true,
+                      "isWait": false,
+                      "opacity": 1,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1.5,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "zIndex": 1
+                    }
+                  },
+                  "soundOnly": {
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    }
+                  },
+                  "target": {
+                    "enable": false,
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "curewounds",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": false,
+                      "opacity": 1,
+                      "persistent": false,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "unbindAlpha": false,
+                      "unbindVisibility": false,
+                      "zIndex": 1
+                    }
+                  },
+                  "isEnabled": true,
+                  "isCustomized": true,
+                  "fromAmmo": false,
+                  "version": 5,
+                  "primary": {
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "curewounds",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": true,
+                      "customPath": "modules/boss-loot-assets-premium/artwork/05-spell/cast/Blink_1_Gravity_CIRCLE_RADIUS_COLOR_6_1200x1200.webm"
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": false,
+                      "isWait": false,
+                      "opacity": 1,
+                      "persistent": false,
+                      "playbackRate": 1,
+                      "playOn": "source",
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 3,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "unbindAlpha": false,
+                      "unbindVisibility": false,
+                      "zIndex": 1,
+                      "isAbsolute": true
+                    }
+                  },
+                  "source": {
+                    "enable": false,
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "curewounds",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": false,
+                      "isWait": true,
+                      "opacity": 1,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "zIndex": 1
+                    }
+                  },
+                  "levels3d": {
+                    "type": "explosion",
+                    "data": {
+                      "color01": "#FFFFFF",
+                      "color02": "#FFFFFF",
+                      "spritePath": "modules/levels-3d-preview/assets/particles/dust.png"
+                    },
+                    "sound": {
+                      "enable": false
+                    },
+                    "secondary": {
+                      "enable": false,
+                      "data": {
+                        "color01": "#FFFFFF",
+                        "color02": "#FFFFFF",
+                        "spritePath": "modules/levels-3d-preview/assets/particles/dust.png"
+                      }
+                    }
+                  }
                 }
               },
               "range": {
@@ -14660,7 +14663,7 @@
                 },
                 "affects": {
                   "choice": false,
-                  "type": "creature",
+                  "type": "enemy",
                   "count": "",
                   "special": ""
                 },
@@ -14755,11 +14758,11 @@
               "friendlySave": "default",
               "name": "Eye of the Storm (1 charge)",
               "_id": "GwPcUpperqnyQPZe",
-              "img": null
+              "img": ""
             },
             "gUvs0MubsrTXK9TX": {
               "type": "save",
-              "sort": 0,
+              "sort": 300000,
               "activation": {
                 "type": "",
                 "override": false,
@@ -14809,7 +14812,7 @@
                 },
                 "affects": {
                   "choice": false,
-                  "type": "creature",
+                  "type": "enemy",
                   "count": "",
                   "special": ""
                 },
@@ -14904,12 +14907,13 @@
               "friendlySave": "friendlySuccess",
               "name": "Storm's Reproach (1 charge)",
               "_id": "gUvs0MubsrTXK9TX",
-              "img": null
+              "img": ""
             },
-            "4kikNYPqqwt3ABQE": {
+            "JthQtBVkr6Ll1g55": {
               "type": "save",
-              "_id": "4kikNYPqqwt3ABQE",
-              "sort": 0,
+              "_id": "JthQtBVkr6Ll1g55",
+              "img": "",
+              "sort": 400000,
               "activation": {
                 "type": "bonus",
                 "override": false,
@@ -14950,23 +14954,23 @@
               "target": {
                 "template": {
                   "contiguous": false,
+                  "stationary": false,
                   "units": "ft",
                   "type": "emanationNoTemplate",
                   "size": "5",
-                  "count": "",
-                  "stationary": false
+                  "count": ""
                 },
                 "affects": {
                   "choice": false,
-                  "type": "creature",
+                  "type": "enemy",
                   "count": "",
                   "special": ""
                 },
                 "override": false,
-                "prompt": false
+                "prompt": true
               },
               "uses": {
-                "spent": 0,
+                "spent": 1,
                 "recovery": [
                   {
                     "period": "lr",
@@ -15009,8 +15013,8 @@
               "useConditionReason": "",
               "effectConditionText": "",
               "macroData": {
-                "name": "Ball Lightning",
-                "command": "(async () => {\n  // =======================\n  // CONFIG\n  // =======================\n  const PICK_RANGE_FT = 30;          // caster may click within this range\n  const LAND_RADIUS_FT = 10;         // pack failed targets within this radius of caster landing\n  const EXPAND_TO_FT = 30;           // if crowded, expand search up to this radius\n  // =======================\n\n  const warn  = (m) => ui.notifications?.warn?.(m)  ?? console.warn(m);\n  const error = (m) => ui.notifications?.error?.(m) ?? console.error(m);\n\n  if (!canvas?.ready || !canvas.scene || !canvas.grid) return error(\"No active canvas/scene.\");\n  const grid = canvas.grid;\n  const scene = canvas.scene;\n  const gridSizePx = grid.size;\n\n  // -----------------------\n  // Resolve workflow / caster\n  // -----------------------\n  const a0raw = (typeof args !== \"undefined\" && args?.length) ? args[0] : {};\n  let a0 = a0raw;\n  if (typeof a0 === \"string\") { try { a0 = JSON.parse(a0); } catch { a0 = a0raw; } }\n\n  const wf =\n    a0?.workflow ??\n    globalThis.workflow ??\n    (a0?.uuid && globalThis.MidiQOL?.Workflow?.getWorkflow ? MidiQOL.Workflow.getWorkflow(a0.uuid) : null) ??\n    null;\n\n  if (!wf) return error(\"No Midi-QoL workflow found. Run this as a post-save macro (After Saves Complete).\");\n\n  const caster =\n    wf.token ??\n    (a0?.tokenId ? canvas.tokens.get(a0.tokenId) : null) ??\n    canvas.tokens.controlled?.[0] ??\n    null;\n\n  if (!caster) return error(\"Could not resolve caster token.\");\n\n  // -----------------------\n  // Failed-save tokens\n  // -----------------------\n  const toTokens = (maybe) => {\n    if (!maybe) return [];\n    if (maybe instanceof Set) return Array.from(maybe).map(t => t?.object ?? t).filter(Boolean);\n    if (Array.isArray(maybe)) return maybe.map(t => t?.object ?? t).filter(Boolean);\n    if (typeof maybe === \"object\") return Object.values(maybe).map(t => t?.object ?? t).filter(Boolean);\n    return [];\n  };\n\n  let failed = toTokens(wf.failedSaves);\n  if (!failed.length) failed = toTokens(wf.failedTargets);\n  if (!failed.length && a0?.failedSaves) failed = toTokens(a0.failedSaves);\n  if (!failed.length && a0?.failedTargets) failed = toTokens(a0.failedTargets);\n\n  // De-dupe by token id (so two identical monsters both move)\n  const uniq = new Map();\n  for (const t of failed) uniq.set(t.id, t);\n  failed = Array.from(uniq.values());\n\n  // Passengers = caster + failed targets\n  const passengersMap = new Map([[caster.id, caster]]);\n  for (const t of failed) passengersMap.set(t.id, t);\n  const passengers = Array.from(passengersMap.values());\n\n  if (passengers.length <= 1 && !failed.length) return warn(\"No failed saves – nothing to teleport.\");\n\n  // -----------------------\n  // Geometry helpers (v13-safe)\n  // -----------------------\n  const r10 = (n) => Math.round(n * 10) / 10;\n  const centreOf = (t) => ({ x: t.x + t.w / 2, y: t.y + t.h / 2 });\n\n  const distFtGrid = (a, b) => {\n    const res = grid.measurePath([a, b], { gridSpaces: true });\n    return res?.cost ?? Number.POSITIVE_INFINITY;\n  };\n\n  const tokenWpx = (tok) => (tok.document?.width ?? 1) * gridSizePx;\n  const tokenHpx = (tok) => (tok.document?.height ?? 1) * gridSizePx;\n\n  const inSceneBounds = (tok, x, y) => {\n    const dims = scene.dimensions;\n    const w = tokenWpx(tok);\n    const h = tokenHpx(tok);\n    return x >= 0 && y >= 0 && (x + w) <= dims.sceneWidth && (y + h) <= dims.sceneHeight;\n  };\n\n  // -----------------------\n  // GRID-FOOTPRINT OCCUPANCY (the important fix)\n  // -----------------------\n  const gridPosFromPixels = (x, y) => {\n    if (grid.getGridPositionFromPixels) return grid.getGridPositionFromPixels(x, y);\n    // fallback – square grids\n    return [Math.floor(x / gridSizePx), Math.floor(y / gridSizePx)];\n  };\n\n  const addFootprint = (set, gx, gy, wSquares, hSquares) => {\n    for (let dx = 0; dx < wSquares; dx++) {\n      for (let dy = 0; dy < hSquares; dy++) {\n        set.add(`${gx + dx},${gy + dy}`);\n      }\n    }\n  };\n\n  const movingIds = new Set(passengers.map(t => t.document.id));\n\n  // Occupied cells from ALL non-moving tokens\n  const occupiedCells = new Set();\n  for (const tok of canvas.tokens.placeables) {\n    if (movingIds.has(tok.document.id)) continue;\n\n    const [gx, gy] = gridPosFromPixels(tok.x, tok.y);\n    const wSq = tok.document?.width ?? 1;\n    const hSq = tok.document?.height ?? 1;\n    addFootprint(occupiedCells, gx, gy, wSq, hSq);\n  }\n\n  // Reserved cells for our placements (to avoid stacking passengers)\n  const reservedCells = new Set();\n\n  const canPlaceAt = (tok, x, y) => {\n    if (!inSceneBounds(tok, x, y)) return false;\n\n    const [gx, gy] = gridPosFromPixels(x, y);\n    const wSq = tok.document?.width ?? 1;\n    const hSq = tok.document?.height ?? 1;\n\n    for (let dx = 0; dx < wSq; dx++) {\n      for (let dy = 0; dy < hSq; dy++) {\n        const key = `${gx + dx},${gy + dy}`;\n        if (occupiedCells.has(key)) return false;\n        if (reservedCells.has(key)) return false;\n      }\n    }\n    return true;\n  };\n\n  const reserveAt = (tok, x, y) => {\n    const [gx, gy] = gridPosFromPixels(x, y);\n    const wSq = tok.document?.width ?? 1;\n    const hSq = tok.document?.height ?? 1;\n    addFootprint(reservedCells, gx, gy, wSq, hSq);\n  };\n\n  // -----------------------\n  // GM update helper (MAF old/simple supported)\n  // -----------------------\n  async function updateTokensAsGM(updates) {\n    if (!updates?.length) return;\n\n    if (game.user.isGM) {\n      return scene.updateEmbeddedDocuments(\"Token\", updates, { animate: false });\n    }\n\n    if (globalThis.MAF?.runAsGM) {\n      const code = `(args) => {\n        const scene = game.scenes.get(args.sceneId);\n        if (!scene) return;\n        return scene.updateEmbeddedDocuments(\"Token\", args.updates, { animate: false });\n      }`;\n      return MAF.runAsGM(code, { sceneId: scene.id, updates });\n    }\n\n    throw new Error(\"Not GM and MAF.runAsGM not available.\");\n  }\n\n  // -----------------------\n  // PIXI picker overlay (no timeout)\n  // -----------------------\n  const RING_COLOUR = 0x50B849;\n  const RING_FILL_ALPHA = 0.18;\n  const RING_LINE_ALPHA = 0.95;\n  const RING_LINE_WIDTH = 3;\n  const MARKER_RADIUS = 8;\n\n  function makeOverlay() {\n    const overlay = new PIXI.Container();\n    overlay.eventMode = \"none\";\n    overlay.sortableChildren = true;\n\n    const ring = new PIXI.Graphics();\n    ring.eventMode = \"none\";\n\n    const marker = new PIXI.Graphics();\n    marker.eventMode = \"none\";\n\n    overlay.addChild(ring);\n    overlay.addChild(marker);\n\n    canvas.stage.addChild(overlay);\n    return { overlay, ring, marker };\n  }\n\n  function drawRing(g, origin, radiusFt) {\n    const rPx = (radiusFt / grid.distance) * gridSizePx;\n    g.clear();\n    g.lineStyle(RING_LINE_WIDTH, RING_COLOUR, RING_LINE_ALPHA);\n    g.beginFill(RING_COLOUR, RING_FILL_ALPHA);\n    g.drawCircle(origin.x, origin.y, rPx);\n    g.endFill();\n  }\n\n  function drawMarker(g, p, ok) {\n    g.clear();\n    g.lineStyle(2, ok ? RING_COLOUR : 0xCC3333, 1);\n    g.drawCircle(p.x, p.y, MARKER_RADIUS);\n    g.moveTo(p.x - MARKER_RADIUS - 6, p.y);\n    g.lineTo(p.x + MARKER_RADIUS + 6, p.y);\n    g.moveTo(p.x, p.y - MARKER_RADIUS - 6);\n    g.lineTo(p.x, p.y + MARKER_RADIUS + 6);\n  }\n\n  const snapCentreFromEvent = (ev) => {\n    const pos = canvas.canvasCoordinatesFromClient(ev);\n    return grid.getCenterPoint({ x: r10(pos.x), y: r10(pos.y) });\n  };\n\n  async function pickDestination(originCentre, rangeFt) {\n    const { overlay, ring, marker } = makeOverlay();\n    drawRing(ring, originCentre, rangeFt);\n\n    return await new Promise((resolve, reject) => {\n      let finished = false;\n      let lastSnap = null;\n\n      const cleanup = () => {\n        if (finished) return;\n        finished = true;\n\n        try { canvas.stage.off(\"mousemove\", onMove); } catch {}\n        try { canvas.stage.off(\"mousedown\", onDown); } catch {}\n        try { window.removeEventListener(\"keydown\", onKey, true); } catch {}\n        try { window.removeEventListener(\"contextmenu\", onCtx, true); } catch {}\n\n        try { canvas.stage.removeChild(overlay); } catch {}\n        try { overlay.destroy({ children: true }); } catch {}\n      };\n\n      const cancel = () => { cleanup(); reject(new Error(\"cancelled\")); };\n      const onKey = (e) => { if (e.key === \"Escape\") cancel(); };\n      const onCtx = (e) => { e.preventDefault(); cancel(); };\n\n      const onMove = (event) => {\n        const snap = snapCentreFromEvent(event.data.originalEvent);\n        lastSnap = snap;\n\n        const ok = distFtGrid(originCentre, snap) <= (rangeFt + 1e-6);\n        drawMarker(marker, snap, ok);\n      };\n\n      const onDown = (event) => {\n        const oe = event.data.originalEvent;\n        if (!oe) return;\n\n        if (oe.button === 2) return cancel();\n        if (oe.button !== 0) return;\n\n        const snap = lastSnap ?? snapCentreFromEvent(oe);\n        const ok = distFtGrid(originCentre, snap) <= (rangeFt + 1e-6);\n        if (!ok) return warn(`Out of bounds – pick within ${rangeFt} ft.`);\n\n        cleanup();\n        resolve(snap);\n      };\n\n      window.addEventListener(\"contextmenu\", onCtx, true);\n      window.addEventListener(\"keydown\", onKey, true);\n      canvas.stage.on(\"mousemove\", onMove);\n      canvas.stage.on(\"mousedown\", onDown);\n\n      drawMarker(marker, originCentre, true);\n    });\n  }\n\n  // -----------------------\n  // Candidate landing points around caster destination\n  // -----------------------\n  function* spiralSquares(maxR) {\n    yield [0, 0];\n    for (let r = 1; r <= maxR; r++) {\n      for (let dx = -r; dx <= r; dx++) { yield [dx, -r]; yield [dx, r]; }\n      for (let dy = -r + 1; dy <= r - 1; dy++) { yield [-r, dy]; yield [r, dy]; }\n    }\n  }\n\n  function buildCandidateTopLefts(casterDestTL, casterDestCentre, maxFt) {\n    const maxSquares = Math.ceil(maxFt / grid.distance);\n    const candidates = [];\n\n    for (const [sx, sy] of spiralSquares(maxSquares)) {\n      const x = casterDestTL.x + sx * gridSizePx;\n      const y = casterDestTL.y + sy * gridSizePx;\n\n      const centre = grid.getCenterPoint({ x, y });\n      const dFt = distFtGrid(casterDestCentre, centre);\n      if (dFt <= maxFt + 1e-6) candidates.push({ x, y, dFt });\n    }\n\n    candidates.sort((a, b) => a.dFt - b.dFt);\n    return candidates;\n  }\n\n  // -----------------------\n  // PICK DESTINATION\n  // -----------------------\n  const casterCentre = centreOf(caster);\n  let destCentre;\n  try {\n    destCentre = await pickDestination(casterCentre, PICK_RANGE_FT);\n  } catch {\n    return;\n  }\n\n  const casterDestTL = grid.getTopLeftPoint({ x: r10(destCentre.x), y: r10(destCentre.y) });\n  const casterDestCentre = grid.getCenterPoint({ x: casterDestTL.x, y: casterDestTL.y });\n\n  // -----------------------\n  // PLACEMENT (now using grid-footprint occupancy)\n  // -----------------------\n  if (!canPlaceAt(caster, casterDestTL.x, casterDestTL.y)) {\n    warn(\"Caster landing spot is occupied/out of bounds – pick a different point.\");\n    return;\n  }\n  reserveAt(caster, casterDestTL.x, casterDestTL.y);\n\n  let candidates = buildCandidateTopLefts(casterDestTL, casterDestCentre, LAND_RADIUS_FT);\n  if (failed.length + 1 > candidates.length) {\n    candidates = buildCandidateTopLefts(casterDestTL, casterDestCentre, EXPAND_TO_FT);\n  }\n\n  const landXY = [];\n  landXY.push({ _id: caster.document.id, x: casterDestTL.x, y: casterDestTL.y });\n\n  for (const t of failed) {\n    if (t.id === caster.id) continue;\n\n    let placed = false;\n\n    for (const c of candidates) {\n      if (c.x === casterDestTL.x && c.y === casterDestTL.y) continue;\n      if (!canPlaceAt(t, c.x, c.y)) continue;\n\n      reserveAt(t, c.x, c.y);\n      landXY.push({ _id: t.document.id, x: c.x, y: c.y });\n      placed = true;\n      break;\n    }\n\n    if (!placed) warn(`No free landing square found for ${t.name} near the caster.`);\n  }\n\n  if (!landXY.length) return warn(\"Nothing to teleport.\");\n\n  // -----------------------\n  // BLINK TELEPORT (no animation)\n  // Phase 1: alpha 0\n  // Phase 2: x/y\n  // Phase 3: restore alpha\n  // -----------------------\n  const originalAlpha = new Map();\n  for (const u of landXY) {\n    const tok = canvas.tokens.get(u._id);\n    const a = tok?.document?.alpha;\n    originalAlpha.set(u._id, (typeof a === \"number\") ? a : 1);\n  }\n\n  const fadeOut = landXY.map(u => ({ _id: u._id, alpha: 0 }));\n  const fadeIn  = landXY.map(u => ({ _id: u._id, alpha: originalAlpha.get(u._id) ?? 1 }));\n\n  try {\n    await updateTokensAsGM(fadeOut);\n    await updateTokensAsGM(landXY);\n    await updateTokensAsGM(fadeIn);\n  } catch (e) {\n    console.error(e);\n    return error(`Teleport failed: ${e?.message ?? e}`);\n  }\n\n  ui.notifications.info(`Teleported caster + ${landXY.length - 1} failed target(s).`);\n})();"
+                "name": "",
+                "command": ""
               },
               "ignoreTraits": {
                 "idi": false,
@@ -15025,6 +15029,8 @@
                 "triggeredActivityConditionText": "",
                 "triggeredActivityTargets": "self",
                 "triggeredActivityRollAs": "self",
+                "triggeredActivityConsume": false,
+                "triggeredActivityConfigure": false,
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
@@ -15046,27 +15052,25 @@
                 "magicDamage": false,
                 "noConcentrationCheck": false,
                 "skipConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
+                "autoCEEffects": "default"
               },
               "isOverTimeFlag": false,
               "overTimeProperties": {
                 "saveRemoves": true,
+                "rollAs": "target",
                 "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
+                "postRemoveConditionText": ""
               },
               "otherActivityId": "none",
               "otherActivityAsParentType": true,
               "friendlySave": "friendlySuccess",
-              "name": "Ball Lightning",
-              "img": null
+              "name": "Ball Lightning"
             },
-            "XdqadJFwi0gxV72o": {
+            "vgIPrcFOXABh9FDF": {
               "type": "utility",
-              "_id": "XdqadJFwi0gxV72o",
-              "sort": 0,
+              "_id": "vgIPrcFOXABh9FDF",
+              "img": "",
+              "sort": 500000,
               "activation": {
                 "type": "",
                 "override": false,
@@ -15088,30 +15092,22 @@
                 "override": false
               },
               "effects": [],
-              "flags": {
-                "region-attacher": {
-                  "attachRegionToTemplate": false
-                }
-              },
+              "flags": {},
               "range": {
                 "units": "self",
-                "override": true,
-                "special": ""
+                "override": true
               },
               "target": {
                 "template": {
                   "contiguous": false,
+                  "stationary": false,
                   "units": "ft",
-                  "type": "",
-                  "size": "5",
-                  "count": "",
-                  "stationary": false
+                  "type": ""
                 },
                 "affects": {
                   "choice": false,
                   "type": "self",
-                  "special": "",
-                  "count": ""
+                  "special": ""
                 },
                 "override": false,
                 "prompt": true
@@ -15155,8 +15151,10 @@
                 "ignoreTraits": [],
                 "triggeredActivityId": "none",
                 "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "self",
+                "triggeredActivityTargets": "targets",
                 "triggeredActivityRollAs": "self",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
@@ -15164,7 +15162,7 @@
                 "confirmTargets": "default",
                 "autoTargetType": "any",
                 "autoTargetAction": "default",
-                "automationOnly": true,
+                "automationOnly": false,
                 "otherActivityCompatible": true,
                 "otherActivityAsParentType": true,
                 "identifier": "",
@@ -15178,25 +15176,22 @@
                 "magicDamage": false,
                 "noConcentrationCheck": false,
                 "skipConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
+                "autoCEEffects": "default"
               },
               "isOverTimeFlag": false,
               "overTimeProperties": {
                 "saveRemoves": true,
+                "rollAs": "target",
                 "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
+                "postRemoveConditionText": ""
               },
               "otherActivityId": "none",
               "otherActivityAsParentType": true,
-              "name": "",
-              "img": null
+              "name": ""
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 2,
             "recovery": [],
             "max": "@prof"
           },
@@ -15264,7 +15259,9 @@
           "proficient": null,
           "range": {
             "units": "ft",
-            "reach": null
+            "reach": null,
+            "value": null,
+            "long": null
           },
           "type": {
             "value": "martialM",
@@ -15777,14 +15774,17 @@
           "attuned": false,
           "equipped": true,
           "armor": {
-            "value": null,
-            "dex": null
+            "value": 2,
+            "dex": null,
+            "magicalBonus": ""
           },
           "proficient": null,
-          "properties": [],
+          "properties": [
+            "mgc"
+          ],
           "strength": null,
           "type": {
-            "value": "",
+            "value": "shield",
             "baseItem": ""
           },
           "crew": {
@@ -15868,7 +15868,7 @@
                 "prompt": true
               },
               "uses": {
-                "spent": 1,
+                "spent": 2,
                 "recovery": [
                   {
                     "period": "lr",
@@ -15943,7 +15943,7 @@
           },
           "uses": {
             "max": "6",
-            "spent": 0,
+            "spent": 1,
             "recovery": [
               {
                 "period": "dawn",
@@ -18946,7 +18946,7 @@
       {
         "name": "Reigns of the Colossus",
         "type": "equipment",
-        "_id": "Z6NEoXtH3jCGcqTB",
+        "_id": "HdRWKqMsyc49s4AX",
         "img": "icons/equipment/wrist/bracer-ornate-black-silver.webp",
         "system": {
           "activities": {
@@ -19062,8 +19062,13 @@
           },
           "uses": {
             "spent": 0,
-            "recovery": [],
-            "max": ""
+            "recovery": [
+              {
+                "period": "lr",
+                "type": "recoverAll"
+              }
+            ],
+            "max": "1"
           },
           "description": {
             "value": "",
@@ -19090,14 +19095,13 @@
           },
           "rarity": "artifact",
           "attunement": "",
-          "attuned": false,
-          "equipped": false,
           "crew": {
             "value": []
           },
           "armor": {
             "value": null,
-            "dex": null
+            "dex": null,
+            "magicalBonus": ""
           },
           "proficient": null,
           "properties": [
@@ -19106,6 +19110,280 @@
           "strength": null,
           "type": {
             "value": "wondrous",
+            "baseItem": ""
+          },
+          "attuned": false,
+          "equipped": false
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "name": "Elemental Gem (Yellow Diamond)",
+        "type": "consumable",
+        "effects": [],
+        "system": {
+          "activities": {
+            "utilityEleGeYeDi": {
+              "type": "utility",
+              "_id": "utilityEleGeYeDi",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "target": "",
+                    "value": "1",
+                    "scaling": {
+                      "mode": "",
+                      "formula": ""
+                    }
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "value": "",
+                "units": "turn",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "special": "",
+                "override": true
+              },
+              "target": {
+                "prompt": true,
+                "affects": {
+                  "count": "",
+                  "type": "",
+                  "choice": false,
+                  "special": ""
+                },
+                "template": {
+                  "count": "",
+                  "contiguous": false,
+                  "type": "",
+                  "size": "",
+                  "width": "",
+                  "height": "",
+                  "units": "ft",
+                  "stationary": false
+                },
+                "override": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": false
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>This gem contains a mote of elemental energy. When you take a Utilize action to break the gem, an Earth Elemental is summoned (see the <em>Monster Manual</em> for its stat block), and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your Initiative count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "elemental-gem-yellow-diamond",
+          "source": {
+            "book": "DMG 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 200,
+            "denomination": "gp"
+          },
+          "rarity": "uncommon",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [
+            "mgc"
+          ],
+          "type": {
+            "value": "trinket",
+            "subtype": ""
+          }
+        },
+        "img": "icons/commodities/gems/gem-faceted-octagon-yellow.webp",
+        "folder": "H4BAwb8A71bYRaIj",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "FVp7J93dGVvUfOvP",
+        "sort": 1500000
+      },
+      {
+        "name": "Teleporter Signet",
+        "type": "equipment",
+        "_id": "lRAzJnGsTJFInxL2",
+        "img": "assets/il_340x270.5432060552_57mu.webp",
+        "system": {
+          "activities": {},
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "equipment-2",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": false,
+          "unidentified": {
+            "description": "",
+            "name": "Unidentified Equipment"
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "rare",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "crew": {
+            "value": []
+          },
+          "armor": {
+            "value": null,
+            "dex": null,
+            "magicalBonus": ""
+          },
+          "proficient": null,
+          "properties": [
+            "mgc"
+          ],
+          "strength": null,
+          "type": {
+            "value": "trinket",
             "baseItem": ""
           }
         },

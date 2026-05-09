@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-04-25T00:36:59.014Z",
+  "exportedAt": "2026-05-09T06:02:22.806Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -433,11 +433,11 @@
       },
       "spells": {
         "spell1": {
-          "value": 4,
+          "value": 3,
           "override": null
         },
         "spell2": {
-          "value": 2,
+          "value": 1,
           "override": null
         },
         "spell3": {
@@ -469,7 +469,7 @@
           "override": null
         },
         "pact": {
-          "value": 1,
+          "value": 0,
           "override": null
         }
       },
@@ -528,9 +528,9 @@
           "value": null
         },
         "hp": {
-          "value": 59,
+          "value": 69,
           "max": 82,
-          "temp": null,
+          "temp": 0,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -4187,7 +4187,7 @@
                 "magicDamage": false,
                 "noConcentrationCheck": false,
                 "skipConcentrationCheck": false,
-                "autoCEEffects": "default"
+                "autoCEEffects": "none"
               },
               "isOverTimeFlag": false,
               "overTimeProperties": {
@@ -5117,7 +5117,7 @@
           },
           "hd": {
             "denomination": "d10",
-            "spent": 2,
+            "spent": 0,
             "additional": ""
           },
           "advancement": {
@@ -7271,7 +7271,7 @@
                 "prompt": true
               },
               "uses": {
-                "spent": 0,
+                "spent": 1,
                 "recovery": [],
                 "max": "1"
               },
@@ -10701,7 +10701,7 @@
                 "magicDamage": false,
                 "noConcentrationCheck": false,
                 "skipConcentrationCheck": false,
-                "autoCEEffects": "default"
+                "autoCEEffects": "none"
               },
               "isOverTimeFlag": false,
               "overTimeProperties": {
@@ -10775,7 +10775,7 @@
           },
           "ability": "wis",
           "method": "spell",
-          "prepared": 0,
+          "prepared": 1,
           "sourceItem": "class:paladin"
         },
         "effects": [],
@@ -13622,7 +13622,7 @@
                 "formula": "3"
               }
             ],
-            "spent": 0
+            "spent": 2
           },
           "description": {
             "value": "<div class=\"ddb\">\n<div class=\"item-attunement\"><i>(Requires attunement by a cleric or paladin)</i></div><p>This emblem is the symbol of a deity or a spiritual tradition. As an action, you can attach the emblem to a suit of armor or a shield or remove it.</p>\n<p>The emblem has 3 charges. When you or a creature you can see within 30 feet of you suffers a critical hit while you’re wearing the armor or wielding the shield that bears the emblem, you can use your reaction to expend 1 charge to turn the critical hit into a normal hit instead.</p>\n<p>The emblem regains all expended charges daily at dawn.</p>\n</div>",
@@ -13666,7 +13666,7 @@
             "value": "trinket",
             "baseItem": ""
           },
-          "attuned": false,
+          "attuned": true,
           "equipped": true,
           "cover": null,
           "hp": {
@@ -16242,7 +16242,7 @@
             }
           },
           "method": "spell",
-          "prepared": 1,
+          "prepared": 0,
           "ability": "",
           "sourceItem": "class:paladin"
         },
@@ -16509,6 +16509,324 @@
               "systemVersion": "5.1.10",
               "lastModifiedBy": "5UVriBnz79mr1mNp",
               "modifiedTime": 1764996161431
+            }
+          },
+          {
+            "name": "Pact of the Blade: Bonded",
+            "img": "icons/sundries/lights/candles-lit-red-evil.webp",
+            "origin": "Actor.b7uXKYOEzfYLNFVY.Item.oZS0bZrVTUQZ0saU.ActiveEffect.zPDyKi5bKOD2esI8",
+            "transfer": false,
+            "_id": "LTdxkTNlgHo6VC0r",
+            "type": "enchantment",
+            "system": {},
+            "changes": [
+              {
+                "key": "name",
+                "mode": 5,
+                "value": "{} (Pact of the Blade)",
+                "priority": 20
+              },
+              {
+                "key": "system.proficient",
+                "mode": 5,
+                "value": "1",
+                "priority": 20
+              }
+            ],
+            "disabled": false,
+            "duration": {
+              "startTime": null,
+              "combat": null,
+              "seconds": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "tint": "#ffffff",
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                },
+                "enchantment": {
+                  "level": {
+                    "min": null,
+                    "max": null
+                  },
+                  "riders": {
+                    "effect": [],
+                    "item": []
+                  }
+                }
+              },
+              "dae": {
+                "enableCondition": "",
+                "disableCondition": "",
+                "stackable": "noneName",
+                "showIcon": false,
+                "disableIncapacitated": false,
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": true,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": []
+              },
+              "core": {
+                "overlay": false
+              },
+              "chris-premades": {
+                "noAnimation": false,
+                "conditions": [],
+                "specialDuration": [],
+                "templateEffectActivities": [],
+                "info": {
+                  "identifier": "pactOfTheBladeBondedEnchantment"
+                },
+                "rules": "modern",
+                "macros": {
+                  "midi": {
+                    "item": [
+                      "pactOfTheBladeAttack"
+                    ]
+                  }
+                }
+              },
+              "autoanimations": {
+                "id": "d4a89064-229b-4739-8391-2084bcbf9217",
+                "label": "Unidentified Spear",
+                "levels3d": {
+                  "type": "explosion",
+                  "data": {
+                    "color01": "#FFFFFF",
+                    "color02": "#FFFFFF",
+                    "spritePath": "modules/levels-3d-preview/assets/particles/dust.png"
+                  },
+                  "sound": {
+                    "enable": false
+                  },
+                  "secondary": {
+                    "enable": false,
+                    "data": {
+                      "color01": "#FFFFFF",
+                      "color02": "#FFFFFF",
+                      "spritePath": "modules/levels-3d-preview/assets/particles/dust.png"
+                    }
+                  }
+                },
+                "macro": {
+                  "enable": false
+                },
+                "meleeSwitch": {
+                  "video": {
+                    "dbSection": "range",
+                    "menuType": "weapon",
+                    "animation": "arrow",
+                    "variant": "regular",
+                    "color": "regular"
+                  },
+                  "sound": {
+                    "enable": false,
+                    "delay": 0,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "startTime": 0,
+                    "volume": 0.75
+                  },
+                  "options": {
+                    "detect": "automatic",
+                    "range": 2,
+                    "returning": false,
+                    "switchType": "on"
+                  }
+                },
+                "menu": "melee",
+                "primary": {
+                  "video": {
+                    "dbSection": "melee",
+                    "menuType": "weapon",
+                    "animation": "club",
+                    "variant": "01",
+                    "color": "white",
+                    "enableCustom": false,
+                    "customPath": ""
+                  },
+                  "sound": {
+                    "enable": false,
+                    "delay": 0,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "startTime": 0,
+                    "volume": 0.75
+                  },
+                  "options": {
+                    "contrast": 0,
+                    "delay": 0,
+                    "elevation": 1000,
+                    "isWait": false,
+                    "opacity": 1,
+                    "playbackRate": 1,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "saturate": 0,
+                    "size": 1,
+                    "tint": false,
+                    "tintColor": "#FFFFFF",
+                    "zIndex": 1
+                  }
+                },
+                "secondary": {
+                  "enable": false,
+                  "video": {
+                    "dbSection": "static",
+                    "menuType": "spell",
+                    "animation": "curewounds",
+                    "variant": "01",
+                    "color": "blue",
+                    "enableCustom": false,
+                    "customPath": ""
+                  },
+                  "sound": {
+                    "enable": false,
+                    "delay": 0,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "startTime": 0,
+                    "volume": 0.75
+                  },
+                  "options": {
+                    "addTokenWidth": false,
+                    "anchor": "0.5",
+                    "contrast": 0,
+                    "delay": 0,
+                    "elevation": 1000,
+                    "fadeIn": 250,
+                    "fadeOut": 500,
+                    "isMasked": false,
+                    "isRadius": true,
+                    "isWait": false,
+                    "opacity": 1,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "saturate": 0,
+                    "size": 1.5,
+                    "tint": false,
+                    "tintColor": "#FFFFFF",
+                    "zIndex": 1
+                  }
+                },
+                "soundOnly": {
+                  "sound": {
+                    "enable": false,
+                    "delay": 0,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "startTime": 0,
+                    "volume": 0.75
+                  }
+                },
+                "source": {
+                  "enable": false,
+                  "video": {
+                    "dbSection": "static",
+                    "menuType": "spell",
+                    "animation": "curewounds",
+                    "variant": "01",
+                    "color": "blue",
+                    "enableCustom": false,
+                    "customPath": ""
+                  },
+                  "sound": {
+                    "enable": false,
+                    "delay": 0,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "startTime": 0,
+                    "volume": 0.75
+                  },
+                  "options": {
+                    "addTokenWidth": false,
+                    "anchor": "0.5",
+                    "contrast": 0,
+                    "delay": 0,
+                    "elevation": 1000,
+                    "fadeIn": 250,
+                    "fadeOut": 500,
+                    "isMasked": false,
+                    "isRadius": false,
+                    "isWait": true,
+                    "opacity": 1,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "saturate": 0,
+                    "size": 1,
+                    "tint": false,
+                    "tintColor": "#FFFFFF",
+                    "zIndex": 1
+                  }
+                },
+                "target": {
+                  "enable": false,
+                  "video": {
+                    "dbSection": "static",
+                    "menuType": "spell",
+                    "animation": "curewounds",
+                    "variant": "01",
+                    "color": "blue",
+                    "enableCustom": false,
+                    "customPath": ""
+                  },
+                  "sound": {
+                    "enable": false,
+                    "delay": 0,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "startTime": 0,
+                    "volume": 0.75
+                  },
+                  "options": {
+                    "addTokenWidth": false,
+                    "anchor": "0.5",
+                    "contrast": 0,
+                    "delay": 0,
+                    "elevation": 1000,
+                    "fadeIn": 250,
+                    "fadeOut": 500,
+                    "isMasked": false,
+                    "isRadius": false,
+                    "opacity": 1,
+                    "persistent": false,
+                    "repeat": 1,
+                    "repeatDelay": 250,
+                    "saturate": 0,
+                    "size": 1,
+                    "tint": false,
+                    "tintColor": "#FFFFFF",
+                    "unbindAlpha": false,
+                    "unbindVisibility": false,
+                    "zIndex": 1
+                  }
+                },
+                "isEnabled": false,
+                "isCustomized": false,
+                "fromAmmo": false,
+                "version": 5
+              }
+            },
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "createdTime": 1777518466615,
+              "modifiedTime": 1777518466734,
+              "lastModifiedBy": "I4GGxqNW644lYEEA"
             }
           }
         ],
@@ -17334,7 +17652,7 @@
             "thr",
             "ver"
           ],
-          "proficient": null,
+          "proficient": 1,
           "range": {
             "value": 20,
             "long": 60,
@@ -17343,7 +17661,8 @@
           },
           "crew": {
             "value": []
-          }
+          },
+          "magicalBonus": ""
         },
         "img": "assets/gemini_generated_image_hlyd9rhlyd9rhlyd1.png",
         "folder": null,
@@ -17674,7 +17993,7 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
+                "autoCEEffects": "none",
                 "triggeredActivityConsume": true,
                 "triggeredActivityConfigure": true,
                 "autoConsume": false,
@@ -19880,7 +20199,7 @@
             "subtype": ""
           },
           "attuned": false,
-          "equipped": false
+          "equipped": true
         },
         "img": "icons/consumables/potions/potion-bottle-skull-label-poison-teal.webp",
         "folder": "b0oAPErUnbl4fDGo",
@@ -20147,7 +20466,7 @@
           "rarity": "uncommon",
           "attunement": "",
           "attuned": false,
-          "equipped": false,
+          "equipped": true,
           "damage": {
             "base": {
               "types": [],
@@ -20540,7 +20859,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 2,
+          "quantity": 3,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -20552,7 +20871,7 @@
           "rarity": "",
           "attunement": "",
           "attuned": false,
-          "equipped": false,
+          "equipped": true,
           "damage": {
             "base": {
               "types": [],
@@ -20619,7 +20938,7 @@
           "rarity": "",
           "attunement": "",
           "attuned": false,
-          "equipped": false,
+          "equipped": true,
           "type": {
             "value": "",
             "subtype": ""
@@ -20653,9 +20972,9 @@
         "type": "spell",
         "system": {
           "activities": {
-            "damageDivinSmite": {
-              "type": "damage",
-              "_id": "damageDivinSmite",
+            "Q91MmgNjEG53pfKZ": {
+              "type": "utility",
+              "_id": "Q91MmgNjEG53pfKZ",
               "sort": 0,
               "activation": {
                 "type": "action",
@@ -20663,12 +20982,11 @@
                 "override": false
               },
               "consumption": {
-                "spellSlot": true,
-                "targets": [],
                 "scaling": {
-                  "allowed": false,
-                  "max": ""
-                }
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": []
               },
               "description": {
                 "chatFlavor": ""
@@ -20687,43 +21005,29 @@
                 "template": {
                   "contiguous": false,
                   "units": "ft",
+                  "type": "",
                   "stationary": false
                 },
                 "affects": {
-                  "choice": false
+                  "choice": false,
+                  "count": "",
+                  "type": ""
                 },
                 "override": false,
                 "prompt": true
               },
               "uses": {
                 "spent": 0,
-                "recovery": []
+                "recovery": [],
+                "max": ""
               },
-              "damage": {
-                "parts": [
-                  {
-                    "number": 2,
-                    "denomination": 8,
-                    "bonus": "",
-                    "types": [
-                      "radiant"
-                    ],
-                    "custom": {
-                      "enabled": false
-                    },
-                    "scaling": {
-                      "mode": "whole",
-                      "number": 1,
-                      "formula": ""
-                    }
-                  }
-                ],
-                "critical": {
-                  "allow": false
-                }
+              "roll": {
+                "prompt": false,
+                "visible": false,
+                "name": "",
+                "formula": ""
               },
-              "useConditionText": "![\"fiend\", \"undead\"].includes(raceOrType)",
-              "useConditionReason": "",
+              "useConditionText": "",
               "effectConditionText": "",
               "macroData": {
                 "name": "",
@@ -20745,35 +21049,30 @@
                 "confirmTargets": "default",
                 "automationOnly": false,
                 "identifier": "",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
                 "triggeredActivityConsume": true,
                 "triggeredActivityConfigure": true,
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
                 "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
                 "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
                 "removeChatButtons": "default",
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
                 "skipConcentrationCheck": false,
-                "autoCEEffects": "default"
+                "autoCEEffects": "none"
               },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
+              "name": "",
+              "img": "",
               "flags": {},
               "visibility": {
                 "level": {},
@@ -20781,138 +21080,16 @@
                 "requireIdentification": false,
                 "requireMagic": false
               },
-              "img": null
-            },
-            "damageDivinSmclo": {
-              "name": "vs Fiends or Undead",
-              "type": "damage",
-              "_id": "damageDivinSmclo",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": null,
-                "override": false
-              },
-              "consumption": {
-                "spellSlot": true,
-                "targets": [],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                }
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "units": "inst",
-                "concentration": false,
-                "override": false
-              },
-              "effects": [],
-              "range": {
-                "override": false,
-                "units": "self"
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false
-                },
-                "override": false,
-                "prompt": true
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": []
-              },
-              "damage": {
-                "parts": [
-                  {
-                    "number": 3,
-                    "denomination": 8,
-                    "bonus": "",
-                    "types": [
-                      "radiant"
-                    ],
-                    "custom": {
-                      "enabled": false
-                    },
-                    "scaling": {
-                      "mode": "whole",
-                      "number": 1,
-                      "formula": ""
-                    }
-                  }
-                ],
-                "critical": {
-                  "allow": false
-                }
-              },
-              "useConditionText": "[\"fiend\", \"undead\"].includes(raceOrType)",
               "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "skipConcentrationCheck": false,
-                "autoCEEffects": "default"
-              },
               "isOverTimeFlag": false,
               "overTimeProperties": {
                 "saveRemoves": true,
+                "rollAs": "target",
                 "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
+                "postRemoveConditionText": ""
               },
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true
             }
           },
           "uses": {
@@ -20975,8 +21152,7 @@
             }
           },
           "method": "spell",
-          "prepared": 0,
-          "sourceItem": "class:paladin"
+          "prepared": 1
         },
         "effects": [
           {
@@ -21025,7 +21201,7 @@
               "exportSource": null,
               "coreVersion": "13.351",
               "systemId": "dnd5e",
-              "systemVersion": "5.2.5",
+              "systemVersion": "5.3.0",
               "lastModifiedBy": null
             }
           }
@@ -21033,7 +21209,7 @@
         "name": "Divine Smite",
         "img": "icons/skills/melee/strike-flail-destructive-yellow.webp",
         "folder": "su9Nwa2PGaZyGnjU",
-        "sort": 5700000,
+        "sort": 0,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3
@@ -21934,189 +22110,6 @@
         "sort": 0
       },
       {
-        "name": "Forgery Kit",
-        "type": "tool",
-        "effects": [],
-        "system": {
-          "activities": {
-            "checkForgerKitII": {
-              "type": "check",
-              "_id": "checkForgerKitII",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": 1,
-                "condition": "",
-                "override": true
-              },
-              "consumption": {
-                "targets": [],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                },
-                "spellSlot": true
-              },
-              "description": {},
-              "duration": {
-                "units": "inst",
-                "special": "",
-                "override": true,
-                "concentration": false
-              },
-              "effects": [],
-              "range": {
-                "units": "self",
-                "override": false
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false
-                },
-                "override": false,
-                "prompt": true
-              },
-              "uses": {
-                "spent": null,
-                "recovery": []
-              },
-              "check": {
-                "associated": [],
-                "ability": "int",
-                "dc": {}
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "damage": {
-                "onSave": "half",
-                "parts": [],
-                "critical": {
-                  "allow": false
-                }
-              },
-              "friendlySave": "default",
-              "img": null,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              }
-            }
-          },
-          "uses": {
-            "spent": null,
-            "recovery": []
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p><strong>Ability:</strong> Dexterity <br /><strong>Utilize:</strong> Mimic 10 or fewer words of someone else’s handwriting (DC 15), or duplicate a wax seal (DC 20)</p>\n<hr />\n<p>If you have proficiency with a tool, add your Proficiency Bonus to any ability check you make that uses the tool. If you have proficiency in a skill that’s used with that check, you have Advantage on the check too.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "forgery-kit",
-          "source": {
-            "book": "PHB 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2024",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 5,
-            "units": "lb"
-          },
-          "price": {
-            "value": 15,
-            "denomination": "gp"
-          },
-          "rarity": "",
-          "attunement": "",
-          "type": {
-            "value": "",
-            "baseItem": "forg"
-          },
-          "ability": "",
-          "chatFlavor": "",
-          "proficient": 0,
-          "properties": [],
-          "bonus": "",
-          "attuned": false,
-          "equipped": false
-        },
-        "img": "icons/commodities/materials/parchment-secrets.webp",
-        "folder": "7tMDK7PnV2akfsyN",
-        "ownership": {
-          "default": 0,
-          "5UVriBnz79mr1mNp": 3
-        },
-        "_id": "UxwIx6P0f2FTcucU",
-        "sort": 0
-      },
-      {
         "name": "Mithral Chain Mail (Legacy)",
         "type": "equipment",
         "effects": [],
@@ -22563,7 +22556,7 @@
           },
           "properties": [],
           "attuned": false,
-          "equipped": false
+          "equipped": true
         },
         "img": "icons/weapons/thrown/bomb-spiked-purple.webp",
         "folder": "b0oAPErUnbl4fDGo",
@@ -22573,210 +22566,6 @@
           "default": 0,
           "I4GGxqNW644lYEEA": 3
         }
-      },
-      {
-        "name": "Manacles",
-        "type": "consumable",
-        "effects": [],
-        "system": {
-          "activities": {
-            "utilityManaclesI": {
-              "type": "utility",
-              "_id": "utilityManaclesI",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": 1,
-                "condition": "",
-                "override": true
-              },
-              "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "target": "",
-                    "value": "1",
-                    "scaling": {
-                      "mode": "",
-                      "formula": ""
-                    }
-                  }
-                ],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                },
-                "spellSlot": true
-              },
-              "description": {},
-              "duration": {
-                "units": "inst",
-                "special": "",
-                "override": true,
-                "concentration": false
-              },
-              "effects": [],
-              "range": {
-                "units": "self",
-                "special": "",
-                "override": true
-              },
-              "target": {
-                "prompt": true,
-                "affects": {
-                  "count": "1",
-                  "type": "creature",
-                  "choice": false,
-                  "special": ""
-                },
-                "template": {
-                  "count": "",
-                  "contiguous": false,
-                  "type": "radius",
-                  "size": "5",
-                  "width": "",
-                  "height": "",
-                  "units": "ft",
-                  "stationary": false
-                },
-                "override": true
-              },
-              "uses": {
-                "spent": null,
-                "recovery": []
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "skipConcentrationCheck": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            }
-          },
-          "uses": {
-            "spent": 0,
-            "max": "1",
-            "recovery": [],
-            "autoDestroy": false
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>As a Utilize action, you can use Manacles to bind an unwilling Small or Medium creature within 5 feet of yourself that has the Grappled, Incapacitated, or Restrained condition if you succeed on a DC 13 Dexterity (&amp;Reference[slt]{Sleight of Hand}) check. While bound, a creature has Disadvantage on attack rolls, and the creature is Restrained if the Manacles are attached to a chain or hook that is fixed in place. Escaping the Manacles requires a successful DC 20 Dexterity (&amp;Reference[slt]{Sleight of Hand}) check as an action. Bursting them requires a successful DC 25 Strength (&amp;Reference[ath]{Athletics}) check as an action.</p>\n<p>Each set of Manacles comes with a key. Without the key, a creature can use Thieves’ Tools to pick the Manacles’ lock with a successful DC 15 Dexterity (&amp;Reference[slt]{Sleight of Hand}) check.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "manacles",
-          "source": {
-            "book": "PHB 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2024",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 6,
-            "units": "lb"
-          },
-          "price": {
-            "value": 2,
-            "denomination": "gp"
-          },
-          "rarity": "",
-          "attunement": "",
-          "damage": {
-            "base": {
-              "types": [],
-              "custom": {
-                "enabled": false
-              },
-              "scaling": {
-                "number": 1
-              }
-            },
-            "replace": false
-          },
-          "properties": [],
-          "type": {
-            "value": "trinket",
-            "subtype": ""
-          },
-          "attuned": false,
-          "equipped": false
-        },
-        "img": "icons/sundries/survival/cuffs-shackles-steel.webp",
-        "folder": "b0oAPErUnbl4fDGo",
-        "ownership": {
-          "default": 0,
-          "5UVriBnz79mr1mNp": 3,
-          "I4GGxqNW644lYEEA": 3
-        },
-        "_id": "hlrv66iFYdzP9udK",
-        "sort": 0
       },
       {
         "name": "Sentinel Shield",
@@ -23025,9 +22814,55 @@
         "sort": 0
       },
       {
+        "name": "Crit Coin",
+        "type": "loot",
+        "_id": "qJqc3pp5JGZq69Lc",
+        "img": "assets/gemini_generated_image_9vwhxw9vwhxw9vwh.png",
+        "system": {
+          "description": {
+            "value": "<p>A mystical coin bestowed on worthy adventurers by a doting god who lives for drama.</p>",
+            "chat": ""
+          },
+          "identifier": "loot",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "artifact",
+          "properties": [
+            "mgc"
+          ],
+          "type": {
+            "value": "treasure",
+            "subtype": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
         "name": "Reigns of the Colossus",
         "type": "equipment",
-        "_id": "8OrmpTVO7zPIrd1s",
+        "_id": "mmJ2sQzCAJ1MhKpp",
         "img": "icons/equipment/wrist/bracer-ornate-black-silver.webp",
         "system": {
           "activities": {
@@ -23143,8 +22978,13 @@
           },
           "uses": {
             "spent": 0,
-            "recovery": [],
-            "max": ""
+            "recovery": [
+              {
+                "period": "lr",
+                "type": "recoverAll"
+              }
+            ],
+            "max": "1"
           },
           "description": {
             "value": "",
@@ -23171,14 +23011,13 @@
           },
           "rarity": "artifact",
           "attunement": "",
-          "attuned": false,
-          "equipped": false,
           "crew": {
             "value": []
           },
           "armor": {
             "value": null,
-            "dex": null
+            "dex": null,
+            "magicalBonus": ""
           },
           "proficient": null,
           "properties": [
@@ -23188,7 +23027,9 @@
           "type": {
             "value": "wondrous",
             "baseItem": ""
-          }
+          },
+          "attuned": false,
+          "equipped": true
         },
         "effects": [],
         "folder": null,
@@ -23199,19 +23040,1115 @@
         }
       },
       {
-        "name": "Crit Coin",
-        "type": "loot",
-        "_id": "qJqc3pp5JGZq69Lc",
-        "img": "assets/gemini_generated_image_9vwhxw9vwhxw9vwh.png",
+        "type": "spell",
         "system": {
+          "activities": {
+            "utilityProFroPoi": {
+              "type": "utility",
+              "_id": "utilityProFroPoi",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false
+              },
+              "consumption": {
+                "spellSlot": true,
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [
+                {
+                  "_id": "Y0LxLHa0HDyd77aW",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "otherActivityAsParentType": true
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "",
+            "recovery": []
+          },
           "description": {
-            "value": "<p>A mystical coin bestowed on worthy adventurers by a doting god who lives for drama.</p>",
+            "value": "<div class=\"ddb\">\n<p>You touch a creature. If it is &amp;Reference[poisoned]{poisoned}, you neutralize the poison. If more than one poison afflicts the target, you neutralize one poison that you know is present, or you neutralize one at random.</p>\n<p>For the duration, the target has advantage on saving throws against being &amp;Reference[poisoned]{poisoned}, and it has resistance to poison damage.</p>\n</div>",
             "chat": ""
           },
-          "identifier": "loot",
+          "identifier": "protection-from-poison-legacy",
           "source": {
-            "revision": 1,
-            "rules": "2024"
+            "book": "PHB",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": "1",
+            "units": "hour"
+          },
+          "level": 2,
+          "materials": {
+            "value": "",
+            "consumed": false,
+            "cost": 0,
+            "supply": 0
+          },
+          "properties": [
+            "vocal",
+            "somatic"
+          ],
+          "range": {
+            "units": "touch"
+          },
+          "school": "abj",
+          "target": {
+            "affects": {
+              "count": "1",
+              "type": "creature",
+              "choice": false,
+              "special": ""
+            },
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft",
+              "stationary": false
+            }
+          },
+          "method": "spell",
+          "sourceItem": "class:paladin",
+          "prepared": 1
+        },
+        "effects": [
+          {
+            "img": "icons/magic/defensive/shield-barrier-flaming-diamond-teal-purple.webp",
+            "name": "Protection from Poison",
+            "statuses": [],
+            "changes": [
+              {
+                "key": "system.traits.dr.value",
+                "value": "poison",
+                "mode": 2,
+                "priority": 20
+              }
+            ],
+            "duration": {
+              "seconds": 3600,
+              "startTime": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null,
+              "combat": null
+            },
+            "tint": "#ffffff",
+            "transfer": false,
+            "disabled": false,
+            "flags": {
+              "dae": {
+                "transfer": false,
+                "stackable": "noneNameOnly",
+                "specialDuration": []
+              },
+              "ddbimporter": {
+                "disabled": false
+              },
+              "midi-qol": {
+                "forceCEOff": true
+              },
+              "core": {}
+            },
+            "description": "",
+            "_id": "Y0LxLHa0HDyd77aW",
+            "type": "base",
+            "system": {},
+            "origin": null,
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "name": "Protection from Poison",
+        "img": "icons/magic/defensive/shield-barrier-flaming-diamond-teal-purple.webp",
+        "folder": "6CDiZ2BQD1VyRCfN",
+        "_id": "uPVequt8UVuY75g5",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "5UVriBnz79mr1mNp": 3
+        }
+      },
+      {
+        "type": "spell",
+        "system": {
+          "activities": {
+            "utilityLesseRest": {
+              "type": "utility",
+              "_id": "utilityLesseRest",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false
+              },
+              "consumption": {
+                "spellSlot": true,
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "otherActivityAsParentType": true
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "",
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>You touch a creature and end one condition on it: &amp;Reference[blinded]{Blinded}, &amp;Reference[deafened]{Deafened}, &amp;Reference[paralyzed]{Paralyzed}, or &amp;Reference[poisoned]{Poisoned}.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "lesser-restoration",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "activation": {
+            "type": "bonus",
+            "value": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": "0",
+            "units": "inst"
+          },
+          "level": 2,
+          "materials": {
+            "value": "",
+            "consumed": false,
+            "cost": 0,
+            "supply": 0
+          },
+          "properties": [
+            "vocal",
+            "somatic"
+          ],
+          "range": {
+            "units": "touch"
+          },
+          "school": "abj",
+          "target": {
+            "affects": {
+              "count": "1",
+              "type": "creature",
+              "choice": false,
+              "special": ""
+            },
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft",
+              "stationary": false
+            }
+          },
+          "method": "spell",
+          "sourceItem": "class:paladin",
+          "prepared": 0
+        },
+        "effects": [],
+        "name": "Lesser Restoration",
+        "img": "icons/magic/life/heart-cross-blue.webp",
+        "folder": "ktb4JsSUuoieU7Sh",
+        "_id": "btZpdcoLz1pjUMII",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "5UVriBnz79mr1mNp": 3
+        }
+      },
+      {
+        "type": "spell",
+        "system": {
+          "activities": {
+            "saveZoneOfTrutII": {
+              "type": "save",
+              "_id": "saveZoneOfTrutII",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false
+              },
+              "consumption": {
+                "spellSlot": true,
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": []
+              },
+              "damage": {
+                "parts": [],
+                "onSave": "half",
+                "critical": {
+                  "allow": false
+                }
+              },
+              "save": {
+                "ability": [
+                  "cha"
+                ],
+                "dc": {
+                  "formula": "",
+                  "calculation": "spellcasting"
+                }
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "otherActivityAsParentType": true,
+              "friendlySave": "default"
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "",
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>You create a magical zone that guards against &amp;Reference[dec]{deception} in a 15-foot-radius sphere centered on a point of your choice within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there must make a [[/save cha format=long]]. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether each creature succeeds or fails on its saving throw.</p>\n<p>An affected creature is aware of the spell and can thus avoid answering questions to which it would normally respond with a lie. Such a creature can be evasive in its answers as long as it remains within the boundaries of the truth.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "zone-of-truth-legacy",
+          "source": {
+            "book": "PHB",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": "10",
+            "units": "minute"
+          },
+          "level": 2,
+          "materials": {
+            "value": "",
+            "consumed": false,
+            "cost": 0,
+            "supply": 0
+          },
+          "properties": [
+            "vocal",
+            "somatic"
+          ],
+          "range": {
+            "value": "60",
+            "units": "ft"
+          },
+          "school": "enc",
+          "target": {
+            "affects": {
+              "count": "",
+              "type": "",
+              "choice": false,
+              "special": ""
+            },
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "sphere",
+              "size": "15",
+              "width": "",
+              "height": "",
+              "units": "ft",
+              "stationary": false
+            }
+          },
+          "method": "spell",
+          "sourceItem": "class:paladin",
+          "prepared": 0
+        },
+        "effects": [],
+        "name": "Zone of Truth",
+        "img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
+        "folder": "6CDiZ2BQD1VyRCfN",
+        "_id": "5bhsmdy8jLtYVqG8",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "5UVriBnz79mr1mNp": 3
+        }
+      },
+      {
+        "type": "spell",
+        "system": {
+          "activities": {
+            "macWardingBondII": {
+              "name": "Apply Warding Bond",
+              "type": "ddbmacro",
+              "_id": "macWardingBondII",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false
+              },
+              "consumption": {
+                "spellSlot": true,
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [
+                {
+                  "_id": "NN49fErIGgAp5LQb",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "override": true,
+                "template": {
+                  "contiguous": false,
+                  "type": "",
+                  "size": "",
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": []
+              },
+              "macro": {
+                "function": "ddb.spell.wardingBond",
+                "name": "Warding Bond Macro",
+                "visible": false,
+                "parameters": ""
+              },
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "",
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>This spell wards a willing creature you touch and creates a mystic connection between you and the target until the spell ends. While the target is within 60 feet of you, it gains a +1 bonus to AC and saving throws, and it has resistance to all damage. Also, each time it takes damage, you take the same amount of damage.</p>\n<p>The spell ends if you drop to 0 hit points or if you and the target become separated by more than 60 feet. It also ends if the spell is cast again on either of the connected creatures. You can also dismiss the spell as an action.</p>\n<section class=\"secret\" id=\"secret-ddbHeroesFeast\">\n<p><strong>Implementation Details</strong></p>\n<p>The DDB Macro Activity will apply an automation that will apply damage taken by the target to the caster. You can disable this automation in the settings.</p>\n</section>\n</div>",
+            "chat": ""
+          },
+          "identifier": "warding-bond-legacy",
+          "source": {
+            "book": "PHB",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": "1",
+            "units": "hour"
+          },
+          "level": 2,
+          "materials": {
+            "value": "a pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
+            "consumed": false,
+            "cost": 50,
+            "supply": 0
+          },
+          "properties": [
+            "vocal",
+            "somatic",
+            "material"
+          ],
+          "range": {
+            "units": "touch"
+          },
+          "school": "abj",
+          "target": {
+            "affects": {
+              "count": "1",
+              "type": "creature",
+              "choice": false,
+              "special": ""
+            },
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft",
+              "stationary": false
+            }
+          },
+          "method": "spell",
+          "prepared": 0
+        },
+        "effects": [
+          {
+            "img": "icons/skills/targeting/target-strike-triple-blue.webp",
+            "name": "Warding Bond",
+            "statuses": [],
+            "changes": [
+              {
+                "key": "system.traits.dr.value",
+                "value": "bludgeoning",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "piercing",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "slashing",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "necrotic",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "acid",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "cold",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "fire",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "lightning",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "thunder",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "poison",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "psychic",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "radiant",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.traits.dr.value",
+                "value": "force",
+                "mode": 2,
+                "priority": 0
+              },
+              {
+                "key": "system.attributes.ac.bonus",
+                "value": "+1",
+                "mode": 2,
+                "priority": 20
+              },
+              {
+                "key": "system.bonuses.abilities.save",
+                "value": "+1",
+                "mode": 2,
+                "priority": 20
+              }
+            ],
+            "duration": {
+              "seconds": 3600,
+              "startTime": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null,
+              "combat": null
+            },
+            "tint": "#ffffff",
+            "transfer": false,
+            "disabled": false,
+            "flags": {
+              "dae": {
+                "transfer": false,
+                "stackable": "noneNameOnly",
+                "specialDuration": []
+              },
+              "ddbimporter": {
+                "disabled": false
+              },
+              "midi-qol": {
+                "forceCEOff": true
+              },
+              "core": {}
+            },
+            "description": "",
+            "_id": "NN49fErIGgAp5LQb",
+            "type": "base",
+            "system": {},
+            "origin": null,
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "name": "Warding Bond",
+        "img": "icons/skills/targeting/target-strike-triple-blue.webp",
+        "folder": "6CDiZ2BQD1VyRCfN",
+        "_id": "tEHGzMqMNOsckq1u",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "5UVriBnz79mr1mNp": 3
+        }
+      },
+      {
+        "name": "Iron Flask",
+        "type": "equipment",
+        "effects": [],
+        "system": {
+          "activities": {
+            "8ngHHY2Sqzm5xmmQ": {
+              "type": "summon",
+              "_id": "8ngHHY2Sqzm5xmmQ",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false,
+                "condition": ""
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": [
+                  {
+                    "type": "activityUses",
+                    "value": "1",
+                    "scaling": {}
+                  }
+                ]
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "range": {
+                "override": false,
+                "units": "self",
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "type": ""
+                },
+                "override": false,
+                "prompt": false
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": "1"
+              },
+              "bonuses": {
+                "ac": "",
+                "hd": "",
+                "hp": "",
+                "attackDamage": "",
+                "saveDamage": "",
+                "healing": ""
+              },
+              "creatureSizes": [],
+              "creatureTypes": [],
+              "match": {
+                "attacks": false,
+                "proficiency": false,
+                "saves": false,
+                "ability": "",
+                "disposition": false
+              },
+              "profiles": [
+                {
+                  "_id": "RZZ5xioTngdFiTB2",
+                  "level": {
+                    "min": null,
+                    "max": null
+                  },
+                  "types": [],
+                  "uuid": "Actor.HWnLk5RiM0HTY8tE"
+                }
+              ],
+              "summon": {
+                "prompt": true,
+                "mode": ""
+              },
+              "name": "",
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "friendlySummon": false,
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": null,
+            "recovery": [],
+            "max": "1"
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>While holding this brass-stoppered iron flask, you can take a Magic action to target a creature that you can see within 60 feet of yourself. If the flask is empty and the target is native to a plane of existence other than the one you’re on, the target must succeed on a [[/save wis 17 format=long]] or be trapped in the flask. If the target has been trapped by the flask before, it has Advantage on the save. Once trapped, a creature remains in the flask until released. The flask can hold only one creature at a time. A creature trapped in the flask doesn’t age and doesn’t need to breathe, eat, or drink.</p>\n<p>You can take a Magic action to remove the flask’s stopper and release the creature in the flask. The creature then obeys your commands for 1 hour, understanding those commands even if it doesn’t know the language in which the commands are given. If you issue no commands or give the creature a command that is likely to result in its death or imprisonment, it defends itself but otherwise takes no actions. At the end of the duration, the creature acts in accordance with its normal disposition and alignment.</p>\n<p>An Identify spell reveals if the flask contains a creature, but the only way to determine the type of creature is to open the flask. A newly discovered <em>Iron Flask</em> might already contain a creature chosen by the DM or determined randomly by rolling on the following table (see the <em><a href=\"https://dndbeyond.com/sources/dnd/mm\">Monster Manual</a></em> for the creature’s stat block).</p>\n<table class=\"table-compendium table--generic-dice\">\n<thead>\n<tr>\n<th>1d100</th>\n<th>Contents</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>0-50</td>\n<td>No creature</td>\n</tr>\n<tr>\n<td>51</td>\n<td>Arcanaloth</td>\n</tr>\n<tr>\n<td>52-54</td>\n<td>Bone Devil</td>\n</tr>\n<tr>\n<td>55-56</td>\n<td>Cambion</td>\n</tr>\n<tr>\n<td>57-58</td>\n<td>Dao</td>\n</tr>\n<tr>\n<td>59</td>\n<td>Deva</td>\n</tr>\n<tr>\n<td>60-61</td>\n<td>Djinni</td>\n</tr>\n<tr>\n<td>62-63</td>\n<td>Efreeti</td>\n</tr>\n<tr>\n<td>64-65</td>\n<td>Erinyes</td>\n</tr>\n<tr>\n<td>66-67</td>\n<td>Fomorian</td>\n</tr>\n<tr>\n<td>68</td>\n<td>Githyanki Knight</td>\n</tr>\n<tr>\n<td>69</td>\n<td>Githzerai Zerth</td>\n</tr>\n<tr>\n<td>70-71</td>\n<td>Glabrezu</td>\n</tr>\n<tr>\n<td>72-74</td>\n<td>Hezrou</td>\n</tr>\n<tr>\n<td>75</td>\n<td>Incubus</td>\n</tr>\n<tr>\n<td>76-77</td>\n<td>&amp;Reference[invisible]{Invisible} Stalker</td>\n</tr>\n<tr>\n<td>78-79</td>\n<td>Marid</td>\n</tr>\n<tr>\n<td>80</td>\n<td>Marilith</td>\n</tr>\n<tr>\n<td>81-82</td>\n<td>Mezzoloth</td>\n</tr>\n<tr>\n<td>83-84</td>\n<td>Nalfeshnee</td>\n</tr>\n<tr>\n<td>85-86</td>\n<td>Night Hag</td>\n</tr>\n<tr>\n<td>87-88</td>\n<td>Nycaloth</td>\n</tr>\n<tr>\n<td>89</td>\n<td>Planetar</td>\n</tr>\n<tr>\n<td>90-91</td>\n<td>Red Slaad</td>\n</tr>\n<tr>\n<td>92-93</td>\n<td>Salamander</td>\n</tr>\n<tr>\n<td>94</td>\n<td>Solar</td>\n</tr>\n<tr>\n<td>95</td>\n<td>Succubus</td>\n</tr>\n<tr>\n<td>96</td>\n<td>Ultroloth</td>\n</tr>\n<tr>\n<td>97-99</td>\n<td>Vrock</td>\n</tr>\n<tr>\n<td>00</td>\n<td>Xorn</td>\n</tr>\n</tbody>\n</table><div id=\"table-link\">@UUID[Compendium.world.ddb-waterdeep-adventures-ddb-tables.RollTable.Hng3RlLteXUKYQId]{Open RollTable Iron Flask: Contents}</div>\n</div>",
+            "chat": ""
+          },
+          "identifier": "iron-flask",
+          "source": {
+            "book": "DMG 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
           },
           "identified": true,
           "unidentified": {
@@ -23224,27 +24161,1181 @@
             "units": "lb"
           },
           "price": {
-            "value": 0,
+            "value": 275000,
             "denomination": "gp"
           },
-          "rarity": "artifact",
+          "rarity": "legendary",
+          "attunement": "",
+          "cover": null,
+          "type": {
+            "value": "trinket",
+            "baseItem": ""
+          },
+          "armor": {
+            "value": null,
+            "dex": null
+          },
           "properties": [
             "mgc"
           ],
-          "type": {
-            "value": "treasure",
-            "subtype": ""
+          "strength": 0,
+          "proficient": null,
+          "attuned": false,
+          "equipped": true,
+          "crew": {
+            "value": []
           }
         },
-        "effects": [],
-        "folder": null,
+        "img": "ddb-images/other/item/equipment/2024-dmg2024-iron-flask.jpeg",
+        "folder": "qDPOIm57DnkkKHfi",
+        "_id": "oHBn0KWVKPPoK4CQ",
         "sort": 0,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3
         }
+      },
+      {
+        "name": "Phoenix Elixir",
+        "type": "consumable",
+        "effects": [
+          {
+            "img": "ddb-images/other/item/consumable/2024-ottg-phoenix-elixir.jpeg",
+            "name": "Phoenix Elixir - Consumable Effects",
+            "statuses": [],
+            "changes": [
+              {
+                "key": "system.traits.di.value",
+                "value": "fire",
+                "mode": 2,
+                "priority": 1
+              }
+            ],
+            "duration": {
+              "seconds": null,
+              "startTime": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null,
+              "combat": null
+            },
+            "tint": "#ffffff",
+            "transfer": false,
+            "disabled": false,
+            "flags": {
+              "dae": {
+                "transfer": false,
+                "stackable": "noneNameOnly",
+                "enableCondition": "",
+                "disableCondition": "",
+                "showIcon": false,
+                "disableIncapacitated": false,
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": [
+                  "longRest"
+                ]
+              },
+              "ddbimporter": {
+                "disabled": false,
+                "passive": true,
+                "itemId": 0,
+                "itemEntityTypeId": 0
+              },
+              "midi-qol": {
+                "forceCEOff": true
+              },
+              "core": {
+                "overlay": false
+              },
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                }
+              },
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "All",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system",
+                "statuses": []
+              }
+            },
+            "description": "<p>When imbibed, this elixir burns your throat and ignites an ember within you. For 24 hours, you are immune to fire damage. When the potion’s magic finally fades, the fire inside of you burns intensely from within, consuming you in flames and turning your body to ash. 1 hour later you appear in the nearest bonfire, reborn anew. All objects and clothing that were on your person when you were turned to ash are left by your original body.</p>",
+            "_id": "uvlLcRQUc3AUtNow",
+            "type": "base",
+            "system": {},
+            "origin": null,
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "system": {
+          "activities": {
+            "utilityPhoenElix": {
+              "type": "utility",
+              "_id": "utilityPhoenElix",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "target": "",
+                    "value": "1",
+                    "scaling": {
+                      "mode": "",
+                      "formula": ""
+                    }
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "value": "24",
+                "units": "hour",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [
+                {
+                  "_id": "uvlLcRQUc3AUtNow",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "units": "touch",
+                "override": true,
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "count": "1",
+                  "type": "creature",
+                  "special": ""
+                },
+                "override": true,
+                "prompt": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": 0,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": true
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>When imbibed, this elixir burns your throat and ignites an ember within you. For 24 hours, you are immune to fire damage. When the potion’s magic finally fades, the fire inside of you burns intensely from within, consuming you in flames and turning your body to ash. 1 hour later you appear in the nearest bonfire, reborn anew. All objects and clothing that were on your person when you were turned to ash are left by your original body.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "phoenix-elixir",
+          "source": {
+            "book": "OTTG",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 200,
+            "denomination": "gp"
+          },
+          "rarity": "uncommon",
+          "attunement": "",
+          "attuned": false,
+          "equipped": true,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [
+            "mgc"
+          ],
+          "type": {
+            "value": "potion",
+            "subtype": ""
+          }
+        },
+        "img": "ddb-images/other/item/consumable/2024-ottg-phoenix-elixir.jpeg",
+        "folder": "GPdDZIdGRI6HOwDf",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "MPIL7CrZ4UHhvTIX",
+        "sort": 12100000
+      },
+      {
+        "name": "Manacles",
+        "type": "consumable",
+        "effects": [],
+        "system": {
+          "activities": {
+            "utilityManaclesI": {
+              "type": "utility",
+              "_id": "utilityManaclesI",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "target": "",
+                    "value": "1",
+                    "scaling": {
+                      "mode": "",
+                      "formula": ""
+                    }
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "special": "",
+                "override": true
+              },
+              "target": {
+                "prompt": true,
+                "affects": {
+                  "count": "1",
+                  "type": "creature",
+                  "choice": false,
+                  "special": ""
+                },
+                "template": {
+                  "count": "",
+                  "contiguous": false,
+                  "type": "radius",
+                  "size": "5",
+                  "width": "",
+                  "height": "",
+                  "units": "ft",
+                  "stationary": false
+                },
+                "override": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": 0,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": false
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>As a Utilize action, you can use Manacles to bind an unwilling Small or Medium creature within 5 feet of yourself that has the Grappled, Incapacitated, or Restrained condition if you succeed on a DC 13 Dexterity (&amp;Reference[slt]{Sleight of Hand}) check. While bound, a creature has Disadvantage on attack rolls, and the creature is Restrained if the Manacles are attached to a chain or hook that is fixed in place. Escaping the Manacles requires a successful DC 20 Dexterity (&amp;Reference[slt]{Sleight of Hand}) check as an action. Bursting them requires a successful DC 25 Strength (&amp;Reference[ath]{Athletics}) check as an action.</p>\n<p>Each set of Manacles comes with a key. Without the key, a creature can use Thieves’ Tools to pick the Manacles’ lock with a successful DC 15 Dexterity (&amp;Reference[slt]{Sleight of Hand}) check.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "manacles",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 6,
+            "units": "lb"
+          },
+          "price": {
+            "value": 2,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [],
+          "type": {
+            "value": "trinket",
+            "subtype": ""
+          },
+          "attuned": false,
+          "equipped": true
+        },
+        "img": "icons/sundries/survival/cuffs-shackles-steel.webp",
+        "folder": "b0oAPErUnbl4fDGo",
+        "ownership": {
+          "default": 0,
+          "5UVriBnz79mr1mNp": 3,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "r5jtrV8tPxEGkinN",
+        "sort": 0
+      },
+      {
+        "name": "Forgery Kit",
+        "type": "tool",
+        "effects": [],
+        "system": {
+          "activities": {
+            "checkForgerKitII": {
+              "type": "check",
+              "_id": "checkForgerKitII",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "override": false
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "check": {
+                "associated": [],
+                "ability": "int",
+                "dc": {}
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "damage": {
+                "onSave": "half",
+                "parts": [],
+                "critical": {
+                  "allow": false
+                }
+              },
+              "friendlySave": "default",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
+            }
+          },
+          "uses": {
+            "spent": null,
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p><strong>Ability:</strong> Dexterity <br /><strong>Utilize:</strong> Mimic 10 or fewer words of someone else’s handwriting (DC 15), or duplicate a wax seal (DC 20)</p>\n<hr />\n<p>If you have proficiency with a tool, add your Proficiency Bonus to any ability check you make that uses the tool. If you have proficiency in a skill that’s used with that check, you have Advantage on the check too.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "forgery-kit",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 5,
+            "units": "lb"
+          },
+          "price": {
+            "value": 15,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "type": {
+            "value": "",
+            "baseItem": "forg"
+          },
+          "ability": "",
+          "chatFlavor": "",
+          "proficient": 0,
+          "properties": [],
+          "bonus": "",
+          "attuned": false,
+          "equipped": false
+        },
+        "img": "icons/commodities/materials/parchment-secrets.webp",
+        "folder": "7tMDK7PnV2akfsyN",
+        "ownership": {
+          "default": 0,
+          "5UVriBnz79mr1mNp": 3,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "1lm1BQVVHZuVJ6JX",
+        "sort": 0
+      },
+      {
+        "name": "Potion of Healing",
+        "system": {
+          "description": {
+            "value": "<p>This potion is a magic item. As a Bonus Action, you can drink it or administer it to another creature within 5 feet of yourself. The creature that drinks the magical red fluid in this vial regains 2d4 + 2 Hit Points.</p>",
+            "chat": ""
+          },
+          "price": {
+            "value": 50,
+            "denomination": "gp"
+          },
+          "source": {
+            "custom": "",
+            "rules": "2024",
+            "license": "CC-BY-4.0",
+            "book": "",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0.5,
+            "units": "lb"
+          },
+          "rarity": "",
+          "attunement": "",
+          "uses": {
+            "max": "1",
+            "autoDestroy": true,
+            "spent": 0,
+            "recovery": []
+          },
+          "damage": {
+            "base": {
+              "number": null,
+              "denomination": null,
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "type": {
+            "value": "potion",
+            "subtype": ""
+          },
+          "properties": [
+            "mgc"
+          ],
+          "activities": {
+            "cNvH4obx5XJ2myYr": {
+              "type": "heal",
+              "activation": {
+                "type": "bonus",
+                "value": 1,
+                "condition": "",
+                "override": false
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "target": "",
+                    "scaling": {}
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "concentration": false,
+                "value": "",
+                "units": "inst",
+                "special": "",
+                "override": false
+              },
+              "effects": [],
+              "range": {
+                "units": "touch",
+                "special": "",
+                "override": false
+              },
+              "target": {
+                "template": {
+                  "count": "",
+                  "contiguous": false,
+                  "type": "",
+                  "size": "",
+                  "width": "",
+                  "height": "",
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "count": "1",
+                  "type": "creature",
+                  "choice": false,
+                  "special": ""
+                },
+                "prompt": false,
+                "override": false
+              },
+              "healing": {
+                "number": 2,
+                "denomination": 4,
+                "bonus": "2",
+                "types": [
+                  "healing"
+                ],
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "scaling": {
+                  "mode": "whole",
+                  "number": null,
+                  "formula": ""
+                }
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": ""
+              },
+              "sort": 0,
+              "_id": "cNvH4obx5XJ2myYr",
+              "name": "",
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "img": null
+            }
+          },
+          "identifier": "potion-of-healing",
+          "attuned": false,
+          "equipped": false
+        },
+        "_id": "mY89XWqM708czPzy",
+        "type": "consumable",
+        "folder": "uDk4FBYfcP2JnX6t",
+        "img": "icons/consumables/potions/potion-tube-corked-red.webp",
+        "effects": [],
+        "sort": 4800000,
+        "ownership": {
+          "default": 0,
+          "Ex3WmAaZbR5VTaOf": 3,
+          "I4GGxqNW644lYEEA": 3
+        }
       }
     ],
-    "effects": []
+    "effects": [
+      {
+        "name": "Pact of the Blade: Bonded",
+        "img": "icons/sundries/lights/candles-lit-red-evil.webp",
+        "origin": "Actor.b7uXKYOEzfYLNFVY.Item.oZS0bZrVTUQZ0saU.ActiveEffect.zPDyKi5bKOD2esI8",
+        "transfer": false,
+        "_id": "zUQAlZGr1GxIr6lL",
+        "type": "base",
+        "system": {},
+        "changes": [
+          {
+            "key": "name",
+            "mode": 5,
+            "value": "{} (Pact of the Blade)",
+            "priority": 20
+          },
+          {
+            "key": "system.proficient",
+            "mode": 5,
+            "value": "1",
+            "priority": 20
+          }
+        ],
+        "disabled": true,
+        "duration": {
+          "startTime": -273086904,
+          "combat": null,
+          "seconds": null,
+          "rounds": null,
+          "turns": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "description": "",
+        "tint": "#ffffff",
+        "statuses": [],
+        "sort": 0,
+        "flags": {
+          "dnd5e": {
+            "riders": {
+              "statuses": []
+            },
+            "dependentOn": "Actor.b7uXKYOEzfYLNFVY.Item.oZS0bZrVTUQZ0saU.ActiveEffect.zPDyKi5bKOD2esI8",
+            "scaling": 0
+          },
+          "dae": {
+            "enableCondition": "",
+            "disableCondition": "",
+            "stackable": "noneName",
+            "showIcon": false,
+            "disableIncapacitated": false,
+            "selfTarget": false,
+            "selfTargetAlways": false,
+            "dontApply": true,
+            "durationExpression": "",
+            "macroRepeat": "none",
+            "specialDuration": []
+          },
+          "core": {
+            "overlay": false
+          },
+          "chris-premades": {
+            "noAnimation": false,
+            "conditions": [],
+            "specialDuration": [],
+            "templateEffectActivities": [],
+            "info": {
+              "identifier": "pactOfTheBladeBondedEnchantment"
+            },
+            "rules": "modern",
+            "macros": {
+              "midi": {
+                "item": [
+                  "pactOfTheBladeAttack"
+                ]
+              }
+            }
+          },
+          "autoanimations": {
+            "id": "368690de-ae9e-4824-8091-cbd8937785c8",
+            "label": "Pact of the Blade: Bonded",
+            "activeEffectType": "ontoken",
+            "menu": "aefx",
+            "macro": {
+              "enable": false
+            },
+            "primary": {
+              "video": {
+                "dbSection": "static",
+                "menuType": "spell",
+                "animation": "curewounds",
+                "variant": "01",
+                "color": "blue",
+                "enableCustom": false,
+                "customPath": ""
+              },
+              "options": {
+                "addTokenWidth": false,
+                "anchor": "0.5",
+                "delay": 0,
+                "elevation": 1000,
+                "fadeIn": 250,
+                "fadeOut": 500,
+                "isMasked": false,
+                "isRadius": false,
+                "isWait": false,
+                "opacity": 1,
+                "persistent": false,
+                "playbackRate": 1,
+                "playOn": "source",
+                "repeat": 1,
+                "repeatDelay": 250,
+                "size": 1,
+                "unbindAlpha": false,
+                "unbindVisibility": false,
+                "zIndex": 1
+              },
+              "sound": {
+                "enable": false,
+                "delay": 0,
+                "repeat": 1,
+                "repeatDelay": 250,
+                "startTime": 0,
+                "volume": 0.75
+              }
+            },
+            "secondary": {
+              "enable": false,
+              "video": {
+                "dbSection": "static",
+                "menuType": "spell",
+                "animation": "curewounds",
+                "variant": "01",
+                "color": "blue",
+                "enableCustom": false,
+                "customPath": ""
+              },
+              "sound": {
+                "enable": false,
+                "delay": 0,
+                "repeat": 1,
+                "repeatDelay": 250,
+                "startTime": 0,
+                "volume": 0.75
+              },
+              "options": {
+                "addTokenWidth": false,
+                "anchor": "0.5",
+                "contrast": 0,
+                "delay": 0,
+                "elevation": 1000,
+                "fadeIn": 250,
+                "fadeOut": 500,
+                "isMasked": false,
+                "isRadius": true,
+                "isWait": false,
+                "opacity": 1,
+                "repeat": 1,
+                "repeatDelay": 250,
+                "saturate": 0,
+                "size": 1.5,
+                "tint": false,
+                "tintColor": "#FFFFFF",
+                "zIndex": 1
+              }
+            },
+            "soundOnly": {
+              "sound": {
+                "enable": false,
+                "delay": 0,
+                "repeat": 1,
+                "repeatDelay": 250,
+                "startTime": 0,
+                "volume": 0.75
+              }
+            },
+            "source": {
+              "enable": false,
+              "video": {
+                "dbSection": "static",
+                "menuType": "spell",
+                "animation": "curewounds",
+                "variant": "01",
+                "color": "blue",
+                "enableCustom": false,
+                "customPath": ""
+              },
+              "sound": {
+                "enable": false,
+                "delay": 0,
+                "repeat": 1,
+                "repeatDelay": 250,
+                "startTime": 0,
+                "volume": 0.75
+              },
+              "options": {
+                "addTokenWidth": false,
+                "anchor": "0.5",
+                "contrast": 0,
+                "delay": 0,
+                "elevation": 1000,
+                "fadeIn": 250,
+                "fadeOut": 500,
+                "isMasked": false,
+                "isRadius": false,
+                "isWait": true,
+                "opacity": 1,
+                "repeat": 1,
+                "repeatDelay": 250,
+                "saturate": 0,
+                "size": 1,
+                "tint": false,
+                "tintColor": "#FFFFFF",
+                "zIndex": 1
+              }
+            },
+            "isEnabled": false,
+            "isCustomized": false,
+            "version": 5
+          }
+        },
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1777518489115,
+          "modifiedTime": 1778306537573,
+          "lastModifiedBy": "I4GGxqNW644lYEEA"
+        }
+      }
+    ]
   }
 }
