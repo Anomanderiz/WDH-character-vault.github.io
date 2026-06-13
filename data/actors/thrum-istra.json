@@ -1,12 +1,12 @@
 {
-  "exportedAt": "2026-05-09T06:02:22.806Z",
+  "exportedAt": "2026-06-13T06:01:39.878Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
     "name": "Thrum (Istra)",
     "type": "character",
     "_id": "gWM9Il0zlve2eqG9",
-    "img": "tokenizer/pc-images/thrum_istra_.avatar.webp?1772247304283",
+    "img": "tokenizer/pc-images/thrum_istra_.avatar.webp?1779508641122",
     "system": {
       "currency": {
         "pp": 49,
@@ -528,9 +528,9 @@
           "value": null
         },
         "hp": {
-          "value": 48,
+          "value": 91,
           "max": 91,
-          "temp": 0,
+          "temp": 12,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -680,7 +680,7 @@
       "width": 1,
       "height": 1,
       "texture": {
-        "src": "tokenizer/pc-images/thrum_istra_.token.webp?1772247304283",
+        "src": "tokenizer/pc-images/thrum_istra_.token.webp?1779508641122",
         "anchorX": 0.5,
         "anchorY": 0.5,
         "offsetX": 0,
@@ -744,7 +744,7 @@
         "radius": 0
       },
       "ring": {
-        "enabled": true,
+        "enabled": false,
         "colors": {
           "ring": null,
           "background": null
@@ -5419,7 +5419,7 @@
           },
           "hd": {
             "denomination": "d10",
-            "spent": 0,
+            "spent": 3,
             "additional": ""
           },
           "startingEquipment": [],
@@ -6563,8 +6563,8 @@
               "systemId": "dnd5e",
               "systemVersion": "4.3.8",
               "createdTime": null,
-              "modifiedTime": 1777695616927,
-              "lastModifiedBy": "I4GGxqNW644lYEEA",
+              "modifiedTime": 1780108975709,
+              "lastModifiedBy": "qOu9x616pmeBI6sT",
               "exportSource": null
             },
             "img": "icons/magic/defensive/shield-barrier-glowing-triangle-teal.webp",
@@ -8063,7 +8063,8 @@
               "coreVersion": "13.351",
               "systemId": "dnd5e",
               "systemVersion": "5.2.5",
-              "lastModifiedBy": null
+              "lastModifiedBy": "I4GGxqNW644lYEEA",
+              "modifiedTime": 1781322128067
             }
           }
         ],
@@ -9945,7 +9946,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 2,
+          "quantity": 1,
           "weight": {
             "value": 0.5,
             "units": "lb"
@@ -10129,7 +10130,7 @@
             }
           },
           "uses": {
-            "spent": 1,
+            "spent": 0,
             "recovery": [
               {
                 "period": "lr",
@@ -10763,7 +10764,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 1,
+          "quantity": 3,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -12822,7 +12823,7 @@
             }
           },
           "uses": {
-            "spent": null,
+            "spent": 0,
             "max": "1",
             "recovery": [],
             "autoDestroy": true
@@ -12845,7 +12846,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 2,
+          "quantity": 1,
           "weight": {
             "value": 0.5,
             "units": "lb"
@@ -14663,9 +14664,9 @@
                 },
                 "affects": {
                   "choice": false,
-                  "type": "enemy",
+                  "type": "creature",
                   "count": "",
-                  "special": ""
+                  "special": "-self"
                 },
                 "override": false,
                 "prompt": true
@@ -14812,9 +14813,9 @@
                 },
                 "affects": {
                   "choice": false,
-                  "type": "enemy",
+                  "type": "creature",
                   "count": "",
-                  "special": ""
+                  "special": "-self"
                 },
                 "override": false,
                 "prompt": true
@@ -14970,7 +14971,7 @@
                 "prompt": true
               },
               "uses": {
-                "spent": 1,
+                "spent": 0,
                 "recovery": [
                   {
                     "period": "lr",
@@ -15191,7 +15192,7 @@
             }
           },
           "uses": {
-            "spent": 2,
+            "spent": 0,
             "recovery": [],
             "max": "@prof"
           },
@@ -15737,7 +15738,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 1,
             "recovery": [
               {
                 "period": "lr",
@@ -15868,7 +15869,7 @@
                 "prompt": true
               },
               "uses": {
-                "spent": 2,
+                "spent": 1,
                 "recovery": [
                   {
                     "period": "lr",
@@ -15943,7 +15944,7 @@
           },
           "uses": {
             "max": "6",
-            "spent": 1,
+            "spent": 0,
             "recovery": [
               {
                 "period": "dawn",
@@ -17257,7 +17258,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 2,
+          "quantity": 3,
           "weight": {
             "value": 3,
             "units": "lb"
@@ -17729,7 +17730,7 @@
               },
               "attack": {
                 "ability": "",
-                "bonus": "5",
+                "bonus": "",
                 "critical": {
                   "threshold": null
                 },
@@ -17839,12 +17840,16 @@
               "name": "",
               "flags": {},
               "visibility": {
-                "level": {},
+                "level": {
+                  "min": null,
+                  "max": null
+                },
                 "requireAttunement": false,
                 "requireIdentification": false,
-                "requireMagic": false
+                "requireMagic": false,
+                "identifier": ""
               },
-              "img": null
+              "img": ""
             }
           },
           "uses": {
@@ -19330,7 +19335,7 @@
         "sort": 1500000
       },
       {
-        "name": "Teleporter Signet",
+        "name": "Pass Amulet",
         "type": "equipment",
         "_id": "lRAzJnGsTJFInxL2",
         "img": "assets/il_340x270.5432060552_57mu.webp",
@@ -19350,7 +19355,7 @@
             "revision": 1,
             "rules": "2024"
           },
-          "identified": false,
+          "identified": true,
           "unidentified": {
             "description": "",
             "name": "Unidentified Equipment"
@@ -19394,8 +19399,501 @@
           "default": 0,
           "I4GGxqNW644lYEEA": 3
         }
+      },
+      {
+        "name": "Greatsword",
+        "type": "weapon",
+        "effects": [],
+        "system": {
+          "activities": {
+            "attackGreatsword": {
+              "type": "attack",
+              "_id": "attackGreatsword",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "override": false
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "attack": {
+                "ability": "",
+                "bonus": "",
+                "critical": {},
+                "flat": false,
+                "type": {
+                  "value": "melee",
+                  "classification": "weapon"
+                }
+              },
+              "damage": {
+                "parts": [],
+                "includeBase": true,
+                "critical": {
+                  "bonus": ""
+                }
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "attackMode": "oneHanded",
+              "ammunition": "",
+              "otherActivityUuid": "",
+              "attackRollPerTarget": "default",
+              "fumbleThreshold": 1,
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
+            }
+          },
+          "uses": {
+            "spent": null,
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>Proficiency with a Greatsword allows you to add your proficiency bonus to the attack roll for any attack you make with it.</p>\n\n</div>",
+            "chat": ""
+          },
+          "identifier": "greatsword",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 6,
+            "units": "lb"
+          },
+          "price": {
+            "value": 50,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "ammunition": {},
+          "armor": {},
+          "damage": {
+            "base": {
+              "number": 2,
+              "denomination": 6,
+              "bonus": "",
+              "types": [
+                "slashing"
+              ],
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "scaling": {
+                "mode": "",
+                "number": null,
+                "formula": ""
+              }
+            },
+            "versatile": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            }
+          },
+          "mastery": "graze",
+          "properties": [
+            "hvy",
+            "two"
+          ],
+          "proficient": null,
+          "range": {
+            "value": 5,
+            "long": null,
+            "units": "ft",
+            "reach": null
+          },
+          "type": {
+            "value": "martialM",
+            "baseItem": "greatsword"
+          },
+          "crew": {
+            "value": []
+          }
+        },
+        "img": "icons/weapons/swords/greatsword-guard-gold-worn.webp",
+        "folder": "gpZsjjpBB5fYY1e0",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "2Kl8V55A8EEWTyRK",
+        "sort": 0
+      },
+      {
+        "name": "Silver Powder",
+        "type": "consumable",
+        "_id": "q7FJkhACdCKuXs3o",
+        "img": "ddb-images/other/item/consumable/2014-gsb2-aurora-dust.jpeg",
+        "system": {
+          "activities": {},
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "autoDestroy": false,
+            "max": ""
+          },
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "silver-powder",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 3,
+          "weight": {
+            "value": 0.1,
+            "units": "kg"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [],
+          "type": {
+            "value": "",
+            "subtype": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "name": "Mounted weight",
+        "type": "loot",
+        "_id": "zJHn2kPS1VaZI4VB",
+        "img": "systems/dnd5e/icons/svg/items/loot.svg",
+        "system": {
+          "description": {
+            "value": "<p>Weight added by mounted creatures:</p><ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>@UUID[Actor.spytnt0QTcXgpWLN]{Kira✧Kira Eventide} <i class=\"fa-solid fa-weight-hanging\"></i>179</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>",
+            "chat": ""
+          },
+          "identifier": "mounted-weight",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 179,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "properties": [],
+          "type": {
+            "value": "",
+            "subtype": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
       }
     ],
-    "effects": []
+    "effects": [
+      {
+        "name": "Eyes of Night",
+        "origin": "Actor.spytnt0QTcXgpWLN.Item.Tt8DASKGm5hdxWvg.ActiveEffect.2DHWQrn4IoFKxS7c",
+        "duration": {
+          "rounds": null,
+          "startTime": -272864104,
+          "seconds": 3600,
+          "combat": null,
+          "turns": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "disabled": false,
+        "flags": {
+          "dnd5e": {
+            "dependents": [
+              {
+                "uuid": "Actor.TNFU2mNGnpdORuVT.ActiveEffect.6EqIdaFSoUExNNkF"
+              },
+              {
+                "uuid": "Actor.gWM9Il0zlve2eqG9.ActiveEffect.SU6zzzxqH1rDPuCj"
+              },
+              {
+                "uuid": "Actor.dNLDDw5wHcFXlZaq.ActiveEffect.HoBLyM8WZwgdXw8O"
+              },
+              {
+                "uuid": "Actor.b7uXKYOEzfYLNFVY.ActiveEffect.KpnxP3OWu3xcxiTN"
+              }
+            ],
+            "dependentOn": "Actor.spytnt0QTcXgpWLN.Item.Tt8DASKGm5hdxWvg.ActiveEffect.2DHWQrn4IoFKxS7c"
+          },
+          "dae": {
+            "enableCondition": "",
+            "disableCondition": "",
+            "disableIncapacitated": false,
+            "selfTarget": false,
+            "selfTargetAlways": false,
+            "dontApply": false,
+            "stackable": "noneName",
+            "showIcon": false,
+            "durationExpression": "",
+            "macroRepeat": "none",
+            "specialDuration": [],
+            "activity": "Actor.spytnt0QTcXgpWLN.Item.Tt8DASKGm5hdxWvg.Activity.dnd5eactivity000",
+            "actor": "Actor.gWM9Il0zlve2eqG9"
+          },
+          "core": {
+            "overlay": false
+          },
+          "midi-qol": {}
+        },
+        "img": "icons/magic/perception/silhouette-stealth-shadow.webp",
+        "_id": "DohhvyBDrUmFUthQ",
+        "type": "base",
+        "system": {},
+        "changes": [
+          {
+            "key": "system.attributes.senses.darkvision",
+            "mode": 4,
+            "value": "300",
+            "priority": 20
+          },
+          {
+            "key": "ATL.sight.visionMode",
+            "mode": 0,
+            "value": "darkvision",
+            "priority": 20
+          },
+          {
+            "key": "ATL.sight.range",
+            "mode": 4,
+            "value": "300",
+            "priority": 20
+          }
+        ],
+        "description": "",
+        "tint": "#ffffff",
+        "transfer": false,
+        "statuses": [],
+        "sort": 0,
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1781328255219,
+          "modifiedTime": 1781328255219,
+          "lastModifiedBy": "xhjiUpQqBwHV5RlG"
+        }
+      },
+      {
+        "name": "Psionic Power: Psychic Whispers",
+        "img": "icons/magic/perception/third-eye-blue-red.webp",
+        "origin": "Actor.4F5kQIpxwyb6rykH.Item.ul0R8z9DVF5yc8xi",
+        "transfer": false,
+        "_id": "SqjTDi0NIfe8ir0r",
+        "type": "base",
+        "system": {},
+        "changes": [],
+        "disabled": false,
+        "duration": {
+          "startTime": -272864044,
+          "combat": null,
+          "seconds": 21600,
+          "rounds": null,
+          "turns": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "description": "",
+        "tint": "#ffffff",
+        "statuses": [],
+        "sort": 0,
+        "flags": {
+          "dnd5e": {
+            "riders": {
+              "statuses": []
+            }
+          },
+          "dae": {
+            "enableCondition": "",
+            "disableCondition": "",
+            "stackable": "noneName",
+            "showIcon": false,
+            "disableIncapacitated": false,
+            "selfTarget": false,
+            "selfTargetAlways": false,
+            "dontApply": true,
+            "durationExpression": "",
+            "macroRepeat": "none",
+            "specialDuration": []
+          },
+          "core": {
+            "overlay": false
+          }
+        },
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1781328312423,
+          "modifiedTime": 1781328312423,
+          "lastModifiedBy": "I4GGxqNW644lYEEA"
+        }
+      }
+    ]
   }
 }

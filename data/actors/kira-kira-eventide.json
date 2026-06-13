@@ -1,12 +1,12 @@
 {
-  "exportedAt": "2026-05-09T06:02:22.806Z",
+  "exportedAt": "2026-06-13T06:01:39.878Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
     "name": "Kira✧Kira Eventide",
     "type": "character",
     "_id": "spytnt0QTcXgpWLN",
-    "img": "tokenizer/pc-images/kira_kira_eventide.avatar.webp?1778292352742",
+    "img": "tokenizer/pc-images/kira_kira_eventide.avatar.webp?1778903671412",
     "system": {
       "currency": {
         "pp": 151,
@@ -445,7 +445,7 @@
       },
       "spells": {
         "spell1": {
-          "value": 4,
+          "value": 3,
           "override": null
         },
         "spell2": {
@@ -453,7 +453,7 @@
           "override": null
         },
         "spell3": {
-          "value": 2,
+          "value": 3,
           "override": null
         },
         "spell4": {
@@ -540,9 +540,9 @@
           "value": null
         },
         "hp": {
-          "value": 39,
+          "value": 70,
           "max": 70,
-          "temp": 0,
+          "temp": 13,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -696,7 +696,7 @@
       "width": 1,
       "height": 1,
       "texture": {
-        "src": "tokenizer/pc-images/kira_kira_eventide.token.webp?1778292352742",
+        "src": "tokenizer/pc-images/kira_kira_eventide.token.webp?1778903671412",
         "anchorX": 0.5,
         "anchorY": 0.5,
         "offsetX": 0,
@@ -856,7 +856,7 @@
           },
           "hd": {
             "denomination": "d8",
-            "spent": 0,
+            "spent": 2,
             "additional": ""
           },
           "advancement": {
@@ -4233,7 +4233,7 @@
             }
           },
           "method": "spell",
-          "prepared": 0,
+          "prepared": 1,
           "sourceItem": "class:cleric"
         },
         "effects": [
@@ -5035,7 +5035,7 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
+                "autoCEEffects": "none",
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
@@ -10852,7 +10852,7 @@
                 "type": "recoverAll"
               }
             ],
-            "spent": 0
+            "spent": 1
           },
           "description": {
             "value": "<div class=\"ddb\">\n<div class=\"ddb\">\n<p><em>3rd-level Twilight Domain feature</em></p>\n<p>You can see through the deepest gloom. You have &amp;Reference[darkvision]{darkvision} out to a range of 300 feet. In that radius, you can see in dim light as if it were bright light and in darkness as if it were dim light.</p>\n<p>As an action, you can magically share the &amp;Reference[darkvision]{darkvision} of this feature with willing creatures you can see within 10 feet of you, up to a number of creatures equal to your Wisdom modifier (minimum of one creature). The shared &amp;Reference[darkvision]{darkvision} lasts for 1 hour. Once you share it, you can’t do so again until you finish a long rest, unless you expend a spell slot of any level to share it again.</p>\n</div>\n</div>",
@@ -11436,7 +11436,7 @@
           },
           "uses": {
             "max": "3",
-            "spent": 1,
+            "spent": 0,
             "recovery": [
               {
                 "period": "sr",
@@ -12419,48 +12419,7 @@
                   "formula": "5"
                 }
               },
-              "name": "",
-              "midiProperties": {
-                "autoCEEffects": "none",
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "identifier": "",
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "skipConcentrationCheck": false
-              },
-              "img": null,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
               "useConditionText": "",
-              "useConditionReason": "",
               "effectConditionText": "",
               "macroData": {
                 "name": "",
@@ -12473,6 +12432,47 @@
                 "ida": false,
                 "idm": false
               },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "none"
+              },
+              "name": "",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "useConditionReason": "",
               "isOverTimeFlag": false,
               "overTimeProperties": {
                 "saveRemoves": true,
@@ -12545,8 +12545,7 @@
             }
           },
           "method": "spell",
-          "prepared": 1,
-          "sourceItem": "class:cleric"
+          "prepared": 1
         },
         "effects": [],
         "name": "Aid",
@@ -13051,7 +13050,7 @@
             }
           },
           "method": "spell",
-          "prepared": 1
+          "prepared": 0
         },
         "effects": [
           {
@@ -13487,7 +13486,7 @@
             }
           },
           "method": "spell",
-          "prepared": 1,
+          "prepared": 0,
           "ability": "",
           "sourceItem": "class:cleric"
         },
@@ -15171,7 +15170,7 @@
           },
           "ability": "wis",
           "method": "spell",
-          "prepared": 0,
+          "prepared": 1,
           "sourceItem": "class:cleric"
         },
         "effects": [],
@@ -15767,7 +15766,7 @@
                 "magicDamage": false,
                 "noConcentrationCheck": false,
                 "skipConcentrationCheck": false,
-                "autoCEEffects": "default"
+                "autoCEEffects": "none"
               },
               "isOverTimeFlag": false,
               "overTimeProperties": {
@@ -15845,7 +15844,7 @@
           },
           "ability": "",
           "method": "spell",
-          "prepared": 1,
+          "prepared": 0,
           "sourceItem": "class:cleric"
         },
         "effects": [
@@ -16587,7 +16586,10 @@
               "effects": [
                 {
                   "_id": "nVLDeohDoSMoBP5v",
-                  "level": {}
+                  "level": {
+                    "min": null,
+                    "max": null
+                  }
                 }
               ],
               "range": {
@@ -16647,7 +16649,7 @@
                 "displayActivityName": false,
                 "rollMode": "default",
                 "chooseEffects": false,
-                "forceDamageDialog": "false",
+                "forceDamageDialog": "",
                 "otherActivityAsParentType": true,
                 "toggleEffect": false,
                 "ignoreFullCover": false,
@@ -16671,15 +16673,19 @@
                 "rollAs": "target"
               },
               "otherActivityId": "none",
-              "img": null,
+              "img": "",
               "flags": {},
               "visibility": {
-                "level": {},
+                "level": {
+                  "min": null,
+                  "max": null
+                },
                 "requireAttunement": false,
                 "requireIdentification": false,
                 "requireMagic": false
               },
-              "otherActivityAsParentType": true
+              "otherActivityAsParentType": true,
+              "name": ""
             }
           },
           "uses": {
@@ -18442,7 +18448,7 @@
           },
           "ability": "",
           "method": "spell",
-          "prepared": 0,
+          "prepared": 1,
           "sourceItem": "class:cleric"
         },
         "effects": [],
@@ -18821,7 +18827,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 3,
+          "quantity": 4,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -24640,7 +24646,7 @@
         }
       },
       {
-        "name": "Diamond",
+        "name": "Revivify 300g Diamonds",
         "type": "loot",
         "effects": [],
         "system": {
@@ -27264,7 +27270,7 @@
             }
           },
           "uses": {
-            "spent": 2,
+            "spent": 1,
             "max": "@prof",
             "recovery": [
               {
@@ -28132,357 +28138,6 @@
         }
       },
       {
-        "name": "Potion of Healing",
-        "type": "consumable",
-        "effects": [],
-        "system": {
-          "activities": {
-            "healPotiOfHealII": {
-              "type": "heal",
-              "_id": "healPotiOfHealII",
-              "sort": 0,
-              "activation": {
-                "type": "bonus",
-                "value": 1,
-                "condition": "",
-                "override": false
-              },
-              "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "value": "1",
-                    "target": "",
-                    "scaling": {}
-                  }
-                ],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                },
-                "spellSlot": true
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "units": "inst",
-                "special": "",
-                "override": true,
-                "concentration": false
-              },
-              "effects": [],
-              "range": {
-                "units": "self",
-                "override": true,
-                "special": ""
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "count": "1",
-                  "type": "self",
-                  "special": ""
-                },
-                "override": true,
-                "prompt": false
-              },
-              "uses": {
-                "spent": null,
-                "recovery": [],
-                "max": ""
-              },
-              "healing": {
-                "number": 2,
-                "denomination": 4,
-                "bonus": "2",
-                "types": [
-                  "healing"
-                ],
-                "custom": {
-                  "enabled": false,
-                  "formula": ""
-                },
-                "scaling": {
-                  "mode": "",
-                  "number": null,
-                  "formula": ""
-                }
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "name": "Normal Heal",
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            },
-            "tDz5xovaUnC1fXm1": {
-              "type": "heal",
-              "_id": "tDz5xovaUnC1fXm1",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": null,
-                "override": false,
-                "condition": ""
-              },
-              "consumption": {
-                "scaling": {
-                  "allowed": false
-                },
-                "spellSlot": true,
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "value": "1",
-                    "target": "",
-                    "scaling": {}
-                  }
-                ]
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "units": "inst",
-                "concentration": false,
-                "override": false
-              },
-              "effects": [],
-              "range": {
-                "override": false,
-                "units": "touch",
-                "special": ""
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "type": "creature",
-                  "count": "1",
-                  "special": ""
-                },
-                "override": false,
-                "prompt": false
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": [],
-                "max": ""
-              },
-              "healing": {
-                "number": null,
-                "denomination": null,
-                "types": [
-                  "healing"
-                ],
-                "custom": {
-                  "enabled": true,
-                  "formula": "10"
-                },
-                "scaling": {
-                  "number": 1
-                },
-                "bonus": ""
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": true,
-                "identifier": "",
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "name": "Max Heal",
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            }
-          },
-          "uses": {
-            "spent": null,
-            "max": "1",
-            "recovery": [],
-            "autoDestroy": true
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>This potion is a magic item. As a Bonus Action, you can drink it or administer it to another creature within 5 feet of yourself. The creature that drinks the magical red fluid in this vial regains 2d4 + 2 Hit Points.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "potion-of-healing",
-          "source": {
-            "book": "PHB 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2024",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 0.5,
-            "units": "lb"
-          },
-          "price": {
-            "value": 5,
-            "denomination": "gp"
-          },
-          "rarity": "common",
-          "attunement": "",
-          "attuned": false,
-          "equipped": false,
-          "type": {
-            "value": "potion",
-            "subtype": ""
-          },
-          "damage": {
-            "base": {
-              "number": null,
-              "denomination": null,
-              "types": [],
-              "custom": {
-                "enabled": false
-              },
-              "scaling": {
-                "number": 1
-              }
-            },
-            "replace": false
-          },
-          "properties": [
-            "mgc"
-          ]
-        },
-        "img": "icons/consumables/potions/potion-tube-corked-red.webp",
-        "folder": "k4zALCQkMG6eX5NF",
-        "ownership": {
-          "default": 2,
-          "I4GGxqNW644lYEEA": 3
-        },
-        "_id": "KDqlPhUPixmypKzc",
-        "sort": 0
-      },
-      {
         "name": "Water Walk",
         "system": {
           "description": {
@@ -28667,7 +28322,7 @@
           },
           "identifier": "water-walk",
           "method": "spell",
-          "prepared": 0,
+          "prepared": 1,
           "sourceItem": "class:cleric"
         },
         "_id": "gGHK5HEiHO7M66U9",
@@ -35341,357 +34996,6 @@
         }
       },
       {
-        "name": "Potion of Healing (Greater)",
-        "type": "consumable",
-        "effects": [],
-        "system": {
-          "activities": {
-            "healPotiOfHeGrLe": {
-              "type": "heal",
-              "_id": "healPotiOfHeGrLe",
-              "sort": 0,
-              "activation": {
-                "type": "bonus",
-                "value": 1,
-                "condition": "",
-                "override": false
-              },
-              "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "value": "1",
-                    "target": "",
-                    "scaling": {}
-                  }
-                ],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                },
-                "spellSlot": true
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "units": "inst",
-                "special": "",
-                "override": true,
-                "concentration": false
-              },
-              "effects": [],
-              "range": {
-                "units": "self",
-                "override": true,
-                "special": ""
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "count": "1",
-                  "type": "self",
-                  "special": ""
-                },
-                "override": true,
-                "prompt": false
-              },
-              "uses": {
-                "spent": null,
-                "recovery": [],
-                "max": ""
-              },
-              "healing": {
-                "number": 4,
-                "denomination": 4,
-                "bonus": "4",
-                "types": [
-                  "healing"
-                ],
-                "custom": {
-                  "enabled": false,
-                  "formula": ""
-                },
-                "scaling": {
-                  "mode": "",
-                  "number": null,
-                  "formula": ""
-                }
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "skipConcentrationCheck": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "name": "Normal Heal",
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            },
-            "MpFWYX2UJLupZna6": {
-              "type": "heal",
-              "_id": "MpFWYX2UJLupZna6",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": null,
-                "override": false,
-                "condition": ""
-              },
-              "consumption": {
-                "scaling": {
-                  "allowed": false
-                },
-                "spellSlot": true,
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "value": "1",
-                    "target": "",
-                    "scaling": {}
-                  }
-                ]
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "units": "inst",
-                "concentration": false,
-                "override": false
-              },
-              "effects": [],
-              "range": {
-                "override": false,
-                "units": "touch",
-                "special": ""
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "type": "creature",
-                  "count": "1",
-                  "special": ""
-                },
-                "override": false,
-                "prompt": false
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": [],
-                "max": ""
-              },
-              "healing": {
-                "number": null,
-                "denomination": null,
-                "types": [
-                  "healing"
-                ],
-                "custom": {
-                  "enabled": true,
-                  "formula": "20"
-                },
-                "scaling": {
-                  "number": 1
-                },
-                "bonus": ""
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": true,
-                "identifier": "",
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "skipConcentrationCheck": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "name": "Max Heal",
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            }
-          },
-          "uses": {
-            "spent": null,
-            "max": "1",
-            "recovery": [],
-            "autoDestroy": true
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>You regain 4d4 + 4 Hit Points when you drink this potion.</p>\n<p>Whatever its potency, the potion’s red liquid glimmers when agitated.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "potion-of-healing-greater-legacy",
-          "source": {
-            "book": "SRD 5.1",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2014",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 0.5,
-            "units": "lb"
-          },
-          "price": {
-            "value": 100,
-            "denomination": "gp"
-          },
-          "rarity": "uncommon",
-          "attunement": "",
-          "attuned": false,
-          "equipped": false,
-          "type": {
-            "value": "potion",
-            "subtype": ""
-          },
-          "damage": {
-            "base": {
-              "number": null,
-              "denomination": null,
-              "types": [],
-              "custom": {
-                "enabled": false
-              },
-              "scaling": {
-                "number": 1
-              }
-            },
-            "replace": false
-          },
-          "properties": [
-            "mgc"
-          ]
-        },
-        "img": "icons/consumables/potions/bottle-bulb-corked-glowing-red.webp",
-        "folder": "k4zALCQkMG6eX5NF",
-        "ownership": {
-          "default": 2,
-          "I4GGxqNW644lYEEA": 3
-        },
-        "_id": "r4szcp0zVhGqpEUy",
-        "sort": 0
-      },
-      {
         "type": "spell",
         "system": {
           "activities": {
@@ -41139,8 +40443,8 @@
             },
             "8mpcvpyLiK6IbnFq": {
               "type": "utility",
-              "img": "tokenizer/npc-images/renaer_neverember_cloned.Token.webp",
-              "sort": 300000,
+              "img": "tokenizer/pc-images/jp_kaltair.token.webp",
+              "sort": 212500,
               "activation": {
                 "type": "action",
                 "override": false,
@@ -41269,7 +40573,7 @@
               },
               "otherActivityId": "none",
               "otherActivityAsParentType": true,
-              "name": "Contact: Renaer",
+              "name": "Contact: JP",
               "_id": "8mpcvpyLiK6IbnFq"
             },
             "87b0YvG64dpIr5ph": {
@@ -41410,7 +40714,7 @@
             "U6ozSrQK0YDXnQqi": {
               "type": "utility",
               "img": "tokenizer/pc-images/meredith_vixeni.Token.VL5ACAUeVDSBsrzc.webp",
-              "sort": 250000,
+              "sort": 500000,
               "activation": {
                 "type": "action",
                 "override": false,
@@ -41541,6 +40845,141 @@
               "otherActivityAsParentType": true,
               "name": "Contact: Meredith",
               "_id": "U6ozSrQK0YDXnQqi"
+            },
+            "8hTI0EnChFpq3M38": {
+              "type": "utility",
+              "img": "tokenizer/npc-images/renaer_neverember_cloned.Token.webp",
+              "sort": 225000,
+              "activation": {
+                "type": "action",
+                "override": false,
+                "condition": ""
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": [
+                  {
+                    "type": "activityUses",
+                    "value": "1",
+                    "scaling": {}
+                  }
+                ]
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "flags": {},
+              "range": {
+                "units": "self",
+                "override": false,
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "stationary": false,
+                  "units": "ft",
+                  "type": ""
+                },
+                "affects": {
+                  "choice": false,
+                  "type": "self",
+                  "special": ""
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [
+                  {
+                    "period": "lr",
+                    "type": "recoverAll"
+                  }
+                ],
+                "max": "1"
+              },
+              "visibility": {
+                "level": {
+                  "min": null,
+                  "max": null
+                },
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false,
+                "identifier": ""
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false,
+                "formula": "",
+                "name": ""
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "rollAs": "target",
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": ""
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "name": "Contact: Renaer",
+              "_id": "8hTI0EnChFpq3M38"
             }
           },
           "uses": {
@@ -41636,50 +41075,6 @@
           ],
           "type": {
             "value": "treasure",
-            "subtype": ""
-          }
-        },
-        "effects": [],
-        "folder": null,
-        "sort": 0,
-        "ownership": {
-          "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        }
-      },
-      {
-        "name": "Mounted weight",
-        "type": "loot",
-        "_id": "gtzl7Q9NoCAuXzXp",
-        "img": "systems/dnd5e/icons/svg/items/loot.svg",
-        "system": {
-          "description": {
-            "value": "<p>Weight added by mounted creatures:</p><ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>@UUID[Scene.iWovtQEHRNushWu2.Token.F1QHxS0yw3oeRzQo.Actor.ryxoKQ6Q6NiCgqou]{Lethe} <i class=\"fa-solid fa-weight-hanging\"></i>0</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>",
-            "chat": ""
-          },
-          "identifier": "mounted-weight",
-          "source": {
-            "revision": 1,
-            "rules": "2024"
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 0,
-            "units": "lb"
-          },
-          "price": {
-            "value": 0,
-            "denomination": "gp"
-          },
-          "rarity": "",
-          "properties": [],
-          "type": {
-            "value": "",
             "subtype": ""
           }
         },
@@ -42795,7 +42190,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 2,
+          "quantity": 0,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -43519,67 +42914,119 @@
         },
         "_id": "1xQLEY7EqoevHF3E",
         "sort": 0
+      },
+      {
+        "name": "Pass Amulet",
+        "type": "equipment",
+        "_id": "pJagtY1BxemSGsOU",
+        "img": "assets/il_340x270.5432060552_57mu.webp",
+        "system": {
+          "activities": {},
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "max": ""
+          },
+          "description": {
+            "value": "",
+            "chat": ""
+          },
+          "identifier": "equipment-2",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": "",
+            "name": "Unidentified Equipment"
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "rare",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "crew": {
+            "value": []
+          },
+          "armor": {
+            "value": null,
+            "dex": null,
+            "magicalBonus": ""
+          },
+          "proficient": null,
+          "properties": [
+            "mgc"
+          ],
+          "strength": null,
+          "type": {
+            "value": "trinket",
+            "baseItem": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "name": "Mounted weight",
+        "type": "loot",
+        "_id": "Frn5WlgmfClK0Cul",
+        "img": "systems/dnd5e/icons/svg/items/loot.svg",
+        "system": {
+          "description": {
+            "value": "<p>Weight added by mounted creatures:</p><ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>@UUID[Scene.ooOwj0u69w1OZn4p.Token.reJVg6MOOnX8oRhs.Actor.ryxoKQ6Q6NiCgqou]{Lethe} <i class=\"fa-solid fa-weight-hanging\"></i>0</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>",
+            "chat": ""
+          },
+          "identifier": "mounted-weight",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "properties": [],
+          "type": {
+            "value": "",
+            "subtype": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
       }
     ],
     "effects": [
-      {
-        "name": "Psionic Power: Psychic Whispers",
-        "img": "icons/magic/perception/third-eye-blue-red.webp",
-        "origin": "Actor.4F5kQIpxwyb6rykH.Item.ul0R8z9DVF5yc8xi",
-        "transfer": false,
-        "_id": "lU6kgh6w92Fzn6Tz",
-        "type": "base",
-        "system": {},
-        "changes": [],
-        "disabled": false,
-        "duration": {
-          "startTime": -273006301,
-          "combat": null,
-          "seconds": 10800,
-          "rounds": null,
-          "turns": null,
-          "startRound": null,
-          "startTurn": null
-        },
-        "description": "",
-        "tint": "#ffffff",
-        "statuses": [],
-        "sort": 0,
-        "flags": {
-          "dnd5e": {
-            "riders": {
-              "statuses": []
-            }
-          },
-          "dae": {
-            "enableCondition": "",
-            "disableCondition": "",
-            "stackable": "noneName",
-            "showIcon": false,
-            "disableIncapacitated": false,
-            "selfTarget": false,
-            "selfTargetAlways": false,
-            "dontApply": true,
-            "durationExpression": "",
-            "macroRepeat": "none",
-            "specialDuration": []
-          },
-          "core": {
-            "overlay": false
-          }
-        },
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.351",
-          "systemId": "dnd5e",
-          "systemVersion": "5.3.0",
-          "createdTime": 1777697020409,
-          "modifiedTime": 1777697020409,
-          "lastModifiedBy": "I4GGxqNW644lYEEA"
-        }
-      },
       {
         "name": "Overshield",
         "img": "assets/yxf4laisj2o21.webp",
@@ -43663,6 +43110,152 @@
           "createdTime": 1777697819358,
           "modifiedTime": 1777697843599,
           "lastModifiedBy": "xhjiUpQqBwHV5RlG"
+        }
+      },
+      {
+        "name": "Vigilant Blessing",
+        "origin": "Actor.spytnt0QTcXgpWLN.Item.v5iX4hpNgwoBYT79.ActiveEffect.snaQraEtsIMKNCnc",
+        "duration": {
+          "rounds": null,
+          "startTime": -272865124,
+          "seconds": 86400,
+          "combat": null,
+          "turns": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "disabled": false,
+        "flags": {
+          "dnd5e": {
+            "dependents": [
+              {
+                "uuid": "Actor.TNFU2mNGnpdORuVT.ActiveEffect.ytlm17AdAKHAJZwH"
+              }
+            ],
+            "dependentOn": "Actor.spytnt0QTcXgpWLN.Item.v5iX4hpNgwoBYT79.ActiveEffect.snaQraEtsIMKNCnc"
+          },
+          "dae": {
+            "enableCondition": "",
+            "disableCondition": "",
+            "disableIncapacitated": false,
+            "selfTarget": false,
+            "selfTargetAlways": false,
+            "dontApply": false,
+            "stackable": "noneName",
+            "showIcon": false,
+            "durationExpression": "",
+            "macroRepeat": "none",
+            "specialDuration": [
+              "turnStart"
+            ],
+            "activity": "Actor.spytnt0QTcXgpWLN.Item.v5iX4hpNgwoBYT79.Activity.dnd5eactivity000",
+            "actor": "Actor.spytnt0QTcXgpWLN"
+          },
+          "core": {
+            "overlay": false
+          },
+          "ActiveAuras": {
+            "isAura": false,
+            "aura": "None",
+            "nameOverride": "",
+            "radius": "",
+            "alignment": "",
+            "type": "",
+            "customCheck": "",
+            "ignoreSelf": false,
+            "height": false,
+            "displayTemp": false,
+            "hostile": false,
+            "onlyOnce": false,
+            "wallsBlock": "system"
+          },
+          "midi-qol": {}
+        },
+        "img": "icons/magic/perception/hand-eye-pink.webp",
+        "_id": "vyuVpoYme2Sz3a7D",
+        "type": "base",
+        "system": {},
+        "changes": [
+          {
+            "key": "system.attributes.init.roll.mode",
+            "mode": 2,
+            "value": "1",
+            "priority": 20
+          }
+        ],
+        "description": "",
+        "tint": "#ffffff",
+        "transfer": false,
+        "statuses": [],
+        "sort": 0,
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1781327241175,
+          "modifiedTime": 1781327241175,
+          "lastModifiedBy": "xhjiUpQqBwHV5RlG"
+        }
+      },
+      {
+        "name": "Psionic Power: Psychic Whispers",
+        "img": "icons/magic/perception/third-eye-blue-red.webp",
+        "origin": "Actor.4F5kQIpxwyb6rykH.Item.ul0R8z9DVF5yc8xi",
+        "transfer": false,
+        "_id": "m7918aszHLgNvNbg",
+        "type": "base",
+        "system": {},
+        "changes": [],
+        "disabled": false,
+        "duration": {
+          "startTime": -272864044,
+          "combat": null,
+          "seconds": 21600,
+          "rounds": null,
+          "turns": null,
+          "startRound": null,
+          "startTurn": null
+        },
+        "description": "",
+        "tint": "#ffffff",
+        "statuses": [],
+        "sort": 0,
+        "flags": {
+          "dnd5e": {
+            "riders": {
+              "statuses": []
+            }
+          },
+          "dae": {
+            "enableCondition": "",
+            "disableCondition": "",
+            "stackable": "noneName",
+            "showIcon": false,
+            "disableIncapacitated": false,
+            "selfTarget": false,
+            "selfTargetAlways": false,
+            "dontApply": true,
+            "durationExpression": "",
+            "macroRepeat": "none",
+            "specialDuration": []
+          },
+          "core": {
+            "overlay": false
+          }
+        },
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1781328312382,
+          "modifiedTime": 1781328312382,
+          "lastModifiedBy": "I4GGxqNW644lYEEA"
         }
       }
     ]
