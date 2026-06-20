@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-13T06:01:39.878Z",
+  "exportedAt": "2026-06-20T06:07:57.204Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -457,7 +457,7 @@
       },
       "spells": {
         "spell1": {
-          "value": 3,
+          "value": 2,
           "override": null
         },
         "spell2": {
@@ -555,7 +555,7 @@
         "hp": {
           "value": 69,
           "max": 69,
-          "temp": 12,
+          "temp": 0,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -8914,13 +8914,7 @@
                   "allowed": false
                 },
                 "spellSlot": true,
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "value": "1",
-                    "scaling": {}
-                  }
-                ]
+                "targets": []
               },
               "description": {
                 "chatFlavor": ""
@@ -13926,7 +13920,7 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
+                "autoCEEffects": "none",
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
@@ -14013,7 +14007,7 @@
             }
           },
           "method": "spell",
-          "prepared": 0,
+          "prepared": 1,
           "ability": "wis",
           "sourceItem": "class:ranger"
         },
@@ -21751,7 +21745,7 @@
             }
           },
           "identifier": "psychedelics",
-          "prepared": 1,
+          "prepared": 0,
           "sourceItem": "class:ranger"
         },
         "effects": [
@@ -31522,159 +31516,317 @@
           "default": 0,
           "Ex3WmAaZbR5VTaOf": 3
         }
-      }
-    ],
-    "effects": [
-      {
-        "name": "Eyes of Night",
-        "origin": "Actor.spytnt0QTcXgpWLN.Item.Tt8DASKGm5hdxWvg.ActiveEffect.2DHWQrn4IoFKxS7c",
-        "duration": {
-          "rounds": null,
-          "startTime": -272864104,
-          "seconds": 3600,
-          "combat": null,
-          "turns": null,
-          "startRound": null,
-          "startTurn": null
-        },
-        "disabled": false,
-        "flags": {
-          "dnd5e": {
-            "dependents": [
-              {
-                "uuid": "Actor.TNFU2mNGnpdORuVT.ActiveEffect.6EqIdaFSoUExNNkF"
-              },
-              {
-                "uuid": "Actor.gWM9Il0zlve2eqG9.ActiveEffect.SU6zzzxqH1rDPuCj"
-              },
-              {
-                "uuid": "Actor.dNLDDw5wHcFXlZaq.ActiveEffect.HoBLyM8WZwgdXw8O"
-              },
-              {
-                "uuid": "Actor.b7uXKYOEzfYLNFVY.ActiveEffect.KpnxP3OWu3xcxiTN"
-              }
-            ],
-            "dependentOn": "Actor.spytnt0QTcXgpWLN.Item.Tt8DASKGm5hdxWvg.ActiveEffect.2DHWQrn4IoFKxS7c"
-          },
-          "dae": {
-            "enableCondition": "",
-            "disableCondition": "",
-            "disableIncapacitated": false,
-            "selfTarget": false,
-            "selfTargetAlways": false,
-            "dontApply": false,
-            "stackable": "noneName",
-            "showIcon": false,
-            "durationExpression": "",
-            "macroRepeat": "none",
-            "specialDuration": [],
-            "activity": "Actor.spytnt0QTcXgpWLN.Item.Tt8DASKGm5hdxWvg.Activity.dnd5eactivity000",
-            "actor": "Actor.TNFU2mNGnpdORuVT"
-          },
-          "core": {
-            "overlay": false
-          },
-          "midi-qol": {}
-        },
-        "img": "icons/magic/perception/silhouette-stealth-shadow.webp",
-        "_id": "Y7KhC8ocybEK8GRs",
-        "type": "base",
-        "system": {},
-        "changes": [
-          {
-            "key": "system.attributes.senses.darkvision",
-            "mode": 4,
-            "value": "300",
-            "priority": 20
-          },
-          {
-            "key": "ATL.sight.visionMode",
-            "mode": 0,
-            "value": "darkvision",
-            "priority": 20
-          },
-          {
-            "key": "ATL.sight.range",
-            "mode": 4,
-            "value": "300",
-            "priority": 20
-          }
-        ],
-        "description": "",
-        "tint": "#ffffff",
-        "transfer": false,
-        "statuses": [],
-        "sort": 0,
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.351",
-          "systemId": "dnd5e",
-          "systemVersion": "5.3.0",
-          "createdTime": 1781328254762,
-          "modifiedTime": 1781328254762,
-          "lastModifiedBy": "I4GGxqNW644lYEEA"
-        }
       },
       {
-        "name": "Psionic Power: Psychic Whispers",
-        "img": "icons/magic/perception/third-eye-blue-red.webp",
-        "origin": "Actor.4F5kQIpxwyb6rykH.Item.ul0R8z9DVF5yc8xi",
-        "transfer": false,
-        "_id": "XbHx40VHDpI2ZsAj",
-        "type": "base",
-        "system": {},
-        "changes": [],
-        "disabled": false,
-        "duration": {
-          "startTime": -272864044,
-          "combat": null,
-          "seconds": 21600,
-          "rounds": null,
-          "turns": null,
-          "startRound": null,
-          "startTurn": null
-        },
-        "description": "",
-        "tint": "#ffffff",
-        "statuses": [],
-        "sort": 0,
-        "flags": {
-          "dnd5e": {
-            "riders": {
-              "statuses": []
+        "name": "Ball Bearings (bag of 1,000)",
+        "type": "consumable",
+        "effects": [
+          {
+            "name": "Ball Bearings",
+            "img": "icons/containers/bags/coinpouch-cloth-purple.webp",
+            "origin": "Actor.TNFU2mNGnpdORuVT.Item.n4JZgPJ8UwPzrK1C",
+            "transfer": false,
+            "_id": "UNFEwMGayTGVNEB9",
+            "type": "base",
+            "system": {},
+            "changes": [],
+            "disabled": false,
+            "duration": {
+              "startTime": null,
+              "combat": null,
+              "seconds": 3600,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "tint": "#ffffff",
+            "statuses": [
+              "prone"
+            ],
+            "sort": 0,
+            "flags": {
+              "dnd5e": {
+                "riders": {
+                  "statuses": []
+                }
+              },
+              "dae": {
+                "enableCondition": "",
+                "disableCondition": "",
+                "stackable": "noneName",
+                "showIcon": false,
+                "disableIncapacitated": false,
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": []
+              },
+              "core": {
+                "overlay": false
+              },
+              "ActiveAuras": {
+                "isAura": false,
+                "aura": "All",
+                "nameOverride": "",
+                "radius": "",
+                "alignment": "",
+                "type": "",
+                "customCheck": "",
+                "ignoreSelf": false,
+                "height": false,
+                "displayTemp": false,
+                "hostile": false,
+                "onlyOnce": false,
+                "wallsBlock": "system",
+                "statuses": []
+              }
+            },
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "system": {
+          "activities": {
+            "saveBaBeBaOf10Le": {
+              "type": "save",
+              "_id": "saveBaBeBaOf10Le",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "target": "",
+                    "scaling": {}
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [
+                {
+                  "_id": "UNFEwMGayTGVNEB9",
+                  "level": {},
+                  "onSave": false
+                }
+              ],
+              "range": {
+                "units": "any",
+                "special": "",
+                "override": true
+              },
+              "target": {
+                "prompt": true,
+                "affects": {
+                  "count": "",
+                  "type": "creature",
+                  "choice": false,
+                  "special": ""
+                },
+                "template": {
+                  "count": "",
+                  "contiguous": false,
+                  "type": "cube",
+                  "size": "10",
+                  "width": "",
+                  "height": "",
+                  "units": "ft",
+                  "stationary": false
+                },
+                "override": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": [],
+                "max": ""
+              },
+              "damage": {
+                "parts": [],
+                "onSave": "",
+                "critical": {
+                  "bonus": "",
+                  "allow": false
+                }
+              },
+              "save": {
+                "ability": [
+                  "dex"
+                ],
+                "dc": {
+                  "calculation": "",
+                  "formula": "10"
+                }
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "name": "",
+              "img": "",
+              "flags": {
+                "region-attacher": {
+                  "attachRegionToTemplate": false
+                }
+              },
+              "visibility": {
+                "identifier": "",
+                "level": {
+                  "min": null,
+                  "max": null
+                },
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "otherActivityAsParentType": true,
+              "friendlySave": "default"
             }
           },
-          "dae": {
-            "enableCondition": "",
-            "disableCondition": "",
-            "stackable": "noneName",
-            "showIcon": false,
-            "disableIncapacitated": false,
-            "selfTarget": false,
-            "selfTargetAlways": false,
-            "dontApply": true,
-            "durationExpression": "",
-            "macroRepeat": "none",
-            "specialDuration": []
+          "uses": {
+            "spent": 0,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": false
           },
-          "core": {
-            "overlay": false
-          }
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>As an action, you can spill these tiny metal balls from their pouch to cover a level, square area that is 10 feet on a side. A creature moving across the covered area must succeed on a [[/save dex 10 format=long]] or fall &amp;Reference[prone]{prone}. A creature moving through the area at half speed doesn't need to make the save.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "ball-bearings-bag-of-1000-legacy",
+          "source": {
+            "book": "SRD 5.1",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0.002,
+            "units": "lb"
+          },
+          "price": {
+            "value": 1,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "type": {
+            "value": "trinket",
+            "subtype": ""
+          },
+          "damage": {
+            "base": {
+              "number": null,
+              "denomination": null,
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": []
         },
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.351",
-          "systemId": "dnd5e",
-          "systemVersion": "5.3.0",
-          "createdTime": 1781328312269,
-          "modifiedTime": 1781328312269,
-          "lastModifiedBy": "Ex3WmAaZbR5VTaOf"
+        "img": "icons/containers/bags/coinpouch-cloth-purple.webp",
+        "folder": "DUwCAHjUEs2MVCAZ",
+        "_id": "n4JZgPJ8UwPzrK1C",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
         }
       }
-    ]
+    ],
+    "effects": []
   }
 }

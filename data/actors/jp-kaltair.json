@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-13T06:01:39.878Z",
+  "exportedAt": "2026-06-20T06:07:57.204Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -9,8 +9,8 @@
     "img": "tokenizer/pc-images/jp_kaltair.avatar.webp?1779476346735",
     "system": {
       "currency": {
-        "pp": 126,
-        "gp": 0,
+        "pp": 0,
+        "gp": 1180,
         "ep": 0,
         "sp": 1,
         "cp": 0
@@ -524,7 +524,7 @@
         "loyalty": {},
         "hp": {
           "max": 77,
-          "temp": 8,
+          "temp": null,
           "tempmax": 0,
           "value": 77,
           "bonuses": {
@@ -1678,7 +1678,7 @@
           },
           "hd": {
             "denomination": "d8",
-            "spent": 5,
+            "spent": 0,
             "additional": ""
           },
           "startingEquipment": [],
@@ -4680,7 +4680,7 @@
             }
           },
           "uses": {
-            "spent": 2,
+            "spent": 0,
             "max": "@prof",
             "recovery": [
               {
@@ -5614,7 +5614,7 @@
         "sort": 0
       },
       {
-        "name": "Bullets (10)",
+        "name": "Bullets",
         "type": "consumable",
         "effects": [],
         "system": {
@@ -5737,7 +5737,8 @@
           "uses": {
             "spent": 0,
             "recovery": [],
-            "autoDestroy": false
+            "autoDestroy": false,
+            "max": ""
           },
           "description": {
             "value": "<div class=\"ddb\">\n<p>Ammunition is required by a weapon that has the Ammunition property. A weapon’s description specifies the type of ammunition used by the weapon.</p>\n<p>Firearm ammunition is destroyed upon use.</p>\n</div>",
@@ -5776,7 +5777,10 @@
               },
               "scaling": {
                 "number": 1
-              }
+              },
+              "number": null,
+              "denomination": null,
+              "bonus": ""
             },
             "replace": false
           },
@@ -8149,157 +8153,6 @@
         }
       }
     ],
-    "effects": [
-      {
-        "name": "Eyes of Night",
-        "origin": "Actor.spytnt0QTcXgpWLN.Item.Tt8DASKGm5hdxWvg.ActiveEffect.2DHWQrn4IoFKxS7c",
-        "duration": {
-          "rounds": null,
-          "startTime": -272864104,
-          "seconds": 3600,
-          "combat": null,
-          "turns": null,
-          "startRound": null,
-          "startTurn": null
-        },
-        "disabled": false,
-        "flags": {
-          "dnd5e": {
-            "dependents": [
-              {
-                "uuid": "Actor.TNFU2mNGnpdORuVT.ActiveEffect.6EqIdaFSoUExNNkF"
-              },
-              {
-                "uuid": "Actor.gWM9Il0zlve2eqG9.ActiveEffect.SU6zzzxqH1rDPuCj"
-              },
-              {
-                "uuid": "Actor.dNLDDw5wHcFXlZaq.ActiveEffect.HoBLyM8WZwgdXw8O"
-              },
-              {
-                "uuid": "Actor.b7uXKYOEzfYLNFVY.ActiveEffect.KpnxP3OWu3xcxiTN"
-              }
-            ],
-            "dependentOn": "Actor.spytnt0QTcXgpWLN.Item.Tt8DASKGm5hdxWvg.ActiveEffect.2DHWQrn4IoFKxS7c"
-          },
-          "dae": {
-            "enableCondition": "",
-            "disableCondition": "",
-            "disableIncapacitated": false,
-            "selfTarget": false,
-            "selfTargetAlways": false,
-            "dontApply": false,
-            "stackable": "noneName",
-            "showIcon": false,
-            "durationExpression": "",
-            "macroRepeat": "none",
-            "specialDuration": [],
-            "activity": "Actor.spytnt0QTcXgpWLN.Item.Tt8DASKGm5hdxWvg.Activity.dnd5eactivity000",
-            "actor": "Actor.2ojdOnIkdROAAnpk"
-          },
-          "core": {
-            "overlay": false
-          },
-          "midi-qol": {}
-        },
-        "img": "icons/magic/perception/silhouette-stealth-shadow.webp",
-        "_id": "oVaLZarciYtsF7eH",
-        "type": "base",
-        "system": {},
-        "changes": [
-          {
-            "key": "system.attributes.senses.darkvision",
-            "mode": 4,
-            "value": "300",
-            "priority": 20
-          },
-          {
-            "key": "ATL.sight.visionMode",
-            "mode": 0,
-            "value": "darkvision",
-            "priority": 20
-          },
-          {
-            "key": "ATL.sight.range",
-            "mode": 4,
-            "value": "300",
-            "priority": 20
-          }
-        ],
-        "description": "",
-        "tint": "#ffffff",
-        "transfer": false,
-        "statuses": [],
-        "sort": 0,
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.351",
-          "systemId": "dnd5e",
-          "systemVersion": "5.3.0",
-          "createdTime": 1781328255067,
-          "modifiedTime": 1781328255067,
-          "lastModifiedBy": "I4GGxqNW644lYEEA"
-        }
-      },
-      {
-        "name": "Psionic Power: Psychic Whispers",
-        "img": "icons/magic/perception/third-eye-blue-red.webp",
-        "origin": "Actor.4F5kQIpxwyb6rykH.Item.ul0R8z9DVF5yc8xi",
-        "transfer": false,
-        "_id": "nGYnvd2nuyxtsHTC",
-        "type": "base",
-        "system": {},
-        "changes": [],
-        "disabled": false,
-        "duration": {
-          "startTime": -272864044,
-          "combat": null,
-          "seconds": 21600,
-          "rounds": null,
-          "turns": null,
-          "startRound": null,
-          "startTurn": null
-        },
-        "description": "",
-        "tint": "#ffffff",
-        "statuses": [],
-        "sort": 0,
-        "flags": {
-          "dnd5e": {
-            "riders": {
-              "statuses": []
-            }
-          },
-          "dae": {
-            "enableCondition": "",
-            "disableCondition": "",
-            "stackable": "noneName",
-            "showIcon": false,
-            "disableIncapacitated": false,
-            "selfTarget": false,
-            "selfTargetAlways": false,
-            "dontApply": true,
-            "durationExpression": "",
-            "macroRepeat": "none",
-            "specialDuration": []
-          },
-          "core": {
-            "overlay": false
-          }
-        },
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.351",
-          "systemId": "dnd5e",
-          "systemVersion": "5.3.0",
-          "createdTime": 1781328312396,
-          "modifiedTime": 1781328312396,
-          "lastModifiedBy": "I4GGxqNW644lYEEA"
-        }
-      }
-    ]
+    "effects": []
   }
 }

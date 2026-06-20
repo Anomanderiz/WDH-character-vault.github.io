@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-13T06:01:39.878Z",
+  "exportedAt": "2026-06-20T06:07:57.204Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -449,7 +449,7 @@
           "override": null
         },
         "spell2": {
-          "value": 3,
+          "value": 2,
           "override": null
         },
         "spell3": {
@@ -542,7 +542,7 @@
         "hp": {
           "value": 70,
           "max": 70,
-          "temp": 13,
+          "temp": 0,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -856,7 +856,7 @@
           },
           "hd": {
             "denomination": "d8",
-            "spent": 2,
+            "spent": 0,
             "additional": ""
           },
           "advancement": {
@@ -4233,7 +4233,7 @@
             }
           },
           "method": "spell",
-          "prepared": 1,
+          "prepared": 0,
           "sourceItem": "class:cleric"
         },
         "effects": [
@@ -7347,7 +7347,7 @@
             }
           },
           "method": "spell",
-          "prepared": 0,
+          "prepared": 1,
           "sourceItem": "class:cleric"
         },
         "effects": [],
@@ -10852,7 +10852,7 @@
                 "type": "recoverAll"
               }
             ],
-            "spent": 1
+            "spent": 0
           },
           "description": {
             "value": "<div class=\"ddb\">\n<div class=\"ddb\">\n<p><em>3rd-level Twilight Domain feature</em></p>\n<p>You can see through the deepest gloom. You have &amp;Reference[darkvision]{darkvision} out to a range of 300 feet. In that radius, you can see in dim light as if it were bright light and in darkness as if it were dim light.</p>\n<p>As an action, you can magically share the &amp;Reference[darkvision]{darkvision} of this feature with willing creatures you can see within 10 feet of you, up to a number of creatures equal to your Wisdom modifier (minimum of one creature). The shared &amp;Reference[darkvision]{darkvision} lasts for 1 hour. Once you share it, you can’t do so again until you finish a long rest, unless you expend a spell slot of any level to share it again.</p>\n</div>\n</div>",
@@ -22716,7 +22716,7 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "default",
+                "autoCEEffects": "none",
                 "triggeredActivityConsume": true,
                 "triggeredActivityConfigure": true,
                 "skipConcentrationCheck": false
@@ -27270,7 +27270,7 @@
             }
           },
           "uses": {
-            "spent": 1,
+            "spent": 0,
             "max": "@prof",
             "recovery": [
               {
@@ -28322,7 +28322,7 @@
           },
           "identifier": "water-walk",
           "method": "spell",
-          "prepared": 1,
+          "prepared": 0,
           "sourceItem": "class:cleric"
         },
         "_id": "gGHK5HEiHO7M66U9",
@@ -29973,354 +29973,6 @@
         },
         "_id": "6G9MrVR9OxErhuOV",
         "sort": 0
-      },
-      {
-        "name": "Potion of Comprehension (Legacy)",
-        "type": "consumable",
-        "effects": [],
-        "system": {
-          "activities": {
-            "utilityPotOfCoLe": {
-              "type": "utility",
-              "_id": "utilityPotOfCoLe",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": 1,
-                "condition": "",
-                "override": true
-              },
-              "consumption": {
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "value": "1",
-                    "target": "",
-                    "scaling": {}
-                  }
-                ],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                },
-                "spellSlot": true
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "value": "1",
-                "units": "hour",
-                "special": "",
-                "override": true,
-                "concentration": false
-              },
-              "effects": [],
-              "range": {
-                "units": "self",
-                "override": true,
-                "special": ""
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "count": "1",
-                  "type": "self",
-                  "special": ""
-                },
-                "override": true,
-                "prompt": true
-              },
-              "uses": {
-                "spent": null,
-                "recovery": [],
-                "max": ""
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false,
-                "formula": "",
-                "name": ""
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "identifier": "",
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "skipConcentrationCheck": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "flags": {},
-              "visibility": {
-                "level": {
-                  "min": null,
-                  "max": null
-                },
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false,
-                "identifier": ""
-              },
-              "name": "",
-              "img": null
-            },
-            "castCoLaPoOfCoLe": {
-              "name": "Comprehend Languages (Potion of Comprehension) (Legacy)",
-              "type": "cast",
-              "_id": "castCoLaPoOfCoLe",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": 1,
-                "condition": "",
-                "override": true
-              },
-              "consumption": {
-                "spellSlot": false,
-                "targets": [
-                  {
-                    "type": "itemUses",
-                    "target": "",
-                    "value": "1",
-                    "scaling": {
-                      "mode": "",
-                      "formula": ""
-                    }
-                  }
-                ],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                }
-              },
-              "description": {},
-              "duration": {
-                "value": "1",
-                "units": "hour",
-                "special": "",
-                "override": true,
-                "concentration": false
-              },
-              "range": {
-                "override": false,
-                "units": "self"
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "count": "1",
-                  "type": "creature",
-                  "special": ""
-                },
-                "override": true,
-                "prompt": true
-              },
-              "uses": {
-                "spent": null,
-                "recovery": []
-              },
-              "spell": {
-                "uuid": "Compendium.world.ddb-waterdeep-adventures-ddb-spells.Item.OOsAv6np56FQdIre",
-                "properties": [
-                  "vocal",
-                  "somatic",
-                  "material"
-                ],
-                "level": 1,
-                "challenge": {
-                  "attack": null,
-                  "save": null,
-                  "override": false
-                },
-                "spellbook": true
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
-                "identifier": "",
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "skipConcentrationCheck": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            }
-          },
-          "uses": {
-            "spent": null,
-            "max": "1",
-            "recovery": [],
-            "autoDestroy": true
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>When you drink this potion, you gain the effect of the Comprehend Languages spell for 1 hour.</p>\n<p>This potion’s liquid is a clear concoction with bits of salt and soot swirling in it.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "potion-of-comprehension-legacy",
-          "source": {
-            "book": "DMG 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2014",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": null,
-          "quantity": 1,
-          "weight": {
-            "value": 0,
-            "units": "lb"
-          },
-          "price": {
-            "value": 0,
-            "denomination": "gp"
-          },
-          "rarity": "common",
-          "attunement": "",
-          "attuned": false,
-          "type": {
-            "value": "potion",
-            "subtype": ""
-          },
-          "damage": {
-            "base": {
-              "number": null,
-              "denomination": null,
-              "types": [],
-              "custom": {
-                "enabled": false
-              },
-              "scaling": {
-                "number": 1
-              }
-            },
-            "replace": false
-          },
-          "properties": [
-            "mgc"
-          ],
-          "equipped": false
-        },
-        "img": "icons/consumables/potions/potion-tube-corked-glowing-red.webp",
-        "folder": "k4zALCQkMG6eX5NF",
-        "_id": "5lyyXPnZ2KdlINlj",
-        "sort": 0,
-        "ownership": {
-          "default": 0,
-          "xhjiUpQqBwHV5RlG": 3
-        }
       },
       {
         "name": "Generic Actions (2024)",
@@ -32954,7 +32606,7 @@
             }
           },
           "method": "spell",
-          "prepared": 1
+          "prepared": 0
         },
         "effects": [],
         "name": "Banishment",
@@ -34309,7 +33961,7 @@
           },
           "method": "spell",
           "sourceItem": "class:cleric",
-          "prepared": 0
+          "prepared": 1
         },
         "effects": [],
         "name": "Locate Creature",
@@ -42988,7 +42640,7 @@
         "img": "systems/dnd5e/icons/svg/items/loot.svg",
         "system": {
           "description": {
-            "value": "<p>Weight added by mounted creatures:</p><ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>@UUID[Scene.ooOwj0u69w1OZn4p.Token.reJVg6MOOnX8oRhs.Actor.ryxoKQ6Q6NiCgqou]{Lethe} <i class=\"fa-solid fa-weight-hanging\"></i>0</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>",
+            "value": "<p>Weight added by mounted creatures:</p><ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t<p>@UUID[Scene.gETfMqSnApXCEfIo.Token.buaMtPogpPhMHqA6.Actor.ryxoKQ6Q6NiCgqou]{Lethe} <i class=\"fa-solid fa-weight-hanging\"></i>0</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>",
             "chat": ""
           },
           "identifier": "mounted-weight",
@@ -43024,6 +42676,904 @@
           "default": 0,
           "I4GGxqNW644lYEEA": 3
         }
+      },
+      {
+        "name": "Dust of Corrosion",
+        "type": "consumable",
+        "effects": [],
+        "system": {
+          "activities": {
+            "RAkodUFhojN6tSq4": {
+              "type": "save",
+              "_id": "RAkodUFhojN6tSq4",
+              "img": "",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "override": false,
+                "condition": ""
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": []
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "flags": {
+                "region-attacher": {
+                  "attachRegionToTemplate": false
+                }
+              },
+              "range": {
+                "units": "self",
+                "override": false,
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "stationary": false,
+                  "units": "ft",
+                  "type": "cube",
+                  "size": "10",
+                  "count": ""
+                },
+                "affects": {
+                  "choice": false,
+                  "type": "creature",
+                  "special": "",
+                  "count": ""
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": ""
+              },
+              "visibility": {
+                "level": {
+                  "min": null,
+                  "max": null
+                },
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false,
+                "identifier": ""
+              },
+              "damage": {
+                "onSave": "half",
+                "critical": {
+                  "allow": false
+                },
+                "parts": [
+                  {
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    },
+                    "number": 4,
+                    "denomination": 8,
+                    "bonus": "",
+                    "types": [
+                      "necrotic"
+                    ],
+                    "scaling": {
+                      "number": 1
+                    }
+                  }
+                ]
+              },
+              "save": {
+                "ability": [
+                  "con"
+                ],
+                "dc": {
+                  "calculation": "",
+                  "formula": "13"
+                }
+              },
+              "useConditionText": "[\"construct\"].includes(typeOrRace)",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": true,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "rollAs": "target",
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": ""
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "friendlySave": "default",
+              "name": ""
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": false
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>As an action, you can throw this dust into the air, filling a 10-foot cube that extends out from you. Surfaces and objects made of nonmagical ferrous metal in the area instantly corrode and turn to dust, becoming useless and unsalvageable. Any creature in the area that is made wholly or partly out of ferrous metal must make a [[/save con 13 format=long]], taking  [[/damage 4d8 type=necrotic average=true]] damage on a failed save, or half as much damage on a successful one.</p>\n<p>Found in a small packet, this dust is made from finely ground rust monster antennae. There is enough dust in each packet for one use.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "dust-of-corrosion",
+          "source": {
+            "book": "TWBtW",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "uncommon",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [
+            "mgc"
+          ],
+          "type": {
+            "value": "trinket",
+            "subtype": ""
+          }
+        },
+        "img": "icons/commodities/materials/bowl-powder-yellow.webp",
+        "folder": "7sOYWZvAhdqM1nRx",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "uorYCNugI3TB7Q7D",
+        "sort": 0
+      },
+      {
+        "name": "Potion of Comprehension (Legacy)",
+        "type": "consumable",
+        "effects": [],
+        "system": {
+          "activities": {
+            "utilityPotOfCoLe": {
+              "type": "utility",
+              "_id": "utilityPotOfCoLe",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "target": "",
+                    "scaling": {}
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "value": "1",
+                "units": "hour",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "override": true,
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "count": "1",
+                  "type": "self",
+                  "special": ""
+                },
+                "override": true,
+                "prompt": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": [],
+                "max": ""
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false,
+                "formula": "",
+                "name": ""
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "flags": {},
+              "visibility": {
+                "level": {
+                  "min": null,
+                  "max": null
+                },
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false,
+                "identifier": ""
+              },
+              "name": "",
+              "img": null
+            },
+            "castCoLaPoOfCoLe": {
+              "name": "Comprehend Languages (Potion of Comprehension) (Legacy)",
+              "type": "cast",
+              "_id": "castCoLaPoOfCoLe",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "spellSlot": false,
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "target": "",
+                    "value": "1",
+                    "scaling": {
+                      "mode": "",
+                      "formula": ""
+                    }
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {},
+              "duration": {
+                "value": "1",
+                "units": "hour",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "count": "1",
+                  "type": "creature",
+                  "special": ""
+                },
+                "override": true,
+                "prompt": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "spell": {
+                "uuid": "Compendium.world.ddb-waterdeep-adventures-ddb-spells.Item.OOsAv6np56FQdIre",
+                "properties": [
+                  "vocal",
+                  "somatic",
+                  "material"
+                ],
+                "level": 1,
+                "challenge": {
+                  "attack": null,
+                  "save": null,
+                  "override": false
+                },
+                "spellbook": true
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "skipConcentrationCheck": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "img": null
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": true
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>When you drink this potion, you gain the effect of the Comprehend Languages spell for 1 hour.</p>\n<p>This potion’s liquid is a clear concoction with bits of salt and soot swirling in it.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "potion-of-comprehension-legacy",
+          "source": {
+            "book": "DMG 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "common",
+          "attunement": "",
+          "attuned": false,
+          "type": {
+            "value": "potion",
+            "subtype": ""
+          },
+          "damage": {
+            "base": {
+              "number": null,
+              "denomination": null,
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [
+            "mgc"
+          ],
+          "equipped": false
+        },
+        "img": "icons/consumables/potions/potion-tube-corked-glowing-red.webp",
+        "folder": "k4zALCQkMG6eX5NF",
+        "_id": "Kvazz9wg9gm2bW3M",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "xhjiUpQqBwHV5RlG": 3,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "type": "spell",
+        "system": {
+          "activities": {
+            "utilityComprLang": {
+              "type": "utility",
+              "_id": "utilityComprLang",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false
+              },
+              "consumption": {
+                "spellSlot": true,
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [
+                {
+                  "_id": "fJHTN0IFghfcUrYc",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "otherActivityAsParentType": true
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "",
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read one page of text.</p>\n<p>This spell doesn't decode secret messages in a text or a glyph, such as an arcane sigil, that isn't part of a written language.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "comprehend-languages-legacy",
+          "source": {
+            "book": "PHB",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": "1",
+            "units": "hour"
+          },
+          "level": 1,
+          "materials": {
+            "value": "a pinch of soot and salt",
+            "consumed": false,
+            "cost": 0,
+            "supply": 0
+          },
+          "properties": [
+            "vocal",
+            "somatic",
+            "material",
+            "ritual"
+          ],
+          "range": {
+            "units": "self"
+          },
+          "school": "div",
+          "target": {
+            "affects": {
+              "count": "",
+              "type": "self",
+              "choice": false,
+              "special": ""
+            },
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft",
+              "stationary": false
+            }
+          },
+          "method": "spell",
+          "prepared": 0,
+          "sourceItem": "consumable:potion-of-comprehension-legacy"
+        },
+        "effects": [
+          {
+            "img": "icons/sundries/documents/document-letter-formal-tan.webp",
+            "name": "Comprehend Languages",
+            "statuses": [],
+            "changes": [
+              {
+                "key": "system.traits.languages.all",
+                "value": "1",
+                "mode": 0,
+                "priority": 20
+              }
+            ],
+            "duration": {
+              "seconds": 3600,
+              "startTime": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null,
+              "combat": null
+            },
+            "tint": "#ffffff",
+            "transfer": false,
+            "disabled": false,
+            "flags": {
+              "dae": {
+                "transfer": false,
+                "stackable": "noneNameOnly",
+                "specialDuration": []
+              },
+              "ddbimporter": {
+                "disabled": false
+              },
+              "midi-qol": {
+                "forceCEOff": true
+              },
+              "core": {}
+            },
+            "description": "",
+            "_id": "fJHTN0IFghfcUrYc",
+            "type": "base",
+            "system": {},
+            "origin": null,
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          },
+          {
+            "_id": "dnd5espellchange",
+            "type": "enchantment",
+            "name": "Spell Changes",
+            "img": "systems/dnd5e/icons/svg/activity/cast.svg",
+            "origin": "Actor.spytnt0QTcXgpWLN.Item.Kvazz9wg9gm2bW3M.Activity.castCoLaPoOfCoLe",
+            "changes": [
+              {
+                "key": "system.method",
+                "mode": 5,
+                "value": "spell"
+              },
+              {
+                "key": "system.activation",
+                "mode": 5,
+                "value": "{\"type\":\"action\",\"value\":1,\"condition\":\"\"}"
+              },
+              {
+                "key": "system.duration",
+                "mode": 5,
+                "value": "{\"value\":\"1\",\"units\":\"hour\",\"special\":\"\",\"concentration\":false}"
+              },
+              {
+                "key": "system.target",
+                "mode": 5,
+                "value": "{\"template\":{\"contiguous\":false,\"units\":\"ft\",\"type\":\"\",\"stationary\":false},\"affects\":{\"choice\":false,\"count\":\"1\",\"type\":\"creature\",\"special\":\"\"},\"prompt\":true}"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-vocal"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-somatic"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-material"
+              }
+            ],
+            "system": {},
+            "disabled": false,
+            "duration": {
+              "startTime": -272848890,
+              "combat": null
+            },
+            "description": "",
+            "tint": "#ffffff",
+            "transfer": true,
+            "statuses": [],
+            "sort": 0,
+            "flags": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "name": "Comprehend Languages",
+        "img": "icons/sundries/documents/document-letter-formal-tan.webp",
+        "folder": "pvJwXqiNdya1KnRv",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "4gvnZL5oIx87Lhzf"
       }
     ],
     "effects": [
@@ -43110,152 +43660,6 @@
           "createdTime": 1777697819358,
           "modifiedTime": 1777697843599,
           "lastModifiedBy": "xhjiUpQqBwHV5RlG"
-        }
-      },
-      {
-        "name": "Vigilant Blessing",
-        "origin": "Actor.spytnt0QTcXgpWLN.Item.v5iX4hpNgwoBYT79.ActiveEffect.snaQraEtsIMKNCnc",
-        "duration": {
-          "rounds": null,
-          "startTime": -272865124,
-          "seconds": 86400,
-          "combat": null,
-          "turns": null,
-          "startRound": null,
-          "startTurn": null
-        },
-        "disabled": false,
-        "flags": {
-          "dnd5e": {
-            "dependents": [
-              {
-                "uuid": "Actor.TNFU2mNGnpdORuVT.ActiveEffect.ytlm17AdAKHAJZwH"
-              }
-            ],
-            "dependentOn": "Actor.spytnt0QTcXgpWLN.Item.v5iX4hpNgwoBYT79.ActiveEffect.snaQraEtsIMKNCnc"
-          },
-          "dae": {
-            "enableCondition": "",
-            "disableCondition": "",
-            "disableIncapacitated": false,
-            "selfTarget": false,
-            "selfTargetAlways": false,
-            "dontApply": false,
-            "stackable": "noneName",
-            "showIcon": false,
-            "durationExpression": "",
-            "macroRepeat": "none",
-            "specialDuration": [
-              "turnStart"
-            ],
-            "activity": "Actor.spytnt0QTcXgpWLN.Item.v5iX4hpNgwoBYT79.Activity.dnd5eactivity000",
-            "actor": "Actor.spytnt0QTcXgpWLN"
-          },
-          "core": {
-            "overlay": false
-          },
-          "ActiveAuras": {
-            "isAura": false,
-            "aura": "None",
-            "nameOverride": "",
-            "radius": "",
-            "alignment": "",
-            "type": "",
-            "customCheck": "",
-            "ignoreSelf": false,
-            "height": false,
-            "displayTemp": false,
-            "hostile": false,
-            "onlyOnce": false,
-            "wallsBlock": "system"
-          },
-          "midi-qol": {}
-        },
-        "img": "icons/magic/perception/hand-eye-pink.webp",
-        "_id": "vyuVpoYme2Sz3a7D",
-        "type": "base",
-        "system": {},
-        "changes": [
-          {
-            "key": "system.attributes.init.roll.mode",
-            "mode": 2,
-            "value": "1",
-            "priority": 20
-          }
-        ],
-        "description": "",
-        "tint": "#ffffff",
-        "transfer": false,
-        "statuses": [],
-        "sort": 0,
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.351",
-          "systemId": "dnd5e",
-          "systemVersion": "5.3.0",
-          "createdTime": 1781327241175,
-          "modifiedTime": 1781327241175,
-          "lastModifiedBy": "xhjiUpQqBwHV5RlG"
-        }
-      },
-      {
-        "name": "Psionic Power: Psychic Whispers",
-        "img": "icons/magic/perception/third-eye-blue-red.webp",
-        "origin": "Actor.4F5kQIpxwyb6rykH.Item.ul0R8z9DVF5yc8xi",
-        "transfer": false,
-        "_id": "m7918aszHLgNvNbg",
-        "type": "base",
-        "system": {},
-        "changes": [],
-        "disabled": false,
-        "duration": {
-          "startTime": -272864044,
-          "combat": null,
-          "seconds": 21600,
-          "rounds": null,
-          "turns": null,
-          "startRound": null,
-          "startTurn": null
-        },
-        "description": "",
-        "tint": "#ffffff",
-        "statuses": [],
-        "sort": 0,
-        "flags": {
-          "dnd5e": {
-            "riders": {
-              "statuses": []
-            }
-          },
-          "dae": {
-            "enableCondition": "",
-            "disableCondition": "",
-            "stackable": "noneName",
-            "showIcon": false,
-            "disableIncapacitated": false,
-            "selfTarget": false,
-            "selfTargetAlways": false,
-            "dontApply": true,
-            "durationExpression": "",
-            "macroRepeat": "none",
-            "specialDuration": []
-          },
-          "core": {
-            "overlay": false
-          }
-        },
-        "_stats": {
-          "compendiumSource": null,
-          "duplicateSource": null,
-          "exportSource": null,
-          "coreVersion": "13.351",
-          "systemId": "dnd5e",
-          "systemVersion": "5.3.0",
-          "createdTime": 1781328312382,
-          "modifiedTime": 1781328312382,
-          "lastModifiedBy": "I4GGxqNW644lYEEA"
         }
       }
     ]

@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-05-09T06:02:22.806Z",
+  "exportedAt": "2026-06-20T06:07:57.204Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -433,11 +433,11 @@
       },
       "spells": {
         "spell1": {
-          "value": 3,
+          "value": 4,
           "override": null
         },
         "spell2": {
-          "value": 1,
+          "value": 2,
           "override": null
         },
         "spell3": {
@@ -469,7 +469,7 @@
           "override": null
         },
         "pact": {
-          "value": 0,
+          "value": 1,
           "override": null
         }
       },
@@ -528,9 +528,9 @@
           "value": null
         },
         "hp": {
-          "value": 69,
+          "value": 82,
           "max": 82,
-          "temp": 0,
+          "temp": null,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -550,7 +550,7 @@
             "save": ""
           }
         },
-        "inspiration": false
+        "inspiration": true
       },
       "bastion": {
         "name": "",
@@ -1516,7 +1516,7 @@
             "description": ""
           },
           "container": "3m9BOfX84hu7B0rh",
-          "quantity": 9,
+          "quantity": 2,
           "weight": {
             "value": 2,
             "units": "lb"
@@ -1755,54 +1755,6 @@
           "properties": []
         },
         "img": "icons/sundries/survival/rope-wrapped-brown.webp",
-        "folder": null,
-        "sort": 0,
-        "ownership": {
-          "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        }
-      },
-      {
-        "_id": "Vnj1EI4a8Kqtf1Ib",
-        "name": "Bedroll",
-        "type": "loot",
-        "effects": [],
-        "system": {
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>A Bedroll sleeps one Small or Medium creature. While in a Bedroll, you automatically succeed on saving throws against extreme cold (see the <em>Dungeon Master’s Guide</em>).</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "bedroll",
-          "source": {
-            "book": "PHB 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2024",
-            "revision": 1
-          },
-          "identified": true,
-          "unidentified": {
-            "description": ""
-          },
-          "container": "3m9BOfX84hu7B0rh",
-          "quantity": 1,
-          "weight": {
-            "value": 7,
-            "units": "lb"
-          },
-          "price": {
-            "value": 1,
-            "denomination": "gp"
-          },
-          "rarity": "",
-          "properties": [],
-          "type": {
-            "value": "gear",
-            "subtype": ""
-          }
-        },
-        "img": "icons/sundries/survival/bedroll-pink.webp",
         "folder": null,
         "sort": 0,
         "ownership": {
@@ -2183,7 +2135,7 @@
             "description": "Gear"
           },
           "container": "3m9BOfX84hu7B0rh",
-          "quantity": 10,
+          "quantity": 4,
           "weight": {
             "value": 1,
             "units": "lb"
@@ -7933,10 +7885,11 @@
               "compendiumSource": null,
               "duplicateSource": null,
               "exportSource": null,
-              "coreVersion": "13.348",
+              "coreVersion": "13.351",
               "systemId": "dnd5e",
               "systemVersion": "5.1.9",
-              "lastModifiedBy": null
+              "lastModifiedBy": "I4GGxqNW644lYEEA",
+              "modifiedTime": 1778364495209
             }
           }
         ],
@@ -13622,7 +13575,7 @@
                 "formula": "3"
               }
             ],
-            "spent": 2
+            "spent": 0
           },
           "description": {
             "value": "<div class=\"ddb\">\n<div class=\"item-attunement\"><i>(Requires attunement by a cleric or paladin)</i></div><p>This emblem is the symbol of a deity or a spiritual tradition. As an action, you can attach the emblem to a suit of armor or a shield or remove it.</p>\n<p>The emblem has 3 charges. When you or a creature you can see within 30 feet of you suffers a critical hit while you’re wearing the armor or wielding the shield that bears the emblem, you can use your reaction to expend 1 charge to turn the critical hit into a normal hit instead.</p>\n<p>The emblem regains all expended charges daily at dawn.</p>\n</div>",
@@ -13666,8 +13619,8 @@
             "value": "trinket",
             "baseItem": ""
           },
-          "attuned": true,
-          "equipped": true,
+          "attuned": false,
+          "equipped": false,
           "cover": null,
           "hp": {
             "value": null,
@@ -18701,7 +18654,7 @@
             }
           },
           "method": "spell",
-          "prepared": 0
+          "prepared": 1
         },
         "effects": [],
         "name": "Prayer of Healing",
@@ -20454,7 +20407,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 1,
+          "quantity": 2,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -20926,7 +20879,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 3,
+          "quantity": 2,
           "weight": {
             "value": 0,
             "units": "lb"
@@ -23222,7 +23175,7 @@
           },
           "method": "spell",
           "sourceItem": "class:paladin",
-          "prepared": 1
+          "prepared": 0
         },
         "effects": [
           {
@@ -24905,7 +24858,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 1,
+          "quantity": 2,
           "weight": {
             "value": 0.5,
             "units": "lb"
@@ -25101,6 +25054,1374 @@
           "Ex3WmAaZbR5VTaOf": 3,
           "I4GGxqNW644lYEEA": 3
         }
+      },
+      {
+        "name": "Potion of Healing (Greater)",
+        "type": "consumable",
+        "effects": [],
+        "system": {
+          "activities": {
+            "healPotiOfHeGrLe": {
+              "type": "heal",
+              "_id": "healPotiOfHeGrLe",
+              "sort": 0,
+              "activation": {
+                "type": "bonus",
+                "value": 1,
+                "condition": "",
+                "override": false
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "target": "",
+                    "scaling": {}
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "override": true,
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "count": "1",
+                  "type": "self",
+                  "special": ""
+                },
+                "override": true,
+                "prompt": false
+              },
+              "uses": {
+                "spent": null,
+                "recovery": [],
+                "max": ""
+              },
+              "healing": {
+                "number": 4,
+                "denomination": 4,
+                "bonus": "4",
+                "types": [
+                  "healing"
+                ],
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "scaling": {
+                  "mode": "",
+                  "number": null,
+                  "formula": ""
+                }
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "name": "Normal Heal",
+              "img": "",
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
+            },
+            "MpFWYX2UJLupZna6": {
+              "type": "heal",
+              "_id": "MpFWYX2UJLupZna6",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false,
+                "condition": ""
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "target": "",
+                    "scaling": {}
+                  }
+                ]
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "range": {
+                "override": false,
+                "units": "touch",
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "type": "creature",
+                  "count": "1",
+                  "special": ""
+                },
+                "override": false,
+                "prompt": false
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": ""
+              },
+              "healing": {
+                "number": null,
+                "denomination": null,
+                "types": [
+                  "healing"
+                ],
+                "custom": {
+                  "enabled": true,
+                  "formula": "20"
+                },
+                "scaling": {
+                  "number": 1
+                },
+                "bonus": ""
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "name": "Max Heal",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": true
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>You regain 4d4 + 4 Hit Points when you drink this potion.</p>\n<p>Whatever its potency, the potion’s red liquid glimmers when agitated.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "potion-of-healing-greater-legacy",
+          "source": {
+            "book": "SRD 5.1",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 3,
+          "weight": {
+            "value": 0.5,
+            "units": "lb"
+          },
+          "price": {
+            "value": 100,
+            "denomination": "gp"
+          },
+          "rarity": "uncommon",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "type": {
+            "value": "potion",
+            "subtype": ""
+          },
+          "damage": {
+            "base": {
+              "number": null,
+              "denomination": null,
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [
+            "mgc"
+          ]
+        },
+        "img": "icons/consumables/potions/bottle-bulb-corked-glowing-red.webp",
+        "folder": "k4zALCQkMG6eX5NF",
+        "ownership": {
+          "default": 2,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "mCsZHc5xgF2KG9aQ",
+        "sort": 0
+      },
+      {
+        "name": "Map",
+        "type": "consumable",
+        "effects": [],
+        "system": {
+          "activities": {
+            "utilityMapIIIIII": {
+              "type": "utility",
+              "_id": "utilityMapIIIIII",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "target": "",
+                    "value": "1",
+                    "scaling": {
+                      "mode": "",
+                      "formula": ""
+                    }
+                  }
+                ],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                },
+                "spellSlot": true
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "effects": [],
+              "range": {
+                "units": "self",
+                "special": "",
+                "override": true
+              },
+              "target": {
+                "prompt": true,
+                "affects": {
+                  "count": "",
+                  "type": "",
+                  "choice": false,
+                  "special": ""
+                },
+                "template": {
+                  "count": "",
+                  "contiguous": false,
+                  "type": "",
+                  "size": "",
+                  "width": "",
+                  "height": "",
+                  "units": "ft",
+                  "stationary": false
+                },
+                "override": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
+            }
+          },
+          "uses": {
+            "spent": 0,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": false
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>If you consult an accurate Map, you gain a +5 bonus to Wisdom (&amp;Reference[sur]{Survival}) checks you make to find your way in the place represented on it.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "map",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 1,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [],
+          "type": {
+            "value": "trinket",
+            "subtype": ""
+          }
+        },
+        "img": "modules/ddb-importer/storage/ddb/loot/adventuring-gear.jpg",
+        "folder": "b0oAPErUnbl4fDGo",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "cj0kXgJVu2crPPWz",
+        "sort": 0
+      },
+      {
+        "name": "Crowbar",
+        "type": "equipment",
+        "effects": [],
+        "system": {
+          "activities": {},
+          "uses": {
+            "spent": null,
+            "recovery": [],
+            "max": ""
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>Using a Crowbar gives you Advantage on Strength checks where the Crowbar’s leverage can be applied.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "crowbar",
+          "source": {
+            "book": "PHB 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": "3m9BOfX84hu7B0rh",
+          "quantity": 1,
+          "weight": {
+            "value": 5,
+            "units": "lb"
+          },
+          "price": {
+            "value": 2,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "armor": {
+            "value": null,
+            "dex": null
+          },
+          "proficient": null,
+          "properties": [],
+          "strength": 0,
+          "type": {
+            "value": "trinket",
+            "baseItem": ""
+          },
+          "crew": {
+            "value": []
+          }
+        },
+        "img": "icons/sundries/survival/corkscrew.webp",
+        "folder": "ITcCHFkn13ovxICN",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "K3BbQ7PJGOLBNs2E",
+        "sort": 0
+      },
+      {
+        "name": "Hat of Disguise",
+        "type": "equipment",
+        "effects": [],
+        "system": {
+          "activities": {
+            "castDiSeHaOfDiLe": {
+              "name": "Disguise Self (Hat of Disguise) (Legacy)",
+              "type": "cast",
+              "_id": "castDiSeHaOfDiLe",
+              "sort": 0,
+              "activation": {
+                "type": "special",
+                "value": 1,
+                "condition": "",
+                "override": true
+              },
+              "consumption": {
+                "spellSlot": false,
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "special": "",
+                "override": true,
+                "concentration": false
+              },
+              "range": {
+                "units": "self",
+                "override": false
+              },
+              "target": {
+                "prompt": true,
+                "affects": {
+                  "count": "",
+                  "type": "",
+                  "choice": false,
+                  "special": ""
+                },
+                "template": {
+                  "count": "",
+                  "contiguous": false,
+                  "type": "",
+                  "size": "",
+                  "width": "",
+                  "height": "",
+                  "units": "ft",
+                  "stationary": false
+                },
+                "override": true
+              },
+              "uses": {
+                "spent": null,
+                "recovery": []
+              },
+              "spell": {
+                "uuid": "Compendium.world.ddb-waterdeep-adventures-ddb-spells.Item.MXUWHpDHQulbp4HL",
+                "properties": [
+                  "vocal",
+                  "somatic",
+                  "material"
+                ],
+                "level": null,
+                "challenge": {
+                  "attack": null,
+                  "save": null,
+                  "override": false
+                },
+                "spellbook": true
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "autoCEEffects": "default",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "skipConcentrationCheck": false
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              }
+            }
+          },
+          "uses": {
+            "spent": null,
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>While wearing this hat, you can cast the Disguise Self spell. The spell ends if the hat is removed.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "hat-of-disguise",
+          "source": {
+            "book": "DMG 2024",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2024",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 400,
+            "denomination": "gp"
+          },
+          "rarity": "uncommon",
+          "attunement": "required",
+          "attuned": true,
+          "equipped": true,
+          "armor": {
+            "value": null,
+            "dex": null
+          },
+          "proficient": null,
+          "properties": [
+            "mgc"
+          ],
+          "strength": 0,
+          "type": {
+            "value": "trinket",
+            "baseItem": ""
+          },
+          "crew": {
+            "value": []
+          }
+        },
+        "img": "icons/magic/control/silhouette-hold-change-blue.webp",
+        "folder": "qDPOIm57DnkkKHfi",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "YeXluHLn3qplKteC",
+        "sort": 0
+      },
+      {
+        "type": "spell",
+        "system": {
+          "activities": {
+            "utilityDisSelLeg": {
+              "type": "utility",
+              "_id": "utilityDisSelLeg",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false
+              },
+              "consumption": {
+                "spellSlot": true,
+                "targets": [],
+                "scaling": {
+                  "allowed": false,
+                  "max": ""
+                }
+              },
+              "description": {},
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [
+                {
+                  "_id": "sA8UQL4DR9dDsk15",
+                  "level": {}
+                }
+              ],
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "m",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": []
+              },
+              "roll": {
+                "prompt": false,
+                "visible": false
+              },
+              "useConditionText": "",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "automationOnly": false,
+                "identifier": "",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "otherActivityCompatible": true,
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": "",
+                "rollAs": "target"
+              },
+              "otherActivityId": "none",
+              "img": null,
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "otherActivityAsParentType": true
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "",
+            "recovery": []
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>You make yourself--including your clothing, armor, weapons, and other belongings on your person--look different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic arrangement of limbs. Otherwise, the extent of the &amp;Reference[ill]{illusion} is up to you.</p>\n<p>The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while it was seemingly still in midair.</p>\n<p>To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (&amp;Reference[inv]{Investigation}) check against your spell save DC.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "disguise-self-legacy-legacy",
+          "source": {
+            "book": "PHB",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "activation": {
+            "type": "action",
+            "value": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": "1",
+            "units": "hour"
+          },
+          "level": 1,
+          "materials": {
+            "value": "",
+            "consumed": false,
+            "cost": 0,
+            "supply": 0
+          },
+          "properties": [
+            "vocal",
+            "somatic"
+          ],
+          "range": {
+            "units": "self"
+          },
+          "school": "ill",
+          "target": {
+            "affects": {
+              "count": "",
+              "type": "self",
+              "choice": false,
+              "special": ""
+            },
+            "template": {
+              "count": "",
+              "contiguous": false,
+              "type": "",
+              "size": "",
+              "width": "",
+              "height": "",
+              "units": "ft",
+              "stationary": false
+            }
+          },
+          "method": "spell",
+          "prepared": 0,
+          "sourceItem": "equipment:hat-of-disguise"
+        },
+        "effects": [
+          {
+            "img": "icons/creatures/magical/spirit-undead-masked-blue.webp",
+            "name": "Disguise Self",
+            "statuses": [
+              "d",
+              "i",
+              "s",
+              "g",
+              "u",
+              "i",
+              "s",
+              "e",
+              "d"
+            ],
+            "changes": [],
+            "duration": {
+              "seconds": 3600,
+              "startTime": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null,
+              "combat": null
+            },
+            "tint": "#ffffff",
+            "transfer": false,
+            "disabled": false,
+            "flags": {
+              "dae": {
+                "transfer": false,
+                "stackable": "noneNameOnly",
+                "specialDuration": []
+              },
+              "ddbimporter": {
+                "disabled": false
+              },
+              "midi-qol": {
+                "forceCEOff": true
+              },
+              "core": {}
+            },
+            "description": "",
+            "_id": "sA8UQL4DR9dDsk15",
+            "type": "base",
+            "system": {},
+            "origin": null,
+            "sort": 0,
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          },
+          {
+            "_id": "dnd5espellchange",
+            "type": "enchantment",
+            "name": "Spell Changes",
+            "img": "systems/dnd5e/icons/svg/activity/cast.svg",
+            "origin": "Actor.b7uXKYOEzfYLNFVY.Item.YeXluHLn3qplKteC.Activity.castDiSeHaOfDiLe",
+            "changes": [
+              {
+                "key": "system.method",
+                "mode": 5,
+                "value": "spell"
+              },
+              {
+                "key": "system.activation",
+                "mode": 5,
+                "value": "{\"type\":\"special\",\"value\":1,\"condition\":\"\"}"
+              },
+              {
+                "key": "system.duration",
+                "mode": 5,
+                "value": "{\"units\":\"inst\",\"special\":\"\",\"concentration\":false}"
+              },
+              {
+                "key": "system.target",
+                "mode": 5,
+                "value": "{\"prompt\":true,\"affects\":{\"count\":\"\",\"type\":\"\",\"choice\":false,\"special\":\"\"},\"template\":{\"count\":\"\",\"contiguous\":false,\"type\":\"\",\"size\":\"\",\"width\":\"\",\"height\":\"\",\"units\":\"ft\",\"stationary\":false}}"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-vocal"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-somatic"
+              },
+              {
+                "key": "system.properties",
+                "mode": 2,
+                "value": "-material"
+              }
+            ],
+            "system": {},
+            "disabled": false,
+            "duration": {
+              "startTime": -272849061,
+              "combat": null
+            },
+            "description": "",
+            "tint": "#ffffff",
+            "transfer": true,
+            "statuses": [],
+            "sort": 0,
+            "flags": {},
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.0",
+              "lastModifiedBy": null
+            }
+          }
+        ],
+        "name": "Disguise Self (Legacy)",
+        "img": "icons/creatures/magical/spirit-undead-masked-blue.webp",
+        "folder": "pvJwXqiNdya1KnRv",
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "fxvvsg7xuU1qCjfq"
+      },
+      {
+        "name": "Dust of Corrosion",
+        "type": "consumable",
+        "effects": [],
+        "system": {
+          "activities": {
+            "RAkodUFhojN6tSq4": {
+              "type": "save",
+              "_id": "RAkodUFhojN6tSq4",
+              "img": "",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "override": false,
+                "condition": ""
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": []
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "flags": {
+                "region-attacher": {
+                  "attachRegionToTemplate": false
+                }
+              },
+              "range": {
+                "units": "self",
+                "override": false,
+                "special": ""
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "stationary": false,
+                  "units": "ft",
+                  "count": "",
+                  "type": "cube",
+                  "size": "10"
+                },
+                "affects": {
+                  "choice": false,
+                  "count": "",
+                  "type": "creature",
+                  "special": ""
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": ""
+              },
+              "visibility": {
+                "level": {
+                  "min": null,
+                  "max": null
+                },
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false,
+                "identifier": ""
+              },
+              "damage": {
+                "onSave": "half",
+                "critical": {
+                  "allow": false
+                },
+                "parts": [
+                  {
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    },
+                    "number": 4,
+                    "denomination": 8,
+                    "bonus": "",
+                    "types": [
+                      "necrotic"
+                    ],
+                    "scaling": {
+                      "number": 1
+                    }
+                  }
+                ]
+              },
+              "save": {
+                "ability": [
+                  "con"
+                ],
+                "dc": {
+                  "calculation": "",
+                  "formula": "13"
+                }
+              },
+              "useConditionText": "[\"construct\"].includes(typeOrRace)",
+              "useConditionReason": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": true,
+                "otherActivityAsParentType": true,
+                "identifier": "",
+                "displayActivityName": false,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": true,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "rollAs": "target",
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": ""
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "friendlySave": "default",
+              "name": ""
+            }
+          },
+          "uses": {
+            "spent": null,
+            "max": "1",
+            "recovery": [],
+            "autoDestroy": false
+          },
+          "description": {
+            "value": "<div class=\"ddb\">\n<p>As an action, you can throw this dust into the air, filling a 10-foot cube that extends out from you. Surfaces and objects made of nonmagical ferrous metal in the area instantly corrode and turn to dust, becoming useless and unsalvageable. Any creature in the area that is made wholly or partly out of ferrous metal must make a [[/save con 13 format=long]], taking  [[/damage 4d8 type=necrotic average=true]] damage on a failed save, or half as much damage on a successful one.</p>\n<p>Found in a small packet, this dust is made from finely ground rust monster antennae. There is enough dust in each packet for one use.</p>\n</div>",
+            "chat": ""
+          },
+          "identifier": "dust-of-corrosion",
+          "source": {
+            "book": "TWBtW",
+            "page": "",
+            "license": "",
+            "custom": "",
+            "rules": "2014",
+            "revision": 1
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "uncommon",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [
+            "mgc"
+          ],
+          "type": {
+            "value": "trinket",
+            "subtype": ""
+          }
+        },
+        "img": "icons/commodities/materials/bowl-powder-yellow.webp",
+        "folder": "7sOYWZvAhdqM1nRx",
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        },
+        "_id": "tQiBcguPNVVLyw2U",
+        "sort": 0
       }
     ],
     "effects": [
@@ -25126,9 +26447,9 @@
             "priority": 20
           }
         ],
-        "disabled": true,
+        "disabled": false,
         "duration": {
-          "startTime": -273086904,
+          "startTime": -273003764,
           "combat": null,
           "seconds": null,
           "rounds": null,
@@ -25332,7 +26653,7 @@
           "systemId": "dnd5e",
           "systemVersion": "5.3.0",
           "createdTime": 1777518489115,
-          "modifiedTime": 1778306537573,
+          "modifiedTime": 1778364545356,
           "lastModifiedBy": "I4GGxqNW644lYEEA"
         }
       }
