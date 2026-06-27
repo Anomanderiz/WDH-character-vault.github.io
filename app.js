@@ -14,6 +14,7 @@ const rosterEl = $("#roster");
 const sheetEl = $("#sheet");
 const statusEl = $("#status");
 const searchEl = $("#search");
+const lastSyncedEl = $("#lastSynced");
 
 const refreshBtn = $("#refresh");
 
@@ -33,6 +34,28 @@ function escapeHtml(s) {
     .replace(/'/g, "&#39;");
 }
 function norm(s) { return safeText(s).toLowerCase().trim(); }
+function formatSyncTime(iso) {
+  if (!iso) return "Last synced from Foundry";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "Last synced from Foundry";
+  return `Last synced from Foundry ${d.toLocaleString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit"
+  })}`;
+}
+
+function updateLastSynced(payloads) {
+  const latest = payloads
+    .map(p => p?.exportedAt)
+    .filter(Boolean)
+    .sort()
+    .at(-1);
+  if (lastSyncedEl) lastSyncedEl.textContent = formatSyncTime(latest);
+}
+
 function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
 const ABILITY_SHORT = { str: "STR", dex: "DEX", con: "CON", int: "INT", wis: "WIS", cha: "CHA" };
 const ABILITY_LONG = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
@@ -3015,6 +3038,7 @@ async function initialise() {
   allPayloads.sort((a,b)=> safeText(a.name).localeCompare(safeText(b.name)));
 
   paintRoster(allPayloads);
+  updateLastSynced(payloads);
   setStatus(allPayloads.length ? `${allPayloads.length} character(s) loaded from Foundry.` : "No data loaded.");
   if (allPayloads.length && !selectedId) selectActor(allPayloads[0].id);
 }

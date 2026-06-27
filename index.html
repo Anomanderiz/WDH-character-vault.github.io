@@ -241,7 +241,7 @@
     }
     .vault-button:hover { transform: translateY(-1px); border-color: rgba(255, 216, 145, 0.82) !important; }
 
-    .roster-shell { min-height: min(76vh, 56rem); }
+    .roster-shell { min-height: min(76vh, 58rem); }
     .roster-head {
       position: relative;
       padding: 1rem 1rem 0.85rem;
@@ -253,13 +253,15 @@
       color: rgba(248, 234, 208, 0.62);
       font-size: 0.75rem;
     }
-    #roster { padding: 0.7rem; }
+    #roster { padding: 0.95rem; }
     #roster button {
       position: relative;
       border: 1px solid rgba(232,184,92,0.22);
       border-radius: 1rem;
-      margin-bottom: 0.65rem;
-      padding: 0.7rem !important;
+      margin-bottom: 0.85rem;
+      padding: 0.95rem !important;
+      min-height: 6.8rem;
+      gap: 1rem !important;
       overflow: hidden;
     }
     #roster button:hover { border-color: rgba(255,216,145,0.72) !important; transform: translateY(-1px); }
@@ -267,20 +269,21 @@
       background:
         linear-gradient(135deg, rgba(98, 28, 34, 0.58), rgba(18, 42, 62, 0.45)) !important;
       border-color: rgba(255, 216, 145, 0.88) !important;
-      box-shadow: inset 0 0 24px rgba(232, 184, 92, 0.12), 0 18px 42px rgba(0,0,0,0.34);
+      box-shadow: inset 0 0 30px rgba(232, 184, 92, 0.15), 0 22px 52px rgba(0,0,0,0.38);
+      min-height: 7.4rem;
     }
     #roster button.is-selected::after {
       content: "✦";
       position: absolute;
-      right: 0.9rem;
+      right: 1.1rem;
       top: 50%;
       transform: translateY(-50%);
       color: #f5cf83;
       text-shadow: 0 0 18px rgba(232,184,92,0.82);
     }
     #roster img {
-      width: 4rem !important;
-      height: 4rem !important;
+      width: 5.25rem !important;
+      height: 5.25rem !important;
       border-radius: 999px !important;
       border: 2px solid rgba(232,184,92,0.54) !important;
       box-shadow: 0 0 0 3px rgba(8,24,40,0.52), 0 10px 28px rgba(0,0,0,0.42);
@@ -289,8 +292,9 @@
       color: #ffe4a8;
       font-weight: 700;
       letter-spacing: 0.02em;
+      font-size: 1.05rem;
     }
-    #roster .meta { color: rgba(248, 234, 208, 0.66) !important; }
+    #roster .meta { color: rgba(248, 234, 208, 0.66) !important; font-size: 0.84rem !important; margin-top: 0.2rem; }
 
     .sheet-shell { min-height: min(76vh, 56rem); }
     #sheet { position: relative; }
@@ -318,14 +322,14 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 7.25rem minmax(0, 1fr) auto;
-      gap: 1rem;
+      grid-template-columns: 9rem minmax(0, 1fr) auto;
+      gap: 1.15rem;
       align-items: center;
     }
     .portrait-frame {
       position: relative;
-      height: 7.25rem;
-      width: 7.25rem;
+      height: 9rem;
+      width: 9rem;
       border-radius: 1.2rem;
       padding: 0.18rem;
       background: linear-gradient(135deg, rgba(255,216,145,0.95), rgba(80,45,12,0.70));
@@ -463,8 +467,8 @@
     @media (max-width: 900px) {
       .crest-large { height: 4.25rem; }
       .vault-header { padding-top: 1rem; }
-      .character-hero-inner { grid-template-columns: 5.5rem minmax(0,1fr); }
-      .portrait-frame { width: 5.5rem; height: 5.5rem; }
+      .character-hero-inner { grid-template-columns: 6.4rem minmax(0,1fr); }
+      .portrait-frame { width: 6.4rem; height: 6.4rem; }
       .hero-crest { display: none; }
       .vault-footer { position: static; margin-top: 1rem; }
     }
@@ -480,7 +484,7 @@
         <img src="./assets/waterdeep-crest.png" alt="Waterdeep crest" class="crest-large shrink-0" />
         <div class="min-w-0">
           <h1 class="vault-title gold-text font-display">Waterdeep Character Vault</h1>
-          <div class="vault-subtitle text-xs md:text-sm mt-2">Campaign Roster <span class="mx-2">•</span> Session Archives <span class="mx-2">•</span> Character Sheets</div>
+          <div class="vault-subtitle text-xs md:text-sm mt-2">Campaign Roster <span class="mx-2">•</span> Character Sheets</div>
         </div>
       </div>
 
@@ -499,7 +503,7 @@
   <main class="vault-main">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
       <!-- roster -->
-      <aside class="lg:col-span-4 xl:col-span-3 vault-panel roster-shell">
+      <aside class="lg:col-span-4 xl:col-span-4 vault-panel roster-shell">
         <div class="roster-head">
           <div class="ornate-rule">Campaign Roster</div>
           <p id="status" class="roster-status"></p>
@@ -512,7 +516,7 @@
       </aside>
 
       <!-- sheet -->
-      <section class="lg:col-span-8 xl:col-span-9 vault-panel sheet-shell">
+      <section class="lg:col-span-8 xl:col-span-8 vault-panel sheet-shell">
         <div id="sheet" class="p-4 md:p-5">
           <div class="vault-empty">
             <div>
@@ -528,13 +532,13 @@
 
   <footer class="vault-footer">
     <div class="footer-icons" aria-hidden="true"><span>✦</span><span>⚔</span><span>✧</span><span>☾</span><span>⚙</span></div>
-    <div class="font-display text-xs md:text-sm tracking-wide"><span class="sync-dot mr-2"></span>Last synced from Foundry <span class="mx-2">•</span> Character Vault</div>
+    <div class="font-display text-xs md:text-sm tracking-wide"><span class="sync-dot mr-2"></span><span id="lastSynced">Last synced from Foundry</span> <span class="mx-2">•</span> Character Vault</div>
   </footer>
 
   <template id="rosterItemTpl">
-    <button class="w-full text-left flex gap-3 items-center transition border-b border-white/5">
+    <button class="w-full text-left flex gap-4 items-center transition border-b border-white/5">
       <img class="h-10 w-10 rounded-2xl object-cover border border-white/10" />
-      <div class="min-w-0 pr-7">
+      <div class="min-w-0 pr-8">
         <div class="name font-medium truncate"></div>
         <div class="meta text-xs text-slate-400 truncate"></div>
       </div>
