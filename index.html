@@ -3,83 +3,538 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Foundry Character Vault</title>
+  <meta name="theme-color" content="#07111d" />
+  <title>Waterdeep Character Vault</title>
 
   <!-- Tailwind via CDN for zero-build deployment -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* small polish without any build tooling */
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
     :root {
-      --outline-silver: rgba(226,232,240,0.92);
-      --outline-silver-soft: rgba(226,232,240,0.72);
+      --vault-navy: rgba(4, 15, 27, 0.46);
+      --vault-navy-strong: rgba(4, 15, 27, 0.66);
+      --vault-blue: rgba(20, 56, 82, 0.34);
+      --vault-glass: rgba(8, 24, 40, 0.45);
+      --vault-glass-soft: rgba(24, 56, 82, 0.28);
+      --vault-gold: rgba(232, 184, 92, 0.88);
+      --vault-gold-soft: rgba(232, 184, 92, 0.42);
+      --vault-gold-faint: rgba(232, 184, 92, 0.18);
+      --vault-text: #f8ead0;
+      --vault-muted: rgba(248, 234, 208, 0.72);
+      --vault-ink: #07111d;
+      --outline-silver: rgba(232, 184, 92, 0.55);
+      --outline-silver-soft: rgba(232, 184, 92, 0.30);
+      color-scheme: dark;
     }
-    .border-white\/10 { border-color: var(--outline-silver) !important; }
-    .border-white\/5 { border-color: var(--outline-silver-soft) !important; }
-    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.06); }
-    .shadow-soft { box-shadow: 0 18px 60px rgba(0,0,0,0.35); }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--vault-text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #07111d;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-image: url('./assets/waterdeep-bg.jpeg');
+      background-size: cover;
+      background-position: center center;
+      transform: scale(1.015);
+      filter: saturate(1.08) contrast(1.04) brightness(0.82);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(62, 123, 172, 0.28), transparent 34rem),
+        radial-gradient(circle at 15% 30%, rgba(232, 184, 92, 0.12), transparent 26rem),
+        linear-gradient(90deg, rgba(3, 8, 14, 0.82), rgba(3, 10, 18, 0.42) 38%, rgba(3, 10, 18, 0.44) 62%, rgba(3, 8, 14, 0.80)),
+        linear-gradient(180deg, rgba(2, 9, 18, 0.55), rgba(2, 9, 18, 0.30) 42%, rgba(2, 9, 18, 0.82));
+    }
+
+    .noise-layer {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.17;
+      mix-blend-mode: soft-light;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 4px);
+    }
+
+    .font-display, h1, h2, h3, .vault-heading, .name, .section-title, .tab-button, .vault-button {
+      font-family: Cinzel, Georgia, serif;
+    }
+
+    .gold-text {
+      color: #f5cf83;
+      text-shadow: 0 1px 0 rgba(66, 34, 10, 0.95), 0 0 24px rgba(232, 184, 92, 0.22);
+    }
+
+    .vault-header {
+      position: relative;
+      max-width: 92rem;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 0.75rem;
+    }
+
+    .crest-large {
+      height: 5.5rem;
+      width: auto;
+      filter: drop-shadow(0 0 18px rgba(232, 184, 92, 0.25)) drop-shadow(0 10px 28px rgba(0,0,0,0.55));
+    }
+
+    .vault-title {
+      letter-spacing: 0.035em;
+      line-height: 0.94;
+      font-size: clamp(2rem, 4.2vw, 4.25rem);
+    }
+
+    .vault-subtitle {
+      color: #f2c976;
+      letter-spacing: 0.13em;
+      font-family: Cinzel, Georgia, serif;
+      text-transform: uppercase;
+      text-shadow: 0 1px 0 rgba(40, 19, 5, 0.9);
+    }
+
+    .vault-main {
+      position: relative;
+      max-width: 92rem;
+      margin: 0 auto;
+      padding: 0.75rem 1rem 3.5rem;
+    }
+
+    .glass,
+    .vault-panel,
+    .vault-section,
+    .vault-card,
+    .glass-card,
+    #sheet .rounded-2xl,
+    #sheet .rounded-3xl,
+    #roster button,
+    #search,
+    #refresh,
+    .vault-button {
+      background:
+        linear-gradient(135deg, rgba(9, 27, 43, 0.60), rgba(13, 39, 60, 0.30) 45%, rgba(9, 18, 31, 0.58)),
+        radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.12), transparent 22rem) !important;
+      border-color: var(--vault-gold-soft) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.28),
+        0 18px 60px rgba(0, 0, 0, 0.38),
+        0 0 0 1px rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(18px) saturate(1.2);
+      -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    }
+
+    .vault-panel {
+      position: relative;
+      border: 1px solid var(--vault-gold-soft);
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+
+    .vault-panel::before,
+    .vault-section::before,
+    .character-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,0.14), transparent 15%, transparent 80%, rgba(232,184,92,0.12)),
+        linear-gradient(180deg, rgba(232,184,92,0.07), transparent 26%);
+      mask: linear-gradient(#000, transparent 70%);
+    }
+
+    .vault-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0.35rem;
+      pointer-events: none;
+      border: 1px solid rgba(232, 184, 92, 0.18);
+      border-radius: 1.15rem;
+    }
+
+    .shadow-soft { box-shadow: 0 22px 80px rgba(0,0,0,0.40); }
+    .border-white\/10 { border-color: var(--vault-gold-soft) !important; }
+    .border-white\/5 { border-color: var(--vault-gold-faint) !important; }
+    .bg-white\/5 { background-color: rgba(16, 44, 66, 0.28) !important; }
+    .bg-white\/10 { background-color: rgba(232, 184, 92, 0.14) !important; }
+    .bg-slate-950\/40, .bg-slate-950\/50, .bg-slate-950\/75 { background-color: rgba(5, 17, 29, 0.42) !important; }
+    .text-slate-100, .text-slate-200, .text-white { color: var(--vault-text) !important; }
+    .text-slate-300 { color: var(--vault-muted) !important; }
+    .text-slate-400, .text-slate-500 { color: rgba(248, 234, 208, 0.55) !important; }
+    .text-amber-300, .text-amber-100 { color: #f6cf83 !important; }
+
     .scrollbar::-webkit-scrollbar { width: 10px; height: 10px; }
-    .scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 999px; }
-    .scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.15); }
+    .scrollbar::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, rgba(232,184,92,0.55), rgba(232,184,92,0.22));
+      border-radius: 999px;
+      border: 2px solid rgba(4, 15, 27, 0.52);
+    }
+    .scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.16); }
+
+    .ornate-rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #f2c976;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-family: Cinzel, Georgia, serif;
+      font-size: 0.78rem;
+    }
+    .ornate-rule::before,
+    .ornate-rule::after {
+      content: "";
+      height: 1px;
+      flex: 1 1 auto;
+      background: linear-gradient(90deg, transparent, rgba(232,184,92,0.74), transparent);
+    }
+
+    .vault-input {
+      color: var(--vault-text);
+      border: 1px solid var(--vault-gold-soft);
+      border-radius: 999px;
+      min-height: 2.75rem;
+    }
+    .vault-input::placeholder { color: rgba(248, 234, 208, 0.58); }
+    .vault-input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(232, 184, 92, 0.18), inset 0 1px 0 rgba(255,255,255,0.18);
+    }
+
+    .vault-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 2.75rem;
+      border: 1px solid var(--vault-gold-soft);
+      border-radius: 999px;
+      padding: 0.68rem 1rem;
+      color: #f5cf83;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+    .vault-button:hover { transform: translateY(-1px); border-color: rgba(255, 216, 145, 0.82) !important; }
+
+    .roster-shell { min-height: min(76vh, 56rem); }
+    .roster-head {
+      position: relative;
+      padding: 1rem 1rem 0.85rem;
+      border-bottom: 1px solid var(--vault-gold-faint);
+    }
+    .roster-status {
+      margin-top: 0.5rem;
+      text-align: center;
+      color: rgba(248, 234, 208, 0.62);
+      font-size: 0.75rem;
+    }
+    #roster { padding: 0.7rem; }
+    #roster button {
+      position: relative;
+      border: 1px solid rgba(232,184,92,0.22);
+      border-radius: 1rem;
+      margin-bottom: 0.65rem;
+      padding: 0.7rem !important;
+      overflow: hidden;
+    }
+    #roster button:hover { border-color: rgba(255,216,145,0.72) !important; transform: translateY(-1px); }
+    #roster button.is-selected {
+      background:
+        linear-gradient(135deg, rgba(98, 28, 34, 0.58), rgba(18, 42, 62, 0.45)) !important;
+      border-color: rgba(255, 216, 145, 0.88) !important;
+      box-shadow: inset 0 0 24px rgba(232, 184, 92, 0.12), 0 18px 42px rgba(0,0,0,0.34);
+    }
+    #roster button.is-selected::after {
+      content: "✦";
+      position: absolute;
+      right: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #f5cf83;
+      text-shadow: 0 0 18px rgba(232,184,92,0.82);
+    }
+    #roster img {
+      width: 4rem !important;
+      height: 4rem !important;
+      border-radius: 999px !important;
+      border: 2px solid rgba(232,184,92,0.54) !important;
+      box-shadow: 0 0 0 3px rgba(8,24,40,0.52), 0 10px 28px rgba(0,0,0,0.42);
+    }
+    #roster .name {
+      color: #ffe4a8;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    #roster .meta { color: rgba(248, 234, 208, 0.66) !important; }
+
+    .sheet-shell { min-height: min(76vh, 56rem); }
+    #sheet { position: relative; }
+    .vault-empty {
+      min-height: 38rem;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .vault-empty img { width: 8rem; margin: 0 auto 1rem; filter: drop-shadow(0 0 22px rgba(232,184,92,0.28)); }
+
+    .vault-sheet-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; }
+    @media (min-width: 1280px) { .vault-sheet-layout { grid-template-columns: minmax(0, 1fr) 11rem; } }
+    .vault-content-col { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+
+    .character-hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--vault-gold-soft);
+      border-radius: 1.35rem;
+      padding: 1rem;
+    }
+    .character-hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 7.25rem minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+    }
+    .portrait-frame {
+      position: relative;
+      height: 7.25rem;
+      width: 7.25rem;
+      border-radius: 1.2rem;
+      padding: 0.18rem;
+      background: linear-gradient(135deg, rgba(255,216,145,0.95), rgba(80,45,12,0.70));
+      box-shadow: 0 16px 38px rgba(0,0,0,0.48), 0 0 32px rgba(232,184,92,0.16);
+    }
+    .portrait-frame img { height: 100%; width: 100%; object-fit: cover; border-radius: 1rem; }
+    .hero-eyebrow {
+      color: #f2c976;
+      font-family: Cinzel, Georgia, serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+    }
+    .hero-name {
+      color: #fff1cf;
+      font-family: Cinzel, Georgia, serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      text-shadow: 0 2px 0 rgba(43, 21, 4, 0.92), 0 0 28px rgba(232,184,92,0.20);
+    }
+    .hero-line { color: rgba(248,234,208,0.75); margin-top: 0.2rem; }
+    .hero-crest { width: 5rem; filter: drop-shadow(0 0 18px rgba(232,184,92,0.20)); }
+    .hero-pills { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .hero-pills span,
+    #pills span {
+      border-color: rgba(232,184,92,0.35) !important;
+      background: rgba(6,22,36,0.35) !important;
+      color: rgba(255,236,198,0.85) !important;
+    }
+
+    .stat-ribbon {
+      position: relative;
+      z-index: 1;
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+    @media (min-width: 768px) { .stat-ribbon { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+    .hero-stat {
+      border: 1px solid rgba(232,184,92,0.28);
+      border-radius: 0.9rem;
+      padding: 0.55rem 0.65rem;
+      background: rgba(7, 23, 37, 0.38);
+      backdrop-filter: blur(12px);
+    }
+    .hero-stat .label {
+      display: block;
+      color: rgba(248,234,208,0.58);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .hero-stat .value {
+      display: block;
+      margin-top: 0.1rem;
+      color: #fff0c8;
+      font-family: Cinzel, Georgia, serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .vault-tabs {
+      position: relative;
+      z-index: 1;
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .tab-button {
+      flex: 1 1 auto;
+      min-width: 7rem;
+      border: 1px solid rgba(232,184,92,0.28);
+      border-radius: 0.85rem;
+      padding: 0.62rem 0.75rem;
+      color: #f5cf83;
+      background: rgba(7, 23, 37, 0.34);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.72rem;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+    .tab-button:hover, .tab-button.is-active {
+      background: rgba(93, 35, 39, 0.42);
+      border-color: rgba(255, 216, 145, 0.72);
+      transform: translateY(-1px);
+    }
+
+    .vault-section {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--vault-gold-soft);
+      border-radius: 1.15rem !important;
+    }
+    .vault-section > button:first-child {
+      color: #f5cf83;
+      font-family: Cinzel, Georgia, serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(232,184,92,0.18);
+    }
+    .vault-section > button:first-child > div:last-child { color: rgba(248,234,208,0.46) !important; }
+
+    .quick-access {
+      position: sticky;
+      top: 1rem;
+      border-radius: 1rem !important;
+    }
+    .quick-access button { font-family: Cinzel, Georgia, serif; }
+
+    .prose { color: rgba(248,234,208,0.86); }
+    .prose a { color: #f5cf83; }
+
+    .vault-footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.62rem max(1rem, calc((100vw - 92rem) / 2 + 1rem));
+      color: rgba(248,234,208,0.72);
+      background: linear-gradient(180deg, rgba(5, 16, 27, 0.52), rgba(4, 13, 22, 0.82));
+      border-top: 1px solid rgba(232,184,92,0.32);
+      backdrop-filter: blur(18px) saturate(1.15);
+    }
+    .footer-icons { display: flex; gap: 0.85rem; color: #f2c976; }
+    .sync-dot { display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 999px; background: #bdf66f; box-shadow: 0 0 12px rgba(189,246,111,0.9); }
+
+    @media (max-width: 900px) {
+      .crest-large { height: 4.25rem; }
+      .vault-header { padding-top: 1rem; }
+      .character-hero-inner { grid-template-columns: 5.5rem minmax(0,1fr); }
+      .portrait-frame { width: 5.5rem; height: 5.5rem; }
+      .hero-crest { display: none; }
+      .vault-footer { position: static; margin-top: 1rem; }
+    }
   </style>
 </head>
 
-<body class="min-h-screen bg-slate-950 text-slate-100">
-  <div class="fixed inset-0 pointer-events-none">
-    <div class="absolute -top-40 -left-40 h-[34rem] w-[34rem] rounded-full bg-indigo-600/20 blur-3xl"></div>
-    <div class="absolute -bottom-40 -right-40 h-[34rem] w-[34rem] rounded-full bg-emerald-500/15 blur-3xl"></div>
-  </div>
+<body>
+  <div class="noise-layer"></div>
 
-  <header class="relative mx-auto max-w-7xl px-4 pt-8 pb-4">
-    <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-      <div>
-        <h1 class="text-2xl md:text-3xl font-semibold tracking-tight">Foundry Character Vault</h1>
+  <header class="vault-header">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+      <div class="flex items-center gap-4 min-w-0">
+        <img src="./assets/waterdeep-crest.png" alt="Waterdeep crest" class="crest-large shrink-0" />
+        <div class="min-w-0">
+          <h1 class="vault-title gold-text font-display">Waterdeep Character Vault</h1>
+          <div class="vault-subtitle text-xs md:text-sm mt-2">Campaign Roster <span class="mx-2">•</span> Session Archives <span class="mx-2">•</span> Character Sheets</div>
+        </div>
       </div>
 
-      <div class="flex flex-col md:flex-row gap-2 md:items-center">
-        <label class="relative">
+      <div class="flex flex-col sm:flex-row gap-3 lg:items-center">
+        <label class="relative block">
           <span class="sr-only">Search</span>
-          <input id="search" class="w-full md:w-80 rounded-2xl bg-white/5 border border-white/10 px-4 py-2 outline-none focus:ring-2 focus:ring-indigo-400/40"
-                 placeholder="Search abilities, items, spells…" />
+          <input id="search" class="vault-input w-full sm:w-80 px-4 py-2 pr-10"
+                 placeholder="Search characters, items, spells…" />
+          <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-amber-200/70">⌕</span>
         </label>
-
+        <button id="refresh" type="button" class="vault-button"><span aria-hidden="true">⟳</span> Refresh Data</button>
       </div>
     </div>
   </header>
 
-  <main class="relative mx-auto max-w-7xl px-4 pb-10">
+  <main class="vault-main">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
       <!-- roster -->
-      <aside class="lg:col-span-4 xl:col-span-3 glass shadow-soft border border-white/10 rounded-3xl overflow-hidden">
-        <div class="p-4 border-b border-white/10">
-          <div class="flex items-center justify-between gap-3">
-            <h2 class="font-semibold">Roster</h2>
-            <button id="refresh" class="text-sm text-slate-300 hover:text-white underline underline-offset-4">Reload</button>
-          </div>
-          <p id="status" class="mt-1 text-xs text-slate-400"></p>
+      <aside class="lg:col-span-4 xl:col-span-3 vault-panel roster-shell">
+        <div class="roster-head">
+          <div class="ornate-rule">Campaign Roster</div>
+          <p id="status" class="roster-status"></p>
         </div>
         <div id="roster" class="max-h-[70vh] overflow-auto scrollbar"></div>
 
-        <div class="p-4 border-t border-white/10 text-xs text-slate-400">
-          <div>Note: This will be updated weekly after session. Remind the DM!</div>
+        <div class="p-4 border-t border-white/10 text-xs text-center text-slate-400">
+          Choose a soul from the vault. Latest Foundry snapshots glitter here after each export.
         </div>
       </aside>
 
       <!-- sheet -->
-      <section class="lg:col-span-8 xl:col-span-9 glass shadow-soft border border-white/10 rounded-3xl overflow-hidden">
-        <div id="sheet" class="p-5 md:p-6">
-          <div class="text-slate-300">
-            Select a character.
+      <section class="lg:col-span-8 xl:col-span-9 vault-panel sheet-shell">
+        <div id="sheet" class="p-4 md:p-5">
+          <div class="vault-empty">
+            <div>
+              <img src="./assets/waterdeep-crest.png" alt="" />
+              <h2 class="hero-name">Choose a soul from the vault.</h2>
+              <p class="mt-3 text-slate-300">Select a character to open the latest Foundry snapshot.</p>
+            </div>
           </div>
         </div>
       </section>
     </div>
   </main>
 
+  <footer class="vault-footer">
+    <div class="footer-icons" aria-hidden="true"><span>✦</span><span>⚔</span><span>✧</span><span>☾</span><span>⚙</span></div>
+    <div class="font-display text-xs md:text-sm tracking-wide"><span class="sync-dot mr-2"></span>Last synced from Foundry <span class="mx-2">•</span> Character Vault</div>
+  </footer>
+
   <template id="rosterItemTpl">
-    <button class="w-full text-left px-4 py-3 flex gap-3 items-center hover:bg-white/5 transition border-b border-white/5">
+    <button class="w-full text-left flex gap-3 items-center transition border-b border-white/5">
       <img class="h-10 w-10 rounded-2xl object-cover border border-white/10" />
-      <div class="min-w-0">
+      <div class="min-w-0 pr-7">
         <div class="name font-medium truncate"></div>
         <div class="meta text-xs text-slate-400 truncate"></div>
       </div>

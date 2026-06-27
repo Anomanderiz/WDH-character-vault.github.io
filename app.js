@@ -5,7 +5,7 @@ const MANIFEST_URL = "./data/manifest.json";
 const LOCAL_PORTRAIT_DIR = "./data/portraits";
 const LOCAL_PORTRAIT_SUFFIX = "-img";
 const LOCAL_PORTRAIT_EXTS = ["webp", "png", "jpg", "jpeg", "avif"];
-const DEFAULT_AVATAR = "https://dummyimage.com/160x160/111827/ffffff&text=%E2%98%85";
+const DEFAULT_AVATAR = "./assets/waterdeep-crest.png";
 const portraitUrlCache = new Map();
 
 const $ = (sel) => document.querySelector(sel);
@@ -107,7 +107,7 @@ function critCoinCount(actor) {
 function inspirationBadgeNode(actor) {
   const active = actorHasInspiration(actor);
   const el = document.createElement("div");
-  el.className = `inline-flex items-center gap-2 rounded-xl border px-2 py-1 ${
+  el.className = `inline-flex items-center gap-2 rounded-xl border px-2 py-1 tracker-pill ${
     active
       ? "border-amber-200/70 bg-amber-500/15 text-amber-100"
       : "border-white/15 bg-white/5 text-slate-200"
@@ -124,7 +124,7 @@ function inspirationBadgeNode(actor) {
 
 function critCoinControlNode(actor) {
   const el = document.createElement("div");
-  el.className = "inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-2 py-1";
+  el.className = "inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-2 py-1 tracker-pill";
   el.title = "Crit Coin count (read-only from inventory)";
 
   const label = document.createElement("span");
@@ -240,7 +240,7 @@ function actorImageUrl(payload, actor) {
 function setStatus(msg) { statusEl.textContent = msg; }
 
 function clearSheet() {
-  sheetEl.innerHTML = `<div class="text-slate-300">Select a character.</div>`;
+  sheetEl.innerHTML = `<div class="vault-empty"><div><img src="./assets/waterdeep-crest.png" alt="" /><h2 class="hero-name">Choose a soul from the vault.</h2><p class="mt-3 text-slate-300">Select a character to open the latest Foundry snapshot.</p></div></div>`;
 }
 
 function pill(text) {
@@ -252,12 +252,12 @@ function pill(text) {
 
 function section(title, bodyNode, sectionId = "") {
   const wrap = document.createElement("div");
-  wrap.className = "rounded-3xl bg-white/5 border border-white/10 overflow-hidden";
+  wrap.className = "vault-section rounded-3xl bg-white/5 border border-white/10 overflow-hidden";
   if (sectionId) wrap.id = sectionId;
 
   const head = document.createElement("button");
   head.className = "w-full flex items-center justify-between px-4 py-3 hover:bg-white/5 transition";
-  head.innerHTML = `<div class="font-semibold">${title}</div><div class="text-slate-400 text-sm">toggle</div>`;
+  head.innerHTML = `<div class="font-semibold section-title">${title}</div><div class="text-slate-400 text-sm">toggle</div>`;
 
   const body = document.createElement("div");
   body.className = "px-4 pb-4";
@@ -281,7 +281,7 @@ function makeAnchorId(prefix, label) {
 
 function quickAccessNav(items) {
   const nav = document.createElement("nav");
-  nav.className = "order-first xl:order-last sticky top-3 z-30 xl:top-4 xl:self-start w-full xl:w-auto flex flex-col gap-2 rounded-2xl bg-slate-950/75 border border-white/10 p-2 shadow-soft";
+  nav.className = "quick-access order-first xl:order-last sticky top-3 z-30 xl:top-4 xl:self-start w-full xl:w-auto flex flex-col gap-2 rounded-2xl bg-slate-950/75 border border-white/10 p-2 shadow-soft";
   nav.setAttribute("aria-label", "Quick section access");
   nav.dataset.expanded = "0";
 
@@ -290,7 +290,7 @@ function quickAccessNav(items) {
 
   const title = document.createElement("div");
   title.className = "px-1 text-[11px] uppercase tracking-wide text-slate-300";
-  title.textContent = "Quick Access Bar";
+  title.textContent = "Vault Index";
   top.appendChild(title);
 
   const toggle = document.createElement("button");
@@ -341,7 +341,7 @@ function kvGrid(rows) {
 
   for (const [k, v] of rows) {
     const card = document.createElement("div");
-    card.className = "rounded-2xl bg-slate-950/40 border border-white/10 px-3 py-2";
+    card.className = "vault-card rounded-2xl bg-slate-950/40 border border-white/10 px-3 py-2";
     card.innerHTML = `<div class="text-xs text-slate-400">${k}</div><div class="font-semibold">${v}</div>`;
     grid.appendChild(card);
   }
@@ -435,13 +435,13 @@ function listCards(items, subtitleFn, options = {}) {
     const descriptionFn = explicitDescriptionFn || (hasDescriptionField ? itemDescriptionHtml : null);
 
     if (!descriptionFn) {
-      card.className = "rounded-2xl bg-slate-950/40 border border-white/10 p-3";
+      card.className = "vault-card rounded-2xl bg-slate-950/40 border border-white/10 p-3";
       card.innerHTML = `<div class="font-medium">${title}</div>${sub ? `<div class="text-xs text-slate-400 mt-1">${sub}</div>` : ""}`;
       wrap.appendChild(card);
       continue;
     }
 
-    card.className = "rounded-2xl bg-slate-950/40 border border-white/10 overflow-hidden";
+    card.className = "vault-card rounded-2xl bg-slate-950/40 border border-white/10 overflow-hidden";
     const headerBadgeHtml = explicitHeaderBadgeFn ? safeText(explicitHeaderBadgeFn(it)).trim() : "";
 
     const header = document.createElement("button");
@@ -1971,6 +1971,9 @@ function rosterItem(entry) {
   node.querySelector("img").src = actorImageUrl(payload, actor);
   node.querySelector(".name").textContent = actor?.name || "Unnamed";
   node.querySelector(".meta").textContent = entry.meta.line1;
+  if (entry.id === selectedId) {
+    node.classList.add("is-selected", "bg-white/10");
+  }
 
   node.addEventListener("click", () => selectActor(node.dataset.id));
   return node;
@@ -2043,7 +2046,7 @@ function renderAttunementSummary(actor) {
   wrap.className = "space-y-3";
 
   const pipsCard = document.createElement("div");
-  pipsCard.className = "rounded-2xl border border-rose-200/25 bg-gradient-to-br from-rose-950/40 via-pink-950/25 to-amber-950/20 p-3";
+  pipsCard.className = "vault-card rounded-2xl border border-rose-200/25 bg-gradient-to-br from-rose-950/40 via-pink-950/25 to-amber-950/20 p-3";
 
   const title = document.createElement("div");
   title.className = "flex items-center gap-2";
@@ -2066,7 +2069,7 @@ function renderAttunementSummary(actor) {
   for (let i = 0; i < state.max; i++) {
     const item = state.attunedItems[i];
     const row = document.createElement("div");
-    row.className = "rounded-xl border border-white/10 bg-slate-950/40 px-3 py-2";
+    row.className = "vault-card rounded-xl border border-white/10 bg-slate-950/40 px-3 py-2";
     row.innerHTML = `
       <div class="text-[11px] uppercase tracking-wide text-slate-400">Slot ${i + 1}</div>
       <div class="text-sm ${item ? "text-rose-100" : "text-slate-300"}">${escapeHtml(item?.name || "Empty")}</div>
@@ -2654,7 +2657,7 @@ function renderSpellSlotsSummary(actor) {
   if (!rows.length) return null;
 
   const wrap = document.createElement("div");
-  wrap.className = "rounded-2xl bg-slate-950/40 border border-white/10 p-3 space-y-2";
+  wrap.className = "vault-card rounded-2xl bg-slate-950/40 border border-white/10 p-3 space-y-2";
 
   const title = document.createElement("div");
   title.className = "text-xs uppercase tracking-wide text-slate-300";
@@ -2704,66 +2707,22 @@ function renderSpellsSection(actor, spells) {
   return wrap;
 }
 
+function heroStat(label, value, icon = "✦") {
+  return `
+    <div class="hero-stat">
+      <span class="label">${escapeHtml(icon)} ${escapeHtml(label)}</span>
+      <span class="value">${value}</span>
+    </div>
+  `;
+}
+
 function renderDnd5e(payload) {
   const actor = actorFromPayload(payload);
   const sys = actor?.system || {};
   const meta = dnd5eMeta(actor);
 
-  const root = document.createElement("div");
-  root.className = "grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_12rem] gap-4 items-start";
-
-  const contentCol = document.createElement("div");
-  contentCol.className = "order-last xl:order-first flex flex-col gap-4 min-w-0";
-
-  const anchorPrefix = makeAnchorId(`sheet-${safeText(actor?._id || actor?.name || "actor")}`, "root");
-  const quickLinks = [];
-
-  // hero
-  const hero = document.createElement("div");
-  hero.className = "rounded-3xl bg-white/5 border border-white/10 p-4 md:p-5";
-  const overviewId = makeAnchorId(anchorPrefix, "Overview");
-  hero.id = overviewId;
-  hero.innerHTML = `
-    <div class="flex gap-4 items-start">
-      <img src="${actorImageUrl(payload, actor)}" class="h-20 w-20 rounded-3xl object-cover border border-white/10" />
-      <div class="min-w-0 flex-1">
-        <div class="flex flex-wrap items-center gap-2">
-          <h2 class="text-2xl font-semibold tracking-tight truncate">${safeText(actor?.name)}</h2>
-          <div id="heroTrackers" class="flex flex-wrap items-center gap-2"></div>
-        </div>
-        <div class="mt-1 text-slate-300">${safeText(meta.line1)}</div>
-        <div class="mt-2 flex flex-wrap gap-2" id="pills"></div>
-      </div>
-    </div>
-  `;
-  const trackersHost = hero.querySelector("#heroTrackers");
-  if (trackersHost) {
-    trackersHost.appendChild(inspirationBadgeNode(actor));
-    trackersHost.appendChild(critCoinControlNode(actor));
-  }
-  const pills = hero.querySelector("#pills");
-  pills.appendChild(pill(meta.line2));
-  const race = detailLabel(actor, sys?.details?.race, ["race"]);
-  const bg = detailLabel(actor, sys?.details?.background, ["background"]);
-  const align = sys?.details?.alignment;
-  [race, bg, align].filter(Boolean).forEach(x => pills.appendChild(pill(x)));
-
-  contentCol.appendChild(hero);
-  quickLinks.push({ label: "Overview", id: overviewId });
-
+  const items = actor?.items || [];
   const abilities = getEffectiveAbilities(actor);
-  const abilityRows = [
-    ["STR", `${abilities.str.score} (${fmtSigned(abilities.str.mod)})`],
-    ["DEX", `${abilities.dex.score} (${fmtSigned(abilities.dex.mod)})`],
-    ["CON", `${abilities.con.score} (${fmtSigned(abilities.con.mod)})`],
-    ["INT", `${abilities.int.score} (${fmtSigned(abilities.int.mod)})`],
-    ["WIS", `${abilities.wis.score} (${fmtSigned(abilities.wis.mod)})`],
-    ["CHA", `${abilities.cha.score} (${fmtSigned(abilities.cha.mod)})`],
-  ];
-  const abilitiesId = makeAnchorId(anchorPrefix, "Abilities");
-  contentCol.appendChild(section("Abilities", kvGrid(abilityRows), abilitiesId));
-  quickLinks.push({ label: "Abilities", id: abilitiesId });
-
   const attr = sys?.attributes || {};
   const movement = computeMovement(actor);
   const senses = computeSenses(actor);
@@ -2778,10 +2737,102 @@ function renderDnd5e(payload) {
   const passivePerceptionValue = passiveSkill(actor, "prc");
   const passivePerceptionAugmented =
     skillIsAugmented(actor, "prc") || hasNumericDelta(numericFormulaValue(actor, sys?.skills?.prc?.bonuses?.passive));
+  const dcInfo = spellSaveDCInfo(actor);
+  const dc = dcInfo.value;
+
+  const race = detailLabel(actor, sys?.details?.race, ["race"]);
+  const bg = detailLabel(actor, sys?.details?.background, ["background"]);
+  const align = sys?.details?.alignment;
+  const movementShort = formatMovement(movement).split(/[;,]/)[0] || "—";
+  const hpHtml = renderHitPointsValue({ value: hp.value, max: hp.effectiveMax, temp: hp.temp });
+  const spellDcHtml = Number.isFinite(dc) ? highlightAugmentedHtml(dc, dcInfo.augmented) : "—";
+
+  const root = document.createElement("div");
+  root.className = "vault-sheet-layout";
+
+  const contentCol = document.createElement("div");
+  contentCol.className = "vault-content-col order-last xl:order-first";
+
+  const anchorPrefix = makeAnchorId(`sheet-${safeText(actor?._id || actor?.name || "actor")}`, "root");
+  const quickLinks = [];
+
+  const overviewId = makeAnchorId(anchorPrefix, "Overview");
+  const abilitiesId = makeAnchorId(anchorPrefix, "Abilities");
+  const combatId = makeAnchorId(anchorPrefix, "Combat");
+  const savesId = makeAnchorId(anchorPrefix, "Saves");
+  const skillsId = makeAnchorId(anchorPrefix, "Skills");
+  const effectsId = makeAnchorId(anchorPrefix, "Active Effects");
+  const spellsId = makeAnchorId(anchorPrefix, "Spells");
+  const featuresId = makeAnchorId(anchorPrefix, "Features");
+  const attunementId = makeAnchorId(anchorPrefix, "Attunement");
+  const inventoryId = makeAnchorId(anchorPrefix, "Inventory");
+
+  const hero = document.createElement("div");
+  hero.className = "character-hero glass-card";
+  hero.id = overviewId;
+  hero.innerHTML = `
+    <div class="character-hero-inner">
+      <div class="portrait-frame">
+        <img src="${actorImageUrl(payload, actor)}" alt="${escapeHtml(actor?.name || "Character portrait")}" />
+      </div>
+      <div class="min-w-0">
+        <div class="hero-eyebrow">Selected Character</div>
+        <h2 class="hero-name truncate">${escapeHtml(actor?.name || "Unnamed")}</h2>
+        <div class="hero-line">${escapeHtml(meta.line1 || "Character")}</div>
+        <div class="hero-line">${[race, bg, align].filter(Boolean).map(escapeHtml).join(" • ")}</div>
+        <div class="hero-pills" id="pills"></div>
+      </div>
+      <img class="hero-crest" src="./assets/waterdeep-crest.png" alt="Waterdeep crest" />
+    </div>
+    <div class="stat-ribbon">
+      ${heroStat("HP", hpHtml, "♥")}
+      ${heroStat("AC", highlightAugmentedHtml(acVal ?? "—", acAugmented), "🛡")}
+      ${heroStat("Speed", escapeHtml(movementShort), "⚡")}
+      ${heroStat("Passive", highlightAugmentedHtml(passivePerceptionValue, passivePerceptionAugmented), "◉")}
+      ${heroStat("Spell DC", spellDcHtml, "✶")}
+      ${heroStat("PB", escapeHtml(fmtSigned(pb ?? 0)), "◆")}
+    </div>
+    <div class="vault-tabs" aria-label="Character sections">
+      <button class="tab-button is-active" data-target="${overviewId}" type="button">Overview</button>
+      <button class="tab-button" data-target="${combatId}" type="button">Combat</button>
+      <button class="tab-button" data-target="${featuresId}" type="button">Features</button>
+      <button class="tab-button" data-target="${spellsId}" type="button">Spells</button>
+      <button class="tab-button" data-target="${inventoryId}" type="button">Inventory</button>
+      <button class="tab-button" data-target="${effectsId}" type="button">Effects</button>
+      <button class="tab-button" data-target="${skillsId}" type="button">Skills</button>
+    </div>
+  `;
+  const trackersHost = hero.querySelector("#pills");
+  if (trackersHost) {
+    trackersHost.appendChild(inspirationBadgeNode(actor));
+    trackersHost.appendChild(critCoinControlNode(actor));
+    trackersHost.appendChild(pill(meta.line2));
+  }
+  hero.querySelectorAll(".tab-button[data-target]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      hero.querySelectorAll(".tab-button").forEach((b) => b.classList.toggle("is-active", b === btn));
+      const target = document.getElementById(btn.dataset.target);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  contentCol.appendChild(hero);
+  quickLinks.push({ label: "Overview", id: overviewId });
+
+  const abilityRows = [
+    ["STR", `${abilities.str.score} (${fmtSigned(abilities.str.mod)})`],
+    ["DEX", `${abilities.dex.score} (${fmtSigned(abilities.dex.mod)})`],
+    ["CON", `${abilities.con.score} (${fmtSigned(abilities.con.mod)})`],
+    ["INT", `${abilities.int.score} (${fmtSigned(abilities.int.mod)})`],
+    ["WIS", `${abilities.wis.score} (${fmtSigned(abilities.wis.mod)})`],
+    ["CHA", `${abilities.cha.score} (${fmtSigned(abilities.cha.mod)})`],
+  ];
+  contentCol.appendChild(section("Abilities", kvGrid(abilityRows), abilitiesId));
+  quickLinks.push({ label: "Abilities", id: abilitiesId });
 
   const combatRows = [
     ["Armour Class", highlightAugmentedHtml(acVal ?? "–", acAugmented)],
-    ["Hit Points", renderHitPointsValue({ value: hp.value, max: hp.effectiveMax, temp: hp.temp })],
+    ["Hit Points", hpHtml],
     ["Hit Dice", renderHitDiceValue(actor)],
     ...(tempHp > 0 ? [["Temporary Hit Points", `+${tempHp}`]] : []),
     ["Initiative", `${fmtSigned(initValue)}${initBadge ? ` ${initBadge}` : ""}`],
@@ -2790,25 +2841,18 @@ function renderDnd5e(payload) {
     ["Senses", formatSenses(senses, attr?.senses?.special)],
     ["Passive Perception", highlightAugmentedHtml(passivePerceptionValue, passivePerceptionAugmented)],
   ];
-  const combatId = makeAnchorId(anchorPrefix, "Combat");
   contentCol.appendChild(section("Combat", kvGrid(combatRows), combatId));
   quickLinks.push({ label: "Combat", id: combatId });
 
-  const savesId = makeAnchorId(anchorPrefix, "Saves");
   contentCol.appendChild(section("Saves", renderSavesGrid(actor), savesId));
   quickLinks.push({ label: "Saves", id: savesId });
 
-  // skills
-  const skillsId = makeAnchorId(anchorPrefix, "Skills");
   contentCol.appendChild(section("Skills", renderSkillsSection(actor), skillsId));
   quickLinks.push({ label: "Skills", id: skillsId });
 
-  const effectsId = makeAnchorId(anchorPrefix, "Active Effects");
   contentCol.appendChild(section("Active Effects", renderActiveEffects(actor), effectsId));
   quickLinks.push({ label: "Effects", id: effectsId });
 
-  // items
-  const items = actor?.items || [];
   const spells = items
     .filter(i => i?.type === "spell")
     .sort((a, b) => {
@@ -2828,24 +2872,18 @@ function renderDnd5e(payload) {
     .filter(i => gearTypes.has(i?.type))
     .sort((a,b)=> safeText(a.name).localeCompare(safeText(b.name)));
 
-  const spellsId = makeAnchorId(anchorPrefix, "Spells");
-  const dcInfo = spellSaveDCInfo(actor);
-  const dc = dcInfo.value;
   const spellsTitle = Number.isFinite(dc)
     ? `Spells (Spell Save DC ${highlightAugmentedHtml(dc, dcInfo.augmented)})`
     : "Spells";
   contentCol.appendChild(section(spellsTitle, renderSpellsSection(actor, spells), spellsId));
   quickLinks.push({ label: "Spells", id: spellsId });
 
-  const featuresId = makeAnchorId(anchorPrefix, "Features");
   contentCol.appendChild(section("Features", feats.length ? listCards(feats) : document.createTextNode("No features exported."), featuresId));
   quickLinks.push({ label: "Features", id: featuresId });
 
-  const attunementId = makeAnchorId(anchorPrefix, "Attunement");
   contentCol.appendChild(section("Attunement", renderAttunementSummary(actor), attunementId));
   quickLinks.push({ label: "Attunement", id: attunementId });
 
-  const inventoryId = makeAnchorId(anchorPrefix, "Inventory");
   contentCol.appendChild(section("Inventory", gear.length ? renderInventoryWithSearch(gear) : document.createTextNode("No inventory exported."), inventoryId));
   quickLinks.push({ label: "Inventory", id: inventoryId });
 
@@ -2877,7 +2915,7 @@ function renderUnknown(payload) {
   root.appendChild(hero);
 
   const pre = document.createElement("pre");
-  pre.className = "text-xs whitespace-pre-wrap break-words rounded-3xl bg-slate-950/50 border border-white/10 p-4 max-h-[60vh] overflow-auto scrollbar";
+  pre.className = "vault-card text-xs whitespace-pre-wrap break-words rounded-3xl bg-slate-950/50 border border-white/10 p-4 max-h-[60vh] overflow-auto scrollbar";
   pre.textContent = JSON.stringify(payload, null, 2);
 
   root.appendChild(section("Raw data", pre));
@@ -2911,7 +2949,9 @@ function selectActor(id) {
   if (!found) return;
 
   rosterEl.querySelectorAll("button[data-id]").forEach(b => {
-    b.classList.toggle("bg-white/10", b.dataset.id === id);
+    const isSelected = b.dataset.id === id;
+    b.classList.toggle("bg-white/10", isSelected);
+    b.classList.toggle("is-selected", isSelected);
   });
 
   sheetEl.innerHTML = "";
@@ -2949,7 +2989,7 @@ function applyGlobalSearch() {
 }
 
 async function initialise() {
-  setStatus("Loading…");
+  setStatus("Opening the vault…");
   portraitUrlCache.clear();
   let payloads = [];
   try {
@@ -2975,7 +3015,8 @@ async function initialise() {
   allPayloads.sort((a,b)=> safeText(a.name).localeCompare(safeText(b.name)));
 
   paintRoster(allPayloads);
-  setStatus(allPayloads.length ? `${allPayloads.length} character(s) loaded.` : "No data loaded.");
+  setStatus(allPayloads.length ? `${allPayloads.length} character(s) loaded from Foundry.` : "No data loaded.");
+  if (allPayloads.length && !selectedId) selectActor(allPayloads[0].id);
 }
 
 // ----------------------------

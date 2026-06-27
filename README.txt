@@ -1,4 +1,6 @@
-Foundry Character Vault (static)
+Waterdeep Character Vault (static)
+
+A static, zero-server viewer for exported Foundry Actor snapshots. This build uses a glassmorphism Waterdeep theme, the supplied scenic background, and the supplied Waterdeep crest.
 
 Workflow:
 1) In Foundry (as GM), run the macro in `foundry-macro-export.js`.
@@ -19,4 +21,8 @@ Workflow:
 4) Host the folder as a static site (GitHub Pages, Netlify, Cloudflare Pages, etc).
    - Open index.html and you’re done.
 
-This viewer renders dnd5e nicely. For other systems, it falls back to a raw JSON view.
+Theme assets:
+- /assets/waterdeep-bg.jpeg — full-page background image.
+- /assets/waterdeep-crest.png — crest used in the header, hero panel, and empty state.
+
+This viewer renders dnd5e snapshots richly. For other systems, it falls back to a raw JSON view.
