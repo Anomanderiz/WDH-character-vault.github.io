@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#07111d" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Waterdeep Character Vault</title>
 
   <!-- Tailwind via CDN for zero-build deployment -->
@@ -475,7 +478,7 @@
   </style>
 </head>
 
-<body>
+<body data-vault-build="20260627T102740Z">
   <div class="noise-layer"></div>
 
   <header class="vault-header">
@@ -495,7 +498,7 @@
                  placeholder="Search characters, items, spells…" />
           <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-amber-200/70">⌕</span>
         </label>
-        <button id="refresh" type="button" class="vault-button"><span aria-hidden="true">⟳</span> Refresh Data</button>
+        <button id="refresh" type="button" class="vault-button" title="Clear this site's browser caches and fetch the latest vault files"><span aria-hidden="true">⟳</span> Refresh Data</button>
       </div>
     </div>
   </header>
@@ -549,6 +552,17 @@
     <span class="inline-flex items-center rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-xs text-slate-200"></span>
   </template>
 
-  <script type="module" src="./app.js"></script>
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get("vaultRefresh") || `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+      window.VAULT_CACHE_BUST = token;
+      window.VAULT_BUILD_ID = document.body?.dataset?.vaultBuild || token;
+      const script = document.createElement("script");
+      script.type = "module";
+      script.src = `./app.js?v=${encodeURIComponent(token)}`;
+      document.body.appendChild(script);
+    })();
+  </script>
 </body>
 </html>

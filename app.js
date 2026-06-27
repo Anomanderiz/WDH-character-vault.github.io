@@ -6,7 +6,53 @@ const LOCAL_PORTRAIT_DIR = "./data/portraits";
 const LOCAL_PORTRAIT_SUFFIX = "-img";
 const LOCAL_PORTRAIT_EXTS = ["webp", "png", "jpg", "jpeg", "avif"];
 const DEFAULT_AVATAR = "./assets/waterdeep-crest.png";
+const STARTUP_CACHE_BUST = safeWindowValue("VAULT_CACHE_BUST") || `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+let currentCacheBust = STARTUP_CACHE_BUST;
 const portraitUrlCache = new Map();
+
+function safeWindowValue(key) {
+  try { return typeof window !== "undefined" ? window[key] : null; } catch { return null; }
+}
+
+function cacheBustUrl(url, token = currentCacheBust) {
+  try {
+    const u = new URL(url, window.location.href);
+    if (token) u.searchParams.set("_vault", token);
+    return u.toString();
+  } catch {
+    const sep = safeText(url).includes("?") ? "&" : "?";
+    return `${url}${sep}_vault=${encodeURIComponent(token || Date.now())}`;
+  }
+}
+
+function freshFetchOptions() {
+  return {
+    cache: "no-store",
+    headers: {
+      "Cache-Control": "no-cache, no-store, must-revalidate",
+      "Pragma": "no-cache"
+    }
+  };
+}
+
+async function clearBrowserCaches() {
+  try { localStorage.clear(); } catch {}
+  try { sessionStorage.clear(); } catch {}
+
+  try {
+    if ("caches" in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((key) => caches.delete(key)));
+    }
+  } catch {}
+
+  try {
+    if (navigator.serviceWorker?.getRegistrations) {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(registrations.map((registration) => registration.unregister()));
+    }
+  } catch {}
+}
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -231,7 +277,7 @@ function canLoadImage(url) {
     const img = new Image();
     img.onload = () => resolve(true);
     img.onerror = () => resolve(false);
-    img.src = url;
+    img.src = cacheBustUrl(url);
   });
 }
 
@@ -257,7 +303,7 @@ async function resolveLocalPortrait(actorName) {
 }
 
 function actorImageUrl(payload, actor) {
-  return payload?.__portrait || actor?.img || DEFAULT_AVATAR;
+  return payload?.__portrait || actor?.img || cacheBustUrl(DEFAULT_AVATAR);
 }
 
 function setStatus(msg) { statusEl.textContent = msg; }
@@ -2981,15 +3027,19 @@ function selectActor(id) {
   sheetEl.appendChild(renderSheet(found.payload));
 }
 
-async function loadManifestPayloads() {
-  const res = await fetch(MANIFEST_URL, { cache: "no-store" });
+async function loadManifestPayloads(cacheToken = currentCacheBust) {
+  const res = await fetch(cacheBustUrl(MANIFEST_URL, cacheToken), freshFetchOptions());
   if (!res.ok) throw new Error(`Manifest fetch failed: ${res.status}`);
   const manifest = await res.json(); // [{file,name?}]
 
   const payloads = [];
   for (const entry of manifest) {
-    const r = await fetch(entry.file, { cache: "no-store" });
+    const file = typeof entry === "string" ? entry : entry?.file;
+    if (!file) continue;
+    // eslint-disable-next-line no-await-in-loop
+    const r = await fetch(cacheBustUrl(file, cacheToken), freshFetchOptions());
     if (!r.ok) continue;
+    // eslint-disable-next-line no-await-in-loop
     const payload = await r.json();
     payloads.push(payload);
   }
@@ -3011,12 +3061,14 @@ function applyGlobalSearch() {
   }
 }
 
-async function initialise() {
-  setStatus("Opening the vault…");
+async function initialise(options = {}) {
+  const cacheToken = options.cacheToken || currentCacheBust || STARTUP_CACHE_BUST;
+  currentCacheBust = cacheToken;
+  setStatus(options.forceNetwork ? "Forcing a fresh pull from the vault…" : "Opening the vault…");
   portraitUrlCache.clear();
   let payloads = [];
   try {
-    payloads = await loadManifestPayloads();
+    payloads = await loadManifestPayloads(cacheToken);
   } catch (e) {
     console.warn(e);
   }
@@ -3046,8 +3098,22 @@ async function initialise() {
 // ----------------------------
 // events
 // ----------------------------
-refreshBtn.addEventListener("click", initialise);
+refreshBtn.addEventListener("click", async () => {
+  const token = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+  setStatus("Clearing local browser caches…");
+  refreshBtn.disabled = true;
+  refreshBtn.classList.add("opacity-70", "cursor-wait");
+
+  await clearBrowserCaches();
+
+  const url = new URL(window.location.href);
+  url.searchParams.set("vaultRefresh", token);
+
+  // Reload the whole app through a unique URL so GitHub Pages/browser caches cannot
+  // hand back stale HTML, JS, manifest, actor JSON, or portrait files.
+  window.location.replace(url.toString());
+});
 searchEl.addEventListener("input", applyGlobalSearch);
 
-initialise();
+initialise({ cacheToken: STARTUP_CACHE_BUST });
 

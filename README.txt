@@ -26,3 +26,7 @@ Theme assets:
 - /assets/waterdeep-crest.png — crest used in the header, hero panel, and empty state.
 
 This viewer renders dnd5e snapshots richly. For other systems, it falls back to a raw JSON view.
+
+Cache / refresh behaviour
+-------------------------
+The Refresh Data button now performs a hard vault refresh: it clears this origin's browser storage/cache entries, reloads the page with a unique `vaultRefresh` query string, and cache-busts app.js, data/manifest.json, actor JSON snapshots, and local portrait checks. This is meant to defeat stale GitHub Pages/browser cache behaviour after pushing new exports.
