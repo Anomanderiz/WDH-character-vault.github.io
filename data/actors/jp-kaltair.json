@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-20T06:07:57.204Z",
+  "exportedAt": "2026-06-27T10:21:50.921Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -524,9 +524,9 @@
         "loyalty": {},
         "hp": {
           "max": 77,
-          "temp": null,
+          "temp": 0,
           "tempmax": 0,
-          "value": 77,
+          "value": 37,
           "bonuses": {
             "overall": "",
             "level": ""
@@ -677,7 +677,7 @@
       "rotation": 0,
       "alpha": 1,
       "disposition": 1,
-      "displayBars": 0,
+      "displayBars": 30,
       "bar1": {
         "attribute": "attributes.hp"
       },
@@ -2378,7 +2378,7 @@
                 "type": "recoverAll"
               }
             ],
-            "spent": 0
+            "spent": 2
           },
           "type": {
             "value": "",
@@ -5185,7 +5185,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 2,
             "recovery": [
               {
                 "period": "lr",
@@ -5758,7 +5758,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 96,
+          "quantity": 78,
           "weight": {
             "value": 0.15,
             "units": "lb"
@@ -8153,6 +8153,165 @@
         }
       }
     ],
-    "effects": []
+    "effects": [
+      {
+        "changes": [
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "mode": 0,
+            "value": "1",
+            "priority": 20
+          }
+        ],
+        "duration": {
+          "seconds": null,
+          "startTime": -272642101,
+          "combat": null,
+          "rounds": 2,
+          "turns": 0,
+          "startRound": 4,
+          "startTurn": 3
+        },
+        "img": "icons/skills/melee/sword-damaged-broken-red.webp",
+        "name": "Sap",
+        "origin": "Scene.kLWRPqyaXyqX8Xni.Token.lTjCOKnMbpLihATu.Actor.CE0OkVL12Lr4fIin.Item.enIupFDNfhuadSZd",
+        "flags": {
+          "dae": {
+            "specialDuration": [
+              "turnStartSource",
+              "combatEnd",
+              "1Attack"
+            ],
+            "stackable": "noneNameOnly"
+          },
+          "times-up": {
+            "durationSeconds": 12
+          }
+        },
+        "_id": "Yh3AfdlBIilPd11R",
+        "type": "base",
+        "system": {},
+        "disabled": false,
+        "description": "",
+        "tint": "#ffffff",
+        "transfer": false,
+        "statuses": [],
+        "sort": 0,
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1782539282662,
+          "modifiedTime": 1782539282662,
+          "lastModifiedBy": "I4GGxqNW644lYEEA"
+        }
+      },
+      {
+        "name": "Prone",
+        "img": "systems/dnd5e/icons/svg/statuses/prone.svg",
+        "_id": "dnd5eprone000000",
+        "statuses": [
+          "prone"
+        ],
+        "description": "@Embed[Compendium.dnd5e.content24.JournalEntry.phbAppendixCRule.JournalEntryPage.QxCrRcgMdUd3gfzz inline]",
+        "type": "base",
+        "system": {},
+        "changes": [
+          {
+            "key": "flags.midi-qol.grants.advantage.attack.all",
+            "mode": 0,
+            "value": "computeDistance(workflow.rangeDetails?.attackingToken ?? workflow.token, workflow.targets.first()) <= 5",
+            "priority": 20
+          },
+          {
+            "key": "flags.midi-qol.grants.disadvantage.attack.all",
+            "mode": 0,
+            "value": "computeDistance(workflow.rangeDetails?.attackingToken ?? workflow.token, workflow.targets.first()) > 5",
+            "priority": 20
+          },
+          {
+            "key": "flags.midi-qol.disadvantage.attack.all",
+            "mode": 0,
+            "value": "1",
+            "priority": 20
+          },
+          {
+            "key": "system.attributes.movement.walk",
+            "mode": 1,
+            "value": "0.5",
+            "priority": 20
+          }
+        ],
+        "disabled": false,
+        "duration": {
+          "startTime": -272642101,
+          "combat": null,
+          "startRound": 4,
+          "startTurn": 3
+        },
+        "origin": null,
+        "tint": "#ffffff",
+        "transfer": false,
+        "sort": 0,
+        "flags": {
+          "dae": {
+            "specialDuration": []
+          }
+        },
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1782539301131,
+          "modifiedTime": 1782539301131,
+          "lastModifiedBy": "I4GGxqNW644lYEEA"
+        }
+      },
+      {
+        "_id": "dnd5ebloodied000",
+        "name": "Bloodied",
+        "img": "systems/dnd5e/icons/svg/statuses/bloodied.svg",
+        "statuses": [
+          "bloodied"
+        ],
+        "type": "base",
+        "system": {},
+        "changes": [],
+        "disabled": false,
+        "duration": {
+          "startTime": -272642101,
+          "combat": null,
+          "startRound": 4,
+          "startTurn": 6
+        },
+        "description": "",
+        "origin": null,
+        "tint": "#ffffff",
+        "transfer": false,
+        "sort": 0,
+        "flags": {
+          "dae": {
+            "specialDuration": []
+          }
+        },
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1782539632286,
+          "modifiedTime": 1782539632286,
+          "lastModifiedBy": "I4GGxqNW644lYEEA"
+        }
+      }
+    ]
   }
 }

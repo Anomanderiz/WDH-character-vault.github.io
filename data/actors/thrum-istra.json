@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-06-20T06:07:57.204Z",
+  "exportedAt": "2026-06-27T10:21:50.921Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -528,9 +528,9 @@
           "value": null
         },
         "hp": {
-          "value": 91,
+          "value": 41,
           "max": 91,
-          "temp": 12,
+          "temp": 0,
           "tempmax": 0,
           "bonuses": {
             "level": "",
@@ -3714,6 +3714,8 @@
                 "automationOnly": false,
                 "otherActivityCompatible": true,
                 "identifier": "",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
@@ -3728,405 +3730,40 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "none",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
               },
               "attackMode": "oneHanded",
               "ammunition": "",
               "otherActivityId": "none",
               "otherActivityUuid": "",
               "name": "Punch",
+              "img": "",
+              "flags": {},
+              "visibility": {
+                "level": {},
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
               "useConditionReason": "",
               "isOverTimeFlag": false,
               "overTimeProperties": {
                 "saveRemoves": true,
+                "rollAs": "target",
                 "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
+                "postRemoveConditionText": ""
               },
               "otherActivityAsParentType": true,
               "attackRollPerTarget": "default",
-              "fumbleThreshold": 1,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            },
-            "kNTcL5BuY6WQnk1k": {
-              "type": "utility",
-              "_id": "kNTcL5BuY6WQnk1k",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": null,
-                "override": false,
-                "condition": ""
-              },
-              "consumption": {
-                "scaling": {
-                  "allowed": false
-                },
-                "spellSlot": true,
-                "targets": []
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "units": "inst",
-                "concentration": false,
-                "override": false
-              },
-              "effects": [],
-              "range": {
-                "override": false,
-                "units": "self"
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "type": "creature",
-                  "count": "1",
-                  "special": ""
-                },
-                "override": false,
-                "prompt": true
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": [],
-                "max": ""
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false,
-                "name": "",
-                "formula": ""
-              },
-              "useConditionText": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": false,
-                "identifier": "",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "none",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
-              },
-              "name": "Grapple",
-              "useConditionReason": "",
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            },
-            "siI1csz5wTzrT7gx": {
-              "type": "utility",
-              "_id": "siI1csz5wTzrT7gx",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": null,
-                "override": false,
-                "condition": ""
-              },
-              "consumption": {
-                "scaling": {
-                  "allowed": false
-                },
-                "spellSlot": true,
-                "targets": []
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "units": "inst",
-                "concentration": false,
-                "override": false
-              },
-              "effects": [],
-              "range": {
-                "override": false,
-                "units": "self"
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "type": "creature",
-                  "count": "1",
-                  "special": ""
-                },
-                "override": false,
-                "prompt": true
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": [],
-                "max": ""
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false,
-                "name": "",
-                "formula": ""
-              },
-              "useConditionText": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": false,
-                "identifier": "",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
-              },
-              "name": "Shove (Prone)",
-              "useConditionReason": "",
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            },
-            "bPilG1rghSA1UudO": {
-              "type": "utility",
-              "_id": "bPilG1rghSA1UudO",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": null,
-                "override": false,
-                "condition": ""
-              },
-              "consumption": {
-                "scaling": {
-                  "allowed": false
-                },
-                "spellSlot": true,
-                "targets": []
-              },
-              "description": {
-                "chatFlavor": ""
-              },
-              "duration": {
-                "units": "inst",
-                "concentration": false,
-                "override": false
-              },
-              "effects": [],
-              "range": {
-                "override": false,
-                "units": "self"
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "type": "",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false,
-                  "type": "creatureOrObject",
-                  "count": "1",
-                  "special": ""
-                },
-                "override": false,
-                "prompt": true
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": [],
-                "max": ""
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false,
-                "name": "",
-                "formula": ""
-              },
-              "useConditionText": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "automationOnly": false,
-                "otherActivityCompatible": false,
-                "identifier": "",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
-              },
-              "name": "Shove (Push)",
-              "useConditionReason": "",
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
+              "fumbleThreshold": 1
             },
             "P3HXvBd9fh5mNRXy": {
               "type": "save",
               "_id": "P3HXvBd9fh5mNRXy",
               "sort": 0,
               "activation": {
-                "type": "special",
+                "type": "action",
                 "value": null,
                 "override": false,
                 "condition": ""
@@ -4181,6 +3818,7 @@
               },
               "save": {
                 "ability": [
+                  "str",
                   "dex"
                 ],
                 "dc": {
@@ -4213,12 +3851,14 @@
                 "automationOnly": false,
                 "otherActivityCompatible": false,
                 "identifier": "",
+                "displayActivityName": true,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
                 "forceDamageDialog": "default",
                 "otherActivityAsParentType": true,
-                "displayActivityName": false,
                 "rollMode": "default",
                 "chooseEffects": false,
                 "toggleEffect": false,
@@ -4227,38 +3867,40 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "none",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "none"
               },
-              "name": "Dexterity Saves",
-              "useConditionReason": "",
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "",
-              "otherActivityAsParentType": true,
-              "friendlySave": "default",
-              "flags": {},
+              "name": "Grapple",
+              "img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
               "visibility": {
-                "level": {},
+                "level": {
+                  "min": null,
+                  "max": null
+                },
+                "identifier": "",
                 "requireAttunement": false,
                 "requireIdentification": false,
                 "requireMagic": false
               },
-              "img": null
+              "flags": {},
+              "useConditionReason": "",
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "rollAs": "target",
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": ""
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "friendlySave": "default"
             },
             "OvMIYDtlDZ1Sq8Ov": {
               "type": "save",
               "_id": "OvMIYDtlDZ1Sq8Ov",
               "sort": 0,
               "activation": {
-                "type": "special",
+                "type": "action",
                 "value": null,
                 "override": false,
                 "condition": ""
@@ -4313,7 +3955,8 @@
               },
               "save": {
                 "ability": [
-                  "str"
+                  "str",
+                  "dex"
                 ],
                 "dc": {
                   "calculation": "str",
@@ -4345,12 +3988,14 @@
                 "automationOnly": false,
                 "otherActivityCompatible": false,
                 "identifier": "",
+                "displayActivityName": true,
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
                 "autoConsume": false,
                 "forceConsumeDialog": "default",
                 "forceRollDialog": "default",
                 "forceDamageDialog": "default",
                 "otherActivityAsParentType": true,
-                "displayActivityName": false,
                 "rollMode": "default",
                 "chooseEffects": false,
                 "toggleEffect": false,
@@ -4359,31 +4004,170 @@
                 "magicEffect": false,
                 "magicDamage": false,
                 "noConcentrationCheck": false,
-                "autoCEEffects": "none",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
               },
-              "name": "Strength Saves",
-              "useConditionReason": "",
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "",
-              "otherActivityAsParentType": true,
-              "friendlySave": "default",
-              "flags": {},
+              "name": "Shove (Prone)",
+              "img": "icons/skills/melee/unarmed-punch-fist-white.webp",
               "visibility": {
-                "level": {},
+                "level": {
+                  "min": null,
+                  "max": null
+                },
+                "identifier": "",
                 "requireAttunement": false,
                 "requireIdentification": false,
                 "requireMagic": false
               },
-              "img": null
+              "flags": {},
+              "useConditionReason": "",
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "rollAs": "target",
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": ""
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "friendlySave": "default"
+            },
+            "uV7xoGA9R5fv9lYa": {
+              "type": "save",
+              "sort": 0,
+              "activation": {
+                "type": "action",
+                "value": null,
+                "override": false,
+                "condition": ""
+              },
+              "consumption": {
+                "scaling": {
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": []
+              },
+              "description": {
+                "chatFlavor": ""
+              },
+              "duration": {
+                "units": "inst",
+                "concentration": false,
+                "override": false
+              },
+              "effects": [],
+              "range": {
+                "override": false,
+                "units": "self"
+              },
+              "target": {
+                "template": {
+                  "contiguous": false,
+                  "units": "ft",
+                  "type": "",
+                  "stationary": false
+                },
+                "affects": {
+                  "choice": false,
+                  "type": "creature",
+                  "count": "1",
+                  "special": ""
+                },
+                "override": false,
+                "prompt": true
+              },
+              "uses": {
+                "spent": 0,
+                "recovery": [],
+                "max": ""
+              },
+              "damage": {
+                "parts": [],
+                "critical": {
+                  "allow": false
+                },
+                "onSave": "half"
+              },
+              "save": {
+                "ability": [
+                  "str",
+                  "dex"
+                ],
+                "dc": {
+                  "calculation": "str",
+                  "formula": ""
+                }
+              },
+              "useConditionText": "",
+              "effectConditionText": "",
+              "macroData": {
+                "name": "",
+                "command": ""
+              },
+              "ignoreTraits": {
+                "idi": false,
+                "idr": false,
+                "idv": false,
+                "ida": false,
+                "idm": false
+              },
+              "midiProperties": {
+                "ignoreTraits": [],
+                "triggeredActivityId": "none",
+                "triggeredActivityConditionText": "",
+                "triggeredActivityTargets": "targets",
+                "triggeredActivityRollAs": "self",
+                "confirmTargets": "default",
+                "autoTargetType": "any",
+                "autoTargetAction": "default",
+                "automationOnly": false,
+                "otherActivityCompatible": false,
+                "identifier": "",
+                "triggeredActivityConsume": true,
+                "triggeredActivityConfigure": true,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
+                "displayActivityName": true,
+                "rollMode": "default",
+                "chooseEffects": false,
+                "toggleEffect": false,
+                "ignoreFullCover": false,
+                "removeChatButtons": "default",
+                "magicEffect": false,
+                "magicDamage": false,
+                "noConcentrationCheck": false,
+                "skipConcentrationCheck": false,
+                "autoCEEffects": "default"
+              },
+              "name": "Shove (Push)",
+              "flags": {},
+              "visibility": {
+                "identifier": "",
+                "level": {
+                  "min": null,
+                  "max": null
+                },
+                "requireAttunement": false,
+                "requireIdentification": false,
+                "requireMagic": false
+              },
+              "useConditionReason": "",
+              "isOverTimeFlag": false,
+              "overTimeProperties": {
+                "saveRemoves": true,
+                "rollAs": "target",
+                "preRemoveConditionText": "",
+                "postRemoveConditionText": ""
+              },
+              "otherActivityId": "none",
+              "otherActivityAsParentType": true,
+              "friendlySave": "default",
+              "_id": "uV7xoGA9R5fv9lYa",
+              "img": "icons/skills/melee/unarmed-punch-fist-white.webp"
             }
           },
           "uses": {
@@ -6526,7 +6310,7 @@
               "startRound": null,
               "startTurn": null
             },
-            "disabled": true,
+            "disabled": false,
             "_id": "hCgz7ukyZVLcJcFg",
             "changes": [
               {
@@ -6563,7 +6347,7 @@
               "systemId": "dnd5e",
               "systemVersion": "4.3.8",
               "createdTime": null,
-              "modifiedTime": 1780108975709,
+              "modifiedTime": 1782539558794,
               "lastModifiedBy": "qOu9x616pmeBI6sT",
               "exportSource": null
             },
@@ -10130,7 +9914,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 1,
             "recovery": [
               {
                 "period": "lr",
@@ -13366,14 +13150,9 @@
                 "special": "",
                 "override": false
               },
-              "effects": [
-                {
-                  "_id": "KA6wW1OMsc8xPk46",
-                  "level": {}
-                }
-              ],
+              "effects": [],
               "range": {
-                "units": "any",
+                "units": "self",
                 "special": "",
                 "override": false
               },
@@ -13389,8 +13168,8 @@
                   "stationary": false
                 },
                 "affects": {
-                  "count": "1",
-                  "type": "creature",
+                  "count": "",
+                  "type": "",
                   "choice": false,
                   "special": ""
                 },
@@ -13429,7 +13208,7 @@
                 "triggeredActivityConditionText": "",
                 "triggeredActivityTargets": "targets",
                 "triggeredActivityRollAs": "self",
-                "forceDamageDialog": "",
+                "forceDamageDialog": "false",
                 "confirmTargets": "default",
                 "autoTargetType": "any",
                 "autoTargetAction": "default",
@@ -13462,20 +13241,15 @@
                 "rollAs": "target"
               },
               "otherActivityId": "none",
+              "img": null,
               "flags": {},
               "visibility": {
-                "level": {
-                  "min": null,
-                  "max": null
-                },
+                "level": {},
                 "requireAttunement": false,
                 "requireIdentification": false,
-                "requireMagic": false,
-                "identifier": ""
+                "requireMagic": false
               },
-              "otherActivityAsParentType": true,
-              "name": "",
-              "img": null
+              "otherActivityAsParentType": true
             }
           },
           "identifier": "help",
@@ -13483,112 +13257,14 @@
           "advancement": {},
           "crewed": false
         },
-        "effects": [
-          {
-            "name": "Help",
-            "img": "icons/skills/social/diplomacy-handshake-blue.webp",
-            "origin": "Actor.gWM9Il0zlve2eqG9.Item.OzWwlm2gKBSnWUvn",
-            "_id": "KA6wW1OMsc8xPk46",
-            "type": "base",
-            "system": {},
-            "changes": [
-              {
-                "key": "flags.automated-conditions-5e.attack.advantage",
-                "mode": 2,
-                "value": "1",
-                "priority": 20
-              },
-              {
-                "key": "flags.automated-conditions-5e.skill.advantage",
-                "mode": 2,
-                "value": "1",
-                "priority": 20
-              },
-              {
-                "key": "flags.automated-conditions-5e.check.advantage",
-                "mode": 2,
-                "value": "1",
-                "priority": 20
-              }
-            ],
-            "disabled": false,
-            "duration": {
-              "startTime": null,
-              "combat": null,
-              "seconds": 6,
-              "rounds": null,
-              "turns": null,
-              "startRound": null,
-              "startTurn": null
-            },
-            "description": "",
-            "tint": "#ffffff",
-            "transfer": false,
-            "statuses": [],
-            "sort": 0,
-            "flags": {
-              "dnd5e": {
-                "riders": {
-                  "statuses": []
-                }
-              },
-              "dae": {
-                "disableCondition": "",
-                "stackable": "noneName",
-                "showIcon": false,
-                "disableIncapacitated": false,
-                "durationExpression": "",
-                "macroRepeat": "none",
-                "specialDuration": [
-                  "1Attack",
-                  "isCheck",
-                  "isSkill",
-                  "isInitiative",
-                  "turnEndSource"
-                ],
-                "enableCondition": "",
-                "selfTarget": false,
-                "selfTargetAlways": false,
-                "dontApply": false
-              },
-              "core": {
-                "overlay": false
-              },
-              "ActiveAuras": {
-                "isAura": false,
-                "aura": "All",
-                "nameOverride": "",
-                "radius": "",
-                "alignment": "",
-                "type": "",
-                "customCheck": "",
-                "ignoreSelf": false,
-                "height": false,
-                "displayTemp": false,
-                "hostile": false,
-                "onlyOnce": false,
-                "wallsBlock": "system",
-                "statuses": []
-              }
-            },
-            "_stats": {
-              "compendiumSource": null,
-              "duplicateSource": null,
-              "exportSource": null,
-              "coreVersion": "13.351",
-              "systemId": "dnd5e",
-              "systemVersion": "5.2.5",
-              "lastModifiedBy": null
-            }
-          }
-        ],
+        "effects": [],
         "folder": null,
         "ownership": {
           "default": 0,
           "I4GGxqNW644lYEEA": 3
         },
         "_id": "OzWwlm2gKBSnWUvn",
-        "sort": 1550000
+        "sort": 0
       },
       {
         "name": "Generic Actions (2024)",
@@ -14971,7 +14647,7 @@
                 "prompt": true
               },
               "uses": {
-                "spent": 0,
+                "spent": 1,
                 "recovery": [
                   {
                     "period": "lr",
@@ -15869,7 +15545,7 @@
                 "prompt": true
               },
               "uses": {
-                "spent": 1,
+                "spent": 3,
                 "recovery": [
                   {
                     "period": "lr",
@@ -15944,7 +15620,7 @@
           },
           "uses": {
             "max": "6",
-            "spent": 0,
+            "spent": 2,
             "recovery": [
               {
                 "period": "dawn",
@@ -19699,6 +19375,46 @@
         }
       }
     ],
-    "effects": []
+    "effects": [
+      {
+        "_id": "dnd5ebloodied000",
+        "name": "Bloodied",
+        "img": "systems/dnd5e/icons/svg/statuses/bloodied.svg",
+        "statuses": [
+          "bloodied"
+        ],
+        "type": "base",
+        "system": {},
+        "changes": [],
+        "disabled": false,
+        "duration": {
+          "startTime": -272642101,
+          "combat": null,
+          "startRound": 4,
+          "startTurn": 4
+        },
+        "description": "",
+        "origin": null,
+        "tint": "#ffffff",
+        "transfer": false,
+        "sort": 0,
+        "flags": {
+          "dae": {
+            "specialDuration": []
+          }
+        },
+        "_stats": {
+          "compendiumSource": null,
+          "duplicateSource": null,
+          "exportSource": null,
+          "coreVersion": "13.351",
+          "systemId": "dnd5e",
+          "systemVersion": "5.3.0",
+          "createdTime": 1782539501322,
+          "modifiedTime": 1782539501322,
+          "lastModifiedBy": "I4GGxqNW644lYEEA"
+        }
+      }
+    ]
   }
 }
