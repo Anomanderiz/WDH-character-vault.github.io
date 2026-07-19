@@ -1,10 +1,26 @@
 [
   {
+    "name": "Bij",
+    "file": "./data/actors/bij.json"
+  },
+  {
+    "name": "Dori",
+    "file": "./data/actors/dori.json"
+  },
+  {
+    "name": "Eberdeb Von Hammersmark",
+    "file": "./data/actors/eberdeb-von-hammersmark.json"
+  },
+  {
     "name": "Goody",
     "file": "./data/actors/goody.json"
   },
   {
-    "name": "Kira Kira Eventide",
+    "name": "JP Kaltair",
+    "file": "./data/actors/jp-kaltair.json"
+  },
+  {
+    "name": "Kira✧Kira Eventide",
     "file": "./data/actors/kira-kira-eventide.json"
   },
   {
@@ -12,8 +28,12 @@
     "file": "./data/actors/lancer-karl.json"
   },
   {
-    "name": "JP Kaltair",
-    "file": "./data/actors/jp-kaltair.json"
+    "name": "Quietus Ivell",
+    "file": "./data/actors/quietus-ivell.json"
+  },
+  {
+    "name": "Taro Takahashi",
+    "file": "./data/actors/taro-takahashi.json"
   },
   {
     "name": "Thrum (Istra)",

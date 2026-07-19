@@ -16,10 +16,19 @@ Workflow:
    Supported extensions: .webp, .png, .jpg, .jpeg, .avif
 
 3) Rebuild the manifest:
-   node tools/build-manifest.mjs data/actors data/manifest.json
+   - On GitHub: commit or upload the files. The "Build and deploy character
+     vault" Action rebuilds and commits the manifest automatically.
+   - Locally: node tools/build-manifest.mjs data/actors data/manifest.json
 
 4) Host the folder as a static site (GitHub Pages, Netlify, Cloudflare Pages, etc).
    - Open index.html and you’re done.
+
+GitHub setup (one time):
+- In Settings > Pages > Build and deployment, set Source to "GitHub Actions".
+- In Settings > Actions > General > Workflow permissions, allow "Read and write
+  permissions" so the Action can commit the rebuilt manifest.
+- After that, upload actor JSONs and portraits through GitHub and commit them.
+  The Action will update the manifest and deploy the refreshed vault.
 
 Theme assets:
 - /assets/waterdeep-bg.jpeg — full-page background image.
