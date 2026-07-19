@@ -28,6 +28,10 @@
     "file": "./data/actors/lancer-karl.json"
   },
   {
+    "name": "Meredith Vixeni",
+    "file": "./data/actors/meredith-vixeni.json"
+  },
+  {
     "name": "Quietus Ivell",
     "file": "./data/actors/quietus-ivell.json"
   },
