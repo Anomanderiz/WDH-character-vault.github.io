@@ -467,6 +467,75 @@
     .footer-icons { display: flex; gap: 0.85rem; color: #f2c976; }
     .sync-dot { display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 999px; background: #bdf66f; box-shadow: 0 0 12px rgba(189,246,111,0.9); }
 
+    [hidden] { display: none !important; }
+    body.vault-locked { overflow: hidden; }
+    body.vault-locked #vault-app { display: none; }
+
+    .vault-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      min-height: 100dvh;
+      padding: 1.25rem;
+      overflow-y: auto;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(25, 75, 108, 0.42), transparent 32rem),
+        linear-gradient(180deg, rgba(2, 8, 15, 0.48), rgba(2, 8, 15, 0.82));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .vault-gate-card {
+      width: min(100%, 30rem);
+      padding: clamp(1.5rem, 5vw, 2.5rem);
+      text-align: center;
+    }
+
+    .vault-gate-crest {
+      width: auto;
+      height: 7rem;
+      margin: 0 auto 1rem;
+      filter: drop-shadow(0 0 22px rgba(232, 184, 92, 0.30)) drop-shadow(0 12px 32px rgba(0,0,0,0.58));
+    }
+
+    .vault-gate-title {
+      margin: 0;
+      font-size: clamp(1.65rem, 6vw, 2.35rem);
+      line-height: 1.08;
+    }
+
+    .vault-gate-copy {
+      margin: 0.75rem auto 1.35rem;
+      color: var(--vault-muted);
+      font-size: 0.9rem;
+    }
+
+    .vault-gate-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .vault-gate-form .vault-input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 0.85rem;
+      background: rgba(4, 15, 27, 0.58);
+    }
+
+    .vault-gate-form .vault-button { width: 100%; }
+
+    .vault-gate-status {
+      min-height: 1.25rem;
+      margin: 0.15rem 0 0;
+      color: #f5cf83;
+      font-size: 0.8rem;
+    }
+
+    .vault-gate-status.is-error { color: #fecaca; }
+
     @media (max-width: 900px) {
       .crest-large { height: 4.25rem; }
       .vault-header { padding-top: 1rem; }
@@ -478,9 +547,33 @@
   </style>
 </head>
 
-<body data-vault-build="20260627T102740Z">
+<body class="vault-locked" data-vault-build="20260627T102740Z">
   <div class="noise-layer"></div>
 
+  <section id="vault-gate" class="vault-gate" aria-labelledby="vault-gate-title">
+    <div class="vault-panel vault-gate-card">
+      <img src="./assets/waterdeep-crest.png" alt="" class="vault-gate-crest" />
+      <div class="ornate-rule">Restricted Archive</div>
+      <h1 id="vault-gate-title" class="vault-gate-title gold-text font-display mt-4">Enter the Character Vault</h1>
+      <p class="vault-gate-copy">Speak the password to open the latest records from Waterdeep.</p>
+      <form id="vault-gate-form" class="vault-gate-form">
+        <label for="vault-password" class="sr-only">Vault password</label>
+        <input
+          id="vault-password"
+          class="vault-input"
+          type="password"
+          name="password"
+          placeholder="Vault password"
+          autocomplete="current-password"
+          required
+        />
+        <button id="vault-unlock" type="submit" class="vault-button">Unlock Vault</button>
+        <p id="vault-gate-status" class="vault-gate-status" role="status" aria-live="polite">Preparing the wards&hellip;</p>
+      </form>
+    </div>
+  </section>
+
+  <div id="vault-app" inert aria-hidden="true">
   <header class="vault-header">
     <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
       <div class="flex items-center gap-4 min-w-0">
@@ -538,6 +631,8 @@
     <div class="font-display text-xs md:text-sm tracking-wide"><span class="sync-dot mr-2"></span><span id="lastSynced">Last synced from Foundry</span> <span class="mx-2">•</span> Character Vault</div>
   </footer>
 
+  </div>
+
   <template id="rosterItemTpl">
     <button class="w-full text-left flex gap-4 items-center transition border-b border-white/5">
       <img class="h-10 w-10 rounded-2xl object-cover border border-white/10" />
@@ -558,10 +653,20 @@
       const token = params.get("vaultRefresh") || `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
       window.VAULT_CACHE_BUST = token;
       window.VAULT_BUILD_ID = document.body?.dataset?.vaultBuild || token;
-      const script = document.createElement("script");
-      script.type = "module";
-      script.src = `./app.js?v=${encodeURIComponent(token)}`;
-      document.body.appendChild(script);
+
+      const loadAuth = (configLoaded) => {
+        window.VAULT_CONFIG_LOADED = configLoaded;
+        const authScript = document.createElement("script");
+        authScript.type = "module";
+        authScript.src = `./auth.js?v=${encodeURIComponent(token)}`;
+        document.body.appendChild(authScript);
+      };
+
+      const configScript = document.createElement("script");
+      configScript.src = `./vault-config.js?v=${encodeURIComponent(token)}`;
+      configScript.onload = () => loadAuth(true);
+      configScript.onerror = () => loadAuth(false);
+      document.body.appendChild(configScript);
     })();
   </script>
 </body>

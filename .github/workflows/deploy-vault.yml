@@ -39,6 +39,11 @@ jobs:
           git commit -m "Update character manifest"
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
+      - name: Create password configuration
+        env:
+          VAULT_PASSWORD_HASH: ${{ secrets.VAULT_PASSWORD_HASH }}
+        run: node tools/build-auth-config.mjs
+
       - name: Upload the vault for GitHub Pages
         uses: actions/upload-pages-artifact@v5
         with:
