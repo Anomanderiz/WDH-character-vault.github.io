@@ -1,9 +1,5 @@
 [
   {
-    "name": "Bij",
-    "file": "./data/actors/bij.json"
-  },
-  {
     "name": "Dori",
     "file": "./data/actors/dori.json"
   },
