@@ -26,20 +26,24 @@ Workflow:
 Password setup
 --------------
 The password itself is never committed or deployed. Instead, the browser checks it
-against a salted PBKDF2-SHA256 verifier generated on your own computer.
+against either a salted PBKDF2-SHA256 verifier or a standard bcrypt hash.
 
-1) Generate a verifier. The interactive command hides the password as you type:
+1) Obtain either:
+   - A PBKDF2-SHA256 verifier. The interactive command hides the password:
 
-   node tools/hash-password.mjs
+     node tools/hash-password.mjs
 
-2) Copy the complete line beginning with "pbkdf2-sha256$".
+   - A standard 60-character bcrypt hash beginning with "$2a$", "$2b$", or
+     "$2y$". A bcrypt cost of at least 12 is recommended.
+
+2) Copy the complete verifier or hash.
 
 3) In the GitHub repository, open Settings > Secrets and variables > Actions,
    choose "New repository secret", and name it:
 
    VAULT_PASSWORD_HASH
 
-   Paste the generated verifier as its value. The deployment workflow uses the
+   Paste the verifier or bcrypt hash as its value. The deployment workflow uses the
    secret to create vault-config.js inside the Pages artifact. The workflow fails
    closed if the secret is absent or malformed.
 

@@ -1,5 +1,6 @@
 const SESSION_KEY = "waterdeep-vault-auth";
-const CONFIG_PATTERN = /^pbkdf2-sha256\$(\d+)\$([A-Za-z0-9+/]+={0,2})\$([A-Za-z0-9+/]+={0,2})$/;
+const PBKDF2_PATTERN = /^pbkdf2-sha256\$(\d+)\$([A-Za-z0-9+/]+={0,2})\$([A-Za-z0-9+/]+={0,2})$/;
+const BCRYPT_PATTERN = /^\$2[aby]\$(0[4-9]|[12]\d|3[01])\$[./A-Za-z0-9]{53}$/;
 
 const gateEl = document.querySelector("#vault-gate");
 const appEl = document.querySelector("#vault-app");
@@ -33,25 +34,40 @@ function readVerifier() {
   }
 
   const verifier = window.VAULT_AUTH?.passwordVerifier;
-  const match = typeof verifier === "string" ? verifier.match(CONFIG_PATTERN) : null;
-  if (!match) {
-    throw new Error("Password configuration is missing or invalid.");
+  const pbkdf2Match = typeof verifier === "string" ? verifier.match(PBKDF2_PATTERN) : null;
+  if (pbkdf2Match) {
+    const iterations = Number(pbkdf2Match[1]);
+    if (!Number.isSafeInteger(iterations) || iterations < 100_000) {
+      throw new Error("Password configuration uses an unsafe iteration count.");
+    }
+
+    return {
+      algorithm: "pbkdf2-sha256",
+      raw: verifier,
+      iterations,
+      salt: decodeBase64(pbkdf2Match[2]),
+      expected: decodeBase64(pbkdf2Match[3])
+    };
   }
 
-  const iterations = Number(match[1]);
-  if (!Number.isSafeInteger(iterations) || iterations < 100_000) {
-    throw new Error("Password configuration uses an unsafe iteration count.");
+  if (typeof verifier === "string" && BCRYPT_PATTERN.test(verifier)) {
+    return {
+      algorithm: "bcrypt",
+      raw: verifier
+    };
   }
 
-  return {
-    raw: verifier,
-    iterations,
-    salt: decodeBase64(match[2]),
-    expected: decodeBase64(match[3])
-  };
+  throw new Error("Password configuration is missing or invalid.");
 }
 
 async function verifyPassword(password, verifier) {
+  if (verifier.algorithm === "bcrypt") {
+    if (typeof window.bcrypt?.compare !== "function") {
+      throw new Error("The bcrypt verifier failed to load.");
+    }
+    return window.bcrypt.compare(password, verifier.raw);
+  }
+
   const passwordKey = await crypto.subtle.importKey(
     "raw",
     new TextEncoder().encode(password),
