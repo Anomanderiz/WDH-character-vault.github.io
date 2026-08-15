@@ -1,5 +1,9 @@
 [
   {
+    "name": "Connelle Aldamin",
+    "file": "./data/actors/connelle-aldamin.json"
+  },
+  {
     "name": "Goody",
     "file": "./data/actors/goody.json"
   },
