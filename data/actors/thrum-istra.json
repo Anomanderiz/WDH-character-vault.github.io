@@ -1,5 +1,5 @@
 {
-  "exportedAt": "2026-08-15T06:41:42.913Z",
+  "exportedAt": "2026-09-19T06:08:22.530Z",
   "systemId": "dnd5e",
   "foundryVersion": "13.351",
   "actor": {
@@ -17,7 +17,7 @@
       },
       "abilities": {
         "str": {
-          "value": 19,
+          "value": 20,
           "proficient": 1,
           "max": 20,
           "bonuses": {
@@ -528,8 +528,8 @@
           "value": null
         },
         "hp": {
-          "value": 91,
-          "max": 91,
+          "value": 105,
+          "max": null,
           "temp": null,
           "tempmax": 0,
           "bonuses": {
@@ -4205,7 +4205,7 @@
           "rarity": "",
           "attunement": "",
           "attuned": false,
-          "equipped": true,
+          "equipped": false,
           "cover": null,
           "type": {
             "value": "simpleM",
@@ -4282,7 +4282,7 @@
             "rules": "2024"
           },
           "identifier": "warden",
-          "levels": 7,
+          "levels": 8,
           "advancement": {
             "mU2DXSLHizjXoj63": {
               "_id": "mU2DXSLHizjXoj63",
@@ -4295,7 +4295,8 @@
                 "4": 13,
                 "5": 10,
                 "6": 16,
-                "7": 10
+                "7": 10,
+                "8": 10
               },
               "flags": {},
               "hint": ""
@@ -4656,7 +4657,10 @@
                 "recommendation": null
               },
               "value": {
-                "type": "asi"
+                "type": "feat",
+                "feat": {
+                  "9R8PQzVM0cRtX20c": "Compendium.world.ddb-waterdeep-adventures-ddb-feats.Item.zHbmgnXP6nQaZuKu"
+                }
               },
               "level": 8,
               "title": "",
@@ -6310,7 +6314,7 @@
               "startRound": null,
               "startTurn": null
             },
-            "disabled": true,
+            "disabled": false,
             "_id": "hCgz7ukyZVLcJcFg",
             "changes": [
               {
@@ -6347,7 +6351,7 @@
               "systemId": "dnd5e",
               "systemVersion": "4.3.8",
               "createdTime": null,
-              "modifiedTime": 1785565679265,
+              "modifiedTime": 1787375099349,
               "lastModifiedBy": "I4GGxqNW644lYEEA",
               "exportSource": null
             },
@@ -7841,7 +7845,7 @@
               "systemId": "dnd5e",
               "systemVersion": "5.2.5",
               "lastModifiedBy": "I4GGxqNW644lYEEA",
-              "modifiedTime": 1783394561364
+              "modifiedTime": 1787370713258
             }
           }
         ],
@@ -9697,257 +9701,6 @@
           "default": 0,
           "I4GGxqNW644lYEEA": 3
         }
-      },
-      {
-        "type": "spell",
-        "system": {
-          "activities": {
-            "utilityGentlRepo": {
-              "type": "utility",
-              "_id": "utilityGentlRepo",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": null,
-                "override": false
-              },
-              "consumption": {
-                "spellSlot": true,
-                "targets": [],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                }
-              },
-              "description": {},
-              "duration": {
-                "units": "inst",
-                "concentration": false,
-                "override": false
-              },
-              "effects": [],
-              "range": {
-                "override": false,
-                "units": "self"
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "ft",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false
-                },
-                "override": false,
-                "prompt": true
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": []
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "autoCEEffects": "default",
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "skipConcentrationCheck": false
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "otherActivityAsParentType": true,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "img": null
-            }
-          },
-          "uses": {
-            "spent": null,
-            "max": "",
-            "recovery": []
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>You touch a corpse or other remains. For the duration, the target is protected from decay and can’t become Undead.</p>\n<p>The spell also effectively extends the time limit on raising the target from the dead, since days spent under the influence of this spell don’t count against the time limit of spells such as Raise Dead.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "gentle-repose",
-          "source": {
-            "book": "PHB 2024",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2024",
-            "revision": 1
-          },
-          "activation": {
-            "type": "action",
-            "value": 1,
-            "condition": ""
-          },
-          "duration": {
-            "value": "10",
-            "units": "day"
-          },
-          "level": 2,
-          "materials": {
-            "value": "2 Copper Pieces, which the spell consumes",
-            "consumed": true,
-            "cost": 0,
-            "supply": 0
-          },
-          "properties": [
-            "vocal",
-            "somatic",
-            "material",
-            "ritual"
-          ],
-          "range": {
-            "units": "touch"
-          },
-          "school": "nec",
-          "target": {
-            "affects": {
-              "count": "",
-              "type": "",
-              "choice": false,
-              "special": ""
-            },
-            "template": {
-              "count": "",
-              "contiguous": false,
-              "type": "",
-              "size": "",
-              "width": "",
-              "height": "",
-              "units": "ft",
-              "stationary": false
-            }
-          },
-          "method": "spell",
-          "prepared": 0,
-          "sourceItem": "equipment:new-item"
-        },
-        "effects": [
-          {
-            "_id": "dnd5espellchange",
-            "type": "enchantment",
-            "name": "Spell Changes",
-            "img": "systems/dnd5e/icons/svg/activity/cast.svg",
-            "origin": "Actor.gWM9Il0zlve2eqG9.Item.DADayAFe63yhAk8H.Activity.JEYsWb91sB7fZDU1",
-            "changes": [
-              {
-                "key": "system.range",
-                "mode": 5,
-                "value": "{\"units\":\"ft\",\"value\":\"60\",\"special\":\"\"}"
-              },
-              {
-                "key": "system.target",
-                "mode": 5,
-                "value": "{\"template\":{\"contiguous\":false,\"units\":\"ft\",\"type\":\"\"},\"affects\":{\"choice\":false,\"count\":\"1\",\"type\":\"creature\",\"special\":\"\"},\"prompt\":true}"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-vocal"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-somatic"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-material"
-              }
-            ],
-            "system": {},
-            "disabled": false,
-            "duration": {
-              "startTime": 47093318666.00898,
-              "combat": null,
-              "startRound": 2,
-              "startTurn": 0
-            },
-            "description": "",
-            "tint": "#ffffff",
-            "transfer": true,
-            "statuses": [],
-            "sort": 0,
-            "flags": {},
-            "_stats": {
-              "compendiumSource": null,
-              "duplicateSource": null,
-              "exportSource": null,
-              "coreVersion": "13.348",
-              "systemId": "dnd5e",
-              "systemVersion": "5.1.10",
-              "lastModifiedBy": null
-            }
-          }
-        ],
-        "name": "Gentle Repose",
-        "img": "icons/magic/air/air-smoke-casting.webp",
-        "folder": "ktb4JsSUuoieU7Sh",
-        "sort": 0,
-        "ownership": {
-          "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        },
-        "_id": "hcuJ1xhS9GVTnl3n"
       },
       {
         "folder": "iFAnrhdjE9Dk7Im0",
@@ -12527,7 +12280,7 @@
             "reach": null
           },
           "attuned": false,
-          "equipped": true,
+          "equipped": false,
           "proficient": null,
           "crew": {
             "value": []
@@ -14272,7 +14025,7 @@
             }
           },
           "uses": {
-            "spent": 0,
+            "spent": 1,
             "recovery": [],
             "max": "@prof"
           },
@@ -15027,7 +14780,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 58,
+          "quantity": 56,
           "weight": {
             "value": 0.075,
             "units": "lb"
@@ -15779,7 +15532,7 @@
             "description": ""
           },
           "container": null,
-          "quantity": 9,
+          "quantity": 7,
           "weight": {
             "value": 2,
             "units": "lb"
@@ -18764,325 +18517,6 @@
         "sort": 0
       },
       {
-        "type": "spell",
-        "system": {
-          "activities": {
-            "utilityDisSelLeg": {
-              "type": "utility",
-              "_id": "utilityDisSelLeg",
-              "sort": 0,
-              "activation": {
-                "type": "action",
-                "value": null,
-                "override": false
-              },
-              "consumption": {
-                "spellSlot": true,
-                "targets": [],
-                "scaling": {
-                  "allowed": false,
-                  "max": ""
-                }
-              },
-              "description": {},
-              "duration": {
-                "units": "inst",
-                "concentration": false,
-                "override": false
-              },
-              "effects": [
-                {
-                  "_id": "sA8UQL4DR9dDsk15",
-                  "level": {}
-                }
-              ],
-              "range": {
-                "override": false,
-                "units": "self"
-              },
-              "target": {
-                "template": {
-                  "contiguous": false,
-                  "units": "m",
-                  "stationary": false
-                },
-                "affects": {
-                  "choice": false
-                },
-                "override": false,
-                "prompt": true
-              },
-              "uses": {
-                "spent": 0,
-                "recovery": []
-              },
-              "roll": {
-                "prompt": false,
-                "visible": false
-              },
-              "useConditionText": "",
-              "useConditionReason": "",
-              "effectConditionText": "",
-              "macroData": {
-                "name": "",
-                "command": ""
-              },
-              "ignoreTraits": {
-                "idi": false,
-                "idr": false,
-                "idv": false,
-                "ida": false,
-                "idm": false
-              },
-              "midiProperties": {
-                "ignoreTraits": [],
-                "triggeredActivityId": "none",
-                "triggeredActivityConditionText": "",
-                "triggeredActivityTargets": "targets",
-                "triggeredActivityRollAs": "self",
-                "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoTargetType": "any",
-                "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "displayActivityName": false,
-                "rollMode": "default",
-                "chooseEffects": false,
-                "toggleEffect": false,
-                "ignoreFullCover": false,
-                "triggeredActivityConsume": true,
-                "triggeredActivityConfigure": true,
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
-                "otherActivityAsParentType": true,
-                "removeChatButtons": "default",
-                "magicEffect": false,
-                "magicDamage": false,
-                "noConcentrationCheck": false,
-                "skipConcentrationCheck": false,
-                "autoCEEffects": "default"
-              },
-              "isOverTimeFlag": false,
-              "overTimeProperties": {
-                "saveRemoves": true,
-                "preRemoveConditionText": "",
-                "postRemoveConditionText": "",
-                "rollAs": "target"
-              },
-              "otherActivityId": "none",
-              "img": null,
-              "flags": {},
-              "visibility": {
-                "level": {},
-                "requireAttunement": false,
-                "requireIdentification": false,
-                "requireMagic": false
-              },
-              "otherActivityAsParentType": true
-            }
-          },
-          "uses": {
-            "spent": null,
-            "max": "",
-            "recovery": []
-          },
-          "description": {
-            "value": "<div class=\"ddb\">\n<p>You make yourself--including your clothing, armor, weapons, and other belongings on your person--look different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic arrangement of limbs. Otherwise, the extent of the &amp;Reference[ill]{illusion} is up to you.</p>\n<p>The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while it was seemingly still in midair.</p>\n<p>To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (&amp;Reference[inv]{Investigation}) check against your spell save DC.</p>\n</div>",
-            "chat": ""
-          },
-          "identifier": "disguise-self-legacy-legacy",
-          "source": {
-            "book": "PHB",
-            "page": "",
-            "license": "",
-            "custom": "",
-            "rules": "2014",
-            "revision": 1
-          },
-          "activation": {
-            "type": "action",
-            "value": 1,
-            "condition": ""
-          },
-          "duration": {
-            "value": "1",
-            "units": "hour"
-          },
-          "level": 1,
-          "materials": {
-            "value": "",
-            "consumed": false,
-            "cost": 0,
-            "supply": 0
-          },
-          "properties": [
-            "vocal",
-            "somatic"
-          ],
-          "range": {
-            "units": "self"
-          },
-          "school": "ill",
-          "target": {
-            "affects": {
-              "count": "",
-              "type": "self",
-              "choice": false,
-              "special": ""
-            },
-            "template": {
-              "count": "",
-              "contiguous": false,
-              "type": "",
-              "size": "",
-              "width": "",
-              "height": "",
-              "units": "ft",
-              "stationary": false
-            }
-          },
-          "method": "spell",
-          "prepared": 0,
-          "sourceItem": "equipment:hat-of-disguise"
-        },
-        "effects": [
-          {
-            "img": "icons/creatures/magical/spirit-undead-masked-blue.webp",
-            "name": "Disguise Self",
-            "statuses": [
-              "d",
-              "i",
-              "s",
-              "g",
-              "u",
-              "i",
-              "s",
-              "e",
-              "d"
-            ],
-            "changes": [],
-            "duration": {
-              "seconds": 3600,
-              "startTime": null,
-              "rounds": null,
-              "turns": null,
-              "startRound": null,
-              "startTurn": null,
-              "combat": null
-            },
-            "tint": "#ffffff",
-            "transfer": false,
-            "disabled": false,
-            "flags": {
-              "dae": {
-                "transfer": false,
-                "stackable": "noneNameOnly",
-                "specialDuration": []
-              },
-              "ddbimporter": {
-                "disabled": false
-              },
-              "midi-qol": {
-                "forceCEOff": true
-              },
-              "core": {}
-            },
-            "description": "",
-            "_id": "sA8UQL4DR9dDsk15",
-            "type": "base",
-            "system": {},
-            "origin": null,
-            "sort": 0,
-            "_stats": {
-              "compendiumSource": null,
-              "duplicateSource": null,
-              "exportSource": null,
-              "coreVersion": "13.351",
-              "systemId": "dnd5e",
-              "systemVersion": "5.3.3",
-              "lastModifiedBy": null
-            }
-          },
-          {
-            "_id": "dnd5espellchange",
-            "type": "enchantment",
-            "name": "Spell Changes",
-            "img": "systems/dnd5e/icons/svg/activity/cast.svg",
-            "origin": "Actor.gWM9Il0zlve2eqG9.Item.Ac7Kaac8FopuWJlX.Activity.castDiSeHaOfDiLe",
-            "changes": [
-              {
-                "key": "system.method",
-                "mode": 5,
-                "value": "spell"
-              },
-              {
-                "key": "system.activation",
-                "mode": 5,
-                "value": "{\"type\":\"special\",\"value\":1,\"condition\":\"\"}"
-              },
-              {
-                "key": "system.duration",
-                "mode": 5,
-                "value": "{\"units\":\"inst\",\"special\":\"\",\"concentration\":false}"
-              },
-              {
-                "key": "system.target",
-                "mode": 5,
-                "value": "{\"prompt\":true,\"affects\":{\"count\":\"\",\"type\":\"\",\"choice\":false,\"special\":\"\"},\"template\":{\"count\":\"\",\"contiguous\":false,\"type\":\"\",\"size\":\"\",\"width\":\"\",\"height\":\"\",\"units\":\"ft\",\"stationary\":false}}"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-vocal"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-somatic"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-material"
-              }
-            ],
-            "system": {},
-            "disabled": false,
-            "duration": {
-              "startTime": -272589070,
-              "combat": null
-            },
-            "description": "",
-            "tint": "#ffffff",
-            "transfer": true,
-            "statuses": [],
-            "sort": 0,
-            "flags": {},
-            "_stats": {
-              "compendiumSource": null,
-              "duplicateSource": null,
-              "exportSource": null,
-              "coreVersion": "13.351",
-              "systemId": "dnd5e",
-              "systemVersion": "5.3.3",
-              "lastModifiedBy": null
-            }
-          }
-        ],
-        "name": "Disguise Self (Legacy)",
-        "img": "icons/creatures/magical/spirit-undead-masked-blue.webp",
-        "folder": "pvJwXqiNdya1KnRv",
-        "sort": 0,
-        "ownership": {
-          "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        },
-        "_id": "36YuQMrh8UcrrbfG"
-      },
-      {
         "name": "Crit Coin",
         "type": "consumable",
         "_id": "Qv8farLemlzHgZHO",
@@ -19488,7 +18922,13 @@
                   "allowed": false
                 },
                 "spellSlot": true,
-                "targets": []
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "scaling": {}
+                  }
+                ]
               },
               "description": {
                 "chatFlavor": ""
@@ -19498,7 +18938,228 @@
                 "concentration": false,
                 "override": false
               },
-              "flags": {},
+              "flags": {
+                "autoanimations": {
+                  "id": "acf34715-7acd-4dbe-af77-e36549b64332",
+                  "label": "Blade Ward",
+                  "levels3d": {
+                    "type": "explosion",
+                    "data": {
+                      "color01": "#FFFFFF",
+                      "color02": "#FFFFFF",
+                      "spritePath": "modules/levels-3d-preview/assets/particles/dust.png"
+                    },
+                    "sound": {
+                      "enable": false
+                    },
+                    "secondary": {
+                      "enable": false,
+                      "data": {
+                        "color01": "#FFFFFF",
+                        "color02": "#FFFFFF",
+                        "spritePath": "modules/levels-3d-preview/assets/particles/dust.png"
+                      }
+                    }
+                  },
+                  "macro": {
+                    "enable": false
+                  },
+                  "meleeSwitch": {
+                    "video": {
+                      "dbSection": "range",
+                      "menuType": "weapon",
+                      "animation": "arrow",
+                      "variant": "regular",
+                      "color": "regular"
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "detect": "automatic",
+                      "range": 2,
+                      "returning": false,
+                      "switchType": "on"
+                    }
+                  },
+                  "menu": "melee",
+                  "primary": {
+                    "video": {
+                      "dbSection": "melee",
+                      "menuType": "weapon",
+                      "animation": "club",
+                      "variant": "01",
+                      "color": "white",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "isWait": false,
+                      "opacity": 1,
+                      "playbackRate": 1,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "zIndex": 1
+                    }
+                  },
+                  "secondary": {
+                    "enable": false,
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "curewounds",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": true,
+                      "isWait": false,
+                      "opacity": 1,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1.5,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "zIndex": 1
+                    }
+                  },
+                  "soundOnly": {
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    }
+                  },
+                  "source": {
+                    "enable": false,
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "curewounds",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": false,
+                      "isWait": true,
+                      "opacity": 1,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "zIndex": 1
+                    }
+                  },
+                  "target": {
+                    "enable": false,
+                    "video": {
+                      "dbSection": "static",
+                      "menuType": "spell",
+                      "animation": "curewounds",
+                      "variant": "01",
+                      "color": "blue",
+                      "enableCustom": false,
+                      "customPath": ""
+                    },
+                    "sound": {
+                      "enable": false,
+                      "delay": 0,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "startTime": 0,
+                      "volume": 0.75
+                    },
+                    "options": {
+                      "addTokenWidth": false,
+                      "anchor": "0.5",
+                      "contrast": 0,
+                      "delay": 0,
+                      "elevation": 1000,
+                      "fadeIn": 250,
+                      "fadeOut": 500,
+                      "isMasked": false,
+                      "isRadius": false,
+                      "opacity": 1,
+                      "persistent": false,
+                      "repeat": 1,
+                      "repeatDelay": 250,
+                      "saturate": 0,
+                      "size": 1,
+                      "tint": false,
+                      "tintColor": "#FFFFFF",
+                      "unbindAlpha": false,
+                      "unbindVisibility": false,
+                      "zIndex": 1
+                    }
+                  },
+                  "isEnabled": true,
+                  "isCustomized": false,
+                  "fromAmmo": false,
+                  "version": 5
+                }
+              },
               "range": {
                 "units": "self",
                 "override": false
@@ -19600,12 +19261,11 @@
           },
           "uses": {
             "max": "6",
-            "spent": 0,
+            "spent": 1,
             "recovery": [
               {
                 "period": "dawn",
-                "type": "recoverAll",
-                "formula": ""
+                "type": "recoverAll"
               }
             ]
           },
@@ -19640,7 +19300,8 @@
           "attunement": "required",
           "armor": {
             "value": 14,
-            "dex": 2
+            "dex": 2,
+            "magicalBonus": ""
           },
           "proficient": null,
           "properties": [
@@ -19657,7 +19318,7 @@
           "attuned": true,
           "equipped": true
         },
-        "img": "modules/ddb-importer/storage/ddb/item/armor.jpg",
+        "img": "icons/equipment/chest/breastplate-purple.webp",
         "folder": "Bq5yvKSfl5ojoUlM",
         "ownership": {
           "default": 0,
@@ -19667,25 +19328,153 @@
         "sort": 0
       },
       {
-        "type": "spell",
+        "name": "Bottle of Young Ichor",
+        "type": "consumable",
+        "_id": "eiGhGTSEtIWx4LnG",
+        "img": "icons/consumables/potions/potion-flask-corked-yellow.webp",
+        "system": {
+          "activities": {},
+          "uses": {
+            "spent": 0,
+            "recovery": [],
+            "autoDestroy": false,
+            "max": ""
+          },
+          "description": {
+            "value": "<p>A bottle of golden ichor distilled from the half-mortal blood of a young aasimar child barely twelve-years-old.</p>",
+            "chat": ""
+          },
+          "identifier": "new-item",
+          "source": {
+            "revision": 1,
+            "rules": "2024"
+          },
+          "identified": true,
+          "unidentified": {
+            "description": ""
+          },
+          "container": null,
+          "quantity": 1,
+          "weight": {
+            "value": 0,
+            "units": "lb"
+          },
+          "price": {
+            "value": 0,
+            "denomination": "gp"
+          },
+          "rarity": "",
+          "attunement": "",
+          "attuned": false,
+          "equipped": false,
+          "damage": {
+            "base": {
+              "types": [],
+              "custom": {
+                "enabled": false
+              },
+              "scaling": {
+                "number": 1
+              }
+            },
+            "replace": false
+          },
+          "properties": [],
+          "type": {
+            "value": "",
+            "subtype": ""
+          }
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "I4GGxqNW644lYEEA": 3
+        }
+      },
+      {
+        "name": "Mage Slayer",
+        "type": "feat",
+        "effects": [
+          {
+            "origin": "Compendium.world.gps-generic-features.Item.iuUGS62pqYBuo1U0",
+            "duration": {
+              "rounds": null,
+              "startTime": null,
+              "seconds": null,
+              "combat": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "disabled": false,
+            "name": "Mage Slayer",
+            "img": "icons/weapons/polearms/halberd-crescent-glowing.webp",
+            "_id": "A2TnuwjVXETHP1rO",
+            "type": "base",
+            "system": {},
+            "changes": [
+              {
+                "key": "flags.midi-qol.onUseMacroName",
+                "mode": 0,
+                "value": "ItemMacro, preDamageRollComplete",
+                "priority": 20
+              }
+            ],
+            "description": "",
+            "tint": "#ffffff",
+            "transfer": true,
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dae": {
+                "disableIncapacitated": false,
+                "stackable": "noneName",
+                "showIcon": false,
+                "durationExpression": "",
+                "macroRepeat": "none",
+                "specialDuration": [],
+                "selfTarget": false,
+                "selfTargetAlways": false,
+                "dontApply": false
+              }
+            },
+            "_stats": {
+              "compendiumSource": null,
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "dnd5e",
+              "systemVersion": "5.3.3",
+              "lastModifiedBy": null
+            }
+          }
+        ],
         "system": {
           "activities": {
-            "utilityBladeWard": {
+            "XEyDcj6vYUIkSfHJ": {
               "type": "utility",
-              "_id": "utilityBladeWard",
+              "_id": "XEyDcj6vYUIkSfHJ",
               "sort": 0,
               "activation": {
-                "type": "action",
+                "type": "",
                 "value": null,
-                "override": false
+                "override": false,
+                "condition": ""
               },
               "consumption": {
-                "spellSlot": true,
-                "targets": [],
                 "scaling": {
-                  "allowed": false,
-                  "max": ""
-                }
+                  "allowed": false
+                },
+                "spellSlot": true,
+                "targets": [
+                  {
+                    "type": "itemUses",
+                    "value": "1",
+                    "scaling": {}
+                  }
+                ]
               },
               "description": {
                 "chatFlavor": ""
@@ -19695,27 +19484,25 @@
                 "concentration": false,
                 "override": false
               },
-              "effects": [
-                {
-                  "_id": "ynXhbNOfYRje4keY",
-                  "level": {}
-                }
-              ],
+              "effects": [],
               "range": {
                 "override": false,
-                "units": "self"
+                "units": "self",
+                "special": ""
               },
               "target": {
                 "template": {
                   "contiguous": false,
                   "units": "ft",
+                  "type": "",
                   "stationary": false
                 },
                 "affects": {
-                  "choice": false
+                  "choice": false,
+                  "type": ""
                 },
                 "override": false,
-                "prompt": true
+                "prompt": false
               },
               "uses": {
                 "spent": 0,
@@ -19729,6 +19516,7 @@
                 "formula": ""
               },
               "useConditionText": "",
+              "useConditionReason": "",
               "effectConditionText": "",
               "macroData": {
                 "name": "",
@@ -19748,21 +19536,21 @@
                 "triggeredActivityTargets": "targets",
                 "triggeredActivityRollAs": "self",
                 "confirmTargets": "default",
-                "automationOnly": false,
-                "identifier": "",
-                "autoConsume": false,
-                "forceConsumeDialog": "default",
-                "forceRollDialog": "default",
-                "forceDamageDialog": "default",
                 "autoTargetType": "any",
                 "autoTargetAction": "default",
-                "otherActivityCompatible": true,
-                "otherActivityAsParentType": true,
+                "automationOnly": false,
+                "otherActivityCompatible": false,
+                "identifier": "",
                 "displayActivityName": false,
                 "rollMode": "default",
                 "chooseEffects": false,
                 "toggleEffect": false,
                 "ignoreFullCover": false,
+                "autoConsume": false,
+                "forceConsumeDialog": "default",
+                "forceRollDialog": "default",
+                "forceDamageDialog": "default",
+                "otherActivityAsParentType": true,
                 "removeChatButtons": "default",
                 "magicEffect": false,
                 "magicDamage": false,
@@ -19772,8 +19560,6 @@
                 "triggeredActivityConfigure": true,
                 "skipConcentrationCheck": false
               },
-              "name": "",
-              "useConditionReason": "",
               "isOverTimeFlag": false,
               "overTimeProperties": {
                 "saveRemoves": true,
@@ -19782,6 +19568,7 @@
                 "rollAs": "target"
               },
               "otherActivityId": "none",
+              "name": "",
               "otherActivityAsParentType": true,
               "img": null,
               "flags": {},
@@ -19794,211 +19581,52 @@
             }
           },
           "uses": {
-            "spent": null,
-            "max": "",
-            "recovery": []
+            "max": "1",
+            "spent": 0,
+            "recovery": [
+              {
+                "period": "sr",
+                "type": "recoverAll"
+              }
+            ]
           },
           "description": {
-            "value": "<div class=\"ddb\">\n<p>Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts 1d4 from the attack roll.</p>\n</div>",
-            "chat": ""
+            "value": "<div class=\"ddb\">\n<p><em>General Feat (Prerequisite: Level 4+)</em></p>\n<p>You gain the following benefits.</p>\n<p><em><strong>Ability Score Increase.</strong></em> Increase your Strength or Dexterity score by 1, to a maximum of 20.</p>\n<p><em><strong>Concentration Breaker.</strong></em> When you damage a creature that is concentrating, it has Disadvantage on the saving throw it makes to maintain Concentration.</p>\n<p><em><strong> Guarded Mind.</strong></em> If you fail an Intelligence, a Wisdom, or a [[/save cha format=long]], you can cause yourself to succeed instead. Once you use this benefit, you can’t use it again until you finish a Short or Long Rest.</p>\n</div>",
+            "chat": "When a creature within 5 ft. of you casts a spell, you can use your reaction to make a melee weapon attack against that creature, and when you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration. You also have advantage on saving throws against spells cast by creatures within 5 ft. of you."
           },
-          "identifier": "blade-ward",
+          "identifier": "mage-slayer",
           "source": {
-            "book": "",
+            "book": "PHB 2024",
             "page": "",
             "license": "",
-            "custom": "PHB 2024",
+            "custom": "",
             "rules": "2024",
             "revision": 1
           },
-          "activation": {
-            "type": "action",
-            "value": 1,
-            "condition": ""
+          "advancement": {},
+          "cover": null,
+          "crewed": false,
+          "enchant": {},
+          "prerequisites": {
+            "level": null,
+            "repeatable": false,
+            "items": []
           },
-          "duration": {
-            "value": "1",
-            "units": "minute"
-          },
-          "level": 0,
-          "materials": {
-            "value": "",
-            "consumed": false,
-            "cost": 0,
-            "supply": 0
-          },
-          "properties": [
-            "vocal",
-            "somatic",
-            "concentration"
-          ],
-          "range": {
-            "units": "self",
-            "special": ""
-          },
-          "school": "abj",
-          "target": {
-            "affects": {
-              "count": "",
-              "type": "self",
-              "choice": false,
-              "special": ""
-            },
-            "template": {
-              "count": "",
-              "contiguous": false,
-              "type": "",
-              "size": "",
-              "width": "",
-              "height": "",
-              "units": "ft",
-              "stationary": false
-            }
-          },
-          "method": "spell",
-          "prepared": 1,
-          "sourceItem": "equipment:enspelled-breastplate"
-        },
-        "effects": [
-          {
-            "name": "Blade Ward",
-            "changes": [
-              {
-                "key": "flags.midi-qol.grants.attack.bonus.all",
-                "mode": 2,
-                "value": "-1d4",
-                "priority": 20
-              }
-            ],
-            "transfer": false,
-            "img": "icons/equipment/shield/buckler-wooden-boss-glowing-blue.webp",
-            "_id": "ynXhbNOfYRje4keY",
-            "type": "base",
-            "system": {},
-            "disabled": false,
-            "duration": {
-              "startTime": null,
-              "seconds": null,
-              "combat": null,
-              "rounds": null,
-              "turns": null,
-              "startRound": null,
-              "startTurn": null
-            },
-            "description": "",
-            "origin": null,
-            "tint": "#ffffff",
-            "statuses": [],
-            "flags": {
-              "dae": {
-                "enableCondition": "",
-                "disableCondition": "",
-                "disableIncapacitated": false,
-                "selfTarget": false,
-                "selfTargetAlways": false,
-                "dontApply": false,
-                "stackable": "multi",
-                "showIcon": false,
-                "durationExpression": "",
-                "macroRepeat": "none",
-                "specialDuration": []
-              },
-              "core": {
-                "overlay": false
-              },
-              "dnd5e": {
-                "riders": {
-                  "statuses": []
-                }
-              },
-              "ActiveAuras": {
-                "isAura": false,
-                "aura": "All",
-                "nameOverride": "",
-                "radius": "",
-                "alignment": "",
-                "type": "",
-                "customCheck": "",
-                "ignoreSelf": false,
-                "height": false,
-                "displayTemp": false,
-                "hostile": false,
-                "onlyOnce": false,
-                "wallsBlock": "system",
-                "statuses": []
-              }
-            },
-            "sort": 0,
-            "_stats": {
-              "compendiumSource": null,
-              "duplicateSource": null,
-              "exportSource": null,
-              "coreVersion": "13.351",
-              "systemId": "dnd5e",
-              "systemVersion": "5.3.3",
-              "lastModifiedBy": null
-            }
-          },
-          {
-            "_id": "dnd5espellchange",
-            "type": "enchantment",
-            "name": "Spell Changes",
-            "img": "systems/dnd5e/icons/svg/activity/cast.svg",
-            "origin": "Actor.gWM9Il0zlve2eqG9.Item.YSlUCkmUkippp753.Activity.X8TeBNi4553yJP91",
-            "changes": [
-              {
-                "key": "system.method",
-                "mode": 5,
-                "value": "spell"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-vocal"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-somatic"
-              },
-              {
-                "key": "system.properties",
-                "mode": 2,
-                "value": "-material"
-              }
-            ],
-            "system": {},
-            "disabled": false,
-            "duration": {
-              "startTime": -272528010,
-              "combat": null
-            },
-            "description": "",
-            "tint": "#ffffff",
-            "transfer": true,
-            "statuses": [],
-            "sort": 0,
-            "flags": {},
-            "_stats": {
-              "compendiumSource": null,
-              "duplicateSource": null,
-              "exportSource": null,
-              "coreVersion": "13.351",
-              "systemId": "dnd5e",
-              "systemVersion": "5.3.3",
-              "lastModifiedBy": null
-            }
+          "properties": [],
+          "requirements": "",
+          "type": {
+            "value": "feat",
+            "subtype": ""
           }
-        ],
-        "name": "Blade Ward",
-        "img": "icons/equipment/shield/buckler-wooden-boss-glowing-blue.webp",
-        "folder": "Kbaf1ZcgIPxQ3amq",
+        },
+        "img": "icons/weapons/polearms/halberd-crescent-glowing.webp",
+        "folder": "Q58QiULWtMr2rjC2",
+        "_id": "9R8PQzVM0cRtX20c",
         "sort": 0,
         "ownership": {
           "default": 0,
-          "I4GGxqNW644lYEEA": 3
-        },
-        "_id": "F735hyS61KkzuBUY"
+          "qOu9x616pmeBI6sT": 3
+        }
       }
     ],
     "effects": []
