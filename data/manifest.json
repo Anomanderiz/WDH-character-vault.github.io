@@ -13,6 +13,10 @@
   },
   {
     "name": "Lancer (Karl)",
+    "file": "./data/actors/lancer-karl-pact-of-the-blade.json"
+  },
+  {
+    "name": "Lancer (Karl)",
     "file": "./data/actors/lancer-karl.json"
   },
   {
